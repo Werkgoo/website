@@ -25,6 +25,9 @@
   --blauw-mid:    #1B4FBF;
   --blauw-licht:  #3B82F6;
   --blauw-glow:   rgba(59,130,246,0.15);
+  --oranje:       #F97316;
+  --oranje-hover: #FB923C;
+  --oranje-glow:  rgba(249,115,22,0.3);
   --geel:         #FBBF24;
   --geel-hover:   #FCD34D;
   --donker:       #060D1A;
@@ -121,8 +124,11 @@ h1,h2,h3,h4,h5 {
 .btn:hover { transform: translateY(-2px); }
 .btn:active { transform: translateY(0); }
 
-.btn-primary   { background: var(--geel); color: var(--donker); }
-.btn-primary:hover { background: var(--geel-hover); box-shadow: 0 6px 20px rgba(251,191,36,0.45); }
+.btn-primary   { background: var(--oranje); color: var(--wit); }
+.btn-primary:hover { background: var(--oranje-hover); box-shadow: 0 8px 24px var(--oranje-glow); }
+
+.btn-geel      { background: var(--geel); color: var(--donker); }
+.btn-geel:hover { background: var(--geel-hover); box-shadow: 0 6px 20px rgba(251,191,36,0.4); }
 
 .btn-blauw     { background: var(--blauw-mid); color: var(--wit); }
 .btn-blauw:hover { background: var(--blauw-licht); box-shadow: var(--shadow-blue); }
@@ -813,7 +819,8 @@ footer {
     </div>
     <div class="nav-right" id="navRight">
       <button class="btn btn-outline btn-sm" onclick="showView('login')">Inloggen</button>
-      <button class="btn btn-primary btn-sm" onclick="showView('register')">Gratis starten →</button>
+      <button class="btn btn-outline btn-sm" style="color:rgba(255,255,255,0.7)" onclick="setAudience('werkzoekende');showView('register')">Ik zoek werk</button>
+      <button class="btn btn-primary btn-sm" onclick="setAudience('werkgever');showView('register')" style="background:var(--oranje);font-size:13px">Personeel aanvragen →</button>
     </div>
   </div>
 </nav>
@@ -824,82 +831,149 @@ footer {
 <div id="view-home" class="view active">
 
   <!-- HERO -->
-  <section class="hero-section">
+  <section class="hero-section" style="padding:72px 0 64px">
     <div class="container">
-      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);color:#34D399;font-size:11px;font-weight:700;letter-spacing:1px;padding:6px 14px;border-radius:999px;margin-bottom:28px;text-transform:uppercase">
-        <span style="width:7px;height:7px;border-radius:50%;background:#10B981;display:inline-block;animation:pulse-groen 2s infinite"></span>
-        Nu 83 vakmensen beschikbaar in Noord-Holland
-      </div>
-      <h1 class="hero-h1">Stop met zoeken.<br><em>Wij regelen jouw vakman.</em></h1>
-      <p class="hero-p">Bouwbedrijven in Noord-Holland vinden via WerkGo binnen 24 uur een gescreende, VCA-gecertificeerde vakman. Geen bureau, geen gedoe — gewoon geregeld.</p>
-      <div class="hero-btns">
-        <button class="btn btn-primary btn-lg" onclick="showView('register')" style="font-size:15px;padding:16px 36px">Vind mijn vakman gratis →</button>
-        <button class="btn btn-outline btn-lg" onclick="scrollTo('hoe-het-werkt')">Bekijk hoe het werkt</button>
+
+      <!-- AUDIENCE TOGGLE -->
+      <div style="display:inline-flex;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:999px;padding:5px;margin-bottom:36px;gap:4px">
+        <button id="tab-werkgever" onclick="setAudience('werkgever')" style="font-family:var(--font-body);font-weight:700;font-size:14px;padding:10px 24px;border-radius:999px;border:none;cursor:pointer;transition:all 0.2s;background:var(--oranje);color:#fff">
+          🏗 Ik zoek personeel
+        </button>
+        <button id="tab-werkzoekende" onclick="setAudience('werkzoekende')" style="font-family:var(--font-body);font-weight:700;font-size:14px;padding:10px 24px;border-radius:999px;border:none;cursor:pointer;transition:all 0.2s;background:transparent;color:rgba(255,255,255,0.5)">
+          👷 Ik zoek werk
+        </button>
       </div>
 
-      <!-- Social proof avatars -->
-      <div style="display:flex;align-items:center;gap:14px;margin-bottom:48px;flex-wrap:wrap">
-        <div style="display:flex">
-          <div style="width:36px;height:36px;border-radius:50%;background:#1B4FBF;border:2px solid var(--donker);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;margin-right:-10px">JS</div>
-          <div style="width:36px;height:36px;border-radius:50%;background:#059669;border:2px solid var(--donker);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;margin-right:-10px">MV</div>
-          <div style="width:36px;height:36px;border-radius:50%;background:#9333EA;border:2px solid var(--donker);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;margin-right:-10px">PD</div>
-          <div style="width:36px;height:36px;border-radius:50%;background:#EA580C;border:2px solid var(--donker);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff">RK</div>
+      <!-- WERKGEVER VIEW -->
+      <div id="hero-werkgever">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.25);color:#34D399;font-size:11px;font-weight:700;letter-spacing:1px;padding:5px 14px;border-radius:999px;margin-bottom:20px;text-transform:uppercase">
+          <span style="width:7px;height:7px;border-radius:50%;background:#10B981;display:inline-block;animation:pulse-groen 2s infinite"></span>
+          Nu 83 vakmensen beschikbaar in Noord-Holland
         </div>
-        <div>
-          <div style="color:#FBBF24;font-size:13px;letter-spacing:1px">★★★★★</div>
-          <div style="font-size:13px;color:rgba(255,255,255,0.45);margin-top:2px">Gebruikt door <strong style="color:rgba(255,255,255,0.8)">140+ bouwbedrijven</strong> in Noord-Holland</div>
+        <h1 class="hero-h1">Vakman nodig?<br><em>Morgen op de bouwplaats.</em></h1>
+        <p class="hero-p">Geen wekenlang zoeken. Binnen 24 uur presenteren wij 3 gescreende, VCA-gecertificeerde vakmensen. Jij kiest — wij regelen de rest.</p>
+
+        <!-- Inline aanvraagformulier -->
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-lg);padding:20px;margin-bottom:28px;max-width:580px;display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end">
+          <div style="flex:1;min-width:160px">
+            <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:7px">Vakspecialisme</div>
+            <select class="form-control" id="hero-vak" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15);color:#fff;font-size:14px">
+              <option style="color:#000">Metselaar</option>
+              <option style="color:#000">Timmerman</option>
+              <option style="color:#000">Loodgieter</option>
+              <option style="color:#000">Elektricien</option>
+              <option style="color:#000">Schilder</option>
+              <option style="color:#000">Stucadoor</option>
+              <option style="color:#000">Kraanmachinist</option>
+            </select>
+          </div>
+          <div style="flex:1;min-width:140px">
+            <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:7px">Locatie</div>
+            <input type="text" class="form-control" id="hero-locatie" placeholder="bijv. Alkmaar" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15);color:#fff;font-size:14px">
+          </div>
+          <button class="btn btn-primary btn-lg" onclick="heroAanvraag()" style="white-space:nowrap;padding:13px 28px;font-size:15px;flex-shrink:0">
+            Aanvragen →
+          </button>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:48px;flex-wrap:wrap">
+          <div style="display:flex">
+            <div style="width:34px;height:34px;border-radius:50%;background:#1B4FBF;border:2px solid var(--donker);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;margin-right:-8px;z-index:4">JS</div>
+            <div style="width:34px;height:34px;border-radius:50%;background:#059669;border:2px solid var(--donker);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;margin-right:-8px;z-index:3">MV</div>
+            <div style="width:34px;height:34px;border-radius:50%;background:#9333EA;border:2px solid var(--donker);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;margin-right:-8px;z-index:2">PD</div>
+            <div style="width:34px;height:34px;border-radius:50%;background:#EA580C;border:2px solid var(--donker);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;z-index:1">RK</div>
+          </div>
+          <div>
+            <div style="color:#FBBF24;font-size:12px;letter-spacing:2px">★★★★★</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:1px">Door <strong style="color:rgba(255,255,255,0.7)">140+ bouwbedrijven</strong> in Noord-Holland</div>
+          </div>
+          <div style="width:1px;height:32px;background:rgba(255,255,255,0.08)"></div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.4)">✓ Gratis aanvragen &nbsp;·&nbsp; ✓ Geen verplichtingen</div>
         </div>
       </div>
 
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="hero-stat-num" style="font-size:36px">120+</div>
-          <div class="hero-stat-lbl">Gescreende vakmensen</div>
+      <!-- WERKZOEKENDE VIEW (verborgen) -->
+      <div id="hero-werkzoekende" style="display:none">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.25);color:#93C5FD;font-size:11px;font-weight:700;letter-spacing:1px;padding:5px 14px;border-radius:999px;margin-bottom:20px;text-transform:uppercase">
+          💼 Dagelijks nieuwe opdrachten in Noord-Holland
         </div>
-        <div style="width:1px;background:rgba(255,255,255,0.08);align-self:stretch"></div>
-        <div class="hero-stat">
-          <div class="hero-stat-num" style="font-size:36px">&lt;24u</div>
-          <div class="hero-stat-lbl">Gemiddelde reactietijd</div>
+        <h1 class="hero-h1">Jouw volgende opdracht<br><em>begint hier.</em></h1>
+        <p class="hero-p">WerkGo plaatst vakmensen bij de beste bouwbedrijven in Noord-Holland. Vast of flex — wij regelen alles: contract, uren en betaling. Altijd op tijd.</p>
+
+        <!-- Inline job search -->
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-lg);padding:20px;margin-bottom:28px;max-width:580px;display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end">
+          <div style="flex:1;min-width:160px">
+            <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:7px">Jouw vakgebied</div>
+            <select class="form-control" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15);color:#fff;font-size:14px">
+              <option style="color:#000">Metselaar</option>
+              <option style="color:#000">Timmerman</option>
+              <option style="color:#000">Loodgieter</option>
+              <option style="color:#000">Elektricien</option>
+              <option style="color:#000">Schilder</option>
+              <option style="color:#000">Stucadoor</option>
+            </select>
+          </div>
+          <div style="flex:1;min-width:140px">
+            <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:7px">Woonplaats</div>
+            <input type="text" class="form-control" placeholder="bijv. Alkmaar" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15);color:#fff;font-size:14px">
+          </div>
+          <button class="btn btn-blauw btn-lg" onclick="setAudience('werkzoekende');showView('register')" style="white-space:nowrap;padding:13px 28px;font-size:15px;flex-shrink:0;background:var(--blauw-licht)">
+            Bekijk vacatures →
+          </button>
         </div>
-        <div style="width:1px;background:rgba(255,255,255,0.08);align-self:stretch"></div>
-        <div class="hero-stat">
-          <div class="hero-stat-num" style="font-size:36px">4.9★</div>
-          <div class="hero-stat-lbl">Gemiddelde beoordeling</div>
+
+        <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:48px">
+          <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:rgba(255,255,255,0.55)"><span style="color:#10B981;font-size:18px">✓</span> Altijd op tijd betaald</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:rgba(255,255,255,0.55)"><span style="color:#10B981;font-size:18px">✓</span> Vast of flex mogelijk</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:rgba(255,255,255,0.55)"><span style="color:#10B981;font-size:18px">✓</span> Reiskostenvergoeding</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:rgba(255,255,255,0.55)"><span style="color:#10B981;font-size:18px">✓</span> Persoonlijke begeleiding</div>
         </div>
-        <div style="width:1px;background:rgba(255,255,255,0.08);align-self:stretch"></div>
-        <div class="hero-stat">
-          <div class="hero-stat-num" style="font-size:36px">98%</div>
-          <div class="hero-stat-lbl">Tevreden opdrachtgevers</div>
+      </div>
+
+      <!-- PROOF BAND STATS -->
+      <div style="display:flex;gap:0;flex-wrap:wrap;padding-top:32px;border-top:1px solid rgba(255,255,255,0.08)">
+        <div style="flex:1;min-width:120px;padding:0 32px 0 0;border-right:1px solid rgba(255,255,255,0.08)">
+          <div class="hero-stat-num" style="font-size:38px">2.400+</div>
+          <div class="hero-stat-lbl">Geplaatste vaklieden</div>
+        </div>
+        <div style="flex:1;min-width:120px;padding:0 32px;border-right:1px solid rgba(255,255,255,0.08)">
+          <div class="hero-stat-num" style="font-size:38px">&lt;24u</div>
+          <div class="hero-stat-lbl">Eerste kandidaten</div>
+        </div>
+        <div style="flex:1;min-width:120px;padding:0 32px;border-right:1px solid rgba(255,255,255,0.08)">
+          <div class="hero-stat-num" style="font-size:38px">4.9★</div>
+          <div class="hero-stat-lbl">Gemiddelde score</div>
+        </div>
+        <div style="flex:1;min-width:120px;padding:0 0 0 32px">
+          <div class="hero-stat-num" style="font-size:38px">320+</div>
+          <div class="hero-stat-lbl">Opdrachtgevers</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PIJNPUNTEN STRIP -->
-  <div style="background:#0F172A;padding:20px 0;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05)">
+  <!-- TRUST STRIP -->
+  <div style="background:#0F172A;padding:18px 0;border-top:1px solid rgba(255,255,255,0.05)">
     <div class="container">
       <div style="display:flex;align-items:center;gap:32px;flex-wrap:wrap;justify-content:center">
-        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.6)">
-          <span style="color:#FBBF24;font-size:18px">✓</span> ID &amp; VCA geverifieerd
-        </div>
-        <div style="width:1px;height:20px;background:rgba(255,255,255,0.1)"></div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.6)">
-          <span style="color:#FBBF24;font-size:18px">✓</span> Geen inschrijfkosten
-        </div>
-        <div style="width:1px;height:20px;background:rgba(255,255,255,0.1)"></div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.6)">
-          <span style="color:#FBBF24;font-size:18px">✓</span> Digitaal contract
-        </div>
-        <div style="width:1px;height:20px;background:rgba(255,255,255,0.1)"></div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.6)">
-          <span style="color:#FBBF24;font-size:18px">✓</span> Betaling achteraf
-        </div>
-        <div style="width:1px;height:20px;background:rgba(255,255,255,0.1)"></div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.6)">
-          <span style="color:#FBBF24;font-size:18px">✓</span> Noord-Holland specialist
-        </div>
+        <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.25)">Erkend door</span>
+        <div style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.35);letter-spacing:-0.01em">🏆 SNA-gecertificeerd</div>
+        <div style="width:1px;height:18px;background:rgba(255,255,255,0.08)"></div>
+        <div style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.35)">✓ WTTA-toelating</div>
+        <div style="width:1px;height:18px;background:rgba(255,255,255,0.08)"></div>
+        <div style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.35)">🛡 VCA-specialist</div>
+        <div style="width:1px;height:18px;background:rgba(255,255,255,0.08)"></div>
+        <div style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.35)">📋 Digitaal contract</div>
+        <div style="width:1px;height:18px;background:rgba(255,255,255,0.08)"></div>
+        <div style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.35)">💶 Betaling achteraf</div>
       </div>
     </div>
+  </div>
+
+  <!-- FLOATING MOBILE CTA -->
+  <div id="floating-cta" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;padding:12px 16px;background:var(--donker);border-top:1px solid rgba(255,255,255,0.1);gap:10px">
+    <button class="btn btn-primary btn-full" onclick="setAudience('werkgever');showView('register')" style="font-size:15px;padding:14px">Personeel aanvragen →</button>
+    <button class="btn btn-outline btn-full" onclick="setAudience('werkzoekende');showView('register')" style="font-size:14px;padding:12px;margin-top:6px">Ik zoek werk</button>
   </div>
 
   <!-- PIJNPUNTEN SECTIE -->
@@ -2149,6 +2223,39 @@ footer {
 <script>
 // ---- STATE ----
 let currentRole = 'opdrachtgever';
+let currentAudience = 'werkgever';
+
+// ---- AUDIENCE TOGGLE ----
+function setAudience(type) {
+  currentAudience = type;
+  const isWG = type === 'werkgever';
+  const wgEl = document.getElementById('hero-werkgever');
+  const wzEl = document.getElementById('hero-werkzoekende');
+  const tabWG = document.getElementById('tab-werkgever');
+  const tabWZ = document.getElementById('tab-werkzoekende');
+  if (wgEl) wgEl.style.display = isWG ? '' : 'none';
+  if (wzEl) wzEl.style.display = isWG ? 'none' : '';
+  if (tabWG) { tabWG.style.background = isWG ? 'var(--oranje)' : 'transparent'; tabWG.style.color = isWG ? '#fff' : 'rgba(255,255,255,0.5)'; }
+  if (tabWZ) { tabWZ.style.background = !isWG ? 'var(--blauw-licht)' : 'transparent'; tabWZ.style.color = !isWG ? '#fff' : 'rgba(255,255,255,0.5)'; }
+  if (!isWG) currentRole = 'vakman'; else currentRole = 'opdrachtgever';
+}
+
+function heroAanvraag() {
+  const vak = document.getElementById('hero-vak') ? document.getElementById('hero-vak').value : '';
+  const locatie = document.getElementById('hero-locatie') ? document.getElementById('hero-locatie').value : '';
+  if (vak) sessionStorage.setItem('hero_vak', vak);
+  if (locatie) sessionStorage.setItem('hero_locatie', locatie);
+  showView('register');
+}
+
+function initFloatingCTA() {
+  const cta = document.getElementById('floating-cta');
+  if (!cta) return;
+  const show = () => { cta.style.display = window.innerWidth < 768 ? 'flex' : 'none'; cta.style.flexDirection = 'column'; };
+  show();
+  window.addEventListener('resize', show);
+}
+document.addEventListener('DOMContentLoaded', initFloatingCTA);
 
 // ---- VIEW ROUTING ----
 function showView(id) {
