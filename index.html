@@ -1917,47 +1917,192 @@ function selectRole(role) {
   document.getElementById('reg-vak').classList.toggle('hidden', role === 'opdrachtgever');
 }
 
-function doLogin() {
-  const email = document.getElementById('loginEmail').value;
-  const pass = document.getElementById('loginPass').value;
-  if (!email || !pass) { showToast('Vul alle velden in','error'); return; }
-  showToast('Inloggen...','info');
-  setTimeout(() => {
-    showView('dashboard-og');
-    showToast('Welkom terug, Bouwbedrijf De Vries!','success');
-  }, 800);
+async function doLogin() {
+  const email = document.getElementById('loginEmail').value.trim();
+  const pass  = document.getElementById('loginPass').value;
+  if (!email || !pass) { showToast('Vul alle velden in', 'error'); return; }
+  showToast('Inloggen...', 'info');
+  const { data, error } = await sb.auth.signInWithPassword({ email, password: pass });
+  if (error) { showToast(error.message, 'error'); return; }
+  await loadUserDashboard(data.user);
+}
+
+async function doRegister() {
+  const voornaam    = document.querySelector('#view-register input[placeholder="Jan"]').value.trim();
+  const achternaam  = document.querySelector('#view-register input[placeholder="Smit"]').value.trim();
+  const email       = document.querySelector('#view-register input[type="email"]').value.trim();
+  const telefoon    = document.querySelector('#view-register input[type="tel"]').value.trim();
+  const pass        = document.querySelector('#view-register input[type="password"]').value;
+  const bedrijf     = document.querySelector('#reg-bedrijf input') ? document.querySelector('#reg-bedrijf input').value.trim() : '';
+
+  if (!voornaam || !email || !pass) { showToast('Vul alle verplichte velden in', 'error'); return; }
+  showToast('Account aanmaken...', 'info');
+
+  const { data, error } = await sb.auth.signUp({
+    email, password: pass,
+    options: { data: { role: currentRole, voornaam, achternaam, telefoon, bedrijfsnaam: bedrijf } }
+  });
+  if (error) { showToast(error.message, 'error'); return; }
+
+  // Als email bevestiging uitstaat gaan we direct door
+  if (data.session) {
+    await loadUserDashboard(data.user);
+  } else {
+    showToast('Check je e-mail om je account te bevestigen!', 'success');
+    showView('login');
+  }
 }
 
 function demoLogin(role) {
-  showToast('Demo account laden...','info');
+  showToast('Demo account laden...', 'info');
   setTimeout(() => {
     if (role === 'opdrachtgever') {
       showView('dashboard-og');
-      showToast('Demo: Ingelogd als Bouwbedrijf De Vries','success');
+      showToast('Demo: Ingelogd als Bouwbedrijf De Vries', 'success');
     } else {
       showView('dashboard-vm');
-      showToast('Demo: Ingelogd als Ralf Bakker (Metselaar)','success');
+      showToast('Demo: Ingelogd als Ralf Bakker (Metselaar)', 'success');
     }
   }, 600);
 }
 
-function doRegister() {
-  showToast('Account aanmaken...','info');
-  setTimeout(() => {
-    if (currentRole === 'opdrachtgever') {
-      showView('dashboard-og');
-      showToast('Account aangemaakt! Welkom bij WerkGo.','success');
-    } else {
-      showView('dashboard-vm');
-      showToast('Account aangemaakt! Welkom bij WerkGo.','success');
-    }
-  }, 900);
+async function logout() {
+  await sb.auth.signOut();
+  showView('home');
+  showToast('Je bent uitgelogd', 'info');
 }
 
-function logout() {
-  showView('home');
-  showToast('Je bent uitgelogd','info');
+async function loadUserDashboard(user) {
+  const { data: profile } = await sb.from('profiles').select('*').eq('id', user.id).single();
+  const role = profile?.role || user.user_metadata?.role || 'opdrachtgever';
+  const naam = profile?.bedrijfsnaam || profile?.voornaam || user.email;
+
+  if (role === 'vakman') {
+    showView('dashboard-vm');
+    const el = document.querySelector('#view-dashboard-vm .sidebar-username');
+    if (el) el.textContent = profile?.voornaam || naam;
+    showToast(`Welkom terug, ${naam}!`, 'success');
+    laadOpdrachten();
+  } else {
+    showView('dashboard-og');
+    const el = document.querySelector('#view-dashboard-og .sidebar-username');
+    if (el) el.textContent = naam;
+    document.querySelector('#og-overzicht .page-title').textContent = `Goedemorgen, ${naam} 👋`;
+    showToast(`Welkom terug, ${naam}!`, 'success');
+    laadVakmensen();
+    laadOpdrachtenOG();
+  }
 }
+
+// ---- DATA LADEN ----
+async function laadVakmensen() {
+  const { data, error } = await sb.from('vakmensen').select('*, profiles(voornaam, achternaam)').eq('beschikbaar', true).limit(20);
+  if (error || !data || data.length === 0) return;
+  const grid = document.getElementById('vakmensen-grid');
+  if (!grid) return;
+  grid.innerHTML = data.map(v => {
+    const naam = `${v.profiles?.voornaam || ''} ${v.profiles?.achternaam || ''}`.trim() || 'Onbekend';
+    const init = naam.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
+    return `
+    <div class="profile-card" data-vak="${(v.vak||'').toLowerCase()}">
+      <div class="profile-top">
+        <div class="profile-avatar">${init}</div>
+        <div>
+          <div class="profile-name">${naam}</div>
+          <div class="profile-role">${v.vak || '—'} · ${v.locatie || '—'} · ${v.ervaring_jaren || 0} jr</div>
+        </div>
+        <div class="match-score score-high">${Math.round(v.score*10)||90}</div>
+      </div>
+      <div class="tags-wrap">${(v.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+      <div class="profile-meta">
+        <span>📍 ${v.locatie||'—'}</span><span>💶 €${v.tarief||'—'}/uur</span><span>⭐ ${v.score||5}</span>
+      </div>
+      <div class="profile-actions">
+        <button class="btn btn-blauw btn-sm" style="flex:1" onclick="openContact()">Contact opnemen</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+async function laadOpdrachtenOG() {
+  const { data: { user } } = await sb.auth.getUser();
+  if (!user) return;
+  const { data, error } = await sb.from('opdrachten').select('*').eq('opdrachtgever_id', user.id).order('created_at', { ascending: false });
+  if (error || !data) return;
+  const tbody = document.querySelector('#og-opdrachten .data-table tbody');
+  if (!tbody || data.length === 0) return;
+  tbody.innerHTML = data.map(o => `
+    <tr>
+      <td><strong>${o.titel}</strong></td>
+      <td>${o.vak||'—'}</td><td>${o.locatie||'—'}</td>
+      <td>${o.startdatum||'—'} · ${o.duur||'—'}</td>
+      <td>€${o.tarief||'—'}/uur</td>
+      <td><span class="badge badge-${o.status==='open'?'geel':o.status==='actief'?'groen':'grijs'}">${o.status}</span></td>
+      <td></td>
+    </tr>`).join('');
+}
+
+async function laadOpdrachten() {
+  const { data, error } = await sb.from('opdrachten').select('*').eq('status','open').order('created_at', { ascending: false });
+  if (error || !data) return;
+  const container = document.querySelector('#vm-opdrachten');
+  if (!container) return;
+  const existing = container.querySelectorAll('.opdracht-card');
+  existing.forEach(e => e.remove());
+  const filterStrip = container.querySelector('.filter-strip');
+  data.forEach(o => {
+    const card = document.createElement('div');
+    card.className = 'opdracht-card';
+    card.innerHTML = `
+      <div class="opdracht-top">
+        <div class="opdracht-title">${o.titel}</div>
+        <span class="badge badge-geel">Nieuw</span>
+      </div>
+      <div class="opdracht-meta"><span>📅 ${o.duur||'—'}</span><span>💶 €${o.tarief||'—'}/uur</span><span>📍 ${o.locatie||'—'}</span></div>
+      <div style="margin-top:14px;display:flex;gap:8px">
+        <button class="btn btn-blauw btn-sm" onclick="showToast('Interesse geregistreerd!','success')">Interesse tonen</button>
+      </div>`;
+    if (filterStrip) filterStrip.after(card);
+    else container.appendChild(card);
+  });
+}
+
+async function plaatsOpdracht() {
+  const { data: { user } } = await sb.auth.getUser();
+  if (!user) { showToast('Je bent niet ingelogd', 'error'); return; }
+
+  const panel = document.getElementById('og-plaatsen');
+  const vak         = panel.querySelector('select').value;
+  const beschrijving = panel.querySelector('textarea').value;
+  const locatie     = panel.querySelector('input[placeholder="Adres of plaatsnaam"]').value;
+  const tarief      = panel.querySelectorAll('input[type="number"]')[1]?.value;
+  const startdatum  = panel.querySelector('input[type="date"]').value;
+  const selects     = panel.querySelectorAll('select');
+  const duur        = selects[1]?.value;
+
+  if (!vak || vak === 'Kies een vak...') { showToast('Kies een vakspecialisme', 'error'); return; }
+
+  const { error } = await sb.from('opdrachten').insert({
+    opdrachtgever_id: user.id,
+    titel: `${vak} gevraagd`,
+    vak, locatie, tarief: parseFloat(tarief)||null, startdatum: startdatum||null, duur, beschrijving
+  });
+
+  if (error) { showToast('Er ging iets mis: ' + error.message, 'error'); return; }
+  showToast('Opdracht geplaatst! WerkGo zoekt direct voor je.', 'success');
+  setTimeout(() => ogTab('opdrachten', null), 1500);
+  laadOpdrachtenOG();
+}
+
+// ---- SESSIE HERSTELLEN BIJ PAGINA LADEN ----
+sb.auth.onAuthStateChange(async (event, session) => {
+  if (session?.user && (event === 'SIGNED_IN' || event === 'INITIAL_SESSION')) {
+    const viewActive = document.querySelector('.view.active');
+    if (viewActive && (viewActive.id === 'view-home' || viewActive.id === 'view-login' || viewActive.id === 'view-register')) {
+      await loadUserDashboard(session.user);
+    }
+  }
+});
 
 // ---- DASHBOARD OG TABS ----
 function ogTab(tab, btn) {
@@ -2058,10 +2203,7 @@ document.getElementById('profielModal').addEventListener('click', function(e) { 
 document.getElementById('contactModal').addEventListener('click', function(e) { if(e.target===this) closeModal2(); });
 
 // ---- OPDRACHT PLAATSEN ----
-function plaatsOpdracht() {
-  showToast('Opdracht verstuurd! WerkGo neemt binnen 2 uur contact op.','success');
-  setTimeout(() => ogTab('opdrachten', null), 1500);
-}
+// plaatsOpdracht wordt hierboven afgehandeld via Supabase
 
 // ---- TOAST ----
 function showToast(msg, type='success') {
@@ -2082,10 +2224,18 @@ document.addEventListener('keydown', e => {
 
 <!-- LIBRARIES -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 
 <script>
+// ---- SUPABASE INIT ----
+const { createClient } = supabase;
+const sb = createClient(
+  'https://rxyygtmcufesijggrcmx.supabase.co',
+  'sb_publishable_WMpDauoU_KF1l0POAOUT1w_A3yS5grZ'
+);
+
 // ---- AOS INIT ----
 AOS.init({ duration: 600, once: true, offset: 60 });
 
