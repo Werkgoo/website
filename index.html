@@ -687,6 +687,72 @@ footer {
 <div class="toast-container" id="toastContainer"></div>
 
 <!-- ============================================================
+   MODAL: VAKMAN PROFIEL AANVULLEN (na registratie)
+============================================================ -->
+<div class="modal-overlay" id="profielAanvullenModal" style="z-index:600">
+  <div class="modal-box" style="max-width:480px">
+    <div class="modal-header">
+      <h3>Jouw vakprofiel aanvullen</h3>
+    </div>
+    <p style="font-size:14px;color:var(--grijs-60);margin-bottom:24px">Vul je gegevens in zodat opdrachtgevers jou kunnen vinden.</p>
+    <div class="form-group">
+      <label>Vakspecialisme</label>
+      <select class="form-control" id="pa-vak">
+        <option value="">Kies je vak...</option>
+        <option>Metselaar</option><option>Timmerman</option><option>Loodgieter</option>
+        <option>Elektricien</option><option>Schilder</option><option>Stucadoor</option>
+        <option>Kraanmachinist</option><option>Constructiestaal</option><option>Glaszetters</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Woonplaats</label>
+        <input type="text" class="form-control" id="pa-locatie" placeholder="bijv. Alkmaar">
+      </div>
+      <div class="form-group">
+        <label>Uurtarief (€)</label>
+        <input type="number" class="form-control" id="pa-tarief" placeholder="bijv. 22">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Jaren ervaring</label>
+      <input type="number" class="form-control" id="pa-ervaring" placeholder="bijv. 5" min="0">
+    </div>
+    <div class="form-group">
+      <label>Vaardigheden (komma gescheiden)</label>
+      <input type="text" class="form-control" id="pa-tags" placeholder="bijv. VCA-basis, Renovatie, Rijbewijs B">
+    </div>
+    <button class="btn btn-blauw btn-full btn-lg" onclick="saveVakmanProfiel()">Profiel opslaan & verder</button>
+  </div>
+</div>
+
+<!-- ============================================================
+   MODAL: BERICHT STUREN
+============================================================ -->
+<div class="modal-overlay" id="berichtModal">
+  <div class="modal-box" style="max-width:460px">
+    <div class="modal-header">
+      <h3>Bericht sturen</h3>
+      <button class="modal-close" onclick="document.getElementById('berichtModal').classList.remove('open')">✕</button>
+    </div>
+    <p style="font-size:14px;color:var(--grijs-60);margin-bottom:20px">Stuur een bericht naar WerkGo. Wij koppelen jullie zo snel mogelijk.</p>
+    <div class="form-group">
+      <label>Betreft opdracht</label>
+      <select class="form-control" id="bericht-opdracht">
+        <option>Metselaar — Zaandam</option>
+        <option>Timmerman — Alkmaar</option>
+        <option>Nieuwe vraag</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Jouw bericht</label>
+      <textarea class="form-control" id="bericht-inhoud" placeholder="Schrijf hier je bericht..."></textarea>
+    </div>
+    <button class="btn btn-blauw btn-full" onclick="stuurBericht()">Versturen</button>
+  </div>
+</div>
+
+<!-- ============================================================
    MODAL: VAKMAN PROFIEL
 ============================================================ -->
 <div class="modal-overlay" id="profielModal">
@@ -1137,8 +1203,8 @@ footer {
         <div class="kpi-grid fade-up-3">
           <div class="kpi-card">
             <div class="kpi-label">Beschikbare vakmensen</div>
-            <div class="kpi-value">12</div>
-            <div class="kpi-delta up">↑ 3 nieuwe vandaag</div>
+            <div class="kpi-value" id="kpi-vakmensen">—</div>
+            <div class="kpi-delta up" id="kpi-vakmensen-sub">Laden...</div>
           </div>
           <div class="kpi-card">
             <div class="kpi-label">Actieve plaatsingen</div>
@@ -1146,9 +1212,9 @@ footer {
             <div class="kpi-delta neu">2 starten maandag</div>
           </div>
           <div class="kpi-card">
-            <div class="kpi-label">Openstaande opdrachten</div>
-            <div class="kpi-value">3</div>
-            <div class="kpi-delta up">1 bijna ingevuld</div>
+            <div class="kpi-label">Mijn opdrachten</div>
+            <div class="kpi-value" id="kpi-opdrachten">—</div>
+            <div class="kpi-delta neu" id="kpi-opdrachten-sub">Laden...</div>
           </div>
           <div class="kpi-card">
             <div class="kpi-label">Gem. tevredenheid</div>
@@ -1478,26 +1544,40 @@ footer {
       <div id="og-berichten" class="og-panel hidden">
         <div class="page-title">Berichten</div>
         <p class="page-sub">Communicatie via WerkGo</p>
-        <div style="max-width:600px">
-          <div class="card" style="padding:0">
-            <div style="padding:16px 20px;border-bottom:1px solid var(--grijs-10);display:flex;align-items:center;gap:12px;cursor:pointer" onclick="showToast('Berichtenscherm open','info')">
-              <div class="profile-avatar" style="width:40px;height:40px;font-size:15px">RB</div>
-              <div style="flex:1">
-                <div style="font-weight:700;font-size:14px">Ralf Bakker</div>
-                <div style="font-size:13px;color:var(--grijs-60)">Goedemorgen, ik ben er maandag om 7:00...</div>
-              </div>
-              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
-                <span style="font-size:11px;color:var(--grijs-60)">10:24</span>
-                <span class="badge badge-blauw" style="font-size:10px;padding:2px 7px">1</span>
+        <div style="max-width:680px;display:grid;grid-template-columns:240px 1fr;gap:16px;height:480px">
+          <!-- Gesprekkenlijst -->
+          <div class="card" style="padding:0;overflow-y:auto">
+            <div style="padding:12px 16px;border-bottom:1px solid var(--grijs-10);font-size:12px;font-weight:700;color:var(--grijs-60);text-transform:uppercase;letter-spacing:0.8px">Gesprekken</div>
+            <div id="gesprekken-lijst">
+              <div style="padding:14px 16px;border-bottom:1px solid var(--grijs-10);cursor:pointer;background:var(--grijs-5)" onclick="openGesprek('werkgo','WerkGo Team','WG')">
+                <div style="display:flex;align-items:center;gap:10px">
+                  <div class="profile-avatar" style="width:36px;height:36px;font-size:13px;background:var(--blauw-mid);flex-shrink:0">WG</div>
+                  <div style="flex:1;min-width:0">
+                    <div style="font-weight:700;font-size:13px">WerkGo Team</div>
+                    <div style="font-size:12px;color:var(--grijs-60);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Welkom bij WerkGo!</div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div style="padding:16px 20px;border-bottom:1px solid var(--grijs-10);display:flex;align-items:center;gap:12px;cursor:pointer;background:var(--grijs-5)">
-              <div class="profile-avatar" style="width:40px;height:40px;font-size:15px;background:var(--grijs-60)">WG</div>
-              <div style="flex:1">
-                <div style="font-weight:700;font-size:14px">WerkGo Team</div>
-                <div style="font-size:13px;color:var(--grijs-60)">Factuur #2025-014 staat klaar voor download...</div>
+            <div style="padding:12px 16px">
+              <button class="btn btn-outline-dark btn-sm btn-full" onclick="document.getElementById('berichtModal').classList.add('open')">+ Nieuw bericht</button>
+            </div>
+          </div>
+          <!-- Chat venster -->
+          <div class="card" style="padding:0;display:flex;flex-direction:column">
+            <div style="padding:14px 20px;border-bottom:1px solid var(--grijs-10);display:flex;align-items:center;gap:10px">
+              <div class="profile-avatar" style="width:36px;height:36px;font-size:13px;background:var(--blauw-mid)" id="chat-avatar">WG</div>
+              <div style="font-weight:700;font-size:14px" id="chat-naam">WerkGo Team</div>
+            </div>
+            <div id="chat-berichten" style="flex:1;padding:16px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;background:var(--grijs-5)">
+              <div style="align-self:flex-start;max-width:80%">
+                <div style="background:var(--wit);border:1px solid var(--grijs-15);border-radius:12px 12px 12px 4px;padding:10px 14px;font-size:14px">Welkom bij WerkGo! Hoe kunnen wij je helpen?</div>
+                <div style="font-size:11px;color:var(--grijs-60);margin-top:4px;padding-left:4px">WerkGo · zojuist</div>
               </div>
-              <div style="font-size:11px;color:var(--grijs-60)">Gisteren</div>
+            </div>
+            <div style="padding:12px 16px;border-top:1px solid var(--grijs-10);display:flex;gap:8px">
+              <input type="text" class="form-control" id="chat-input" placeholder="Typ een bericht..." style="margin:0" onkeydown="if(event.key==='Enter') verstuurChatBericht()">
+              <button class="btn btn-blauw" onclick="verstuurChatBericht()">Stuur</button>
             </div>
           </div>
         </div>
@@ -1975,22 +2055,38 @@ async function logout() {
 async function loadUserDashboard(user) {
   const { data: profile } = await sb.from('profiles').select('*').eq('id', user.id).single();
   const role = profile?.role || user.user_metadata?.role || 'opdrachtgever';
-  const naam = profile?.bedrijfsnaam || profile?.voornaam || user.email;
+  const naam = profile?.bedrijfsnaam || profile?.voornaam || user.email.split('@')[0];
+  const datum = new Date().toLocaleDateString('nl-NL', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
 
   if (role === 'vakman') {
     showView('dashboard-vm');
-    const el = document.querySelector('#view-dashboard-vm .sidebar-username');
-    if (el) el.textContent = profile?.voornaam || naam;
-    showToast(`Welkom terug, ${naam}!`, 'success');
+    const usernameEl = document.querySelector('#view-dashboard-vm .sidebar-username');
+    if (usernameEl) usernameEl.textContent = naam;
+    document.querySelector('#vm-overzicht .page-title').textContent = `Goedemorgen, ${naam} 👷`;
+    document.querySelector('#vm-overzicht .page-sub').textContent = datum + ' · Noord-Holland';
+    showToast(`Welkom${profile ? ' terug' : ''}, ${naam}!`, 'success');
     laadOpdrachten();
+
+    // Check of vakman profiel compleet is
+    const { data: vmProfiel } = await sb.from('vakmensen').select('vak').eq('user_id', user.id).single();
+    if (!vmProfiel?.vak) {
+      setTimeout(() => {
+        document.getElementById('profielAanvullenModal').classList.add('open');
+      }, 800);
+    } else {
+      const roleEl = document.querySelector('#view-dashboard-vm .sidebar-userrole');
+      if (roleEl) roleEl.textContent = vmProfiel.vak;
+    }
   } else {
     showView('dashboard-og');
-    const el = document.querySelector('#view-dashboard-og .sidebar-username');
-    if (el) el.textContent = naam;
+    const usernameEl = document.querySelector('#view-dashboard-og .sidebar-username');
+    if (usernameEl) usernameEl.textContent = naam;
     document.querySelector('#og-overzicht .page-title').textContent = `Goedemorgen, ${naam} 👋`;
-    showToast(`Welkom terug, ${naam}!`, 'success');
+    document.querySelector('#og-overzicht .page-sub').textContent = datum + ' · Noord-Holland';
+    showToast(`Welkom${profile ? ' terug' : ''}, ${naam}!`, 'success');
     laadVakmensen();
     laadOpdrachtenOG();
+    laadKPIsOG();
   }
 }
 
@@ -2028,18 +2124,60 @@ async function laadOpdrachtenOG() {
   const { data: { user } } = await sb.auth.getUser();
   if (!user) return;
   const { data, error } = await sb.from('opdrachten').select('*').eq('opdrachtgever_id', user.id).order('created_at', { ascending: false });
-  if (error || !data) return;
+  if (error) return;
+
+  // KPI bijwerken
+  const kpiEl = document.getElementById('kpi-opdrachten');
+  const kpiSub = document.getElementById('kpi-opdrachten-sub');
+  if (kpiEl) kpiEl.textContent = data?.length || 0;
+  if (kpiSub) kpiSub.textContent = data?.length ? `${data.filter(o=>o.status==='open').length} openstaand` : 'Nog geen opdrachten';
+
+  // Overzicht recente opdrachten bijwerken
+  const overzichtContainer = document.querySelector('#og-overzicht .fade-up-4 > div:first-child');
+  if (overzichtContainer && data?.length) {
+    const cards = overzichtContainer.querySelectorAll('.opdracht-card');
+    cards.forEach(c => c.remove());
+    data.slice(0,3).forEach(o => {
+      const card = document.createElement('div');
+      card.className = 'opdracht-card';
+      card.innerHTML = `
+        <div class="opdracht-top">
+          <div class="opdracht-title">${o.titel}</div>
+          <span class="badge badge-${o.status==='open'?'geel':o.status==='actief'?'groen':'grijs'}">${o.status}</span>
+        </div>
+        <div class="opdracht-meta">
+          <span>📅 ${o.duur||'—'}</span>
+          <span>💶 €${o.tarief||'—'}/uur</span>
+          <span>📍 ${o.locatie||'—'}</span>
+        </div>`;
+      overzichtContainer.appendChild(card);
+    });
+  }
+
+  // Tabel bijwerken
   const tbody = document.querySelector('#og-opdrachten .data-table tbody');
-  if (!tbody || data.length === 0) return;
+  if (!tbody) return;
+  if (!data || data.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;color:var(--grijs-60);padding:32px">Nog geen opdrachten geplaatst</td></tr>`;
+    return;
+  }
   tbody.innerHTML = data.map(o => `
     <tr>
       <td><strong>${o.titel}</strong></td>
       <td>${o.vak||'—'}</td><td>${o.locatie||'—'}</td>
-      <td>${o.startdatum||'—'} · ${o.duur||'—'}</td>
+      <td>${o.startdatum||'n.t.b.'} · ${o.duur||'—'}</td>
       <td>€${o.tarief||'—'}/uur</td>
       <td><span class="badge badge-${o.status==='open'?'geel':o.status==='actief'?'groen':'grijs'}">${o.status}</span></td>
-      <td></td>
+      <td><button class="btn btn-outline-dark btn-sm" onclick="showToast('Details geopend','info')">Bekijk</button></td>
     </tr>`).join('');
+}
+
+async function laadKPIsOG() {
+  const { count: aantalVakmensen } = await sb.from('vakmensen').select('*', { count: 'exact', head: true }).eq('beschikbaar', true);
+  const kpiV = document.getElementById('kpi-vakmensen');
+  const kpiVs = document.getElementById('kpi-vakmensen-sub');
+  if (kpiV) kpiV.textContent = aantalVakmensen || 0;
+  if (kpiVs) kpiVs.textContent = 'Beschikbaar in Noord-Holland';
 }
 
 async function laadOpdrachten() {
@@ -2092,6 +2230,93 @@ async function plaatsOpdracht() {
   showToast('Opdracht geplaatst! WerkGo zoekt direct voor je.', 'success');
   setTimeout(() => ogTab('opdrachten', null), 1500);
   laadOpdrachtenOG();
+}
+
+// ---- VAKMAN PROFIEL OPSLAAN ----
+async function saveVakmanProfiel() {
+  const { data: { user } } = await sb.auth.getUser();
+  if (!user) return;
+
+  const vak      = document.getElementById('pa-vak').value;
+  const locatie  = document.getElementById('pa-locatie').value.trim();
+  const tarief   = document.getElementById('pa-tarief').value;
+  const ervaring = document.getElementById('pa-ervaring').value;
+  const tagsRaw  = document.getElementById('pa-tags').value;
+
+  if (!vak) { showToast('Kies een vakspecialisme', 'error'); return; }
+
+  const tags = tagsRaw.split(',').map(t => t.trim()).filter(Boolean);
+
+  const { error } = await sb.from('vakmensen').upsert({
+    user_id: user.id,
+    vak, locatie,
+    tarief: parseFloat(tarief) || null,
+    ervaring_jaren: parseInt(ervaring) || 0,
+    tags, beschikbaar: true, score: 5.0
+  }, { onConflict: 'user_id' });
+
+  if (error) { showToast('Fout: ' + error.message, 'error'); return; }
+
+  document.getElementById('profielAanvullenModal').classList.remove('open');
+  showToast('Profiel opgeslagen! Je bent nu zichtbaar voor opdrachtgevers.', 'success');
+
+  // Sidebar naam updaten
+  const el = document.querySelector('#view-dashboard-vm .sidebar-userrole');
+  if (el) el.textContent = vak;
+}
+
+// ---- BERICHTEN ----
+let huidigGesprekspartner = null;
+
+function openGesprek(id, naam, init) {
+  huidigGesprekspartner = id;
+  document.getElementById('chat-naam').textContent = naam;
+  document.getElementById('chat-avatar').textContent = init;
+}
+
+async function verstuurChatBericht() {
+  const input = document.getElementById('chat-input');
+  const tekst = input.value.trim();
+  if (!tekst) return;
+
+  const { data: { user } } = await sb.auth.getUser();
+
+  // Voeg bericht toe aan UI
+  const chatEl = document.getElementById('chat-berichten');
+  const bubble = document.createElement('div');
+  bubble.style.cssText = 'align-self:flex-end;max-width:80%';
+  bubble.innerHTML = `
+    <div style="background:var(--blauw-mid);color:var(--wit);border-radius:12px 12px 4px 12px;padding:10px 14px;font-size:14px">${tekst}</div>
+    <div style="font-size:11px;color:var(--grijs-60);margin-top:4px;text-align:right;padding-right:4px">Jij · zojuist</div>`;
+  chatEl.appendChild(bubble);
+  chatEl.scrollTop = chatEl.scrollHeight;
+  input.value = '';
+
+  // Sla op in Supabase (als er een echte gebruiker is)
+  if (user) {
+    await sb.from('berichten').insert({ van_id: user.id, inhoud: tekst });
+  }
+
+  // Auto-antwoord van WerkGo
+  setTimeout(() => {
+    const antwoord = document.createElement('div');
+    antwoord.style.cssText = 'align-self:flex-start;max-width:80%';
+    antwoord.innerHTML = `
+      <div style="background:var(--wit);border:1px solid var(--grijs-15);border-radius:12px 12px 12px 4px;padding:10px 14px;font-size:14px">Bedankt! Wij nemen zo snel mogelijk contact met je op. 👍</div>
+      <div style="font-size:11px;color:var(--grijs-60);margin-top:4px;padding-left:4px">WerkGo · zojuist</div>`;
+    chatEl.appendChild(antwoord);
+    chatEl.scrollTop = chatEl.scrollHeight;
+  }, 1200);
+}
+
+async function stuurBericht() {
+  const inhoud = document.getElementById('bericht-inhoud').value.trim();
+  if (!inhoud) { showToast('Vul een bericht in', 'error'); return; }
+  const { data: { user } } = await sb.auth.getUser();
+  if (user) await sb.from('berichten').insert({ van_id: user.id, inhoud });
+  document.getElementById('berichtModal').classList.remove('open');
+  showToast('Bericht verstuurd! WerkGo neemt contact op.', 'success');
+  document.getElementById('bericht-inhoud').value = '';
 }
 
 // ---- SESSIE HERSTELLEN BIJ PAGINA LADEN ----
