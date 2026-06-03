@@ -388,8 +388,8 @@ footer {
   position: relative; z-index: 1;
 }
 .auth-logo { display:flex; align-items:center; gap:10px; margin-bottom: 6px; }
-.auth-logo .logo-text { font-family: var(--font-head); font-weight: 700; font-size: 24px; color: var(--donker); letter-spacing: -0.04em; line-height:1; }
-.auth-logo .logo-text .logo-go { color: var(--geel); }
+.auth-logo .logo-text { font-family: var(--font-head); font-weight: 700; font-size: 24px; color: var(--donker); letter-spacing: -0.04em; line-height:1; white-space:nowrap; }
+.auth-logo .logo-text .logo-go { color: var(--donker); }
 .auth-title { font-size: 24px; margin-bottom: 6px; margin-top: 22px; letter-spacing: -0.02em; }
 .auth-sub { font-size: 14px; color: var(--grijs-60); margin-bottom: 28px; font-weight: 400; }
 
@@ -807,11 +807,10 @@ footer {
   <div class="nav-inner">
     <div class="nav-logo" onclick="goHome()" style="display:flex;align-items:center;gap:10px">
       <svg width="34" height="34" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="32" height="32" rx="8" fill="#0A2558"/>
-        <rect x="4" y="4" width="24" height="24" rx="5" fill="#FBBF24"/>
+        <rect width="32" height="32" rx="8" fill="#FBBF24"/>
         <path d="M8 11 L12 21 L16 14 L20 21 L24 11" stroke="#0A2558" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <span style="font-family:var(--font-head);font-weight:700;font-size:21px;letter-spacing:-0.04em;color:#fff;white-space:nowrap">Werk<span style="color:#FBBF24">Go</span></span>
+      <span style="font-family:var(--font-head);font-weight:700;font-size:21px;letter-spacing:-0.04em;color:#fff;white-space:nowrap">WerkGo</span>
     </div>
     <div class="nav-links" id="navLinks">
       <button class="nav-link active" onclick="navTo('home',this)">Home</button>
@@ -1339,11 +1338,10 @@ footer {
         <div>
           <div class="footer-logo" style="display:flex;align-items:center;gap:10px">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="32" height="32" rx="8" fill="#0A2558"/>
-              <rect x="4" y="4" width="24" height="24" rx="5" fill="#FBBF24"/>
+              <rect width="32" height="32" rx="8" fill="#FBBF24"/>
               <path d="M8 11 L12 21 L16 14 L20 21 L24 11" stroke="#0A2558" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <span style="white-space:nowrap">Werk<span>Go</span></span>
+            <span style="white-space:nowrap;font-family:var(--font-head);font-weight:700;font-size:20px;color:#fff;letter-spacing:-0.03em">WerkGo</span>
           </div>
           <p class="footer-desc">Het uitzendbureau voor bouw en techniek in Noord-Holland. Snel, betrouwbaar en persoonlijk.</p>
           <p style="font-size:13px;color:#3D4E66;margin-top:16px">📞 072 — 123 45 67<br>📧 info@werkgo.nl</p>
@@ -1388,11 +1386,10 @@ footer {
     <div class="auth-box">
       <div class="auth-logo">
         <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="32" height="32" rx="8" fill="#0A2558"/>
-          <rect x="4" y="4" width="24" height="24" rx="5" fill="#FBBF24"/>
+          <rect width="32" height="32" rx="8" fill="#FBBF24"/>
           <path d="M8 11 L12 21 L16 14 L20 21 L24 11" stroke="#0A2558" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <span class="logo-text">Werk<span class="logo-go">Go</span></span>
+        <span class="logo-text">WerkGo</span>
       </div>
       <h2 class="auth-title">Welkom terug</h2>
       <p class="auth-sub">Log in op jouw WerkGo account</p>
@@ -1429,11 +1426,10 @@ footer {
     <div class="auth-box">
       <div class="auth-logo">
         <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="32" height="32" rx="8" fill="#0A2558"/>
-          <rect x="4" y="4" width="24" height="24" rx="5" fill="#FBBF24"/>
+          <rect width="32" height="32" rx="8" fill="#FBBF24"/>
           <path d="M8 11 L12 21 L16 14 L20 21 L24 11" stroke="#0A2558" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <span class="logo-text">Werk<span class="logo-go">Go</span></span>
+        <span class="logo-text">WerkGo</span>
       </div>
       <h2 class="auth-title">Account aanmaken</h2>
       <p class="auth-sub">Kies je rol om te beginnen</p>
