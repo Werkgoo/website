@@ -293,7 +293,6 @@
       <span>WerkGo</span>
     </a>
     <div class="nav-cta">
-      <a href="tel:0721234567" class="btn btn-outline">072 — 123 45 67</a>
       <button class="btn btn-primary" onclick="scrollToUpload()">CV uploaden →</button>
     </div>
   </div>
@@ -401,7 +400,18 @@
           <button class="btn btn-primary btn-full btn-lg" onclick="submitCV()" id="cv-submit-btn" style="font-size:16px">
             CV versturen → Gratis
           </button>
-          <p style="font-size:12px;color:var(--grijs-60);text-align:center;margin-top:10px">🔒 Je gegevens worden nooit gedeeld zonder jouw toestemming</p>
+          <!-- AVG CONSENT -->
+          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;margin-top:4px">
+            <input type="checkbox" id="cv-consent" style="margin-top:3px;width:16px;height:16px;flex-shrink:0;accent-color:var(--blauw-mid)">
+            <label for="cv-consent" style="font-size:12px;color:var(--grijs-60);line-height:1.6;cursor:pointer">
+              Ik geef WerkGo toestemming om mijn persoonsgegevens en CV te verwerken voor het bemiddelen naar werk, conform de <a href="#" onclick="openPrivacy(event)" style="color:var(--blauw-mid);text-decoration:underline">privacyverklaring</a>. Ik begrijp dat ik dit te allen tijde kan intrekken via <a href="mailto:privacy@werkgo.nl" style="color:var(--blauw-mid)">privacy@werkgo.nl</a>.
+            </label>
+          </div>
+
+          <button class="btn btn-primary btn-full btn-lg" onclick="submitCV()" id="cv-submit-btn" style="font-size:16px">
+            CV versturen → Gratis
+          </button>
+          <p style="font-size:11px;color:var(--grijs-60);text-align:center;margin-top:10px">🔒 AVG-conform · Gegevens worden niet verkocht · Recht op inzage & verwijdering</p>
         </div>
 
         <!-- SUCCESS STATE (hidden by default) -->
@@ -645,7 +655,7 @@
     <p>Upload je CV vandaag nog en ontvang morgen al concrete vacatures. Gratis, snel en zonder verplichtingen.</p>
     <div class="cta-banner-btns">
       <button class="btn btn-primary btn-lg" onclick="scrollToUpload()">CV uploaden — Gratis →</button>
-      <a href="tel:0721234567" class="btn btn-outline btn-lg">Bel ons: 072 — 123 45 67</a>
+      <a href="mailto:info@werkgo.nl" class="btn btn-outline btn-lg">Mail ons: info@werkgo.nl</a>
     </div>
   </div>
 </section>
@@ -660,7 +670,7 @@
           <span style="font-family:var(--font-head);font-weight:700;font-size:20px;color:#fff;letter-spacing:-0.04em">WerkGo</span>
         </div>
         <p>Het uitzendbureau voor bouw & techniek in Noord-Holland. Snel, persoonlijk en betrouwbaar.</p>
-        <p style="margin-top:12px;font-size:13px;color:rgba(255,255,255,0.3)">📞 072 — 123 45 67<br>📧 info@werkgo.nl</p>
+        <p style="margin-top:12px;font-size:13px;color:rgba(255,255,255,0.3)">📧 info@werkgo.nl<br>📧 privacy@werkgo.nl</p>
       </div>
       <div class="footer-col">
         <h4>Vakmensen</h4>
@@ -674,7 +684,8 @@
         <a class="footer-link" href="#">Personeel aanvragen</a>
         <a class="footer-link" href="#">Over WerkGo</a>
         <a class="footer-link" href="#">Contact</a>
-        <a class="footer-link" href="#">Privacy</a>
+        <a class="footer-link" href="#" onclick="openPrivacy(event)">Privacyverklaring</a>
+        <a class="footer-link" href="mailto:privacy@werkgo.nl">Gegevens verwijderen</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -768,9 +779,11 @@ async function submitCV() {
 
   if (!voornaam || !achternaam)  { showToast('Vul je naam in', 'error'); return; }
   if (!email || !email.includes('@')) { showToast('Vul een geldig e-mailadres in', 'error'); return; }
-  if (!telefoon) { showToast('Vul je telefoonnummer in', 'error'); return; }
   if (!vak)      { showToast('Kies je vakspecialisme', 'error'); return; }
   if (!selectedFile) { showToast('Upload je CV', 'error'); return; }
+  if (!document.getElementById('cv-consent').checked) {
+    showToast('Geef eerst toestemming voor de verwerking van je gegevens', 'error'); return;
+  }
 
   const btn = document.getElementById('cv-submit-btn');
   btn.disabled = true;
@@ -844,8 +857,87 @@ function resetForm() {
   document.getElementById('upload-progress').style.display = 'none';
   removeFile();
   ['cv-voornaam','cv-achternaam','cv-email','cv-telefoon','cv-locatie'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('cv-consent').checked = false;
   document.getElementById('cv-vak').value = '';
 }
 </script>
+<!-- PRIVACY MODAL -->
+<div id="privacy-modal" style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.6);overflow-y:auto;padding:40px 20px">
+  <div style="max-width:680px;margin:0 auto;background:#fff;border-radius:20px;padding:40px;position:relative">
+    <button onclick="document.getElementById('privacy-modal').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:24px;cursor:pointer;color:#666">×</button>
+    <div style="font-family:var(--font-head);font-weight:800;font-size:24px;margin-bottom:6px">Privacyverklaring WerkGo</div>
+    <div style="font-size:13px;color:var(--grijs-60);margin-bottom:28px">Versie 1.0 · Bijgewerkt juni 2025</div>
+
+    <div style="font-size:15px;line-height:1.8;color:#374151;display:flex;flex-direction:column;gap:20px">
+      <div>
+        <strong style="color:var(--donker)">1. Wie zijn wij?</strong><br>
+        WerkGo B.V., gevestigd te Alkmaar, is verantwoordelijk voor de verwerking van persoonsgegevens zoals beschreven in deze verklaring. Contactadres voor privacyvragen: <a href="mailto:privacy@werkgo.nl" style="color:var(--blauw-mid)">privacy@werkgo.nl</a>.
+      </div>
+      <div>
+        <strong style="color:var(--donker)">2. Welke gegevens verzamelen wij?</strong><br>
+        Bij het uploaden van een CV verwerken wij: voornaam, achternaam, e-mailadres, telefoonnummer (optioneel), vakspecialisme, woonplaats en de inhoud van je CV.
+      </div>
+      <div>
+        <strong style="color:var(--donker)">3. Waarom verwerken wij je gegevens?</strong><br>
+        Wij verwerken je gegevens uitsluitend om je te bemiddelen naar passend werk in de bouw- en technieksector in Noord-Holland. De grondslag is jouw uitdrukkelijke toestemming (AVG art. 6 lid 1 sub a).
+      </div>
+      <div>
+        <strong style="color:var(--donker)">4. Hoe lang bewaren wij je gegevens?</strong><br>
+        Je gegevens worden maximaal <strong>12 maanden</strong> bewaard na je laatste actieve sollicitatie, of zolang je toestemming van kracht is. Daarna worden ze automatisch verwijderd.
+      </div>
+      <div>
+        <strong style="color:var(--donker)">5. Delen wij je gegevens?</strong><br>
+        Je CV en gegevens worden <strong>nooit zonder jouw expliciete goedkeuring</strong> gedeeld met derden. Wij sturen je profiel alleen naar een bouwbedrijf nadat jij daar apart toestemming voor heeft gegeven.
+      </div>
+      <div>
+        <strong style="color:var(--donker)">6. Jouw rechten (AVG)</strong><br>
+        Je hebt het recht op inzage, rectificatie, verwijdering, beperking van verwerking, dataportabiliteit en bezwaar. Stuur een verzoek naar <a href="mailto:privacy@werkgo.nl" style="color:var(--blauw-mid)">privacy@werkgo.nl</a>. Wij reageren binnen 30 dagen. Je kunt ook een klacht indienen bij de <a href="https://www.autoriteitpersoonsgegevens.nl" target="_blank" style="color:var(--blauw-mid)">Autoriteit Persoonsgegevens</a>.
+      </div>
+      <div>
+        <strong style="color:var(--donker)">7. Beveiliging</strong><br>
+        Je gegevens worden versleuteld opgeslagen via Supabase (ISO 27001, SOC 2 Type II gecertificeerd, servers in EU). CV-bestanden zijn alleen toegankelijk voor geautoriseerde WerkGo-medewerkers.
+      </div>
+      <div>
+        <strong style="color:var(--donker)">8. Cookies</strong><br>
+        Wij gebruiken uitsluitend functionele cookies die strikt noodzakelijk zijn voor het functioneren van de website. Er worden geen tracking- of advertentiecookies gebruikt.
+      </div>
+    </div>
+    <button onclick="document.getElementById('privacy-modal').style.display='none'" class="btn btn-primary" style="margin-top:28px;width:100%">Sluiten</button>
+  </div>
+</div>
+
+<!-- COOKIE BANNER -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:8000;background:var(--donker);border-top:1px solid rgba(255,255,255,0.08);padding:16px 24px">
+  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+    <div style="flex:1;min-width:260px">
+      <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">Wij gebruiken alleen functionele cookies</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.5">Geen tracking, geen advertenties. Alleen wat noodzakelijk is voor de werking van de website. Lees onze <a href="#" onclick="openPrivacy(event)" style="color:var(--blauw-licht);text-decoration:underline">privacyverklaring</a>.</div>
+    </div>
+    <div style="display:flex;gap:10px;flex-shrink:0">
+      <button onclick="acceptCookies()" class="btn btn-primary" style="padding:10px 20px;font-size:14px">Akkoord</button>
+      <button onclick="acceptCookies()" class="btn btn-outline" style="padding:10px 20px;font-size:14px;border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.6)">Alleen noodzakelijk</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function openPrivacy(e) {
+  e && e.preventDefault();
+  document.getElementById('privacy-modal').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+document.getElementById('privacy-modal').addEventListener('click', function(e) {
+  if (e.target === this) { this.style.display = 'none'; document.body.style.overflow = ''; }
+});
+
+function acceptCookies() {
+  localStorage.setItem('werkgo_cookies', '1');
+  document.getElementById('cookie-banner').style.display = 'none';
+}
+if (!localStorage.getItem('werkgo_cookies')) {
+  document.getElementById('cookie-banner').style.display = 'block';
+}
+</script>
+
 </body>
 </html>
