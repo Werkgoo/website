@@ -29,3 +29,8 @@
   from = "/admin"
   to = "/admin.html"
   status = 200
+
+[[redirects]]
+  from = "/kunststof"
+  to = "/kunststof.html"
+  status = 200
