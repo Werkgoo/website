@@ -1,3 +1,7 @@
+[build]
+  publish = "."
+  branch = "main"
+
 [[headers]]
   for = "/*"
   [headers.values]
