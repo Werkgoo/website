@@ -3,483 +3,188 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WerkGo Admin</title>
+  <title>WerkGo — Admin</title>
   <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --blauw:     #0A2558;
-      --blauw-mid: #1B4FBF;
-      --blauw-l:   #3B82F6;
-      --geel:      #FBBF24;
-      --groen:     #10B981;
-      --rood:      #EF4444;
-      --oranje:    #F97316;
-      --donker:    #060D1A;
-      --wit:       #fff;
-      --g5:        #F7F8FA;
-      --g10:       #EAEEF4;
-      --g30:       #C8D0DE;
-      --g60:       #6B7A99;
-      --fh: 'Space Grotesk', sans-serif;
-      --fb: 'Plus Jakarta Sans', sans-serif;
-      --r: 10px;
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --blauw:#0A2558;--blauw-mid:#1B4FBF;--blauw-licht:#3B82F6;
+      --geel:#FBBF24;--groen:#10B981;--rood:#EF4444;
+      --donker:#060D1A;--wit:#fff;
+      --grijs-5:#F7F8FA;--grijs-10:#EAEEF4;--grijs-60:#6B7A99;
+      --font-head:'Space Grotesk',sans-serif;--font-body:'Plus Jakarta Sans',sans-serif;
     }
-    html { font-family: var(--fb); background: var(--g5); color: var(--donker); min-height: 100vh; font-size: 14px; }
+    html{font-family:var(--font-body);background:var(--grijs-5);color:var(--donker);min-height:100vh}
 
-    /* ---- LOGIN ---- */
-    #login-screen { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--donker); background-image: radial-gradient(ellipse at 20% 50%, rgba(27,79,191,0.2) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(251,191,36,0.08) 0%, transparent 40%); }
-    .login-box { background: #fff; border-radius: 20px; padding: 48px 44px; width: 100%; max-width: 400px; box-shadow: 0 32px 80px rgba(0,0,0,0.5); }
-    .login-logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 32px; }
-    .login-logo span { font-family: var(--fh); font-weight: 800; font-size: 24px; color: var(--donker); letter-spacing: -0.04em; }
-    .login-box h2 { font-family: var(--fh); font-size: 20px; text-align: center; margin-bottom: 6px; }
-    .login-box p { font-size: 14px; color: var(--g60); text-align: center; margin-bottom: 28px; }
-    .field-label { font-size: 11px; font-weight: 700; color: var(--g60); text-transform: uppercase; letter-spacing: 0.7px; display: block; margin-bottom: 5px; }
-    .field { width: 100%; padding: 12px 14px; border: 1.5px solid var(--g10); border-radius: var(--r); font-family: var(--fb); font-size: 15px; color: var(--donker); outline: none; transition: border-color .15s; margin-bottom: 14px; }
-    .field:focus { border-color: var(--blauw-mid); background: #FAFCFF; }
-    .login-btn { width: 100%; padding: 14px; background: var(--blauw); color: #fff; border: none; border-radius: var(--r); font-family: var(--fb); font-weight: 700; font-size: 15px; cursor: pointer; transition: background .15s; margin-top: 4px; }
-    .login-btn:hover { background: var(--blauw-mid); }
-    .login-btn:disabled { opacity: .6; cursor: not-allowed; }
-    .login-err { display: none; background: #FEF2F2; border: 1px solid #FECACA; color: #DC2626; font-size: 13px; padding: 10px 14px; border-radius: 8px; margin-top: 10px; }
+    /* LOGIN */
+    #login-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--donker)}
+    .login-box{background:#fff;border-radius:20px;padding:44px 40px;width:100%;max-width:380px;box-shadow:0 24px 64px rgba(0,0,0,0.4);text-align:center}
+    .login-logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:28px}
+    .login-logo span{font-family:var(--font-head);font-weight:800;font-size:22px;color:var(--donker);letter-spacing:-0.04em}
+    .login-box h2{font-family:var(--font-head);font-size:18px;margin-bottom:6px}
+    .login-box p{font-size:14px;color:var(--grijs-60);margin-bottom:24px}
+    .login-input{width:100%;padding:12px 14px;border:1.5px solid var(--grijs-10);border-radius:10px;font-family:var(--font-body);font-size:15px;color:var(--donker);outline:none;margin-bottom:12px;transition:border-color .15s}
+    .login-input:focus{border-color:var(--blauw-mid)}
+    .login-btn{width:100%;padding:13px;background:var(--blauw);color:#fff;border:none;border-radius:10px;font-family:var(--font-body);font-weight:700;font-size:15px;cursor:pointer;transition:background .15s}
+    .login-btn:hover{background:var(--blauw-mid)}
+    .login-btn:disabled{opacity:.6;cursor:not-allowed}
+    .login-error{display:none;background:#FEF2F2;border:1px solid #FECACA;color:#DC2626;font-size:13px;padding:10px 14px;border-radius:8px;margin-top:10px;text-align:left}
 
-    /* ---- SHELL ---- */
-    #app { display: none; min-height: 100vh; }
+    /* ADMIN LAYOUT */
+    #admin-screen{display:none}
+    .admin-nav{background:var(--donker);height:60px;display:flex;align-items:center;padding:0 28px;gap:16px;position:sticky;top:0;z-index:100}
+    .admin-nav-logo{display:flex;align-items:center;gap:9px;flex:1}
+    .admin-nav-logo span{font-family:var(--font-head);font-weight:700;font-size:18px;color:#fff;letter-spacing:-0.04em}
+    .admin-badge{background:rgba(251,191,36,0.15);border:1px solid rgba(251,191,36,0.3);color:#FBBF24;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:1px}
+    .admin-user{font-size:13px;color:rgba(255,255,255,0.4)}
+    .logout-btn{background:rgba(255,255,255,0.08);border:none;color:rgba(255,255,255,0.5);font-family:var(--font-body);font-size:13px;padding:7px 14px;border-radius:8px;cursor:pointer;transition:all .15s}
+    .logout-btn:hover{background:rgba(255,255,255,0.14);color:#fff}
 
-    /* SIDEBAR */
-    .sidebar {
-      position: fixed; top: 0; left: 0; bottom: 0; width: 220px;
-      background: var(--donker); display: flex; flex-direction: column;
-      border-right: 1px solid rgba(255,255,255,0.05); z-index: 50;
-    }
-    .sidebar-logo { display: flex; align-items: center; gap: 9px; padding: 20px 20px 0; }
-    .sidebar-logo span { font-family: var(--fh); font-weight: 700; font-size: 18px; color: #fff; letter-spacing: -0.04em; }
-    .sidebar-badge { font-size: 10px; font-weight: 700; background: rgba(251,191,36,0.15); border: 1px solid rgba(251,191,36,0.3); color: var(--geel); padding: 2px 8px; border-radius: 999px; letter-spacing: 1px; text-transform: uppercase; margin-left: 2px; }
-    .sidebar-nav { flex: 1; padding: 24px 10px; display: flex; flex-direction: column; gap: 2px; }
-    .nav-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; color: rgba(255,255,255,0.45); font-size: 14px; font-weight: 600; cursor: pointer; transition: all .15s; text-decoration: none; border: none; background: none; width: 100%; }
-    .nav-item:hover { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.8); }
-    .nav-item.active { background: var(--blauw-mid); color: #fff; }
-    .nav-item-icon { font-size: 16px; width: 20px; text-align: center; }
-    .nav-badge { margin-left: auto; background: var(--blauw-mid); color: #fff; font-size: 10px; font-weight: 800; padding: 1px 7px; border-radius: 999px; }
-    .nav-item.active .nav-badge { background: rgba(255,255,255,0.2); }
-    .sidebar-divider { height: 1px; background: rgba(255,255,255,0.06); margin: 8px 10px; }
-    .sidebar-footer { padding: 16px 10px; }
-    .sidebar-user { display: flex; align-items: center; gap: 10px; padding: 10px 12px; }
-    .sidebar-avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--blauw-mid); display: flex; align-items: center; justify-content: center; font-weight: 800; color: #fff; font-size: 13px; flex-shrink: 0; }
-    .sidebar-user-info { flex: 1; overflow: hidden; }
-    .sidebar-user-email { font-size: 12px; color: rgba(255,255,255,0.4); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .logout-btn { display: flex; align-items: center; gap: 8px; padding: 9px 12px; border-radius: 8px; color: rgba(255,255,255,0.4); font-size: 13px; font-weight: 600; cursor: pointer; transition: all .15s; border: none; background: none; width: 100%; margin-top: 2px; }
-    .logout-btn:hover { background: rgba(239,68,68,0.1); color: #EF4444; }
+    .admin-body{max-width:1200px;margin:0 auto;padding:32px 24px}
 
-    /* MAIN */
-    .main { margin-left: 220px; min-height: 100vh; }
+    /* STATS */
+    .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px}
+    .stat-card{background:#fff;border-radius:14px;padding:22px 24px;border:1px solid var(--grijs-10);box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+    .stat-card .num{font-family:var(--font-head);font-size:32px;font-weight:800;color:var(--donker);line-height:1}
+    .stat-card .label{font-size:13px;color:var(--grijs-60);margin-top:6px}
+    .dot-g{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--groen);margin-right:6px}
+    .dot-b{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--blauw-licht);margin-right:6px}
 
-    /* TOPBAR */
-    .topbar { height: 60px; background: #fff; border-bottom: 1px solid var(--g10); display: flex; align-items: center; padding: 0 28px; gap: 16px; position: sticky; top: 0; z-index: 40; }
-    .topbar-title { font-family: var(--fh); font-size: 17px; font-weight: 700; flex: 1; }
-    .topbar-actions { display: flex; align-items: center; gap: 10px; }
-
-    /* PAGES */
-    .page { display: none; padding: 28px; }
-    .page.active { display: block; }
-
-    /* STATS GRID */
-    .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-bottom: 28px; }
-    .stat-card { background: #fff; border-radius: 14px; padding: 22px 24px; border: 1px solid var(--g10); position: relative; overflow: hidden; }
-    .stat-card::after { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; border-radius: 3px 0 0 3px; }
-    .stat-groen::after { background: var(--groen); }
-    .stat-blauw::after { background: var(--blauw-mid); }
-    .stat-oranje::after { background: var(--oranje); }
-    .stat-paars::after { background: #8B5CF6; }
-    .stat-icon { font-size: 22px; margin-bottom: 10px; }
-    .stat-num { font-family: var(--fh); font-size: 34px; font-weight: 800; line-height: 1; color: var(--donker); }
-    .stat-label { font-size: 13px; color: var(--g60); margin-top: 5px; }
-    .stat-delta { font-size: 12px; font-weight: 700; margin-top: 6px; }
-    .stat-delta.up { color: var(--groen); }
-    .stat-delta.neu { color: var(--g60); }
-
-    /* CARD */
-    .card { background: #fff; border-radius: 14px; border: 1px solid var(--g10); overflow: hidden; }
-    .card-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--g10); flex-wrap: wrap; gap: 10px; }
-    .card-title { font-family: var(--fh); font-size: 16px; font-weight: 700; }
-    .card-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-
-    /* BUTTONS */
-    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 8px; font-family: var(--fb); font-weight: 700; font-size: 13px; cursor: pointer; border: none; transition: all .15s; white-space: nowrap; }
-    .btn-primary { background: var(--blauw-mid); color: #fff; }
-    .btn-primary:hover { background: var(--blauw-l); }
-    .btn-ghost { background: var(--g5); border: 1px solid var(--g10); color: var(--donker); }
-    .btn-ghost:hover { border-color: var(--blauw-l); color: var(--blauw-mid); }
-    .btn-danger { background: #FEF2F2; border: 1px solid #FECACA; color: #DC2626; }
-    .btn-danger:hover { background: #FEE2E2; }
-    .btn-sm { padding: 5px 10px; font-size: 12px; }
-    .btn-groen { background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); color: var(--groen); }
-    .btn-groen:hover { background: rgba(16,185,129,0.2); }
-
-    /* SEARCH */
-    .search-wrap { position: relative; }
-    .search-wrap input { padding: 8px 12px 8px 34px; border: 1.5px solid var(--g10); border-radius: 8px; font-family: var(--fb); font-size: 14px; outline: none; width: 220px; transition: border-color .15s; }
-    .search-wrap input:focus { border-color: var(--blauw-mid); }
-    .search-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 14px; pointer-events: none; color: var(--g60); }
-
-    /* FILTER TABS */
-    .filter-tabs { display: flex; gap: 4px; padding: 16px 20px; border-bottom: 1px solid var(--g10); flex-wrap: wrap; }
-    .filter-tab { padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; cursor: pointer; border: 1.5px solid var(--g10); background: #fff; color: var(--g60); transition: all .15s; }
-    .filter-tab:hover { border-color: var(--blauw-l); color: var(--blauw-mid); }
-    .filter-tab.active { background: var(--blauw-mid); border-color: var(--blauw-mid); color: #fff; }
+    /* TABS */
+    .tabs{display:flex;gap:4px;margin-bottom:20px;background:#fff;border:1px solid var(--grijs-10);border-radius:12px;padding:4px;width:fit-content}
+    .tab{padding:9px 22px;border-radius:9px;border:none;font-family:var(--font-body);font-weight:600;font-size:14px;cursor:pointer;background:transparent;color:var(--grijs-60);transition:all .15s}
+    .tab.active{background:var(--blauw);color:#fff}
 
     /* TABLE */
-    .table-wrap { overflow-x: auto; }
-    table { width: 100%; border-collapse: collapse; }
-    thead th { text-align: left; padding: 11px 16px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--g60); background: var(--g5); border-bottom: 1px solid var(--g10); white-space: nowrap; cursor: pointer; user-select: none; }
-    thead th:hover { color: var(--donker); }
-    thead th .sort-icon { margin-left: 4px; opacity: .4; }
-    thead th.sorted .sort-icon { opacity: 1; color: var(--blauw-mid); }
-    tbody td { padding: 12px 16px; border-bottom: 1px solid var(--g10); vertical-align: middle; }
-    tbody tr:last-child td { border-bottom: none; }
-    tbody tr:hover td { background: var(--g5); }
-    tbody tr.selected td { background: #EFF4FF; }
+    .table-wrap{background:#fff;border-radius:16px;border:1px solid var(--grijs-10);overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+    .table-header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid var(--grijs-10);flex-wrap:wrap;gap:12px}
+    .table-title{font-family:var(--font-head);font-size:17px;font-weight:700}
+    .table-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .search-input{padding:8px 14px;border:1.5px solid var(--grijs-10);border-radius:8px;font-family:var(--font-body);font-size:14px;outline:none;width:220px;transition:border-color .15s}
+    .search-input:focus{border-color:var(--blauw-mid)}
+    .export-btn{padding:8px 16px;background:var(--grijs-5);border:1px solid var(--grijs-10);border-radius:8px;font-family:var(--font-body);font-weight:600;font-size:13px;cursor:pointer;color:var(--donker);transition:all .15s}
+    .export-btn:hover{border-color:var(--blauw-mid);color:var(--blauw-mid)}
+    .refresh-btn{padding:8px 16px;background:var(--blauw);border:none;border-radius:8px;font-family:var(--font-body);font-weight:600;font-size:13px;cursor:pointer;color:#fff;transition:background .15s}
+    .refresh-btn:hover{background:var(--blauw-mid)}
 
-    /* BADGES */
-    .badge { display: inline-flex; align-items: center; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
-    .b-nieuw     { background: #EFF4FF; color: var(--blauw-mid); }
-    .b-contact   { background: rgba(251,191,36,0.15); color: #92400E; }
-    .b-geplaatst { background: rgba(16,185,129,0.12); color: #065F46; }
-    .b-afgewezen { background: #FEF2F2; color: #DC2626; }
-    .b-vak       { background: var(--g5); border: 1px solid var(--g10); color: var(--g60); }
+    table{width:100%;border-collapse:collapse}
+    thead tr{background:var(--grijs-5)}
+    th{text-align:left;padding:12px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--grijs-60);border-bottom:1px solid var(--grijs-10);white-space:nowrap}
+    td{padding:13px 16px;font-size:14px;border-bottom:1px solid var(--grijs-10);vertical-align:middle}
+    tr:last-child td{border-bottom:none}
+    tr:hover td{background:var(--grijs-5)}
 
-    /* STATUS SELECT */
-    .status-sel { padding: 4px 8px; border: 1.5px solid var(--g10); border-radius: 6px; font-family: var(--fb); font-size: 12px; font-weight: 600; background: #fff; cursor: pointer; outline: none; }
-    .status-sel:focus { border-color: var(--blauw-mid); }
+    .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px}
+    .badge-nieuw{background:#EFF4FF;color:var(--blauw-mid)}
+    .badge-email{background:#F3F4F6;color:#374151}
 
-    /* DETAIL PANEL */
-    .detail-overlay { display: none; position: fixed; inset: 0; background: rgba(6,13,26,0.5); z-index: 200; backdrop-filter: blur(4px); }
-    .detail-overlay.open { display: block; }
-    .detail-panel { position: fixed; right: 0; top: 0; bottom: 0; width: 480px; background: #fff; z-index: 201; overflow-y: auto; box-shadow: -8px 0 40px rgba(0,0,0,0.15); transform: translateX(100%); transition: transform .25s ease; }
-    .detail-panel.open { transform: translateX(0); }
-    .detail-head { padding: 20px 24px; border-bottom: 1px solid var(--g10); display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; background: #fff; z-index: 1; }
-    .detail-head h3 { font-family: var(--fh); font-size: 17px; }
-    .close-btn { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 8px; border: none; background: var(--g5); cursor: pointer; font-size: 16px; color: var(--g60); transition: all .15s; }
-    .close-btn:hover { background: var(--g10); color: var(--donker); }
-    .detail-body { padding: 24px; }
-    .detail-section { margin-bottom: 24px; }
-    .detail-section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--g60); margin-bottom: 12px; }
-    .detail-row { display: flex; gap: 8px; margin-bottom: 10px; align-items: flex-start; }
-    .detail-key { font-size: 13px; color: var(--g60); min-width: 100px; padding-top: 1px; }
-    .detail-val { font-size: 14px; font-weight: 600; color: var(--donker); word-break: break-word; }
-    .detail-actions { display: flex; gap: 8px; flex-wrap: wrap; padding: 20px 24px; border-top: 1px solid var(--g10); position: sticky; bottom: 0; background: #fff; }
+    .cv-link{color:var(--blauw-mid);text-decoration:none;font-weight:600;font-size:13px}
+    .cv-link:hover{text-decoration:underline}
+    .no-cv{font-size:12px;color:var(--grijs-60)}
 
-    /* NOTES */
-    .notes-area { width: 100%; padding: 10px 12px; border: 1.5px solid var(--g10); border-radius: 8px; font-family: var(--fb); font-size: 14px; resize: vertical; min-height: 80px; outline: none; transition: border-color .15s; }
-    .notes-area:focus { border-color: var(--blauw-mid); }
+    .status-select{padding:4px 8px;border:1.5px solid var(--grijs-10);border-radius:6px;font-family:var(--font-body);font-size:12px;font-weight:600;color:var(--donker);background:#fff;cursor:pointer;outline:none}
+    .status-select:focus{border-color:var(--blauw-mid)}
 
-    /* EMPTY / LOADING */
-    .empty { padding: 60px 24px; text-align: center; color: var(--g60); }
-    .empty-icon { font-size: 40px; margin-bottom: 12px; }
-    .empty p { font-size: 15px; }
-    .loading-row td { text-align: center; padding: 48px; color: var(--g60); }
+    .empty-state{padding:60px 24px;text-align:center;color:var(--grijs-60)}
+    .empty-state div{font-size:36px;margin-bottom:12px}
+    .empty-state p{font-size:15px}
+    .loading{padding:60px 24px;text-align:center;color:var(--grijs-60);font-size:15px}
 
-    /* PAGINATION */
-    .table-footer { padding: 12px 20px; border-top: 1px solid var(--g10); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
-    .page-info { font-size: 13px; color: var(--g60); }
-    .pagination { display: flex; gap: 4px; }
-    .page-btn { padding: 5px 10px; border: 1px solid var(--g10); border-radius: 6px; background: #fff; font-size: 13px; cursor: pointer; font-family: var(--fb); font-weight: 600; transition: all .15s; }
-    .page-btn:hover { border-color: var(--blauw-mid); color: var(--blauw-mid); }
-    .page-btn.active { background: var(--blauw-mid); color: #fff; border-color: var(--blauw-mid); }
-    .page-btn:disabled { opacity: .4; cursor: not-allowed; }
+    .table-footer{padding:14px 24px;border-top:1px solid var(--grijs-10);font-size:13px;color:var(--grijs-60);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+    .pagination{display:flex;gap:4px}
+    .page-btn{padding:5px 11px;border:1px solid var(--grijs-10);border-radius:6px;background:#fff;font-size:13px;cursor:pointer;font-family:var(--font-body);transition:all .15s}
+    .page-btn:hover{border-color:var(--blauw-mid);color:var(--blauw-mid)}
+    .page-btn.active{background:var(--blauw);color:#fff;border-color:var(--blauw)}
 
-    /* NOTIFICATION TOAST */
-    .toasts { position: fixed; bottom: 24px; right: 24px; z-index: 9999; display: flex; flex-direction: column; gap: 8px; }
-    .toast { background: var(--donker); color: #fff; padding: 12px 18px; border-radius: 10px; font-size: 13px; font-weight: 600; box-shadow: 0 8px 24px rgba(0,0,0,0.3); animation: tin .25s ease; display: flex; align-items: center; gap: 8px; max-width: 300px; }
-    .toast.ok  { border-left: 3px solid var(--groen); }
-    .toast.err { border-left: 3px solid var(--rood); }
-    @keyframes tin { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+    .del-btn{padding:4px 10px;background:transparent;border:1px solid #FECACA;border-radius:6px;color:#DC2626;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s}
+    .del-btn:hover{background:#FEF2F2}
 
-    /* LEADS PAGE */
-    .leads-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; padding: 20px; }
-    .lead-card { background: var(--g5); border: 1.5px solid var(--g10); border-radius: 10px; padding: 16px; display: flex; align-items: center; gap: 12px; }
-    .lead-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--blauw-mid), var(--blauw-l)); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 14px; flex-shrink: 0; }
-    .lead-email { font-size: 14px; font-weight: 600; color: var(--donker); word-break: break-all; }
-    .lead-meta { font-size: 12px; color: var(--g60); margin-top: 2px; }
-    .lead-del { margin-left: auto; }
-
-    /* INSTELLINGEN */
-    .settings-grid { display: grid; gap: 20px; max-width: 640px; }
-    .settings-card { background: #fff; border: 1px solid var(--g10); border-radius: 14px; padding: 24px; }
-    .settings-card h3 { font-family: var(--fh); font-size: 16px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--g10); }
-    .settings-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--g5); gap: 16px; }
-    .settings-row:last-child { border-bottom: none; padding-bottom: 0; }
-    .settings-label { font-size: 14px; font-weight: 600; }
-    .settings-desc { font-size: 12px; color: var(--g60); margin-top: 2px; }
-
-    @media(max-width: 900px) {
-      .sidebar { width: 60px; }
-      .sidebar-logo span, .sidebar-badge, .nav-item span:not(.nav-item-icon), .nav-badge, .sidebar-user-info, .logout-btn span { display: none; }
-      .nav-item { justify-content: center; padding: 10px; }
-      .sidebar-user { justify-content: center; padding: 10px; }
-      .main { margin-left: 60px; }
-      .stats-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media(max-width: 600px) {
-      .stats-grid { grid-template-columns: 1fr; }
-      .page { padding: 16px; }
-      .topbar { padding: 0 16px; }
-      .detail-panel { width: 100%; }
+    @media(max-width:768px){
+      .stats-row{grid-template-columns:1fr 1fr}
+      .admin-body{padding:20px 16px}
+      .search-input{width:140px}
+      td,th{padding:10px 10px;font-size:13px}
     }
   </style>
 </head>
 <body>
 
-<div class="toasts" id="toasts"></div>
-
-<!-- ===== LOGIN ===== -->
+<!-- LOGIN -->
 <div id="login-screen">
   <div class="login-box">
     <div class="login-logo">
-      <svg width="36" height="36" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#FBBF24"/><path d="M8 11L12 21L16 14L20 21L24 11" stroke="#0A2558" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#FBBF24"/><path d="M8 11L12 21L16 14L20 21L24 11" stroke="#0A2558" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <span>WerkGo</span>
     </div>
     <h2>Admin inloggen</h2>
-    <p>Toegang voor WerkGo medewerkers</p>
-    <label class="field-label" for="l-email">E-mailadres</label>
-    <input id="l-email" class="field" type="email" placeholder="admin@werkgo.nl" autocomplete="username">
-    <label class="field-label" for="l-pw">Wachtwoord</label>
-    <input id="l-pw" class="field" type="password" placeholder="••••••••" autocomplete="current-password" onkeydown="if(event.key==='Enter')login()">
-    <button class="login-btn" id="login-btn" onclick="login()">Inloggen</button>
-    <div class="login-err" id="login-err"></div>
+    <p>Gebruik je WerkGo admin account</p>
+    <input id="login-email" class="login-input" type="email" placeholder="admin@werkgo.nl" autocomplete="username">
+    <input id="login-pw" class="login-input" type="password" placeholder="Wachtwoord" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="login-btn" id="login-btn" onclick="doLogin()">Inloggen</button>
+    <div class="login-error" id="login-error"></div>
   </div>
 </div>
 
-<!-- ===== APP ===== -->
-<div id="app">
-
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div class="sidebar-logo">
+<!-- ADMIN -->
+<div id="admin-screen">
+  <nav class="admin-nav">
+    <div class="admin-nav-logo">
       <svg width="26" height="26" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#FBBF24"/><path d="M8 11L12 21L16 14L20 21L24 11" stroke="#0A2558" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <span>WerkGo</span>
-      <span class="sidebar-badge">Admin</span>
+      <span class="admin-badge">Admin</span>
     </div>
-    <nav class="sidebar-nav">
-      <button class="nav-item active" onclick="gotoPage('dashboard',this)">
-        <span class="nav-item-icon">📊</span>
-        <span>Dashboard</span>
-      </button>
-      <button class="nav-item" onclick="gotoPage('cv',this)">
-        <span class="nav-item-icon">📄</span>
-        <span>CV Inzendingen</span>
-        <span class="nav-badge" id="nav-badge-cv">—</span>
-      </button>
-      <button class="nav-item" onclick="gotoPage('leads',this)">
-        <span class="nav-item-icon">✉️</span>
-        <span>E-mail Leads</span>
-        <span class="nav-badge" id="nav-badge-leads">—</span>
-      </button>
-      <div class="sidebar-divider"></div>
-      <button class="nav-item" onclick="gotoPage('instellingen',this)">
-        <span class="nav-item-icon">⚙️</span>
-        <span>Instellingen</span>
-      </button>
-    </nav>
-    <div class="sidebar-footer">
-      <div class="sidebar-user">
-        <div class="sidebar-avatar" id="user-avatar">A</div>
-        <div class="sidebar-user-info">
-          <div class="sidebar-user-email" id="user-email">—</div>
+    <span class="admin-user" id="admin-user-email"></span>
+    <button class="logout-btn" onclick="doLogout()">Uitloggen</button>
+  </nav>
+
+  <div class="admin-body">
+    <div class="stats-row" id="stats-row">
+      <div class="stat-card"><div class="num" id="s-total-cv">—</div><div class="label"><span class="dot-g"></span>Totaal CV's</div></div>
+      <div class="stat-card"><div class="num" id="s-nieuw">—</div><div class="label"><span class="dot-b"></span>Nieuw (ongelezen)</div></div>
+      <div class="stat-card"><div class="num" id="s-vandaag">—</div><div class="label">Vandaag binnengekomen</div></div>
+      <div class="stat-card"><div class="num" id="s-leads">—</div><div class="label">E-mail leads</div></div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab('cv',this)">CV Inzendingen</button>
+      <button class="tab" onclick="switchTab('leads',this)">E-mail Leads</button>
+    </div>
+
+    <div id="tab-cv" class="table-wrap">
+      <div class="table-header">
+        <div class="table-title">CV Inzendingen</div>
+        <div class="table-actions">
+          <input class="search-input" type="search" placeholder="Zoeken…" oninput="filterCV(this.value)" id="cv-search" autocomplete="off">
+          <button class="export-btn" onclick="exportCSV('cv')">⬇ CSV</button>
+          <button class="refresh-btn" onclick="laadCV()">↺ Vernieuwen</button>
         </div>
       </div>
-      <button class="logout-btn" onclick="logout()">
-        <span>🚪</span>
-        <span>Uitloggen</span>
-      </button>
-    </div>
-  </aside>
-
-  <!-- MAIN -->
-  <div class="main">
-
-    <!-- TOPBAR -->
-    <div class="topbar">
-      <div class="topbar-title" id="topbar-title">Dashboard</div>
-      <div class="topbar-actions" id="topbar-actions"></div>
-    </div>
-
-    <!-- ===== DASHBOARD PAGE ===== -->
-    <div class="page active" id="page-dashboard">
-      <div class="stats-grid">
-        <div class="stat-card stat-groen">
-          <div class="stat-icon">📄</div>
-          <div class="stat-num" id="s-totaal">—</div>
-          <div class="stat-label">Totaal CV's ontvangen</div>
-          <div class="stat-delta neu" id="s-totaal-d"></div>
-        </div>
-        <div class="stat-card stat-blauw">
-          <div class="stat-icon">🆕</div>
-          <div class="stat-num" id="s-nieuw">—</div>
-          <div class="stat-label">Nieuw (ongelezen)</div>
-          <div class="stat-delta neu" id="s-nieuw-d">wacht op actie</div>
-        </div>
-        <div class="stat-card stat-oranje">
-          <div class="stat-icon">📅</div>
-          <div class="stat-num" id="s-vandaag">—</div>
-          <div class="stat-label">Vandaag binnengekomen</div>
-          <div class="stat-delta neu" id="s-week-d"></div>
-        </div>
-        <div class="stat-card stat-paars">
-          <div class="stat-icon">✉️</div>
-          <div class="stat-num" id="s-leads">—</div>
-          <div class="stat-label">E-mail leads</div>
-          <div class="stat-delta neu" id="s-leads-d"></div>
-        </div>
-      </div>
-
-      <!-- Recent activity -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">Recente CV's</div>
-            <button class="btn btn-ghost btn-sm" onclick="gotoPage('cv',document.querySelector('[onclick*=\'cv\']'))">Alles zien →</button>
-          </div>
-          <div id="recent-cv-list"></div>
-        </div>
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">CV's per vakspecialisme</div>
-          </div>
-          <div id="vak-chart" style="padding:16px;display:flex;flex-direction:column;gap:10px"></div>
-        </div>
+      <div id="cv-table-body"><div class="loading">Laden…</div></div>
+      <div class="table-footer" id="cv-footer" style="display:none">
+        <span id="cv-count-label"></span>
+        <div class="pagination" id="cv-pagination"></div>
       </div>
     </div>
 
-    <!-- ===== CV PAGE ===== -->
-    <div class="page" id="page-cv">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title">CV Inzendingen <span style="font-family:var(--fb);font-weight:400;color:var(--g60);font-size:14px" id="cv-count-badge"></span></div>
-          <div class="card-actions">
-            <div class="search-wrap">
-              <span class="search-icon">🔍</span>
-              <input type="search" placeholder="Zoeken op naam, e-mail, vak…" oninput="zoekCV(this.value)" id="cv-search" autocomplete="off">
-            </div>
-            <button class="btn btn-ghost btn-sm" onclick="exportCSV()">⬇ CSV</button>
-            <button class="btn btn-primary btn-sm" onclick="laadCV()">↺ Vernieuwen</button>
-          </div>
-        </div>
-        <div class="filter-tabs" id="cv-filter-tabs">
-          <button class="filter-tab active" onclick="filterStatus('alle',this)">Alle</button>
-          <button class="filter-tab" onclick="filterStatus('nieuw',this)">Nieuw</button>
-          <button class="filter-tab" onclick="filterStatus('contact',this)">In contact</button>
-          <button class="filter-tab" onclick="filterStatus('geplaatst',this)">Geplaatst</button>
-          <button class="filter-tab" onclick="filterStatus('afgewezen',this)">Afgewezen</button>
-        </div>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th onclick="sortCV('created_at')">Datum <span class="sort-icon">↕</span></th>
-                <th onclick="sortCV('voornaam')">Naam <span class="sort-icon">↕</span></th>
-                <th>Contact</th>
-                <th onclick="sortCV('vak')">Vak <span class="sort-icon">↕</span></th>
-                <th onclick="sortCV('locatie')">Woonplaats <span class="sort-icon">↕</span></th>
-                <th>CV</th>
-                <th>Status</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody id="cv-tbody">
-              <tr class="loading-row"><td colspan="8">Laden…</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="table-footer" id="cv-footer" style="display:none">
-          <span class="page-info" id="cv-page-info"></span>
-          <div class="pagination" id="cv-pag"></div>
+    <div id="tab-leads" class="table-wrap" style="display:none;margin-top:0">
+      <div class="table-header">
+        <div class="table-title">E-mail Leads</div>
+        <div class="table-actions">
+          <input class="search-input" type="search" placeholder="Zoeken…" oninput="filterLeads(this.value)" id="leads-search" autocomplete="off">
+          <button class="export-btn" onclick="exportCSV('leads')">⬇ CSV</button>
+          <button class="refresh-btn" onclick="laadLeads()">↺ Vernieuwen</button>
         </div>
       </div>
-    </div>
-
-    <!-- ===== LEADS PAGE ===== -->
-    <div class="page" id="page-leads">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title">E-mail Leads <span style="font-family:var(--fb);font-weight:400;color:var(--g60);font-size:14px" id="leads-count-badge"></span></div>
-          <div class="card-actions">
-            <div class="search-wrap">
-              <span class="search-icon">🔍</span>
-              <input type="search" placeholder="Zoeken op e-mail…" oninput="zoekLeads(this.value)" id="leads-search" autocomplete="off">
-            </div>
-            <button class="btn btn-ghost btn-sm" onclick="exportLeadsCSV()">⬇ CSV</button>
-            <button class="btn btn-primary btn-sm" onclick="laadLeads()">↺ Vernieuwen</button>
-          </div>
-        </div>
-        <div id="leads-grid-wrap">
-          <div class="empty"><div class="empty-icon">⏳</div><p>Laden…</p></div>
-        </div>
+      <div id="leads-table-body"><div class="loading">Laden…</div></div>
+      <div class="table-footer" id="leads-footer" style="display:none">
+        <span id="leads-count-label"></span>
       </div>
     </div>
-
-    <!-- ===== INSTELLINGEN PAGE ===== -->
-    <div class="page" id="page-instellingen">
-      <div class="settings-grid">
-        <div class="settings-card">
-          <h3>Account</h3>
-          <div class="settings-row">
-            <div>
-              <div class="settings-label">E-mailadres</div>
-              <div class="settings-desc" id="set-email">—</div>
-            </div>
-          </div>
-          <div class="settings-row">
-            <div>
-              <div class="settings-label">Wachtwoord wijzigen</div>
-              <div class="settings-desc">Stuur een reset-link naar je e-mail</div>
-            </div>
-            <button class="btn btn-ghost btn-sm" onclick="stuurReset()">Reset-link sturen</button>
-          </div>
-        </div>
-        <div class="settings-card">
-          <h3>Data</h3>
-          <div class="settings-row">
-            <div>
-              <div class="settings-label">CV inzendingen exporteren</div>
-              <div class="settings-desc">Download alle CV's als CSV bestand</div>
-            </div>
-            <button class="btn btn-ghost btn-sm" onclick="exportCSV()">⬇ CSV</button>
-          </div>
-          <div class="settings-row">
-            <div>
-              <div class="settings-label">E-mail leads exporteren</div>
-              <div class="settings-desc">Download alle leads als CSV bestand</div>
-            </div>
-            <button class="btn btn-ghost btn-sm" onclick="exportLeadsCSV()">⬇ CSV</button>
-          </div>
-        </div>
-        <div class="settings-card">
-          <h3>Over</h3>
-          <div class="settings-row">
-            <div><div class="settings-label">Versie</div><div class="settings-desc">WerkGo Admin v2.0</div></div>
-          </div>
-          <div class="settings-row">
-            <div><div class="settings-label">Website</div><div class="settings-desc"><a href="https://werkgo.nl" target="_blank" style="color:var(--blauw-mid)">werkgo.nl ↗</a></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /main -->
-</div><!-- /app -->
-
-<!-- DETAIL PANEL -->
-<div class="detail-overlay" id="detail-overlay" onclick="sluitDetail()"></div>
-<div class="detail-panel" id="detail-panel">
-  <div class="detail-head">
-    <h3 id="detail-naam">—</h3>
-    <button class="close-btn" onclick="sluitDetail()">✕</button>
   </div>
-  <div class="detail-body" id="detail-body"></div>
-  <div class="detail-actions" id="detail-actions"></div>
 </div>
 
 <script>
@@ -489,451 +194,246 @@ const sb = createClient(
   'sb_publishable_WMpDauoU_KF1l0POAOUT1w_A3yS5grZ'
 );
 
-const PAGE_SIZE = 20;
-let allCV = [], allLeads = [], filteredCV = [], cvPage = 1;
-let statusFilter = 'alle', zoekQuery = '', sortKey = 'created_at', sortAsc = false;
-let currentUser = null;
-
-// ---- INIT ----
-(async () => {
-  const { data: { session } } = await sb.auth.getSession();
-  if (session) startApp(session.user);
-})();
+const PAGE_SIZE = 25;
+let allCV = [], allLeads = [], cvPage = 1, filteredCV = [];
 
 // ---- AUTH ----
-async function login() {
-  const email = document.getElementById('l-email').value.trim();
-  const pw    = document.getElementById('l-pw').value;
-  const err   = document.getElementById('login-err');
-  const btn   = document.getElementById('login-btn');
+async function init() {
+  const { data: { session } } = await sb.auth.getSession();
+  if(session) {
+    showAdmin(session.user);
+  }
+}
+init();
+
+async function doLogin() {
+  const email = document.getElementById('login-email').value.trim();
+  const pw = document.getElementById('login-pw').value;
+  const err = document.getElementById('login-error');
+  const btn = document.getElementById('login-btn');
+
   err.style.display = 'none';
-  if (!email || !pw) { toon('Vul e-mail en wachtwoord in', 'err'); return; }
+  if(!email || !pw) { err.textContent = 'Vul e-mail en wachtwoord in.'; err.style.display = 'block'; return; }
+
   btn.disabled = true; btn.textContent = 'Bezig…';
   const { data, error } = await sb.auth.signInWithPassword({ email, password: pw });
   btn.disabled = false; btn.textContent = 'Inloggen';
-  if (error) {
-    err.textContent = error.message === 'Invalid login credentials' ? 'Onjuist e-mail of wachtwoord.' : error.message;
+
+  if(error) {
+    err.textContent = error.message === 'Invalid login credentials'
+      ? 'Onjuist e-mailadres of wachtwoord.'
+      : 'Inloggen mislukt: ' + error.message;
     err.style.display = 'block';
     return;
   }
-  startApp(data.user);
+  showAdmin(data.user);
 }
 
-function startApp(user) {
-  currentUser = user;
-  document.getElementById('login-screen').style.display = 'none';
-  document.getElementById('app').style.display = 'block';
-  document.getElementById('user-email').textContent = user.email;
-  document.getElementById('user-avatar').textContent = user.email[0].toUpperCase();
-  document.getElementById('set-email').textContent = user.email;
-  laadAlles();
-}
-
-async function logout() {
+async function doLogout() {
   await sb.auth.signOut();
-  location.reload();
+  document.getElementById('admin-screen').style.display = 'none';
+  document.getElementById('login-screen').style.display = 'flex';
+  document.getElementById('login-pw').value = '';
+  document.getElementById('login-error').style.display = 'none';
 }
 
-// ---- NAVIGATIE ----
-function gotoPage(naam, el) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-  document.getElementById('page-' + naam).classList.add('active');
-  if (el) el.classList.add('active');
-  const titels = { dashboard: 'Dashboard', cv: 'CV Inzendingen', leads: 'E-mail Leads', instellingen: 'Instellingen' };
-  document.getElementById('topbar-title').textContent = titels[naam] || naam;
-  const actions = document.getElementById('topbar-actions');
-  actions.innerHTML = '';
-  if (naam === 'cv') {
-    actions.innerHTML = `<span style="font-size:12px;color:var(--g60)" id="last-refresh">Ververst: zonet</span>`;
-  }
+function showAdmin(user) {
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('admin-screen').style.display = 'block';
+  document.getElementById('admin-user-email').textContent = user.email;
+  laadStats();
+  laadCV();
+  laadLeads();
 }
 
-// ---- LAAD ALLES ----
-async function laadAlles() {
-  await Promise.all([laadStats(), laadCV(), laadLeads()]);
+// ---- TABS ----
+function switchTab(tab, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('tab-cv').style.display = tab === 'cv' ? 'block' : 'none';
+  document.getElementById('tab-leads').style.display = tab === 'leads' ? 'block' : 'none';
 }
 
 // ---- STATS ----
 async function laadStats() {
-  const today = new Date().toISOString().split('T')[0];
-  const week  = new Date(Date.now() - 7*86400000).toISOString();
-
-  const [r1, r2, r3, r4, r5, r6] = await Promise.all([
-    sb.from('cv_submissions').select('*', { count: 'exact', head: true }),
-    sb.from('cv_submissions').select('*', { count: 'exact', head: true }).eq('status', 'nieuw'),
-    sb.from('cv_submissions').select('*', { count: 'exact', head: true }).gte('created_at', today + 'T00:00:00'),
-    sb.from('cv_submissions').select('*', { count: 'exact', head: true }).gte('created_at', week),
-    sb.from('email_leads').select('*', { count: 'exact', head: true }),
-    sb.from('email_leads').select('*', { count: 'exact', head: true }).gte('created_at', week),
+  const [{ count: totalCV }, { count: nieuw }, { count: leads }] = await Promise.all([
+    sb.from('cv_submissions').select('*', { count:'exact', head:true }),
+    sb.from('cv_submissions').select('*', { count:'exact', head:true }).eq('status','nieuw'),
+    sb.from('email_leads').select('*', { count:'exact', head:true }),
   ]);
+  document.getElementById('s-total-cv').textContent = totalCV ?? '—';
+  document.getElementById('s-nieuw').textContent = nieuw ?? '—';
+  document.getElementById('s-leads').textContent = leads ?? '—';
 
-  document.getElementById('s-totaal').textContent   = r1.count ?? '—';
-  document.getElementById('s-nieuw').textContent    = r2.count ?? '—';
-  document.getElementById('s-vandaag').textContent  = r3.count ?? '—';
-  document.getElementById('s-leads').textContent    = r5.count ?? '—';
-  document.getElementById('s-week-d').textContent   = `↑ ${r4.count ?? 0} deze week`;
-  document.getElementById('s-leads-d').textContent  = `↑ ${r6.count ?? 0} deze week`;
-  document.getElementById('nav-badge-cv').textContent    = r2.count ?? '0';
-  document.getElementById('nav-badge-leads').textContent = r5.count ?? '0';
+  const today = new Date().toISOString().split('T')[0];
+  const { count: vandaag } = await sb.from('cv_submissions')
+    .select('*', { count:'exact', head:true })
+    .gte('created_at', today + 'T00:00:00');
+  document.getElementById('s-vandaag').textContent = vandaag ?? '—';
 }
 
-// ---- CV DATA ----
+// ---- CV ----
 async function laadCV() {
-  document.getElementById('cv-tbody').innerHTML = '<tr class="loading-row"><td colspan="8">Laden…</td></tr>';
-  const { data, error } = await sb.from('cv_submissions').select('*').order('created_at', { ascending: false });
-  if (error) { document.getElementById('cv-tbody').innerHTML = `<tr class="loading-row"><td colspan="8">⚠️ ${error.message}</td></tr>`; return; }
+  document.getElementById('cv-table-body').innerHTML = '<div class="loading">Laden…</div>';
+  const { data, error } = await sb.from('cv_submissions')
+    .select('*').order('created_at', { ascending:false });
+  if(error) {
+    document.getElementById('cv-table-body').innerHTML = `<div class="empty-state"><div>⚠️</div><p>Fout: ${error.message}</p></div>`;
+    return;
+  }
   allCV = data || [];
   filteredCV = allCV;
-  laadRecent();
-  laadVakChart();
-  renderCV();
+  renderCV(filteredCV, 1);
 }
 
-function zoekCV(q) {
-  zoekQuery = q.toLowerCase();
-  toepasFilters();
+function filterCV(q) {
+  const s = q.toLowerCase();
+  filteredCV = s ? allCV.filter(r =>
+    (r.voornaam||'').toLowerCase().includes(s) ||
+    (r.achternaam||'').toLowerCase().includes(s) ||
+    (r.email||'').toLowerCase().includes(s) ||
+    (r.vak||'').toLowerCase().includes(s) ||
+    (r.locatie||'').toLowerCase().includes(s)
+  ) : allCV;
+  renderCV(filteredCV, 1);
 }
 
-function filterStatus(s, el) {
-  statusFilter = s;
-  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-  el.classList.add('active');
-  toepasFilters();
-}
-
-function toepasFilters() {
-  filteredCV = allCV.filter(r => {
-    const statusOk = statusFilter === 'alle' || r.status === statusFilter;
-    const zoekOk   = !zoekQuery ||
-      (r.voornaam||'').toLowerCase().includes(zoekQuery) ||
-      (r.achternaam||'').toLowerCase().includes(zoekQuery) ||
-      (r.email||'').toLowerCase().includes(zoekQuery) ||
-      (r.vak||'').toLowerCase().includes(zoekQuery) ||
-      (r.locatie||'').toLowerCase().includes(zoekQuery) ||
-      (r.telefoon||'').includes(zoekQuery);
-    return statusOk && zoekOk;
-  });
-  renderCV(1);
-}
-
-function sortCV(key) {
-  if (sortKey === key) sortAsc = !sortAsc;
-  else { sortKey = key; sortAsc = true; }
-  document.querySelectorAll('thead th').forEach(th => th.classList.remove('sorted'));
-  filteredCV = [...filteredCV].sort((a, b) => {
-    const av = a[key] || '', bv = b[key] || '';
-    return sortAsc ? av.localeCompare(bv) : bv.localeCompare(av);
-  });
-  renderCV(1);
-}
-
-function renderCV(page = cvPage) {
+function renderCV(data, page) {
   cvPage = page;
-  const total = filteredCV.length;
+  const total = data.length;
   const pages = Math.ceil(total / PAGE_SIZE) || 1;
-  const slice = filteredCV.slice((page-1)*PAGE_SIZE, page*PAGE_SIZE);
+  const slice = data.slice((page-1)*PAGE_SIZE, page*PAGE_SIZE);
 
-  document.getElementById('cv-count-badge').textContent = `— ${total} resultaten`;
-
-  if (!slice.length) {
-    document.getElementById('cv-tbody').innerHTML = '<tr class="loading-row"><td colspan="8"><div class="empty"><div class="empty-icon">📭</div><p>Geen inzendingen gevonden</p></div></td></tr>';
+  if(!slice.length) {
+    document.getElementById('cv-table-body').innerHTML = '<div class="empty-state"><div>📭</div><p>Geen inzendingen gevonden.</p></div>';
     document.getElementById('cv-footer').style.display = 'none';
     return;
   }
 
-  document.getElementById('cv-tbody').innerHTML = slice.map(r => {
-    const d = fmt(r.created_at);
-    const bNm = r.status === 'nieuw' ? 'b-nieuw' : r.status === 'contact' ? 'b-contact' : r.status === 'geplaatst' ? 'b-geplaatst' : 'b-afgewezen';
-    const cvKnop = r.cv_bestand
-      ? `<button class="btn btn-groen btn-sm" onclick="downloadCV('${r.cv_bestand}')">⬇ CV</button>`
-      : `<span style="color:var(--g60);font-size:12px">Geen CV</span>`;
+  const rows = slice.map(r => {
+    const d = new Date(r.created_at).toLocaleString('nl-NL',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
+    const cvBtn = r.cv_bestand
+      ? `<a class="cv-link" href="#" onclick="downloadCV('${r.cv_bestand}',event)">⬇ Download</a>`
+      : '<span class="no-cv">—</span>';
     const opts = ['nieuw','contact','geplaatst','afgewezen'].map(s =>
-      `<option value="${s}"${r.status===s?' selected':''}>${s}</option>`).join('');
+      `<option value="${s}"${r.status===s?' selected':''}>${s}</option>`
+    ).join('');
     return `<tr>
-      <td style="font-size:12px;color:var(--g60);white-space:nowrap">${d}</td>
-      <td>
-        <button style="background:none;border:none;cursor:pointer;font-family:var(--fb);font-size:14px;font-weight:700;color:var(--blauw-mid);text-decoration:underline;padding:0" onclick="openDetail('${r.id}')">
-          ${r.voornaam||''} ${r.achternaam||''}
-        </button>
-      </td>
-      <td>
-        <div style="font-size:13px"><a href="mailto:${r.email}" style="color:var(--blauw-mid)">${r.email||''}</a></div>
-        <div style="font-size:12px;color:var(--g60)">${r.telefoon||'—'}</div>
-      </td>
-      <td><span class="badge b-vak">${r.vak||'—'}</span></td>
-      <td style="font-size:13px">${r.locatie||'—'}</td>
-      <td>${cvKnop}</td>
-      <td>
-        <select class="status-sel" onchange="updateStatus('${r.id}',this.value)">
-          ${opts}
-        </select>
-      </td>
-      <td>
-        <button class="btn btn-danger btn-sm" onclick="deleteCV('${r.id}')">🗑</button>
-      </td>
+      <td style="white-space:nowrap;font-size:12px;color:var(--grijs-60)">${d}</td>
+      <td><strong>${r.voornaam||''} ${r.achternaam||''}</strong></td>
+      <td><a href="mailto:${r.email}" style="color:var(--blauw-mid)">${r.email||''}</a></td>
+      <td>${r.telefoon||'<span style="color:var(--grijs-60)">—</span>'}</td>
+      <td><span class="badge badge-nieuw">${r.vak||'—'}</span></td>
+      <td>${r.locatie||'—'}</td>
+      <td>${cvBtn}</td>
+      <td><select class="status-select" onchange="updateStatus('${r.id}',this.value)">${opts}</select></td>
+      <td><button class="del-btn" onclick="deleteCV('${r.id}')">Verwijder</button></td>
     </tr>`;
   }).join('');
 
-  const van = (page-1)*PAGE_SIZE + 1;
-  const tot = Math.min(page*PAGE_SIZE, total);
-  document.getElementById('cv-page-info').textContent = `${van}–${tot} van ${total}`;
+  document.getElementById('cv-table-body').innerHTML = `<div style="overflow-x:auto"><table>
+    <thead><tr><th>Datum</th><th>Naam</th><th>E-mail</th><th>Telefoon</th><th>Vakspecialisme</th><th>Woonplaats</th><th>CV</th><th>Status</th><th></th></tr></thead>
+    <tbody>${rows}</tbody></table></div>`;
 
-  const pag = document.getElementById('cv-pag');
+  document.getElementById('cv-count-label').textContent = `${total} inzending${total===1?'':'en'}`;
+  const pag = document.getElementById('cv-pagination');
   pag.innerHTML = '';
-  if (pages > 1) {
-    const prev = document.createElement('button');
-    prev.className = 'page-btn'; prev.textContent = '←'; prev.disabled = page === 1;
-    prev.onclick = () => renderCV(page - 1);
-    pag.appendChild(prev);
-
-    const start = Math.max(1, page - 2), end = Math.min(pages, page + 2);
-    for (let i = start; i <= end; i++) {
-      const b = document.createElement('button');
-      b.className = 'page-btn' + (i === page ? ' active' : '');
-      b.textContent = i; b.onclick = () => renderCV(i);
-      pag.appendChild(b);
-    }
-
-    const next = document.createElement('button');
-    next.className = 'page-btn'; next.textContent = '→'; next.disabled = page === pages;
-    next.onclick = () => renderCV(page + 1);
-    pag.appendChild(next);
+  if(pages > 1) for(let i=1;i<=pages;i++){
+    const b = document.createElement('button');
+    b.className = 'page-btn'+(i===page?' active':'');
+    b.textContent = i;
+    b.onclick = ()=>renderCV(data,i);
+    pag.appendChild(b);
   }
   document.getElementById('cv-footer').style.display = 'flex';
 }
 
-// ---- RECENT + CHART (DASHBOARD) ----
-function laadRecent() {
-  const recent = allCV.slice(0, 6);
-  if (!recent.length) {
-    document.getElementById('recent-cv-list').innerHTML = '<div class="empty"><div class="empty-icon">📭</div><p>Nog geen inzendingen</p></div>';
+// ---- LEADS ----
+async function laadLeads() {
+  document.getElementById('leads-table-body').innerHTML = '<div class="loading">Laden…</div>';
+  const { data, error } = await sb.from('email_leads').select('*').order('created_at',{ascending:false});
+  if(error) { document.getElementById('leads-table-body').innerHTML = `<div class="empty-state"><div>⚠️</div><p>${error.message}</p></div>`; return; }
+  allLeads = data||[];
+  renderLeads(allLeads);
+}
+
+function filterLeads(q) {
+  const s = q.toLowerCase();
+  renderLeads(s ? allLeads.filter(r=>(r.email||'').toLowerCase().includes(s)) : allLeads);
+}
+
+function renderLeads(data) {
+  if(!data.length) {
+    document.getElementById('leads-table-body').innerHTML = '<div class="empty-state"><div>📭</div><p>Geen leads gevonden.</p></div>';
+    document.getElementById('leads-footer').style.display = 'none';
     return;
   }
-  document.getElementById('recent-cv-list').innerHTML = recent.map(r => `
-    <div style="display:flex;align-items:center;gap:12px;padding:12px 20px;border-bottom:1px solid var(--g10)" >
-      <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blauw),var(--blauw-l));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px;flex-shrink:0">${(r.voornaam||'?')[0].toUpperCase()}</div>
-      <div style="flex:1;min-width:0">
-        <div style="font-weight:700;font-size:14px">${r.voornaam||''} ${r.achternaam||''}</div>
-        <div style="font-size:12px;color:var(--g60)">${r.vak||'—'} · ${r.locatie||'—'}</div>
-      </div>
-      <div style="text-align:right;flex-shrink:0">
-        <span class="badge b-${r.status||'nieuw'}">${r.status||'nieuw'}</span>
-        <div style="font-size:11px;color:var(--g60);margin-top:4px">${fmtKort(r.created_at)}</div>
-      </div>
-    </div>`).join('');
-}
-
-function laadVakChart() {
-  const counts = {};
-  allCV.forEach(r => { counts[r.vak||'Onbekend'] = (counts[r.vak||'Onbekend']||0) + 1; });
-  const sorted = Object.entries(counts).sort((a,b) => b[1]-a[1]).slice(0, 8);
-  const max = sorted[0]?.[1] || 1;
-  document.getElementById('vak-chart').innerHTML = sorted.map(([vak, cnt]) => `
-    <div>
-      <div style="display:flex;justify-content:space-between;margin-bottom:4px;font-size:13px">
-        <span style="font-weight:600">${vak}</span>
-        <span style="color:var(--g60)">${cnt}</span>
-      </div>
-      <div style="height:6px;background:var(--g10);border-radius:999px;overflow:hidden">
-        <div style="height:100%;width:${(cnt/max*100).toFixed(0)}%;background:linear-gradient(90deg,var(--blauw-mid),var(--blauw-l));border-radius:999px;transition:width .4s"></div>
-      </div>
-    </div>`).join('');
-}
-
-// ---- DETAIL PANEL ----
-function openDetail(id) {
-  const r = allCV.find(x => x.id === id);
-  if (!r) return;
-  document.getElementById('detail-naam').textContent = `${r.voornaam||''} ${r.achternaam||''}`;
-  const bNm = r.status === 'nieuw' ? 'b-nieuw' : r.status === 'contact' ? 'b-contact' : r.status === 'geplaatst' ? 'b-geplaatst' : 'b-afgewezen';
-
-  document.getElementById('detail-body').innerHTML = `
-    <div class="detail-section">
-      <div class="detail-section-title">Persoonlijke gegevens</div>
-      <div class="detail-row"><span class="detail-key">Naam</span><span class="detail-val">${r.voornaam||''} ${r.achternaam||''}</span></div>
-      <div class="detail-row"><span class="detail-key">E-mail</span><span class="detail-val"><a href="mailto:${r.email}" style="color:var(--blauw-mid)">${r.email||'—'}</a></span></div>
-      <div class="detail-row"><span class="detail-key">Telefoon</span><span class="detail-val"><a href="tel:${r.telefoon}" style="color:var(--blauw-mid)">${r.telefoon||'—'}</a></span></div>
-      <div class="detail-row"><span class="detail-key">Woonplaats</span><span class="detail-val">${r.locatie||'—'}</span></div>
-    </div>
-    <div class="detail-section">
-      <div class="detail-section-title">Vakgegevens</div>
-      <div class="detail-row"><span class="detail-key">Vakspecialisme</span><span class="detail-val"><span class="badge b-vak">${r.vak||'—'}</span></span></div>
-      <div class="detail-row"><span class="detail-key">Ontvangen op</span><span class="detail-val">${fmt(r.created_at)}</span></div>
-    </div>
-    <div class="detail-section">
-      <div class="detail-section-title">Status</div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
-        ${['nieuw','contact','geplaatst','afgewezen'].map(s => `
-          <button class="btn ${s===r.status?'btn-primary':'btn-ghost'} btn-sm" onclick="updateStatusPanel('${r.id}','${s}',this)">${s}</button>`).join('')}
-      </div>
-    </div>
-    <div class="detail-section">
-      <div class="detail-section-title">Notities</div>
-      <textarea class="notes-area" id="detail-notes" placeholder="Interne notitie toevoegen…">${r.notities||''}</textarea>
-      <button class="btn btn-ghost btn-sm" style="margin-top:8px" onclick="slaNotitiesOp('${r.id}')">Opslaan</button>
-    </div>
-  `;
-
-  document.getElementById('detail-actions').innerHTML = `
-    ${r.cv_bestand ? `<button class="btn btn-groen" onclick="downloadCV('${r.cv_bestand}')">⬇ CV downloaden</button>` : '<span style="font-size:13px;color:var(--g60)">Geen CV bijgevoegd</span>'}
-    <button class="btn btn-danger" style="margin-left:auto" onclick="deleteCV('${r.id}',true)">🗑 Verwijderen</button>
-  `;
-
-  document.getElementById('detail-overlay').classList.add('open');
-  document.getElementById('detail-panel').classList.add('open');
-}
-
-function sluitDetail() {
-  document.getElementById('detail-overlay').classList.remove('open');
-  document.getElementById('detail-panel').classList.remove('open');
-}
-
-async function updateStatusPanel(id, status, btn) {
-  document.querySelectorAll('#detail-body .btn').forEach(b => b.classList.remove('btn-primary'));
-  btn.classList.add('btn-primary');
-  await updateStatus(id, status);
-}
-
-async function slaNotitiesOp(id) {
-  const notities = document.getElementById('detail-notes').value;
-  const { error } = await sb.from('cv_submissions').update({ notities }).eq('id', id);
-  if (!error) {
-    const r = allCV.find(x => x.id === id);
-    if (r) r.notities = notities;
-    toon('Notitie opgeslagen', 'ok');
-  } else {
-    toon('Fout: ' + error.message, 'err');
-  }
+  const rows = data.map(r => {
+    const d = new Date(r.created_at).toLocaleString('nl-NL',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
+    return `<tr>
+      <td style="white-space:nowrap;font-size:12px;color:var(--grijs-60)">${d}</td>
+      <td><a href="mailto:${r.email}" style="color:var(--blauw-mid)">${r.email}</a></td>
+      <td><span class="badge badge-email">${r.bron||'—'}</span></td>
+      <td><button class="del-btn" onclick="deleteLead('${r.id}')">Verwijder</button></td>
+    </tr>`;
+  }).join('');
+  document.getElementById('leads-table-body').innerHTML = `<table>
+    <thead><tr><th>Datum</th><th>E-mailadres</th><th>Bron</th><th></th></tr></thead>
+    <tbody>${rows}</tbody></table>`;
+  document.getElementById('leads-count-label').textContent = `${data.length} lead${data.length===1?'':'s'}`;
+  document.getElementById('leads-footer').style.display = 'flex';
 }
 
 // ---- ACTIES ----
 async function updateStatus(id, status) {
   const { error } = await sb.from('cv_submissions').update({ status }).eq('id', id);
-  if (error) { toon('Fout: ' + error.message, 'err'); return; }
-  const r = allCV.find(x => x.id === id);
-  if (r) r.status = status;
-  toepasFilters();
-  laadStats();
-  toon(`Status gewijzigd naar "${status}"`, 'ok');
+  if(error) alert('Fout: ' + error.message);
+  else laadStats();
 }
 
-async function downloadCV(path) {
+async function downloadCV(path, e) {
+  e.preventDefault();
   const { data, error } = await sb.storage.from('cv-uploads').createSignedUrl(path, 120);
-  if (error || !data?.signedUrl) { toon('Kan CV niet ophalen', 'err'); return; }
-  window.open(data.signedUrl, '_blank');
+  if(error||!data?.signedUrl) { alert('Kan CV niet ophalen: '+(error?.message||'onbekend')); return; }
+  window.open(data.signedUrl,'_blank');
 }
 
-async function deleteCV(id, sluit = false) {
-  if (!confirm('Inzending permanent verwijderen?')) return;
+async function deleteCV(id) {
+  if(!confirm('Weet je zeker dat je deze inzending wilt verwijderen? Dit kan niet ongedaan worden.')) return;
   const { error } = await sb.from('cv_submissions').delete().eq('id', id);
-  if (error) { toon('Fout: ' + error.message, 'err'); return; }
-  allCV = allCV.filter(r => r.id !== id);
-  if (sluit) sluitDetail();
-  toepasFilters();
-  laadStats();
-  laadRecent();
-  laadVakChart();
-  toon('Inzending verwijderd', 'ok');
-}
-
-// ---- LEADS ----
-async function laadLeads() {
-  const { data, error } = await sb.from('email_leads').select('*').order('created_at', { ascending: false });
-  if (error) { document.getElementById('leads-grid-wrap').innerHTML = `<div class="empty"><p>⚠️ ${error.message}</p></div>`; return; }
-  allLeads = data || [];
-  renderLeads(allLeads);
-}
-
-function zoekLeads(q) {
-  const s = q.toLowerCase();
-  renderLeads(s ? allLeads.filter(r => (r.email||'').toLowerCase().includes(s)) : allLeads);
-}
-
-function renderLeads(data) {
-  document.getElementById('leads-count-badge').textContent = `— ${data.length} leads`;
-  if (!data.length) {
-    document.getElementById('leads-grid-wrap').innerHTML = '<div class="empty"><div class="empty-icon">📭</div><p>Geen leads gevonden</p></div>';
-    return;
-  }
-  document.getElementById('leads-grid-wrap').innerHTML = `
-    <div class="leads-grid">
-      ${data.map(r => `
-        <div class="lead-card">
-          <div class="lead-avatar">${r.email[0].toUpperCase()}</div>
-          <div style="flex:1;min-width:0">
-            <div class="lead-email">${r.email}</div>
-            <div class="lead-meta">${r.bron||'website'} · ${fmtKort(r.created_at)}</div>
-          </div>
-          <button class="btn btn-danger btn-sm lead-del" onclick="deleteLead('${r.id}')">🗑</button>
-        </div>`).join('')}
-    </div>`;
+  if(error) alert('Fout: '+error.message);
+  else { laadStats(); laadCV(); }
 }
 
 async function deleteLead(id) {
-  if (!confirm('Lead verwijderen?')) return;
+  if(!confirm('Lead verwijderen?')) return;
   const { error } = await sb.from('email_leads').delete().eq('id', id);
-  if (error) { toon('Fout: ' + error.message, 'err'); return; }
-  allLeads = allLeads.filter(r => r.id !== id);
-  renderLeads(allLeads);
-  laadStats();
-  toon('Lead verwijderd', 'ok');
+  if(error) alert('Fout: '+error.message);
+  else laadLeads();
 }
 
 // ---- CSV EXPORT ----
-function exportCSV() {
-  const header = ['Datum','Voornaam','Achternaam','Email','Telefoon','Vak','Woonplaats','Status','Heeft CV','Notities'];
-  const rows = filteredCV.map(r => [
-    fmt(r.created_at), r.voornaam||'', r.achternaam||'', r.email||'',
-    r.telefoon||'', r.vak||'', r.locatie||'', r.status||'',
-    r.cv_bestand ? 'Ja' : 'Nee', r.notities||''
-  ]);
-  dlCSV([header, ...rows], 'werkgo-cv.csv');
-  toon(`${filteredCV.length} rijen geëxporteerd`, 'ok');
+function exportCSV(type) {
+  if(type==='cv') {
+    const header = ['Datum','Voornaam','Achternaam','Email','Telefoon','Vak','Woonplaats','Status','Heeft CV'];
+    const rows = filteredCV.map(r=>[
+      new Date(r.created_at).toLocaleString('nl-NL'),
+      r.voornaam||'',r.achternaam||'',r.email||'',r.telefoon||'',r.vak||'',r.locatie||'',r.status||'',r.cv_bestand?'Ja':'Nee'
+    ]);
+    dlCSV([header,...rows],'werkgo-cv.csv');
+  } else {
+    const header = ['Datum','Email','Bron'];
+    const rows = allLeads.map(r=>[new Date(r.created_at).toLocaleString('nl-NL'),r.email||'',r.bron||'']);
+    dlCSV([header,...rows],'werkgo-leads.csv');
+  }
 }
-
-function exportLeadsCSV() {
-  const header = ['Datum','Email','Bron'];
-  const rows = allLeads.map(r => [fmt(r.created_at), r.email||'', r.bron||'']);
-  dlCSV([header, ...rows], 'werkgo-leads.csv');
-  toon(`${allLeads.length} leads geëxporteerd`, 'ok');
-}
-
-function dlCSV(rows, naam) {
-  const csv = rows.map(r => r.map(c => `"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
-  const blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8;' });
+function dlCSV(rows, filename) {
+  const csv = rows.map(r=>r.map(c=>`"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
+  const blob = new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8;'});
+  const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob); a.download = naam; a.click();
-  URL.revokeObjectURL(a.href);
-}
-
-// ---- INSTELLINGEN ----
-async function stuurReset() {
-  const { error } = await sb.auth.resetPasswordForEmail(currentUser.email, { redirectTo: 'https://werkgo.nl/admin.html' });
-  if (!error) toon('Reset-link verstuurd naar ' + currentUser.email, 'ok');
-  else toon('Fout: ' + error.message, 'err');
-}
-
-// ---- HELPERS ----
-function fmt(iso) {
-  return new Date(iso).toLocaleString('nl-NL', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
-}
-function fmtKort(iso) {
-  const d = new Date(iso), now = new Date();
-  const diff = now - d;
-  if (diff < 60000) return 'zonet';
-  if (diff < 3600000) return Math.floor(diff/60000) + 'm geleden';
-  if (diff < 86400000) return Math.floor(diff/3600000) + 'u geleden';
-  if (diff < 604800000) return Math.floor(diff/86400000) + 'd geleden';
-  return d.toLocaleDateString('nl-NL', { day: '2-digit', month: 'short' });
-}
-
-function toon(msg, type = 'ok') {
-  const el = document.createElement('div');
-  el.className = `toast ${type}`;
-  el.innerHTML = `<span>${type === 'ok' ? '✓' : '✕'}</span> ${msg}`;
-  document.getElementById('toasts').appendChild(el);
-  setTimeout(() => el.remove(), 3500);
+  a.href=url; a.download=filename; a.click();
+  URL.revokeObjectURL(url);
 }
 </script>
 </body>
