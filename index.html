@@ -200,20 +200,27 @@
     .testimonial-role { font-size: 12px; color: var(--grijs-60); }
 
     /* VAKKEN */
-    .vakken { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-top: 36px; }
+    .vakken { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-top: 36px; }
     .vak-item {
-      background: #fff; border: 1.5px solid var(--grijs-10); border-radius: var(--radius-lg);
-      cursor: pointer; transition: all 0.22s; overflow: hidden;
+      border-radius: var(--radius-lg); cursor: pointer; transition: all 0.22s;
+      padding: 22px 20px; position: relative; overflow: hidden; min-height: 110px;
+      display: flex; flex-direction: column; justify-content: flex-end; border: none;
     }
-    .vak-item:hover { border-color: var(--oranje); box-shadow: 0 8px 28px rgba(0,0,0,0.1); transform: translateY(-3px); }
-    .vak-item.active { border-color: var(--oranje); box-shadow: 0 8px 28px rgba(249,115,22,0.2); transform: translateY(-3px); }
-    .vak-img-wrap { overflow: hidden; position: relative; height: 130px; }
-    .vak-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
-    .vak-item:hover .vak-img, .vak-item.active .vak-img { transform: scale(1.06); }
-    .vak-img-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.22) 100%); }
-    .vak-info { padding: 12px 14px 14px; }
-    .vak-naam { font-size: 14px; font-weight: 700; color: var(--donker); }
-    .vak-aantal { font-size: 12px; color: var(--groen); margin-top: 3px; font-weight: 600; }
+    .vak-item::before { content: ''; position: absolute; inset: 0; opacity: 0; background: rgba(255,255,255,0.08); transition: opacity 0.2s; }
+    .vak-item:hover::before, .vak-item.active::before { opacity: 1; }
+    .vak-item:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.2); }
+    .vak-item.active { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.25); outline: 3px solid var(--geel); outline-offset: -3px; }
+    .vak-icon-big { font-size: 28px; margin-bottom: 10px; filter: grayscale(0.1); }
+    .vak-naam { font-family: var(--font-head); font-size: 15px; font-weight: 800; color: #fff; letter-spacing: -0.01em; }
+    .vak-aantal { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.65); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vak-c1 { background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%); }
+    .vak-c2 { background: linear-gradient(135deg, #7c2d12 0%, #ea580c 100%); }
+    .vak-c3 { background: linear-gradient(135deg, #134e4a 0%, #0d9488 100%); }
+    .vak-c4 { background: linear-gradient(135deg, #1e1b4b 0%, #7c3aed 100%); }
+    .vak-c5 { background: linear-gradient(135deg, #14532d 0%, #16a34a 100%); }
+    .vak-c6 { background: linear-gradient(135deg, #4a1d96 0%, #a855f7 100%); }
+    .vak-c7 { background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%); }
+    .vak-c8 { background: linear-gradient(135deg, #78350f 0%, #d97706 100%); }
 
     /* CTA BANNER */
     .cta-banner {
@@ -477,77 +484,45 @@
     <h2 class="section-title">In welk vakgebied werk jij?</h2>
     <p class="section-sub">WerkGo is actief in alle bouw- en technieksectoren in Noord-Holland.</p>
     <div class="vakken">
-      <div class="vak-item" onclick="selectVak(this,'Metselaar')">
-        <div class="vak-img-wrap">
-          <img class="vak-img" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=260&q=75&auto=format&fit=crop" alt="Metselaar aan het werk">
-        </div>
-        <div class="vak-info">
-          <div class="vak-naam">Metselaar</div>
-          <div class="vak-aantal">14 vacatures</div>
-        </div>
+      <div class="vak-item vak-c1" onclick="selectVak(this,'Metselaar')">
+        <div class="vak-icon-big">🧱</div>
+        <div class="vak-naam">Metselaar</div>
+        <div class="vak-aantal">14 vacatures open</div>
       </div>
-      <div class="vak-item" onclick="selectVak(this,'Timmerman')">
-        <div class="vak-img-wrap">
-          <img class="vak-img" src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&h=260&q=75&auto=format&fit=crop" alt="Timmerman aan het werk">
-        </div>
-        <div class="vak-info">
-          <div class="vak-naam">Timmerman</div>
-          <div class="vak-aantal">11 vacatures</div>
-        </div>
+      <div class="vak-item vak-c2" onclick="selectVak(this,'Timmerman')">
+        <div class="vak-icon-big">🔨</div>
+        <div class="vak-naam">Timmerman</div>
+        <div class="vak-aantal">11 vacatures open</div>
       </div>
-      <div class="vak-item" onclick="selectVak(this,'Loodgieter')">
-        <div class="vak-img-wrap">
-          <img class="vak-img" src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=400&h=260&q=75&auto=format&fit=crop" alt="Loodgieter aan het werk">
-        </div>
-        <div class="vak-info">
-          <div class="vak-naam">Loodgieter</div>
-          <div class="vak-aantal">8 vacatures</div>
-        </div>
+      <div class="vak-item vak-c3" onclick="selectVak(this,'Loodgieter')">
+        <div class="vak-icon-big">🔧</div>
+        <div class="vak-naam">Loodgieter</div>
+        <div class="vak-aantal">8 vacatures open</div>
       </div>
-      <div class="vak-item" onclick="selectVak(this,'Elektricien')">
-        <div class="vak-img-wrap">
-          <img class="vak-img" src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=400&h=260&q=75&auto=format&fit=crop" alt="Elektricien aan het werk">
-        </div>
-        <div class="vak-info">
-          <div class="vak-naam">Elektricien</div>
-          <div class="vak-aantal">12 vacatures</div>
-        </div>
+      <div class="vak-item vak-c4" onclick="selectVak(this,'Elektricien')">
+        <div class="vak-icon-big">⚡</div>
+        <div class="vak-naam">Elektricien</div>
+        <div class="vak-aantal">12 vacatures open</div>
       </div>
-      <div class="vak-item" onclick="selectVak(this,'Schilder')">
-        <div class="vak-img-wrap">
-          <img class="vak-img" src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=400&h=260&q=75&auto=format&fit=crop" alt="Schilder aan het werk">
-        </div>
-        <div class="vak-info">
-          <div class="vak-naam">Schilder</div>
-          <div class="vak-aantal">6 vacatures</div>
-        </div>
+      <div class="vak-item vak-c5" onclick="selectVak(this,'Schilder')">
+        <div class="vak-icon-big">🎨</div>
+        <div class="vak-naam">Schilder</div>
+        <div class="vak-aantal">6 vacatures open</div>
       </div>
-      <div class="vak-item" onclick="selectVak(this,'Stucadoor')">
-        <div class="vak-img-wrap">
-          <img class="vak-img" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=260&q=75&auto=format&fit=crop&crop=left" alt="Stucadoor aan het werk">
-        </div>
-        <div class="vak-info">
-          <div class="vak-naam">Stucadoor</div>
-          <div class="vak-aantal">5 vacatures</div>
-        </div>
+      <div class="vak-item vak-c6" onclick="selectVak(this,'Stucadoor')">
+        <div class="vak-icon-big">🏗️</div>
+        <div class="vak-naam">Stucadoor</div>
+        <div class="vak-aantal">5 vacatures open</div>
       </div>
-      <div class="vak-item" onclick="selectVak(this,'Kraanmachinist')">
-        <div class="vak-img-wrap">
-          <img class="vak-img" src="https://images.unsplash.com/photo-1533073526757-2c8ca1df9f1c?w=400&h=260&q=75&auto=format&fit=crop" alt="Kraanmachinist aan het werk">
-        </div>
-        <div class="vak-info">
-          <div class="vak-naam">Kraanmachinist</div>
-          <div class="vak-aantal">3 vacatures</div>
-        </div>
+      <div class="vak-item vak-c7" onclick="selectVak(this,'Kraanmachinist')">
+        <div class="vak-icon-big">🏗️</div>
+        <div class="vak-naam">Kraanmachinist</div>
+        <div class="vak-aantal">3 vacatures open</div>
       </div>
-      <div class="vak-item" onclick="selectVak(this,'Dakdekker')">
-        <div class="vak-img-wrap">
-          <img class="vak-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=260&q=75&auto=format&fit=crop" alt="Dakdekker aan het werk">
-        </div>
-        <div class="vak-info">
-          <div class="vak-naam">Dakdekker</div>
-          <div class="vak-aantal">7 vacatures</div>
-        </div>
+      <div class="vak-item vak-c8" onclick="selectVak(this,'Dakdekker')">
+        <div class="vak-icon-big">🏠</div>
+        <div class="vak-naam">Dakdekker</div>
+        <div class="vak-aantal">7 vacatures open</div>
       </div>
     </div>
   </div>
