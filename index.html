@@ -10,7 +10,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -486,42 +485,66 @@
     <p class="section-sub">WerkGo is actief in alle bouw- en technieksectoren in Noord-Holland.</p>
     <div class="vakken">
       <div class="vak-item vak-c1" onclick="selectVak(this,'Metselaar')">
-        <div class="vak-icon-big"><i data-lucide="layers" style="width:38px;height:38px;stroke:rgba(255,255,255,0.92);stroke-width:1.5"></i></div>
+        <div class="vak-icon-big">
+          <!-- layers / metselaar -->
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.92)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 12l10 5 10-5"/><path d="M2 17l10 5 10-5"/></svg>
+        </div>
         <div class="vak-naam">Metselaar</div>
         <div class="vak-aantal">14 vacatures open</div>
       </div>
       <div class="vak-item vak-c2" onclick="selectVak(this,'Timmerman')">
-        <div class="vak-icon-big"><i data-lucide="hammer" style="width:38px;height:38px;stroke:rgba(255,255,255,0.92);stroke-width:1.5"></i></div>
+        <div class="vak-icon-big">
+          <!-- hammer / timmerman -->
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.92)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 12l-8.5 8.5a2.12 2.12 0 01-3-3L12 9"/><path d="M17.64 15L22 10.36"/><path d="M20.91 11.7l-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 00-3.94-1.64H9l.92.82A6.18 6.18 0 0112 8.4v1.56l2 2h2.47l2.26 1.91"/></svg>
+        </div>
         <div class="vak-naam">Timmerman</div>
         <div class="vak-aantal">11 vacatures open</div>
       </div>
       <div class="vak-item vak-c3" onclick="selectVak(this,'Loodgieter')">
-        <div class="vak-icon-big"><i data-lucide="wrench" style="width:38px;height:38px;stroke:rgba(255,255,255,0.92);stroke-width:1.5"></i></div>
+        <div class="vak-icon-big">
+          <!-- wrench / loodgieter -->
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.92)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+        </div>
         <div class="vak-naam">Loodgieter</div>
         <div class="vak-aantal">8 vacatures open</div>
       </div>
       <div class="vak-item vak-c4" onclick="selectVak(this,'Elektricien')">
-        <div class="vak-icon-big"><i data-lucide="zap" style="width:38px;height:38px;stroke:rgba(255,255,255,0.92);stroke-width:1.5"></i></div>
+        <div class="vak-icon-big">
+          <!-- zap / elektricien -->
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.92)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
         <div class="vak-naam">Elektricien</div>
         <div class="vak-aantal">12 vacatures open</div>
       </div>
       <div class="vak-item vak-c5" onclick="selectVak(this,'Schilder')">
-        <div class="vak-icon-big"><i data-lucide="paintbrush" style="width:38px;height:38px;stroke:rgba(255,255,255,0.92);stroke-width:1.5"></i></div>
+        <div class="vak-icon-big">
+          <!-- paintbrush / schilder -->
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.92)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18.37 2.63L14 7l-1.59-1.59a2 2 0 00-2.82 0L8 7l9 9 1.59-1.59a2 2 0 000-2.82L17 10l4.37-4.37a2.12 2.12 0 00-3-3z"/><path d="M9 8c-2 3-4 3.5-7 4l8 10c2-1 6-5 6-7"/><path d="M14.5 17.5L4.5 15"/></svg>
+        </div>
         <div class="vak-naam">Schilder</div>
         <div class="vak-aantal">6 vacatures open</div>
       </div>
       <div class="vak-item vak-c6" onclick="selectVak(this,'Stucadoor')">
-        <div class="vak-icon-big"><i data-lucide="brush" style="width:38px;height:38px;stroke:rgba(255,255,255,0.92);stroke-width:1.5"></i></div>
+        <div class="vak-icon-big">
+          <!-- trowel / stucadoor -->
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.92)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l9-9"/><path d="M12.5 7.5L18 2l4 4-5.5 5.5"/><path d="M15 6l-6 6"/><path d="M6 15l-3 3"/><path d="M9 12L5.5 15.5a2 2 0 000 3c.83.83 2.17.83 3 0L12 15"/></svg>
+        </div>
         <div class="vak-naam">Stucadoor</div>
         <div class="vak-aantal">5 vacatures open</div>
       </div>
       <div class="vak-item vak-c7" onclick="selectVak(this,'Kraanmachinist')">
-        <div class="vak-icon-big"><i data-lucide="hard-hat" style="width:38px;height:38px;stroke:rgba(255,255,255,0.92);stroke-width:1.5"></i></div>
+        <div class="vak-icon-big">
+          <!-- hard-hat / kraanmachinist -->
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.92)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18a1 1 0 001 1h18a1 1 0 001-1v-2a1 1 0 00-1-1H3a1 1 0 00-1 1v2z"/><path d="M10 10V5a1 1 0 011-1h2a1 1 0 011 1v5"/><path d="M4 15v-3a8 8 0 0116 0v3"/></svg>
+        </div>
         <div class="vak-naam">Kraanmachinist</div>
         <div class="vak-aantal">3 vacatures open</div>
       </div>
       <div class="vak-item vak-c8" onclick="selectVak(this,'Dakdekker')">
-        <div class="vak-icon-big"><i data-lucide="home" style="width:38px;height:38px;stroke:rgba(255,255,255,0.92);stroke-width:1.5"></i></div>
+        <div class="vak-icon-big">
+          <!-- home / dakdekker -->
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.92)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
         <div class="vak-naam">Dakdekker</div>
         <div class="vak-aantal">7 vacatures open</div>
       </div>
@@ -859,7 +882,7 @@ function resetForm() {
   document.getElementById('cv-vak').value = '';
 }
 
-document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+
 </script>
 </body>
 </html>
