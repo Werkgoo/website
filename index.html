@@ -496,7 +496,7 @@
         <div class="vak-aantal">11 vacatures open</div>
       </div>
       <div class="vak-item vak-c3" onclick="selectVak(this,'Loodgieter')">
-        <div class="vak-icon-big"><i data-lucide="pipe" style="width:38px;height:38px;stroke:rgba(255,255,255,0.92);stroke-width:1.5"></i></div>
+        <div class="vak-icon-big"><i data-lucide="wrench" style="width:38px;height:38px;stroke:rgba(255,255,255,0.92);stroke-width:1.5"></i></div>
         <div class="vak-naam">Loodgieter</div>
         <div class="vak-aantal">8 vacatures open</div>
       </div>
@@ -506,22 +506,22 @@
         <div class="vak-aantal">12 vacatures open</div>
       </div>
       <div class="vak-item vak-c5" onclick="selectVak(this,'Schilder')">
-        <div class="vak-icon-big"><i data-lucide="paint-roller" style="width:38px;height:38px;stroke:rgba(255,255,255,0.92);stroke-width:1.5"></i></div>
+        <div class="vak-icon-big"><i data-lucide="paintbrush" style="width:38px;height:38px;stroke:rgba(255,255,255,0.92);stroke-width:1.5"></i></div>
         <div class="vak-naam">Schilder</div>
         <div class="vak-aantal">6 vacatures open</div>
       </div>
       <div class="vak-item vak-c6" onclick="selectVak(this,'Stucadoor')">
-        <div class="vak-icon-big"><i data-lucide="square-dashed-bottom" style="width:38px;height:38px;stroke:rgba(255,255,255,0.92);stroke-width:1.5"></i></div>
+        <div class="vak-icon-big"><i data-lucide="brush" style="width:38px;height:38px;stroke:rgba(255,255,255,0.92);stroke-width:1.5"></i></div>
         <div class="vak-naam">Stucadoor</div>
         <div class="vak-aantal">5 vacatures open</div>
       </div>
       <div class="vak-item vak-c7" onclick="selectVak(this,'Kraanmachinist')">
-        <div class="vak-icon-big"><i data-lucide="construction" style="width:38px;height:38px;stroke:rgba(255,255,255,0.92);stroke-width:1.5"></i></div>
+        <div class="vak-icon-big"><i data-lucide="hard-hat" style="width:38px;height:38px;stroke:rgba(255,255,255,0.92);stroke-width:1.5"></i></div>
         <div class="vak-naam">Kraanmachinist</div>
         <div class="vak-aantal">3 vacatures open</div>
       </div>
       <div class="vak-item vak-c8" onclick="selectVak(this,'Dakdekker')">
-        <div class="vak-icon-big"><i data-lucide="house" style="width:38px;height:38px;stroke:rgba(255,255,255,0.92);stroke-width:1.5"></i></div>
+        <div class="vak-icon-big"><i data-lucide="home" style="width:38px;height:38px;stroke:rgba(255,255,255,0.92);stroke-width:1.5"></i></div>
         <div class="vak-naam">Dakdekker</div>
         <div class="vak-aantal">7 vacatures open</div>
       </div>
@@ -698,8 +698,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-lucide.createIcons();
-
 // ---- SUPABASE ----
 const { createClient } = supabase;
 const sb = createClient(
@@ -860,6 +858,8 @@ function resetForm() {
   ['cv-voornaam','cv-achternaam','cv-email','cv-telefoon','cv-locatie'].forEach(id => document.getElementById(id).value = '');
   document.getElementById('cv-vak').value = '';
 }
+
+document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
 </script>
 </body>
 </html>
