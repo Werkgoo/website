@@ -203,14 +203,14 @@
     .vakken { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-top: 36px; }
     .vak-item {
       border-radius: var(--radius-lg); cursor: pointer; transition: all 0.22s;
-      padding: 22px 20px; position: relative; overflow: hidden; min-height: 110px;
-      display: flex; flex-direction: column; justify-content: flex-end; border: none;
+      padding: 28px 20px 24px; position: relative; overflow: hidden; min-height: 130px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; border: none; text-align: center;
     }
     .vak-item::before { content: ''; position: absolute; inset: 0; opacity: 0; background: rgba(255,255,255,0.08); transition: opacity 0.2s; }
     .vak-item:hover::before, .vak-item.active::before { opacity: 1; }
     .vak-item:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.2); }
     .vak-item.active { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.25); outline: 3px solid var(--geel); outline-offset: -3px; }
-    .vak-icon-big { margin-bottom: 12px; display: flex; }
+    .vak-icon-big { margin-bottom: 14px; display: flex; align-items: center; justify-content: center; }
     .vak-naam { font-family: var(--font-head); font-size: 15px; font-weight: 800; color: #fff; letter-spacing: -0.01em; }
     .vak-aantal { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.65); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
     .vak-c1 { background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%); }
