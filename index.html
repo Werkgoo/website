@@ -315,6 +315,20 @@
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
     .footer-copy { font-size: 12px; color: rgba(255,255,255,0.16); }
 
+    /* ── FAQ ── */
+    .faq-item { border: 1px solid var(--g100); border-radius: 12px; background: #fff; overflow: hidden; box-shadow: var(--shadow-sm); transition: box-shadow .2s; }
+    .faq-item[open] { box-shadow: var(--shadow-md); }
+    .faq-q { padding: 18px 22px; font-size: 15px; font-weight: 700; color: var(--navy); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-q::after { content: '+'; font-size: 20px; font-weight: 400; color: var(--g400); flex-shrink: 0; transition: transform .2s; line-height: 1; }
+    .faq-item[open] .faq-q::after { content: '−'; }
+    .faq-a { padding: 0 22px 18px; font-size: 14px; color: var(--g600); line-height: 1.8; border-top: 1px solid var(--g100); padding-top: 14px; }
+
+    /* ── OVER ONS responsive ── */
+    @media (max-width: 800px) {
+      #over-ons .wrap > div { grid-template-columns: 1fr !important; gap: 32px !important; }
+    }
+
     /* ── TOAST ── */
     .toasts { position: fixed; bottom: 24px; right: 24px; z-index: 9999; display: flex; flex-direction: column; gap: 8px; pointer-events: none; }
     .toast { background: var(--navy); color: #fff; padding: 13px 18px; border-radius: 10px; font-size: 13px; font-weight: 600; box-shadow: 0 8px 32px rgba(0,0,0,0.3); animation: tin .2s ease; display: flex; align-items: center; gap: 9px; pointer-events: all; max-width: 320px; }
@@ -611,6 +625,92 @@
   </div>
 </section>
 
+<!-- OVER ONS -->
+<section class="section section-alt" id="over-ons">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
+      <div>
+        <div class="eyebrow">Over WerkGo</div>
+        <h2 class="section-h">Wij verbinden vakmanschap met de juiste werkgever</h2>
+        <p class="section-p" style="margin-bottom:20px">WerkGo is een CV-platform speciaal voor de bouw & techniek. Wij verzamelen CV's van vakmensen door heel Nederland en koppelen die aan erkende uitzendbureaus en bouwbedrijven die actief op zoek zijn naar personeel.</p>
+        <p class="section-p">Jij hoeft maar één ding te doen: je CV uploaden. Wij doen de rest — snel, gratis en zonder verplichtingen.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="background:#fff;border:1px solid var(--g100);border-radius:14px;padding:22px 24px;display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow-sm)">
+          <div style="width:40px;height:40px;background:#EFF4FF;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1B4FBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div>
+            <div style="font-family:var(--fh);font-weight:700;font-size:15px;color:var(--navy);margin-bottom:4px">Jouw CV, jouw keuze</div>
+            <div style="font-size:13px;color:var(--g600);line-height:1.6">Jij bepaalt altijd zelf of je een aanbieding accepteert. Nul verplichtingen.</div>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--g100);border-radius:14px;padding:22px 24px;display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow-sm)">
+          <div style="width:40px;height:40px;background:#FFF7ED;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          </div>
+          <div>
+            <div style="font-family:var(--fh);font-weight:700;font-size:15px;color:var(--navy);margin-bottom:4px">Veilig & privacyvriendelijk</div>
+            <div style="font-size:13px;color:var(--g600);line-height:1.6">Je CV wordt nooit zonder jouw toestemming gedeeld. Wij voldoen aan de AVG.</div>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--g100);border-radius:14px;padding:22px 24px;display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow-sm)">
+          <div style="width:40px;height:40px;background:rgba(16,185,129,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <div style="font-family:var(--fh);font-weight:700;font-size:15px;color:var(--navy);margin-bottom:4px">Altijd gratis voor vakmensen</div>
+            <div style="font-size:13px;color:var(--g600);line-height:1.6">WerkGo is 100% gratis voor werkzoekenden. Wij worden betaald door de werkgever.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-center" style="margin-bottom:48px">
+      <div class="eyebrow">Veelgestelde vragen</div>
+      <h2 class="section-h">Alles wat je wil weten</h2>
+    </div>
+    <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:12px">
+
+      <details class="faq-item">
+        <summary class="faq-q">Kost het mij iets om mijn CV in te sturen?</summary>
+        <div class="faq-a">Nee, WerkGo is volledig gratis voor vakmensen. Wij worden betaald door de werkgever zodra er een match is. Jij betaalt nooit iets.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Ben ik ergens aan verplicht na het uploaden?</summary>
+        <div class="faq-a">Absoluut niet. Je uploadt je CV vrijblijvend. Als je een aanbieding krijgt, beslis jij of je er iets mee doet. Je kunt op elk moment je gegevens laten verwijderen via info@werkgo.nl.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Wat gebeurt er precies met mijn CV?</summary>
+        <div class="faq-a">Jouw CV wordt bekeken door onze adviseurs. Wij matchen je profiel met erkende bouwbedrijven en uitzendbureaus die actief op zoek zijn naar iemand met jouw achtergrond. Als er een match is, nemen wij contact met je op — altijd eerst met jouw toestemming voordat je CV wordt gedeeld.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Ik heb al werk, maar zoek iets beters. Kan ik ook meedoen?</summary>
+        <div class="faq-a">Ja, dat is juist slim. Veel vakmensen uploaden hun CV alvast om te zien wat er beschikbaar is. Je bent nergens aan gebonden en kunt altijd nee zeggen.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Hoe snel word ik teruggebeld?</summary>
+        <div class="faq-a">Gemiddeld binnen 24 uur op werkdagen. Heb je je CV in het weekend gestuurd? Dan hoor je maandag van ons.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">In welke vakgebieden zijn jullie actief?</summary>
+        <div class="faq-a">Wij werken door heel Nederland in alle bouw- en techniekberoepen: metselaars, timmermannen, loodgieters, elektriciens, schilders, stucadoors, dakdekkers, grondwerkers en meer.</div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
 <!-- REVIEWS -->
 <section class="section section-alt" id="reviews">
   <div class="wrap">
@@ -685,20 +785,24 @@
         <p>CV-platform voor bouw & techniek. Wij verbinden vakmensen met de beste bouwbedrijven door heel Nederland.</p>
       </div>
       <div class="footer-links">
-        <h4>Vakmensen</h4>
+        <h4>Navigatie</h4>
         <a href="#form-anchor" onclick="scrollToForm();return false;">CV uploaden</a>
         <a href="#vakken" onclick="scrollToVakken();return false;">Vakgebieden</a>
         <a href="#stappen" onclick="scrollToStappen();return false;">Hoe het werkt</a>
+        <a href="#over-ons">Over WerkGo</a>
+        <a href="#faq">Veelgestelde vragen</a>
         <a href="#reviews">Ervaringen</a>
       </div>
       <div class="footer-links">
-        <h4>Contact</h4>
+        <h4>Contact & Juridisch</h4>
         <a href="mailto:info@werkgo.nl">info@werkgo.nl</a>
+        <a href="/privacy">Privacybeleid</a>
+        <a href="/privacy">Algemene voorwaarden</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy">© 2026 WerkGo B.V. · KvK 12345678</span>
-      <span class="footer-copy">Privacy · Algemene voorwaarden</span>
+      <span class="footer-copy">© 2026 WerkGo</span>
+      <span class="footer-copy"><a href="/privacy" style="color:inherit;text-decoration:none">Privacy</a> · <a href="/privacy" style="color:inherit;text-decoration:none">Voorwaarden</a></span>
     </div>
   </div>
 </footer>
