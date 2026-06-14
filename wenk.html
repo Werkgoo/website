@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brow Sculpt Gel — DAE Cosmetics</title>
+  <meta name="description" content="De ultieme wenkbrauwen gel voor een perfecte, gedefinieerde brow. 24 uur hold. Waterproof. Dermatologisch getest.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --taupe:   #7A6B63;
+      --taupe-d: #5E524C;
+      --taupe-l: #9C8D85;
+      --cream:   #EDE8E3;
+      --cream-d: #D8D0C8;
+      --cream-l: #F7F4F1;
+      --white:   #FDFCFB;
+      --dark:    #2C2420;
+      --fh: 'Cormorant Garamond', Georgia, serif;
+      --fb: 'DM Sans', sans-serif;
+    }
+    html { font-family: var(--fb); -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+    body { background: var(--cream-l); color: var(--dark); overflow-x: hidden; }
+
+    /* ANIMATIONS */
+    .a-up   { opacity:0; transform:translateY(36px); transition:opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1); }
+    .a-up.in  { opacity:1; transform:none; }
+    .a-fade { opacity:0; transition:opacity 1s ease; }
+    .a-fade.in { opacity:1; }
+    .d1 { transition-delay:.1s; }
+    .d2 { transition-delay:.22s; }
+    .d3 { transition-delay:.36s; }
+    .d4 { transition-delay:.5s; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 48px;
+      height: 72px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background .4s, border-color .4s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      background: rgba(253,252,251,0.96);
+      border-color: var(--cream-d);
+      backdrop-filter: blur(20px);
+    }
+    .nav-logo {
+      font-family: var(--fh); font-size: 22px; font-weight: 400;
+      letter-spacing: .25em; text-transform: uppercase; color: var(--cream);
+      text-decoration: none; transition: color .3s;
+    }
+    nav.scrolled .nav-logo { color: var(--dark); }
+    .nav-logo span { font-style: italic; }
+    .nav-right { display: flex; align-items: center; gap: 32px; }
+    .nav-lnk { font-size: 12px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: rgba(237,232,227,.55); text-decoration: none; transition: color .2s; }
+    .nav-lnk:hover { color: var(--cream); }
+    nav.scrolled .nav-lnk { color: var(--taupe-l); }
+    nav.scrolled .nav-lnk:hover { color: var(--dark); }
+    .nav-buy { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; background: var(--cream); color: var(--taupe-d); border: none; padding: 11px 24px; border-radius: 2px; cursor: pointer; transition: all .2s; }
+    .nav-buy:hover { background: var(--dark); color: var(--cream); }
+    nav.scrolled .nav-buy { background: var(--taupe); color: var(--cream); }
+    nav.scrolled .nav-buy:hover { background: var(--dark); }
+    @media(max-width:680px){ .nav-right { gap:16px; } .nav-lnk { display:none; } nav { padding:0 24px; } }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: var(--taupe);
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 30%, rgba(92,75,67,.6) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 80% at 15% 70%, rgba(44,36,32,.4) 0%, transparent 60%);
+    }
+    .hero-grain {
+      position: absolute; inset: 0; pointer-events: none; opacity: .4;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+    }
+    .hero-line-top {
+      position: absolute; top: 72px; left: 0; right: 0;
+      height: 1px; background: rgba(237,232,227,.1);
+    }
+
+    /* PRODUCT VISUAL — pure CSS brow gel tube */
+    .hero-product {
+      position: absolute;
+      right: 8%; top: 50%;
+      transform: translateY(-50%);
+      width: 280px;
+    }
+    .product-tube {
+      position: relative; margin: 0 auto;
+      width: 90px;
+    }
+    .tube-body {
+      width: 90px; height: 260px; border-radius: 45px 45px 30px 30px;
+      background: linear-gradient(160deg, #EDE8E3 0%, #C4B8B0 30%, #8B7B72 55%, #5E524C 100%);
+      position: relative; overflow: hidden;
+      box-shadow: 16px 24px 60px rgba(44,36,32,.45), -4px -4px 12px rgba(237,232,227,.12), inset 2px 2px 8px rgba(255,255,255,.2);
+    }
+    .tube-sheen {
+      position: absolute; top: 0; left: 10px; width: 20px; height: 100%;
+      background: linear-gradient(180deg, rgba(255,255,255,.25) 0%, rgba(255,255,255,.06) 40%, transparent 100%);
+      border-radius: 20px;
+    }
+    .tube-label {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      text-align: center; width: 70px;
+    }
+    .tube-label-brand {
+      font-family: var(--fh); font-size: 10px; font-weight: 400;
+      letter-spacing: .3em; text-transform: uppercase; color: rgba(237,232,227,.9);
+      display: block; margin-bottom: 6px;
+    }
+    .tube-label-line { width: 100%; height: 1px; background: rgba(237,232,227,.3); margin-bottom: 6px; }
+    .tube-label-name {
+      font-family: var(--fh); font-size: 9px; font-weight: 300;
+      letter-spacing: .18em; text-transform: uppercase; color: rgba(237,232,227,.55);
+      display: block;
+    }
+    .tube-cap {
+      width: 90px; height: 32px; border-radius: 4px 4px 0 0;
+      background: linear-gradient(160deg, #EDE8E3 0%, #C4B8B0 60%, #8B7B72 100%);
+      box-shadow: 0 -2px 8px rgba(44,36,32,.3), inset 0 1px 4px rgba(255,255,255,.3);
+      margin-bottom: 0;
+    }
+    .tube-brush {
+      width: 6px; height: 40px; margin: 0 auto;
+      background: linear-gradient(180deg, #8B7B72, #C4B8B0);
+      border-radius: 0 0 3px 3px;
+    }
+    .product-shadow {
+      width: 60px; height: 16px; margin: 12px auto 0;
+      background: radial-gradient(ellipse, rgba(44,36,32,.5) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .product-ring {
+      position: absolute; top: -60px; right: -60px;
+      width: 320px; height: 320px; border-radius: 50%;
+      border: 1px solid rgba(237,232,227,.08);
+      pointer-events: none;
+    }
+    .product-ring2 {
+      position: absolute; top: -120px; right: -120px;
+      width: 440px; height: 440px; border-radius: 50%;
+      border: 1px solid rgba(237,232,227,.04);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative; z-index: 1;
+      padding: 0 48px 96px;
+      max-width: 640px;
+    }
+    .hero-eyebrow {
+      font-size: 11px; font-weight: 500; letter-spacing: .3em; text-transform: uppercase;
+      color: rgba(237,232,227,.45); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .hero-eyebrow::before { content:''; display:block; width:32px; height:1px; background:rgba(237,232,227,.3); }
+    .hero h1 {
+      font-family: var(--fh);
+      font-size: clamp(52px, 7vw, 96px);
+      font-weight: 300; color: var(--cream);
+      line-height: 1.0; letter-spacing: -.01em;
+      margin-bottom: 28px;
+    }
+    .hero h1 em { font-style: italic; font-weight: 300; }
+    .hero-sub {
+      font-size: 15px; font-weight: 300; line-height: 1.9;
+      color: rgba(237,232,227,.45); max-width: 380px; margin-bottom: 48px;
+    }
+    .hero-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .btn-primary-d {
+      background: var(--cream); color: var(--taupe-d);
+      border: none; padding: 16px 40px; border-radius: 2px;
+      font-family: var(--fb); font-weight: 600; font-size: 12px;
+      letter-spacing: .18em; text-transform: uppercase; cursor: pointer;
+      transition: all .25s;
+    }
+    .btn-primary-d:hover { background: var(--dark); color: var(--cream); }
+    .btn-ghost-d {
+      font-size: 12px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(237,232,227,.4); background: none; border: none; cursor: pointer;
+      transition: color .2s; display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .btn-ghost-d:hover { color: var(--cream); }
+    .hero-scroll {
+      position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      font-size: 10px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase;
+      color: rgba(237,232,227,.25); z-index: 1;
+    }
+    .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(237,232,227,.25), transparent); }
+    @media(max-width:768px){
+      .hero-content { padding: 0 24px 80px; }
+      .hero-product { display:none; }
+    }
+
+    /* STRIP */
+    .strip {
+      background: var(--taupe-d); padding: 18px 0;
+      display: flex; justify-content: center; gap: 0; overflow: hidden;
+    }
+    .strip-inner { display: flex; gap: 56px; white-space: nowrap; animation: marquee 18s linear infinite; width: max-content; }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+    .strip-item { font-size: 11px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: rgba(237,232,227,.45); display: flex; align-items: center; gap: 14px; }
+    .strip-item::before { content:'◆'; font-size: 6px; color: rgba(237,232,227,.25); }
+
+    /* SECTION BASE */
+    section { padding: 120px 0; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 48px; }
+    .eyebrow { font-size: 10px; font-weight: 500; letter-spacing: .35em; text-transform: uppercase; color: var(--taupe-l); margin-bottom: 18px; display:flex; align-items:center; gap:12px; }
+    .eyebrow::before { content:''; width:28px; height:1px; background:var(--cream-d); flex-shrink:0; }
+    .sec-h { font-family: var(--fh); font-size: clamp(36px, 4.5vw, 58px); font-weight: 300; color: var(--dark); line-height: 1.1; letter-spacing: -.01em; }
+    .sec-h em { font-style: italic; }
+    .sec-p { font-size: 15px; font-weight: 300; line-height: 1.95; color: var(--taupe-l); }
+
+    /* INTRO FEATURE */
+    .intro { background: var(--white); }
+    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center; }
+    .intro-visual {
+      aspect-ratio: 3/4; border-radius: 2px;
+      background:
+        radial-gradient(ellipse 70% 60% at 40% 35%, #9C8D85 0%, #7A6B63 50%, #5E524C 100%);
+      position: relative; overflow: hidden;
+    }
+    .intro-visual-inner {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .big-letter {
+      font-family: var(--fh); font-size: 280px; font-weight: 300;
+      color: rgba(237,232,227,.07); line-height: 1; letter-spacing: -.05em;
+      user-select: none; margin-top: 40px;
+    }
+    .intro-pill {
+      position: absolute; bottom: 32px; left: 32px; right: 32px;
+      background: rgba(44,36,32,.7); backdrop-filter: blur(12px);
+      border-radius: 2px; padding: 20px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .ip-label { font-size: 11px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: rgba(237,232,227,.4); margin-bottom: 4px; }
+    .ip-val { font-family: var(--fh); font-size: 28px; font-weight: 300; color: var(--cream); }
+    .ip-div { width: 1px; height: 36px; background: rgba(237,232,227,.1); }
+    .intro-text { display: flex; flex-direction: column; gap: 32px; }
+    .intro-text .sec-h { margin-bottom: 0; }
+    .intro-text .sec-p { max-width: 400px; }
+    .intro-claims { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
+    .claim { display: flex; align-items: center; gap: 14px; font-size: 14px; font-weight: 400; color: var(--dark); }
+    .claim-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--taupe); flex-shrink: 0; }
+    @media(max-width:900px){ .intro-grid { grid-template-columns:1fr; gap:48px; } }
+
+    /* BENEFITS */
+    .benefits { background: var(--cream-l); }
+    .benefits-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-top: 72px; }
+    .benefit {
+      background: var(--white); padding: 48px 36px;
+      display: flex; flex-direction: column; gap: 20px;
+      transition: background .3s;
+    }
+    .benefit:hover { background: var(--taupe); }
+    .benefit-num { font-family: var(--fh); font-size: 48px; font-weight: 300; color: var(--cream-d); line-height: 1; transition: color .3s; }
+    .benefit:hover .benefit-num { color: rgba(237,232,227,.3); }
+    .benefit-title { font-family: var(--fh); font-size: 22px; font-weight: 400; color: var(--dark); letter-spacing: -.01em; transition: color .3s; }
+    .benefit:hover .benefit-title { color: var(--cream); }
+    .benefit-text { font-size: 13px; font-weight: 300; line-height: 1.9; color: var(--taupe-l); transition: color .3s; }
+    .benefit:hover .benefit-text { color: rgba(237,232,227,.55); }
+    @media(max-width:900px){ .benefits-grid { grid-template-columns:1fr 1fr; } }
+    @media(max-width:560px){ .benefits-grid { grid-template-columns:1fr; } }
+
+    /* HOW TO */
+    .howto { background: var(--taupe); }
+    .howto .eyebrow { color: rgba(237,232,227,.4); }
+    .howto .eyebrow::before { background: rgba(237,232,227,.2); }
+    .howto .sec-h { color: var(--cream); }
+    .steps-ht { display: grid; grid-template-columns: repeat(3,1fr); gap: 48px; margin-top: 72px; }
+    .step-ht { display: flex; flex-direction: column; }
+    .step-ht-num {
+      font-family: var(--fh); font-size: 72px; font-weight: 300;
+      color: rgba(237,232,227,.12); line-height: 1; margin-bottom: 20px;
+    }
+    .step-ht-line { width: 28px; height: 1px; background: rgba(237,232,227,.25); margin-bottom: 20px; }
+    .step-ht-title { font-family: var(--fh); font-size: 22px; font-weight: 400; color: var(--cream); margin-bottom: 14px; }
+    .step-ht-text { font-size: 14px; font-weight: 300; line-height: 1.9; color: rgba(237,232,227,.4); }
+    @media(max-width:768px){ .steps-ht { grid-template-columns:1fr; gap:36px; } }
+
+    /* INGREDIENTS */
+    .ingredients { background: var(--dark); }
+    .ingredients .eyebrow { color: rgba(237,232,227,.3); }
+    .ingredients .eyebrow::before { background: rgba(237,232,227,.1); }
+    .ingredients .sec-h { color: var(--cream); }
+    .ing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 72px; align-items: start; }
+    .ing-item { padding: 32px 0; border-bottom: 1px solid rgba(237,232,227,.06); }
+    .ing-item:first-child { border-top: 1px solid rgba(237,232,227,.06); }
+    .ing-name { font-family: var(--fh); font-size: 20px; font-weight: 400; color: var(--cream); margin-bottom: 8px; }
+    .ing-origin { font-size: 11px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: rgba(237,232,227,.25); margin-bottom: 12px; }
+    .ing-desc { font-size: 13px; font-weight: 300; line-height: 1.9; color: rgba(237,232,227,.35); }
+    .ing-visual {
+      position: sticky; top: 100px;
+      aspect-ratio: 1; border-radius: 2px;
+      background: linear-gradient(135deg, #3A2F2A 0%, #2C2420 100%);
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+    }
+    .ing-big-text { font-family: var(--fh); font-size: 120px; font-weight: 300; color: rgba(237,232,227,.04); line-height: 1; }
+    .ing-badge {
+      position: absolute; bottom: 32px; left: 32px; right: 32px;
+      text-align: center; border: 1px solid rgba(237,232,227,.08); padding: 24px; border-radius: 2px;
+    }
+    .ing-badge-num { font-family: var(--fh); font-size: 44px; font-weight: 300; color: var(--cream); line-height: 1; margin-bottom: 6px; }
+    .ing-badge-label { font-size: 10px; font-weight: 500; letter-spacing: .25em; text-transform: uppercase; color: rgba(237,232,227,.3); }
+    @media(max-width:768px){ .ing-grid { grid-template-columns:1fr; } .ing-visual { position:relative; top:0; } }
+
+    /* REVIEWS */
+    .reviews { background: var(--cream-l); }
+    .reviews-top { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 24px; margin-bottom: 72px; }
+    .score { font-family: var(--fh); font-size: 72px; font-weight: 300; color: var(--dark); line-height: 1; }
+    .score-sub { font-size: 12px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--taupe-l); margin-top: 6px; }
+    .score-stars { color: var(--taupe); font-size: 14px; letter-spacing: 3px; margin-bottom: 4px; }
+    .rv-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+    .rv {
+      background: var(--white); padding: 40px 36px;
+      display: flex; flex-direction: column; gap: 20px;
+    }
+    .rv-stars { color: var(--taupe); font-size: 11px; letter-spacing: 3px; }
+    .rv-text { font-family: var(--fh); font-size: 17px; font-weight: 300; font-style: italic; line-height: 1.8; color: var(--dark); flex: 1; }
+    .rv-author { font-size: 12px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--taupe-l); padding-top: 20px; border-top: 1px solid var(--cream-d); }
+    .rv-role { font-size: 11px; color: var(--cream-d); margin-top: 3px; letter-spacing: .05em; text-transform: none; font-weight: 300; }
+    @media(max-width:768px){ .rv-grid { grid-template-columns:1fr; } }
+
+    /* PRODUCT SECTION */
+    .product-sec { background: var(--taupe); overflow: hidden; }
+    .product-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: 640px; }
+    .product-visual-wrap {
+      background: var(--taupe-d);
+      display: flex; align-items: center; justify-content: center;
+      padding: 80px 60px; position: relative; overflow: hidden;
+    }
+    .product-visual-wrap::before {
+      content: '';
+      position: absolute; top: -100px; right: -100px;
+      width: 400px; height: 400px; border-radius: 50%;
+      border: 1px solid rgba(237,232,227,.06);
+    }
+    .product-visual-wrap::after {
+      content: '';
+      position: absolute; bottom: -80px; left: -80px;
+      width: 300px; height: 300px; border-radius: 50%;
+      border: 1px solid rgba(237,232,227,.04);
+    }
+    .p-tube { position: relative; z-index: 1; }
+    .p-tube-body {
+      width: 110px; height: 320px; border-radius: 55px 55px 36px 36px;
+      background: linear-gradient(160deg, #EDE8E3 0%, #C4B8B0 25%, #9C8D85 55%, #5E524C 100%);
+      position: relative; overflow: hidden; margin: 0 auto;
+      box-shadow: 20px 32px 80px rgba(44,36,32,.6), -6px -6px 16px rgba(237,232,227,.1), inset 3px 3px 10px rgba(255,255,255,.18);
+    }
+    .p-tube-sheen {
+      position: absolute; top: 0; left: 12px; width: 24px; height: 100%;
+      background: linear-gradient(180deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,.05) 50%, transparent 100%);
+      border-radius: 20px;
+    }
+    .p-tube-label {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      text-align: center; width: 82px;
+    }
+    .p-tube-brand {
+      font-family: var(--fh); font-size: 11px; font-weight: 400;
+      letter-spacing: .35em; text-transform: uppercase; color: rgba(237,232,227,.85);
+      display: block; margin-bottom: 8px;
+    }
+    .p-tube-line { width: 100%; height: 1px; background: rgba(237,232,227,.25); margin-bottom: 8px; }
+    .p-tube-name {
+      font-family: var(--fh); font-size: 9px; font-weight: 300; font-style: italic;
+      letter-spacing: .15em; color: rgba(237,232,227,.5); display: block;
+    }
+    .p-tube-cap {
+      width: 110px; height: 36px; border-radius: 4px 4px 0 0; margin: 0 auto 0;
+      background: linear-gradient(160deg, #EDE8E3 0%, #C4B8B0 60%, #8B7B72 100%);
+      box-shadow: 0 -2px 10px rgba(44,36,32,.3), inset 0 2px 4px rgba(255,255,255,.3);
+    }
+    .p-tube-brush { width: 7px; height: 44px; margin: 0 auto; background: linear-gradient(180deg, #8B7B72, #C4B8B0); border-radius: 0 0 4px 4px; }
+    .p-shadow { width: 70px; height: 18px; margin: 14px auto 0; background: radial-gradient(ellipse, rgba(44,36,32,.55) 0%, transparent 70%); border-radius: 50%; }
+
+    .product-info { padding: 80px 64px; display: flex; flex-direction: column; justify-content: center; gap: 0; }
+    .product-info .eyebrow { color: rgba(237,232,227,.35); }
+    .product-info .eyebrow::before { background: rgba(237,232,227,.15); }
+    .product-info .sec-h { color: var(--cream); margin-bottom: 20px; }
+    .product-info .sec-p { color: rgba(237,232,227,.4); margin-bottom: 40px; }
+    .price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 36px; }
+    .price { font-family: var(--fh); font-size: 44px; font-weight: 300; color: var(--cream); }
+    .price-label { font-size: 12px; font-weight: 500; letter-spacing: .15em; text-transform: uppercase; color: rgba(237,232,227,.3); }
+    .btn-buy-lg {
+      display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+      background: var(--cream); color: var(--taupe-d);
+      border: none; padding: 18px 48px; border-radius: 2px;
+      font-family: var(--fb); font-weight: 600; font-size: 12px;
+      letter-spacing: .2em; text-transform: uppercase; cursor: pointer;
+      transition: all .25s; width: 100%; max-width: 320px;
+    }
+    .btn-buy-lg:hover { background: var(--dark); color: var(--cream); }
+    .product-meta { display: flex; gap: 32px; margin-top: 32px; flex-wrap: wrap; }
+    .pm { font-size: 12px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: rgba(237,232,227,.28); display: flex; align-items: center; gap: 8px; }
+    .pm::before { content:''; width:4px; height:4px; border-radius:50%; background:rgba(237,232,227,.2); flex-shrink:0; }
+    @media(max-width:900px){ .product-layout { grid-template-columns:1fr; } .product-info { padding:48px 32px; } }
+
+    /* CTA */
+    .cta-sec { background: var(--dark); padding: 140px 0; text-align: center; position: relative; overflow: hidden; }
+    .cta-sec::before { content:''; position:absolute; top:-200px; left:50%; transform:translateX(-50%); width:600px; height:600px; border-radius:50%; background:radial-gradient(circle, rgba(122,107,99,.12) 0%, transparent 65%); pointer-events:none; }
+    .cta-sec .eyebrow { justify-content:center; }
+    .cta-sec .eyebrow::before { display:none; }
+    .cta-h { font-family: var(--fh); font-size: clamp(40px,6vw,80px); font-weight: 300; color: var(--cream); line-height: 1.05; letter-spacing: -.015em; margin-bottom: 24px; }
+    .cta-h em { font-style: italic; }
+    .cta-p { font-size: 15px; font-weight: 300; color: rgba(237,232,227,.35); line-height: 1.9; max-width: 480px; margin: 0 auto 56px; }
+    .btn-cta {
+      display: inline-flex; align-items: center; gap: 14px;
+      background: var(--cream); color: var(--dark);
+      border: none; padding: 20px 56px; border-radius: 2px;
+      font-family: var(--fb); font-weight: 600; font-size: 12px;
+      letter-spacing: .22em; text-transform: uppercase; cursor: pointer;
+      transition: all .25s;
+    }
+    .btn-cta:hover { background: var(--taupe); color: var(--cream); }
+
+    /* FOOTER */
+    footer { background: #1A1410; padding: 56px 0 36px; }
+    .footer-wrap { max-width: 1080px; margin: 0 auto; padding: 0 48px; }
+    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 56px; margin-bottom: 52px; padding-bottom: 52px; border-bottom: 1px solid rgba(237,232,227,.05); }
+    .footer-brand { font-family: var(--fh); font-size: 20px; font-weight: 400; letter-spacing: .2em; text-transform: uppercase; color: rgba(237,232,227,.7); margin-bottom: 14px; }
+    .footer-brand span { font-style: italic; }
+    .footer-desc { font-size: 13px; font-weight: 300; color: rgba(237,232,227,.22); line-height: 1.85; max-width: 220px; }
+    .footer-col-h { font-size: 10px; font-weight: 500; letter-spacing: .28em; text-transform: uppercase; color: rgba(237,232,227,.2); margin-bottom: 18px; }
+    .footer-lnk { display: block; font-size: 13px; font-weight: 300; color: rgba(237,232,227,.32); text-decoration: none; margin-bottom: 12px; transition: color .15s; letter-spacing: .02em; }
+    .footer-lnk:hover { color: rgba(237,232,227,.75); }
+    .footer-bot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .footer-copy { font-size: 12px; font-weight: 300; color: rgba(237,232,227,.15); letter-spacing: .05em; }
+    .footer-copy a { color: inherit; text-decoration: none; }
+    @media(max-width:768px){ .footer-top { grid-template-columns:1fr 1fr; gap:32px; } }
+    @media(max-width:480px){ .footer-top { grid-template-columns:1fr; } nav { padding:0 20px; } .wrap { padding:0 24px; } .hero-content { padding:0 20px 72px; } .footer-wrap { padding:0 24px; } }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">D<span>AE</span></a>
+  <div class="nav-right">
+    <a href="#formule" class="nav-lnk">Formule</a>
+    <a href="#gebruik" class="nav-lnk">Gebruik</a>
+    <a href="#reviews" class="nav-lnk">Reviews</a>
+    <button class="nav-buy" onclick="document.getElementById('kopen').scrollIntoView({behavior:'smooth'})">Kopen</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-line-top"></div>
+
+  <!-- PRODUCT VISUAL -->
+  <div class="hero-product a-fade d2">
+    <div class="product-ring"></div>
+    <div class="product-ring2"></div>
+    <div class="product-tube">
+      <div class="tube-cap"></div>
+      <div class="tube-brush"></div>
+      <div class="tube-body">
+        <div class="tube-sheen"></div>
+        <div class="tube-label">
+          <span class="tube-label-brand">DAE</span>
+          <div class="tube-label-line"></div>
+          <span class="tube-label-name">Brow Sculpt</span>
+        </div>
+      </div>
+    </div>
+    <div class="product-shadow"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow a-fade">DAE Cosmetics · Nieuw</div>
+    <h1 class="a-up">
+      Brow<br><em>Sculpt</em><br>Gel
+    </h1>
+    <p class="hero-sub a-up d1">De ultieme wenkbrauwgel voor een gedefinieerde, volle brow. 24 uur hold. Waterproof. Gemaakt voor jou.</p>
+    <div class="hero-actions a-up d2">
+      <button class="btn-primary-d" onclick="document.getElementById('kopen').scrollIntoView({behavior:'smooth'})">Nu bestellen</button>
+      <a href="#formule" class="btn-ghost-d">
+        Ontdek de formule
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-inner" id="strip-inner"></div>
+</div>
+
+<!-- INTRO -->
+<section class="intro" id="formule">
+  <div class="wrap">
+    <div class="intro-grid">
+      <div class="a-fade">
+        <div class="intro-visual">
+          <div class="intro-visual-inner">
+            <div class="big-letter">B</div>
+          </div>
+          <div class="intro-pill">
+            <div>
+              <div class="ip-label">Hold</div>
+              <div class="ip-val">24u</div>
+            </div>
+            <div class="ip-div"></div>
+            <div>
+              <div class="ip-label">Waterproof</div>
+              <div class="ip-val">100%</div>
+            </div>
+            <div class="ip-div"></div>
+            <div>
+              <div class="ip-label">Derm. getest</div>
+              <div class="ip-val">✓</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="intro-text a-up d1">
+        <div>
+          <div class="eyebrow">Over het product</div>
+          <h2 class="sec-h">Gedefinieerde<br><em>brows. Altijd.</em></h2>
+        </div>
+        <p class="sec-p">De Brow Sculpt Gel van DAE Cosmetics is ontwikkeld voor wie het beste wil. Een lichte, niet-plakkerige formule die elke haarstreng op zijn plek houdt — van ochtend tot avond.</p>
+        <div class="intro-claims">
+          <div class="claim"><span class="claim-dot"></span>Langhoudende hold zonder stijfheid</div>
+          <div class="claim"><span class="claim-dot"></span>Waterproof en zweetsbestendig</div>
+          <div class="claim"><span class="claim-dot"></span>Verrijkt met keratine en peptiden</div>
+          <div class="claim"><span class="claim-dot"></span>Dermatologisch getest, vegan & cruelty-free</div>
+          <div class="claim"><span class="claim-dot"></span>Geschikt voor alle haartypen en huidtypes</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="wrap">
+    <div class="a-up">
+      <div class="eyebrow">Waarom DAE</div>
+      <h2 class="sec-h">Vier redenen om<br><em>te kiezen voor Brow Sculpt</em></h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit a-up d1">
+        <div class="benefit-num">01</div>
+        <div class="benefit-title">24 uur hold</div>
+        <div class="benefit-text">Eenmaal aangebracht, blijft je brow de hele dag perfect op zijn plek — door regen, zweet en de warmste zomerdagen.</div>
+      </div>
+      <div class="benefit a-up d2">
+        <div class="benefit-num">02</div>
+        <div class="benefit-title">Voedt terwijl het stylt</div>
+        <div class="benefit-text">Onze unieke keratine-peptide formule voedt elke haarstreng en stimuleert de groei. Styling én verzorging in één.</div>
+      </div>
+      <div class="benefit a-up d3">
+        <div class="benefit-num">03</div>
+        <div class="benefit-title">Transparant & licht</div>
+        <div class="benefit-text">Geen witte resten, geen stijve, harde brows. De gel droogt transparant op en voelt zo licht aan dat je hem niet eens voelt.</div>
+      </div>
+      <div class="benefit a-up d4">
+        <div class="benefit-num">04</div>
+        <div class="benefit-title">Clean formule</div>
+        <div class="benefit-text">Vrij van parabenen, sulfaten en kunstkleuren. 100% vegan en cruelty-free. Dermatologisch getest voor de gevoeligste huid.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO USE -->
+<section class="howto" id="gebruik">
+  <div class="wrap">
+    <div class="a-up">
+      <div class="eyebrow">Gebruiksaanwijzing</div>
+      <h2 class="sec-h" style="color:var(--cream)">In drie stappen<br><em>perfecte brows</em></h2>
+    </div>
+    <div class="steps-ht">
+      <div class="step-ht a-up d1">
+        <div class="step-ht-num">01</div>
+        <div class="step-ht-line"></div>
+        <div class="step-ht-title">Breng aan</div>
+        <div class="step-ht-text">Begin aan de binnenkant van je wenkbrauw en maak met korte, lichte streken de richting van de haartjes. Volg de natuurlijke boogvorm.</div>
+      </div>
+      <div class="step-ht a-up d2">
+        <div class="step-ht-num">02</div>
+        <div class="step-ht-line"></div>
+        <div class="step-ht-title">Kamm & shape</div>
+        <div class="step-ht-text">Gebruik de spoolie om de haartjes te kammen en te plaatsen voor een volle, gedefinieerde look. Werk naar boven en buiten toe.</div>
+      </div>
+      <div class="step-ht a-up d3">
+        <div class="step-ht-num">03</div>
+        <div class="step-ht-line"></div>
+        <div class="step-ht-title">Laat drogen</div>
+        <div class="step-ht-text">Laat de gel 30 seconden drogen. De formule fixeert zonder stijfheid — je brow ziet er de hele dag perfect uit.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INGREDIENTS -->
+<section class="ingredients">
+  <div class="wrap">
+    <div class="ing-grid">
+      <div>
+        <div class="eyebrow a-up">Actieve ingrediënten</div>
+        <h2 class="sec-h a-up d1" style="color:var(--cream);margin-bottom:40px">Wat zit er<br><em>werkelijk in?</em></h2>
+        <div class="ing-item a-up d1">
+          <div class="ing-name">Keratine Complex</div>
+          <div class="ing-origin">Plantaardig · Gehydrolyseerd</div>
+          <div class="ing-desc">Versterkt de haarvezel van binnenuit, vermindert breuk en stimuleert een dichtere, vollere groei over tijd.</div>
+        </div>
+        <div class="ing-item a-up d2">
+          <div class="ing-name">Argan Peptiden</div>
+          <div class="ing-origin">Marokko · Koudgeperst</div>
+          <div class="ing-desc">Voedt de haarzakjes, geeft glans en elasticiteit. De ultieme boost voor wenkbrauwen die er van nature voller uitzien.</div>
+        </div>
+        <div class="ing-item a-up d3">
+          <div class="ing-name">Biotine (B7)</div>
+          <div class="ing-origin">Vitamine Complex</div>
+          <div class="ing-desc">Ondersteunt de productie van keratine in de haarfollikel. Essentieel voor sterke, gezonde en snelgroeiende wenkbrauwen.</div>
+        </div>
+        <div class="ing-item a-up d4">
+          <div class="ing-name">Hyaluronzuur</div>
+          <div class="ing-origin">Micro-moleculair</div>
+          <div class="ing-desc">Houdt vocht vast in de huid rondom de haarfollikel, zorgt voor een zachte huid en voorkomt uitdroging tijdens het dragen.</div>
+        </div>
+      </div>
+      <div class="ing-visual a-fade d2">
+        <div class="ing-big-text">B</div>
+        <div class="ing-badge">
+          <div class="ing-badge-num">100%</div>
+          <div class="ing-badge-label">Clean · Vegan · Cruelty-free</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="reviews-top a-up">
+      <div>
+        <div class="eyebrow">Klantbeoordelingen</div>
+        <h2 class="sec-h">Wat klanten zeggen<br><em>over Brow Sculpt</em></h2>
+      </div>
+      <div>
+        <div class="score-stars">★★★★★</div>
+        <div class="score">4.9</div>
+        <div class="score-sub">Gebaseerd op 847 reviews</div>
+      </div>
+    </div>
+    <div class="rv-grid">
+      <div class="rv a-up d1">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">"Eindelijk een gel die mijn brows de hele dag op zijn plek houdt zonder dat ze hard of stijf aanvoelen. Echt een game changer."</p>
+        <div class="rv-author">
+          Sofie V.
+          <div class="rv-role">Amsterdam · Gekocht: Brow Sculpt Gel</div>
+        </div>
+      </div>
+      <div class="rv a-up d2">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">"Na weken gebruik merk ik dat mijn wenkbrauwen echt voller zijn geworden. De formule werkt écht. Nooit meer zonder."</p>
+        <div class="rv-author">
+          Lena M.
+          <div class="rv-role">Rotterdam · Vaste klant</div>
+        </div>
+      </div>
+      <div class="rv a-up d3">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">"De verpakking is prachtig, maar het product is nog beter. Mijn brows zien er na tien seconden aanbrengen perfect uit. Absoluut 5 sterren."</p>
+        <div class="rv-author">
+          Noor A.
+          <div class="rv-role">Utrecht · Schoonheidsspecialiste</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT / KOPEN -->
+<section class="product-sec" id="kopen">
+  <div class="product-layout">
+    <div class="product-visual-wrap a-fade">
+      <div class="p-tube">
+        <div class="p-tube-cap"></div>
+        <div class="p-tube-brush"></div>
+        <div class="p-tube-body">
+          <div class="p-tube-sheen"></div>
+          <div class="p-tube-label">
+            <span class="p-tube-brand">DAE</span>
+            <div class="p-tube-line"></div>
+            <span class="p-tube-name">Brow Sculpt Gel</span>
+          </div>
+        </div>
+        <div class="p-shadow"></div>
+      </div>
+    </div>
+    <div class="product-info a-up">
+      <div class="eyebrow">Bestel nu</div>
+      <h2 class="sec-h">Brow Sculpt <em>Gel</em></h2>
+      <p class="sec-p">8 ml · Transparant · 24u hold · Waterproof</p>
+      <div class="price-row">
+        <div class="price">€24,95</div>
+        <div class="price-label">incl. BTW · gratis verzending vanaf €35</div>
+      </div>
+      <button class="btn-buy-lg">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        Toevoegen aan winkelwagen
+      </button>
+      <div class="product-meta">
+        <span class="pm">Gratis retour</span>
+        <span class="pm">Snel geleverd</span>
+        <span class="pm">Veilig betalen</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec">
+  <div class="wrap">
+    <div class="a-up">
+      <div class="eyebrow">DAE Cosmetics</div>
+      <h2 class="cta-h">Jouw beste brows<br><em>beginnen vandaag</em></h2>
+      <p class="cta-p">Sluit je aan bij meer dan 10.000 tevreden klanten die hun brow routine transformeerden met Brow Sculpt Gel.</p>
+      <button class="btn-cta" onclick="document.getElementById('kopen').scrollIntoView({behavior:'smooth'})">
+        Ontdek Brow Sculpt Gel
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">D<span>AE</span> Cosmetics</div>
+        <p class="footer-desc">Luxe cosmetica gemaakt voor de moderne vrouw. Clean. Effectief. Tijdloos.</p>
+      </div>
+      <div>
+        <div class="footer-col-h">Producten</div>
+        <a href="#kopen" class="footer-lnk">Brow Sculpt Gel</a>
+        <a href="#" class="footer-lnk">Collectie bekijken</a>
+      </div>
+      <div>
+        <div class="footer-col-h">Info</div>
+        <a href="#formule" class="footer-lnk">Formule & ingrediënten</a>
+        <a href="#gebruik" class="footer-lnk">Gebruiksaanwijzing</a>
+        <a href="#reviews" class="footer-lnk">Reviews</a>
+        <a href="mailto:info@daecosmetics.nl" class="footer-lnk">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span class="footer-copy">© 2026 DAE Cosmetics</span>
+      <span class="footer-copy"><a href="#">Privacy</a> · <a href="#">Voorwaarden</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* NAV */
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+}, { passive:true });
+
+/* STRIP MARQUEE */
+const items = ['24 Uur Hold','Waterproof','Keratine Complex','Vegan & Cruelty-Free','Dermatologisch Getest','Clean Formule','Biotine B7','Argan Peptiden'];
+const inner = document.getElementById('strip-inner');
+const html = [...items,...items,...items,...items].map(t=>`<span class="strip-item">${t}</span>`).join('');
+inner.innerHTML = html + html;
+
+/* ANIMATIONS */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.a-up, .a-fade').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

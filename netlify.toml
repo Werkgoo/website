@@ -43,3 +43,8 @@
   from = "/privacy"
   to = "/privacy.html"
   status = 200
+
+[[redirects]]
+  from = "/wenk"
+  to = "/wenk.html"
+  status = 200
