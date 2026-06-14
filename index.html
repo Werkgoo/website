@@ -3,33 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WerkGo — Bouw & Techniek Uitzendbureau Nederland</title>
+  <title>WerkGo — Bouw & Techniek Vacatures Nederland</title>
   <meta name="description" content="Upload je CV en ontvang binnen 24 uur concrete vacatures in bouw & techniek. Gratis, persoonlijk en snel. Heel Nederland.">
   <link rel="canonical" href="https://werkgo.nl/">
-  <meta property="og:title" content="WerkGo — Werk in bouw & techniek Nederland">
+  <meta property="og:title" content="WerkGo — Werk vinden in bouw & techniek">
   <meta property="og:description" content="Upload je CV en ontvang binnen 24 uur concrete vacatures. Gratis en vrijblijvend.">
   <meta property="og:url" content="https://werkgo.nl/">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- TikTok Pixel -->
-  <script>
-  !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};ttq.load('D8L856JC77U72TCSR6E0');ttq.page()}(window,document,'ttq');
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- TikTok Pixel -->
+  <script>!function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};ttq.load('D8L856JC77U72TCSR6E0');ttq.page()}(window,document,'ttq');</script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --navy:   #0A1628;
       --blue:   #1B4FBF;
       --orange: #F97316;
       --green:  #10B981;
-      --white:  #FFFFFF;
       --g50:    #F8F9FB;
       --g100:   #EEF0F5;
       --g200:   #DDE1EC;
@@ -38,111 +34,113 @@
       --g700:   #374151;
       --fh: 'Space Grotesk', sans-serif;
       --fb: 'Plus Jakarta Sans', sans-serif;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
-      --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
-      --shadow-lg: 0 12px 40px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.06);
-      --shadow-xl: 0 24px 80px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.1);
+      --s1: 0 1px 3px rgba(0,0,0,0.07),0 1px 2px rgba(0,0,0,0.04);
+      --s2: 0 4px 16px rgba(0,0,0,0.08),0 2px 6px rgba(0,0,0,0.04);
+      --s3: 0 12px 40px rgba(0,0,0,0.1),0 4px 16px rgba(0,0,0,0.06);
+      --s4: 0 24px 80px rgba(0,0,0,0.18),0 8px 24px rgba(0,0,0,0.08);
     }
-
     html { font-family: var(--fb); color: var(--navy); scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-    body { background: #fff; }
+    body { background: #fff; overflow-x: hidden; }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-left { opacity: 0; transform: translateX(-24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal-left.visible { opacity: 1; transform: none; }
+    .reveal-right { opacity: 0; transform: translateX(24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal-right.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+    .reveal-delay-4 { transition-delay: .4s; }
 
     /* ── NAV ── */
     nav {
-      position: sticky; top: 0; z-index: 99;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(20px);
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(24px);
       border-bottom: 1px solid var(--g100);
       height: 64px; display: flex; align-items: center;
+      transition: box-shadow .2s;
     }
-    .nav-wrap { max-width: 1100px; margin: 0 auto; padding: 0 28px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    nav.scrolled { box-shadow: var(--s2); }
+    .nav-wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .logo-mark { width: 32px; height: 32px; background: var(--orange); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .logo-mark svg { width: 18px; height: 18px; }
-    .logo-name { font-family: var(--fh); font-weight: 800; font-size: 19px; color: var(--navy); letter-spacing: -0.04em; }
-    .nav-right { display: flex; align-items: center; gap: 8px; }
-    .nav-cta { background: var(--orange); color: #fff; font-family: var(--fb); font-weight: 700; font-size: 14px; padding: 10px 20px; border-radius: 9px; border: none; cursor: pointer; transition: all .15s; white-space: nowrap; }
-    .nav-cta:hover { background: #ea6c10; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(249,115,22,0.3); }
+    .logo-mark { width: 34px; height: 34px; background: var(--orange); border-radius: 9px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 8px rgba(249,115,22,0.3); }
+    .logo-mark svg { width: 19px; height: 19px; }
+    .logo-name { font-family: var(--fh); font-weight: 800; font-size: 20px; color: var(--navy); letter-spacing: -0.04em; }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-link { font-size: 14px; font-weight: 500; color: var(--g600); text-decoration: none; padding: 7px 14px; border-radius: 8px; transition: all .15s; }
+    .nav-link:hover { background: var(--g50); color: var(--navy); }
+    .nav-cta { background: var(--orange); color: #fff; font-family: var(--fb); font-weight: 700; font-size: 14px; padding: 10px 22px; border-radius: 10px; border: none; cursor: pointer; transition: all .15s; white-space: nowrap; margin-left: 8px; }
+    .nav-cta:hover { background: #ea6c10; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(249,115,22,0.35); }
 
     /* ── HERO ── */
-    .hero {
-      background: var(--navy);
-      padding: 80px 0 0;
-      overflow: hidden;
-      position: relative;
-    }
+    .hero { background: var(--navy); padding: 88px 0 0; overflow: hidden; position: relative; }
     .hero-bg {
       position: absolute; inset: 0; pointer-events: none;
       background:
-        radial-gradient(ellipse 55% 60% at 75% 35%, rgba(27,79,191,0.4) 0%, transparent 60%),
-        radial-gradient(ellipse 35% 50% at 5% 90%, rgba(249,115,22,0.1) 0%, transparent 55%),
-        radial-gradient(ellipse 20% 30% at 50% 10%, rgba(255,255,255,0.03) 0%, transparent 60%);
+        radial-gradient(ellipse 60% 70% at 80% 30%, rgba(27,79,191,0.45) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 0% 100%, rgba(249,115,22,0.12) 0%, transparent 55%),
+        radial-gradient(ellipse 30% 30% at 40% 0%, rgba(255,255,255,0.04) 0%, transparent 60%);
     }
-    .hero-wrap { max-width: 1100px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 440px; gap: 72px; align-items: start; }
+    .hero-noise { position: absolute; inset: 0; pointer-events: none; opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px 200px; }
+    .hero-wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 430px; gap: 64px; align-items: start; }
 
-    /* HERO LEFT */
     .hero-pill {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.22);
-      color: #34D399; font-size: 12px; font-weight: 700; letter-spacing: .8px;
+      background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2);
+      color: #34D399; font-size: 11px; font-weight: 700; letter-spacing: 1px;
       padding: 6px 14px; border-radius: 999px; margin-bottom: 28px; text-transform: uppercase;
     }
-    .hero-pill-dot { width: 7px; height: 7px; border-radius: 50%; background: #10B981; animation: blink 2s infinite; flex-shrink: 0; }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .hero-pill-dot { width: 7px; height: 7px; border-radius: 50%; background: #10B981; animation: pulse 2s infinite; flex-shrink: 0; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.8)} }
 
-    .hero h1 {
-      font-family: var(--fh); font-size: clamp(38px, 4.5vw, 56px);
-      font-weight: 800; color: #fff; line-height: 1.08; letter-spacing: -0.03em;
-      margin-bottom: 22px;
-    }
+    .hero h1 { font-family: var(--fh); font-size: clamp(40px, 4.8vw, 60px); font-weight: 800; color: #fff; line-height: 1.06; letter-spacing: -0.03em; margin-bottom: 24px; }
     .hero h1 .accent { color: var(--orange); }
-    .hero h1 .underline-accent {
-      position: relative; display: inline-block;
-    }
-    .hero h1 .underline-accent::after {
-      content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 3px;
-      background: var(--orange); border-radius: 2px; opacity: 0.7;
-    }
+    .accent-line { position: relative; display: inline-block; }
+    .accent-line::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--orange), rgba(249,115,22,0.3)); border-radius: 2px; }
 
-    .hero-sub { font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.48); max-width: 420px; margin-bottom: 40px; font-weight: 400; }
+    .hero-sub { font-size: 17px; line-height: 1.85; color: rgba(255,255,255,0.45); max-width: 440px; margin-bottom: 44px; }
 
-    .hero-proof { display: flex; align-items: center; gap: 20px; padding-bottom: 64px; flex-wrap: wrap; }
+    .hero-proof { display: flex; align-items: center; gap: 20px; padding-bottom: 72px; flex-wrap: wrap; }
     .proof-avatars { display: flex; }
-    .proof-avatars img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 2px solid var(--navy); margin-right: -9px; }
-    .proof-text { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.6; }
-    .proof-text strong { color: rgba(255,255,255,0.8); font-weight: 700; }
-    .proof-stars { color: #FBBF24; font-size: 12px; letter-spacing: 1.5px; display: block; margin-bottom: 2px; }
-    .proof-divider { width: 1px; height: 32px; background: rgba(255,255,255,0.1); flex-shrink: 0; }
-    .proof-badges { display: flex; flex-direction: column; gap: 5px; }
-    .proof-badge { font-size: 12px; color: rgba(255,255,255,0.38); display: flex; align-items: center; gap: 6px; }
-    .proof-badge::before { content: '✓'; color: var(--green); font-weight: 800; font-size: 11px; }
+    .proof-avatars img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2.5px solid rgba(255,255,255,0.15); margin-right: -10px; }
+    .proof-avatars img:last-child { margin-right: 0; }
+    .proof-text { font-size: 13px; color: rgba(255,255,255,0.38); line-height: 1.65; }
+    .proof-text strong { color: rgba(255,255,255,0.85); font-weight: 700; }
+    .proof-stars { color: #FBBF24; font-size: 11px; letter-spacing: 2px; display: block; margin-bottom: 3px; }
+    .proof-div { width: 1px; height: 36px; background: rgba(255,255,255,0.08); flex-shrink: 0; }
+    .proof-badges { display: flex; flex-direction: column; gap: 6px; }
+    .proof-badge { font-size: 12px; color: rgba(255,255,255,0.35); display: flex; align-items: center; gap: 7px; }
+    .proof-check { width: 16px; height: 16px; border-radius: 50%; background: rgba(16,185,129,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .proof-check svg { width: 9px; height: 9px; stroke: #10B981; }
 
     /* STATS BAR */
-    .stats-bar { background: rgba(255,255,255,0.05); border-top: 1px solid rgba(255,255,255,0.07); }
-    .stats-wrap { max-width: 1100px; margin: 0 auto; padding: 20px 28px; display: grid; grid-template-columns: repeat(4,1fr); }
-    .stat { text-align: center; padding: 4px 20px; border-right: 1px solid rgba(255,255,255,0.07); }
+    .stats-bar { background: rgba(255,255,255,0.04); border-top: 1px solid rgba(255,255,255,0.06); }
+    .stats-wrap { max-width: 1120px; margin: 0 auto; padding: 22px 28px; display: grid; grid-template-columns: repeat(4,1fr); }
+    .stat { text-align: center; padding: 4px 16px; border-right: 1px solid rgba(255,255,255,0.06); }
     .stat:last-child { border-right: none; }
-    .stat-n { font-family: var(--fh); font-size: 28px; font-weight: 800; color: #fff; line-height: 1; }
+    .stat-n { font-family: var(--fh); font-size: 30px; font-weight: 800; color: #fff; line-height: 1; }
     .stat-n em { color: var(--orange); font-style: normal; }
-    .stat-l { font-size: 12px; color: rgba(255,255,255,0.32); margin-top: 5px; }
+    .stat-l { font-size: 12px; color: rgba(255,255,255,0.3); margin-top: 6px; }
 
     /* ── FORM CARD ── */
-    .form-card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: var(--shadow-xl), 0 0 0 1px rgba(255,255,255,0.06);
-      position: sticky; top: 80px;
-      transform: translateY(-8px);
-    }
-    .form-card-head { margin-bottom: 22px; padding-bottom: 18px; border-bottom: 1px solid var(--g100); }
-    .form-card-head h2 { font-family: var(--fh); font-size: 19px; font-weight: 800; color: var(--navy); margin-bottom: 4px; letter-spacing: -0.02em; }
-    .form-card-head p { font-size: 13px; color: var(--g400); line-height: 1.5; }
+    .form-card { background: #fff; border-radius: 22px; padding: 28px; box-shadow: var(--s4), 0 0 0 1px rgba(255,255,255,0.05); position: sticky; top: 80px; transform: translateY(-12px); }
+    .form-card-head { margin-bottom: 20px; }
+    .form-card-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.15); color: #059669; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px; margin-bottom: 10px; }
+    .form-card-badge svg { width: 10px; height: 10px; stroke: #10B981; }
+    .form-card-head h2 { font-family: var(--fh); font-size: 20px; font-weight: 800; color: var(--navy); margin-bottom: 3px; letter-spacing: -0.025em; }
+    .form-card-head p { font-size: 13px; color: var(--g400); }
+    .form-divider { height: 1px; background: var(--g100); margin: 16px 0; }
 
-    .field-group { margin-bottom: 13px; }
-    .field-label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; color: var(--g600); margin-bottom: 6px; }
+    /* FIELD VALIDATION STATES */
+    .field-group { margin-bottom: 12px; position: relative; }
+    .field-label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; color: var(--g600); margin-bottom: 5px; }
     .field {
-      width: 100%; padding: 11px 14px;
+      width: 100%; padding: 11px 36px 11px 13px;
       border: 1.5px solid var(--g100); border-radius: 10px;
       font-family: var(--fb); font-size: 14px; color: var(--navy);
       background: var(--g50); outline: none; transition: all .15s;
@@ -150,227 +148,211 @@
     }
     .field:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(27,79,191,0.1); background: #fff; }
     .field::placeholder { color: var(--g400); }
+    .field.valid { border-color: var(--green); background: #fff; }
+    .field.valid:focus { box-shadow: 0 0 0 3px rgba(16,185,129,0.1); }
+    .field-check { position: absolute; right: 12px; bottom: 13px; width: 16px; height: 16px; border-radius: 50%; background: var(--green); display: none; align-items: center; justify-content: center; }
+    .field-check svg { width: 9px; height: 9px; stroke: #fff; stroke-width: 3; }
+    .field.valid ~ .field-check { display: flex; }
+    select.field { padding-right: 36px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239BA3B5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
     .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
     /* DROPZONE */
-    .dropzone {
-      border: 2px dashed var(--g200); border-radius: 12px;
-      padding: 28px 20px; text-align: center; cursor: pointer;
-      transition: all .2s; background: var(--g50); margin-bottom: 13px; position: relative;
-      min-height: 110px; display: flex; flex-direction: column; align-items: center; justify-content: center;
-    }
+    .dropzone { border: 2px dashed var(--g200); border-radius: 12px; padding: 24px 16px; text-align: center; cursor: pointer; transition: all .2s; background: var(--g50); margin-bottom: 12px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-height: 100px; }
     .dropzone:hover, .dropzone.over { border-color: var(--blue); background: #EFF4FF; }
-    .dropzone.over { transform: scale(1.01); }
+    .dropzone.over { transform: scale(1.015); }
     .dropzone input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
-    .dropzone-icon { margin-bottom: 8px; }
-    .dropzone-icon svg { width: 28px; height: 28px; stroke: var(--g400); transition: stroke .2s; }
-    .dropzone:hover .dropzone-icon svg, .dropzone.over .dropzone-icon svg { stroke: var(--blue); }
-    .dropzone-text { font-size: 14px; font-weight: 700; color: var(--navy); }
-    .dropzone-link { color: var(--blue); text-decoration: underline; }
-    .dropzone-sub { font-size: 11px; color: var(--g400); margin-top: 4px; }
+    .dz-icon { width: 36px; height: 36px; background: var(--g100); border-radius: 10px; display: flex; align-items: center; justify-content: center; transition: all .2s; }
+    .dropzone:hover .dz-icon, .dropzone.over .dz-icon { background: #DBEAFE; }
+    .dz-icon svg { width: 18px; height: 18px; stroke: var(--g400); transition: stroke .2s; }
+    .dropzone:hover .dz-icon svg, .dropzone.over .dz-icon svg { stroke: var(--blue); }
+    .dz-text { font-size: 13px; font-weight: 700; color: var(--navy); }
+    .dz-link { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
+    .dz-sub { font-size: 11px; color: var(--g400); }
 
-    .file-selected { display: flex; align-items: center; gap: 10px; background: #EFF4FF; border: 1.5px solid #BFDBFE; border-radius: 10px; padding: 11px 14px; margin-bottom: 13px; }
-    .file-name { font-size: 13px; font-weight: 600; color: var(--blue); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .file-remove { cursor: pointer; color: var(--g400); font-size: 18px; line-height: 1; flex-shrink: 0; transition: color .15s; }
-    .file-remove:hover { color: #EF4444; }
+    .file-preview { display: flex; align-items: center; gap: 10px; background: #EFF4FF; border: 1.5px solid #BFDBFE; border-radius: 10px; padding: 10px 13px; margin-bottom: 12px; }
+    .file-icon { width: 32px; height: 32px; background: var(--blue); border-radius: 7px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .file-icon svg { width: 16px; height: 16px; stroke: #fff; }
+    .file-info { flex: 1; overflow: hidden; }
+    .file-name { font-size: 13px; font-weight: 700; color: var(--navy); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .file-size { font-size: 11px; color: var(--g400); margin-top: 1px; }
+    .file-remove { cursor: pointer; width: 28px; height: 28px; border-radius: 7px; display: flex; align-items: center; justify-content: center; transition: all .15s; flex-shrink: 0; }
+    .file-remove:hover { background: rgba(239,68,68,0.1); }
+    .file-remove svg { width: 14px; height: 14px; stroke: var(--g400); transition: stroke .15s; }
+    .file-remove:hover svg { stroke: #EF4444; }
 
-    .progress-wrap { margin-bottom: 13px; }
-    .progress-bar { height: 5px; background: var(--g100); border-radius: 999px; overflow: hidden; }
+    .progress-wrap { margin-bottom: 12px; }
+    .progress-track { height: 5px; background: var(--g100); border-radius: 999px; overflow: hidden; }
     .progress-fill { height: 100%; background: linear-gradient(90deg, var(--blue), #60a5fa); border-radius: 999px; transition: width .35s ease; }
     .progress-label { font-size: 11px; color: var(--g400); margin-top: 6px; text-align: center; }
 
-    .submit-btn {
-      width: 100%; padding: 15px; border: none; border-radius: 11px;
-      background: var(--orange); color: #fff;
-      font-family: var(--fb); font-weight: 700; font-size: 15px;
-      cursor: pointer; transition: all .15s;
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-    }
-    .submit-btn:hover { background: #ea6c10; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(249,115,22,0.35); }
+    .submit-btn { width: 100%; padding: 15px; border: none; border-radius: 12px; background: var(--orange); color: #fff; font-family: var(--fb); font-weight: 700; font-size: 15px; cursor: pointer; transition: all .2s; display: flex; align-items: center; justify-content: center; gap: 8px; letter-spacing: -.01em; }
+    .submit-btn:hover { background: #ea6c10; transform: translateY(-1px); box-shadow: 0 8px 28px rgba(249,115,22,0.38); }
+    .submit-btn:active { transform: translateY(0); }
     .submit-btn:disabled { opacity: .55; cursor: not-allowed; transform: none; box-shadow: none; }
-    .form-privacy { font-size: 11px; color: var(--g400); text-align: center; margin-top: 11px; display: flex; align-items: center; justify-content: center; gap: 4px; }
+    .form-privacy { font-size: 11px; color: var(--g400); text-align: center; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 5px; }
 
     /* SUCCESS */
     .success-state { text-align: center; padding: 8px 0; }
-    .success-icon { width: 64px; height: 64px; background: rgba(16,185,129,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
-    .success-state h3 { font-family: var(--fh); font-size: 20px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
-    .success-state p { font-size: 14px; color: var(--g600); line-height: 1.7; }
+    .success-lottie { width: 72px; height: 72px; background: rgba(16,185,129,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; animation: popIn .4s cubic-bezier(0.34,1.56,0.64,1); }
+    @keyframes popIn { from{transform:scale(0);opacity:0} to{transform:scale(1);opacity:1} }
+    .success-state h3 { font-family: var(--fh); font-size: 21px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .success-state p { font-size: 14px; color: var(--g600); line-height: 1.75; }
     .success-steps { background: var(--g50); border-radius: 12px; padding: 16px 18px; margin-top: 18px; text-align: left; }
-    .success-steps p { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; color: var(--g600); margin-bottom: 10px; }
-    .success-steps ul { list-style: none; }
-    .success-steps li { font-size: 13px; color: var(--g700); line-height: 1; display: flex; gap: 8px; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--g100); }
-    .success-steps li:last-child { border-bottom: none; }
-    .success-steps li::before { content: '✓'; color: var(--green); font-weight: 800; font-size: 13px; flex-shrink: 0; }
+    .success-steps-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--g400); margin-bottom: 12px; }
+    .success-steps ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .success-steps li { font-size: 13px; color: var(--g700); display: flex; gap: 10px; align-items: center; }
+    .success-step-num { width: 22px; height: 22px; border-radius: 50%; background: var(--navy); color: #fff; font-family: var(--fh); font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 
     /* ── SECTIONS ── */
-    .section { padding: 96px 0; }
+    .section { padding: 100px 0; }
     .section-alt { background: var(--g50); }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
-    .section-center { text-align: center; }
-    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
-    .section-h { font-family: var(--fh); font-size: clamp(28px, 3vw, 40px); font-weight: 800; color: var(--navy); line-height: 1.12; letter-spacing: -0.025em; margin-bottom: 14px; }
-    .section-p { font-size: 16px; color: var(--g400); line-height: 1.8; }
-    .section-p.centered { max-width: 480px; margin: 0 auto; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+    .center { text-align: center; }
+    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+    .section-h { font-family: var(--fh); font-size: clamp(28px, 3.2vw, 42px); font-weight: 800; color: var(--navy); line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 16px; }
+    .section-p { font-size: 16px; color: var(--g400); line-height: 1.85; }
+    .centered-p { max-width: 500px; margin: 0 auto; }
+
+    /* TRUST BAR */
+    .trust-bar { background: #fff; border-top: 1px solid var(--g100); border-bottom: 1px solid var(--g100); padding: 20px 0; }
+    .trust-inner { max-width: 1120px; margin: 0 auto; padding: 0 28px; display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 600; color: var(--g600); }
+    .trust-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .trust-icon.blue { background: #EFF4FF; }
+    .trust-icon.green { background: rgba(16,185,129,0.08); }
+    .trust-icon.orange { background: #FFF7ED; }
+    .trust-icon svg { width: 16px; height: 16px; }
 
     /* STEPS */
-    .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 56px; position: relative; }
-    .steps-grid::before {
-      content: ''; position: absolute; top: 22px; left: calc(16.66% + 12px); right: calc(16.66% + 12px);
-      height: 1px; background: var(--g200); z-index: 0;
-    }
-    .step {
-      background: #fff; border: 1px solid var(--g100); border-radius: 16px;
-      padding: 28px 24px; box-shadow: var(--shadow-sm);
-      transition: box-shadow .2s, transform .2s;
-      position: relative; z-index: 1;
-    }
-    .step:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
-    .step-num {
-      width: 44px; height: 44px; border-radius: 12px;
-      background: var(--navy); color: #fff;
-      font-family: var(--fh); font-weight: 800; font-size: 18px;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 20px;
-    }
+    .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 60px; position: relative; }
+    .steps-connector { position: absolute; top: 26px; left: calc(16.67% + 24px); right: calc(16.67% + 24px); height: 1px; background: repeating-linear-gradient(90deg, var(--g200) 0, var(--g200) 6px, transparent 6px, transparent 12px); z-index: 0; }
+    .step { background: #fff; border: 1px solid var(--g100); border-radius: 18px; padding: 30px 26px; box-shadow: var(--s1); transition: all .25s; position: relative; z-index: 1; }
+    .step:hover { box-shadow: var(--s3); transform: translateY(-4px); border-color: var(--g200); }
+    .step-num { width: 48px; height: 48px; border-radius: 14px; color: #fff; font-family: var(--fh); font-weight: 800; font-size: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 22px; }
     .step-1 .step-num { background: var(--navy); }
     .step-2 .step-num { background: var(--blue); }
     .step-3 .step-num { background: var(--orange); }
     .step h3 { font-family: var(--fh); font-size: 17px; font-weight: 700; margin-bottom: 10px; color: var(--navy); }
-    .step p { font-size: 14px; color: var(--g600); line-height: 1.75; }
-    .step-time { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; color: var(--blue); background: #EFF4FF; padding: 4px 10px; border-radius: 999px; margin-top: 14px; }
+    .step p { font-size: 14px; color: var(--g600); line-height: 1.8; }
+    .step-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; color: var(--blue); background: #EFF4FF; padding: 4px 10px; border-radius: 999px; margin-top: 16px; }
 
-    /* ── VAKKEN ── */
-    .vak-section-inner { display: grid; grid-template-columns: 280px 1fr; gap: 56px; align-items: center; }
-    .vak-left {}
-    .vak-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 0; }
-    .vak-pill {
-      display: flex; align-items: center; gap: 8px;
-      background: #fff; border: 1.5px solid var(--g100);
-      padding: 11px 18px; border-radius: 999px;
-      font-size: 14px; font-weight: 600; color: var(--g700);
-      cursor: pointer; transition: all .15s;
-      box-shadow: var(--shadow-sm);
-    }
-    .vak-pill:hover { border-color: var(--orange); color: var(--orange); background: #FFF7ED; box-shadow: 0 2px 8px rgba(249,115,22,0.12); transform: translateY(-1px); }
+    /* VAKKEN */
+    .vak-wrap { display: grid; grid-template-columns: 260px 1fr; gap: 64px; align-items: center; }
+    .vak-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .vak-pill { display: flex; align-items: center; gap: 8px; background: #fff; border: 1.5px solid var(--g100); padding: 11px 18px; border-radius: 999px; font-size: 14px; font-weight: 600; color: var(--g700); cursor: pointer; transition: all .15s; box-shadow: var(--s1); }
+    .vak-pill:hover { border-color: var(--orange); color: var(--orange); background: #FFF7ED; box-shadow: 0 3px 12px rgba(249,115,22,0.15); transform: translateY(-1px); }
     .vak-pill.active { border-color: var(--orange); color: var(--orange); background: #FFF7ED; }
     .vak-pill svg { width: 15px; height: 15px; stroke: currentColor; flex-shrink: 0; }
-    .vak-count { font-size: 11px; font-weight: 700; background: var(--g100); color: var(--g400); padding: 2px 8px; border-radius: 999px; margin-left: 2px; transition: all .15s; }
-    .vak-pill:hover .vak-count, .vak-pill.active .vak-count { background: rgba(249,115,22,0.15); color: var(--orange); }
+    .vak-n { font-size: 11px; font-weight: 700; background: var(--g100); color: var(--g400); padding: 2px 8px; border-radius: 999px; margin-left: 2px; transition: all .15s; }
+    .vak-pill:hover .vak-n, .vak-pill.active .vak-n { background: rgba(249,115,22,0.12); color: var(--orange); }
 
-    /* ── REVIEWS ── */
-    .reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 52px; }
-    .review {
-      background: #fff; border: 1px solid var(--g100);
-      border-radius: 18px; padding: 28px;
-      box-shadow: var(--shadow-sm);
-      transition: box-shadow .2s, transform .2s;
-      display: flex; flex-direction: column;
-    }
-    .review:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
-    .review-stars { color: #FBBF24; font-size: 13px; letter-spacing: 2px; margin-bottom: 16px; }
-    .review-text { font-size: 14px; line-height: 1.85; color: var(--g700); margin-bottom: 22px; flex: 1; }
-    .review-author { display: flex; align-items: center; gap: 12px; padding-top: 20px; border-top: 1px solid var(--g100); }
-    .review-author img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; }
+    /* OVER ONS */
+    .over-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .over-card { background: #fff; border: 1px solid var(--g100); border-radius: 16px; padding: 22px 24px; display: flex; gap: 16px; align-items: flex-start; box-shadow: var(--s1); transition: all .2s; }
+    .over-card:hover { box-shadow: var(--s2); transform: translateY(-2px); }
+    .over-icon { width: 42px; height: 42px; border-radius: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .over-icon.blue { background: #EFF4FF; }
+    .over-icon.orange { background: #FFF7ED; }
+    .over-icon.green { background: rgba(16,185,129,0.08); }
+    .over-icon svg { width: 18px; height: 18px; }
+    .over-card-title { font-family: var(--fh); font-weight: 700; font-size: 15px; color: var(--navy); margin-bottom: 4px; }
+    .over-card-text { font-size: 13px; color: var(--g600); line-height: 1.65; }
+
+    /* FAQ */
+    .faq-item { border: 1px solid var(--g100); border-radius: 14px; background: #fff; overflow: hidden; box-shadow: var(--s1); transition: box-shadow .2s; }
+    .faq-item[open] { box-shadow: var(--s2); }
+    .faq-q { padding: 20px 24px; font-size: 15px; font-weight: 700; color: var(--navy); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-toggle { width: 28px; height: 28px; border-radius: 8px; background: var(--g50); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all .2s; }
+    .faq-item[open] .faq-toggle { background: var(--navy); }
+    .faq-toggle svg { width: 14px; height: 14px; stroke: var(--g400); transition: all .2s; }
+    .faq-item[open] .faq-toggle svg { stroke: #fff; transform: rotate(45deg); }
+    .faq-a { padding: 0 24px 20px; font-size: 14px; color: var(--g600); line-height: 1.85; border-top: 1px solid var(--g100); padding-top: 16px; }
+
+    /* REVIEWS */
+    .reviews-hd { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 0; flex-wrap: wrap; gap: 16px; }
+    .reviews-score { display: flex; align-items: center; gap: 12px; background: #fff; border: 1px solid var(--g100); border-radius: 14px; padding: 14px 20px; box-shadow: var(--s1); }
+    .reviews-score-num { font-family: var(--fh); font-size: 38px; font-weight: 800; color: var(--navy); line-height: 1; }
+    .reviews-score-stars { color: #FBBF24; font-size: 15px; letter-spacing: 2px; margin-bottom: 3px; }
+    .reviews-score-label { font-size: 12px; color: var(--g400); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 48px; }
+    .review { background: #fff; border: 1px solid var(--g100); border-radius: 20px; padding: 28px; box-shadow: var(--s1); transition: all .25s; display: flex; flex-direction: column; position: relative; }
+    .review:hover { box-shadow: var(--s3); transform: translateY(-4px); border-color: var(--g200); }
+    .review-quote { position: absolute; top: 20px; right: 22px; font-size: 48px; line-height: 1; color: var(--g100); font-family: Georgia, serif; pointer-events: none; }
+    .review-stars { color: #FBBF24; font-size: 12px; letter-spacing: 2px; margin-bottom: 16px; }
+    .review-text { font-size: 14px; line-height: 1.9; color: var(--g700); margin-bottom: 22px; flex: 1; }
+    .review-author { display: flex; align-items: center; gap: 12px; padding-top: 18px; border-top: 1px solid var(--g100); }
+    .review-author img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
     .review-name { font-size: 14px; font-weight: 700; color: var(--navy); }
     .review-role { font-size: 12px; color: var(--g400); margin-top: 2px; }
 
-    /* REVIEWS HEADER */
-    .reviews-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 0; flex-wrap: wrap; gap: 16px; }
-    .reviews-rating { display: flex; align-items: center; gap: 10px; }
-    .reviews-rating-big { font-family: var(--fh); font-size: 36px; font-weight: 800; color: var(--navy); line-height: 1; }
-    .reviews-rating-detail { }
-    .reviews-stars-lg { color: #FBBF24; font-size: 16px; letter-spacing: 2px; margin-bottom: 3px; }
-    .reviews-count { font-size: 13px; color: var(--g400); }
-
-    /* ── CTA BOTTOM ── */
-    .cta-section {
-      background: var(--navy);
-      padding: 88px 0;
-      position: relative; overflow: hidden;
-    }
-    .cta-section::before {
-      content: ''; position: absolute;
-      top: -160px; right: -160px; width: 600px; height: 600px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(249,115,22,0.1) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .cta-section::after {
-      content: ''; position: absolute;
-      bottom: -100px; left: -80px; width: 400px; height: 400px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(27,79,191,0.15) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .cta-inner { position: relative; z-index: 1; text-align: center; max-width: 580px; margin: 0 auto; padding: 0 28px; }
-    .cta-inner h2 { font-family: var(--fh); font-size: clamp(28px, 3.5vw, 42px); font-weight: 800; color: #fff; letter-spacing: -0.025em; margin-bottom: 14px; line-height: 1.1; }
-    .cta-inner p { font-size: 17px; color: rgba(255,255,255,0.42); margin-bottom: 36px; line-height: 1.7; }
-    .cta-btn { background: var(--orange); color: #fff; border: none; padding: 16px 40px; border-radius: 11px; font-family: var(--fb); font-weight: 700; font-size: 16px; cursor: pointer; transition: all .15s; display: inline-flex; align-items: center; gap: 9px; }
-    .cta-btn:hover { background: #ea6c10; transform: translateY(-2px); box-shadow: 0 10px 32px rgba(249,115,22,0.38); }
-    .cta-trust { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; margin-top: 22px; }
+    /* CTA */
+    .cta-section { background: var(--navy); padding: 96px 0; position: relative; overflow: hidden; }
+    .cta-section::before { content: ''; position: absolute; top: -200px; right: -200px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(249,115,22,0.1) 0%, transparent 60%); pointer-events: none; }
+    .cta-section::after { content: ''; position: absolute; bottom: -150px; left: -100px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(27,79,191,0.18) 0%, transparent 65%); pointer-events: none; }
+    .cta-inner { position: relative; z-index: 1; text-align: center; max-width: 600px; margin: 0 auto; padding: 0 28px; }
+    .cta-inner h2 { font-family: var(--fh); font-size: clamp(28px, 4vw, 46px); font-weight: 800; color: #fff; letter-spacing: -0.03em; margin-bottom: 16px; line-height: 1.08; }
+    .cta-inner p { font-size: 17px; color: rgba(255,255,255,0.4); margin-bottom: 40px; line-height: 1.75; }
+    .cta-btn { background: var(--orange); color: #fff; border: none; padding: 17px 44px; border-radius: 12px; font-family: var(--fb); font-weight: 700; font-size: 16px; cursor: pointer; transition: all .2s; display: inline-flex; align-items: center; gap: 10px; }
+    .cta-btn:hover { background: #ea6c10; transform: translateY(-2px); box-shadow: 0 12px 36px rgba(249,115,22,0.4); }
+    .cta-trust { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; margin-top: 24px; }
     .cta-trust span { font-size: 13px; color: rgba(255,255,255,0.28); display: flex; align-items: center; gap: 6px; }
     .cta-trust span::before { content: '✓'; color: var(--green); font-weight: 800; }
 
-    /* ── FOOTER ── */
-    footer { background: #070E1A; padding: 52px 0 30px; }
-    .footer-wrap { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
-    .footer-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; flex-wrap: wrap; margin-bottom: 40px; }
-    .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.28); line-height: 1.8; margin-top: 12px; max-width: 230px; }
-    .footer-links h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.18); margin-bottom: 16px; }
-    .footer-links a { display: block; font-size: 13px; color: rgba(255,255,255,0.38); text-decoration: none; margin-bottom: 10px; transition: color .15s; }
+    /* FOOTER */
+    footer { background: #060D1C; padding: 56px 0 32px; }
+    .footer-wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; margin-bottom: 44px; }
+    .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.26); line-height: 1.85; margin-top: 14px; max-width: 240px; }
+    .footer-links h4 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.16); margin-bottom: 18px; }
+    .footer-links a { display: block; font-size: 13px; color: rgba(255,255,255,0.36); text-decoration: none; margin-bottom: 11px; transition: color .15s; }
     .footer-links a:hover { color: rgba(255,255,255,0.8); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.16); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.14); }
+    .footer-copy a { color: inherit; text-decoration: none; }
 
-    /* ── FAQ ── */
-    .faq-item { border: 1px solid var(--g100); border-radius: 12px; background: #fff; overflow: hidden; box-shadow: var(--shadow-sm); transition: box-shadow .2s; }
-    .faq-item[open] { box-shadow: var(--shadow-md); }
-    .faq-q { padding: 18px 22px; font-size: 15px; font-weight: 700; color: var(--navy); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-    .faq-q::-webkit-details-marker { display: none; }
-    .faq-q::after { content: '+'; font-size: 20px; font-weight: 400; color: var(--g400); flex-shrink: 0; transition: transform .2s; line-height: 1; }
-    .faq-item[open] .faq-q::after { content: '−'; }
-    .faq-a { padding: 0 22px 18px; font-size: 14px; color: var(--g600); line-height: 1.8; border-top: 1px solid var(--g100); padding-top: 14px; }
-
-    /* ── OVER ONS responsive ── */
-    @media (max-width: 800px) {
-      #over-ons .wrap > div { grid-template-columns: 1fr !important; gap: 32px !important; }
-    }
-
-    /* ── TOAST ── */
+    /* TOASTS */
     .toasts { position: fixed; bottom: 24px; right: 24px; z-index: 9999; display: flex; flex-direction: column; gap: 8px; pointer-events: none; }
-    .toast { background: var(--navy); color: #fff; padding: 13px 18px; border-radius: 10px; font-size: 13px; font-weight: 600; box-shadow: 0 8px 32px rgba(0,0,0,0.3); animation: tin .2s ease; display: flex; align-items: center; gap: 9px; pointer-events: all; max-width: 320px; }
-    .toast.ok  { border-left: 3px solid var(--green); }
+    .toast { background: var(--navy); color: #fff; padding: 13px 18px; border-radius: 11px; font-size: 13px; font-weight: 600; box-shadow: var(--s4); animation: slideUp .2s ease; display: flex; align-items: center; gap: 9px; pointer-events: all; max-width: 300px; }
+    .toast.ok { border-left: 3px solid var(--green); }
     .toast.err { border-left: 3px solid #EF4444; }
-    @keyframes tin { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+    @keyframes slideUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
 
-    /* ── MOBILE CTA ── */
-    #mob-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; padding: 12px 16px 20px; background: rgba(255,255,255,0.97); border-top: 1px solid var(--g100); box-shadow: 0 -8px 32px rgba(0,0,0,0.1); backdrop-filter: blur(10px); }
-    #mob-cta button { width: 100%; padding: 15px; background: var(--orange); color: #fff; border: none; border-radius: 11px; font-family: var(--fb); font-weight: 700; font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    /* MOBILE CTA BAR */
+    #mob-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; padding: 12px 16px 20px; background: rgba(255,255,255,0.98); border-top: 1px solid var(--g100); box-shadow: 0 -8px 32px rgba(0,0,0,0.1); backdrop-filter: blur(12px); }
+    #mob-cta button { width: 100%; padding: 15px; background: var(--orange); color: #fff; border: none; border-radius: 12px; font-family: var(--fb); font-weight: 700; font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 9px; }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
-      .hero-wrap { grid-template-columns: 1fr; gap: 44px; }
+      .hero-wrap { grid-template-columns: 1fr; gap: 48px; }
       .form-card { position: static; transform: none; }
-      .steps-grid::before { display: none; }
       .steps-grid { grid-template-columns: 1fr; gap: 16px; }
+      .steps-connector { display: none; }
       .reviews-grid { grid-template-columns: 1fr; }
       .stats-wrap { grid-template-columns: repeat(2,1fr); }
       .stat { border-right: none; padding: 14px 0; }
-      .stat:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.07); }
-      .footer-top { flex-direction: column; gap: 28px; }
-      .vak-section-inner { grid-template-columns: 1fr; gap: 28px; }
-      .reviews-header { flex-direction: column; align-items: flex-start; }
+      .stat:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.06); }
+      .vak-wrap { grid-template-columns: 1fr; gap: 28px; }
+      .over-grid { grid-template-columns: 1fr; gap: 36px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .reviews-hd { flex-direction: column; align-items: flex-start; }
+      .nav-links { display: none; }
     }
     @media (max-width: 600px) {
-      .hero { padding: 48px 0 0; }
-      .hero h1 { font-size: 34px; }
-      .hero-sub { font-size: 16px; }
+      .hero { padding: 52px 0 0; }
+      .hero h1 { font-size: 36px; }
+      .hero-sub { font-size: 15px; }
       .field-row { grid-template-columns: 1fr; }
       .vak-pill { font-size: 13px; padding: 10px 15px; }
       #mob-cta { display: block; }
-      .section { padding: 64px 0; }
+      .section { padding: 68px 0; }
       .wrap { padding: 0 18px; }
-      nav .nav-wrap { padding: 0 18px; }
+      .nav-wrap { padding: 0 18px; }
       .hero-wrap { padding: 0 18px; }
-      .steps-grid { gap: 12px; }
+      .trust-inner { gap: 20px; }
+      .footer-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -385,7 +367,7 @@
 </div>
 
 <!-- NAV -->
-<nav>
+<nav id="nav">
   <div class="nav-wrap">
     <a href="/" class="logo">
       <div class="logo-mark">
@@ -393,24 +375,27 @@
       </div>
       <span class="logo-name">WerkGo</span>
     </a>
-    <div class="nav-right">
-      <button class="nav-cta" onclick="scrollToForm()">CV uploaden →</button>
+    <div class="nav-links">
+      <a href="#stappen" class="nav-link">Hoe het werkt</a>
+      <a href="#vakken" class="nav-link">Vakgebieden</a>
+      <a href="#faq" class="nav-link">FAQ</a>
     </div>
+    <button class="nav-cta" onclick="scrollToForm()">CV uploaden →</button>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
+  <div class="hero-noise"></div>
   <div class="hero-wrap">
 
-    <!-- LEFT -->
     <div class="hero-left">
       <div class="hero-pill">
         <span class="hero-pill-dot"></span>
-        83 vacatures open door heel Nederland
+        83 vacatures beschikbaar in Nederland
       </div>
-      <h1>Jouw volgende baan<br>begint met<br><span class="accent underline-accent">één upload.</span></h1>
+      <h1>Jouw volgende baan<br>begint met<br><span class="accent accent-line">één upload.</span></h1>
       <p class="hero-sub">Upload je CV en wij presenteren jou binnen 24 uur bij de beste bouwbedrijven in Nederland. Gratis, persoonlijk en zonder gedoe.</p>
 
       <div class="hero-proof">
@@ -424,11 +409,20 @@
           <span class="proof-stars">★★★★★</span>
           Al <strong>1.200+ vakmensen</strong> gingen je voor
         </div>
-        <div class="proof-divider"></div>
+        <div class="proof-div"></div>
         <div class="proof-badges">
-          <span class="proof-badge">Gratis & vrijblijvend</span>
-          <span class="proof-badge">Binnen 24 uur reactie</span>
-          <span class="proof-badge">Persoonlijk contact</span>
+          <span class="proof-badge">
+            <span class="proof-check"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            Gratis & vrijblijvend
+          </span>
+          <span class="proof-badge">
+            <span class="proof-check"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            Binnen 24 uur reactie
+          </span>
+          <span class="proof-badge">
+            <span class="proof-check"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+            Persoonlijk contact
+          </span>
         </div>
       </div>
     </div>
@@ -438,40 +432,50 @@
       <div class="form-card">
         <div id="form-state">
           <div class="form-card-head">
+            <div class="form-card-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Gratis & vrijblijvend
+            </div>
             <h2>Stuur je CV in</h2>
-            <p>Wij nemen binnen 24 uur contact op — altijd gratis.</p>
+            <p>Wij nemen binnen 24 uur contact op.</p>
           </div>
+          <div class="form-divider"></div>
 
           <div class="field-row">
             <div class="field-group">
               <label class="field-label" for="f-naam">Voornaam</label>
               <input class="field" id="f-naam" type="text" placeholder="Jan" autocomplete="given-name">
+              <span class="field-check"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
             </div>
             <div class="field-group">
               <label class="field-label" for="f-achter">Achternaam</label>
               <input class="field" id="f-achter" type="text" placeholder="Smit" autocomplete="family-name">
+              <span class="field-check"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
             </div>
           </div>
 
           <div class="field-group">
             <label class="field-label" for="f-email">E-mailadres</label>
             <input class="field" id="f-email" type="email" placeholder="jan@email.nl" autocomplete="email">
+            <span class="field-check"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
           </div>
 
           <div class="field-row">
             <div class="field-group">
               <label class="field-label" for="f-tel">Telefoon</label>
               <input class="field" id="f-tel" type="tel" placeholder="06 12 34 56 78" autocomplete="tel">
+              <span class="field-check"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
             </div>
             <div class="field-group">
               <label class="field-label" for="f-stad">Woonplaats</label>
               <input class="field" id="f-stad" type="text" placeholder="Amsterdam" autocomplete="address-level2">
+              <span class="field-check"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
             </div>
           </div>
 
           <div class="field-group">
             <label class="field-label" for="f-vak">Vakspecialisme</label>
-            <select class="field" id="f-vak">
+            <select class="field" id="f-vak" onchange="validateField(this)">
               <option value="">Kies je vak…</option>
               <option>Metselaar</option><option>Timmerman</option><option>Loodgieter</option>
               <option>Elektricien</option><option>Schilder</option><option>Stucadoor</option>
@@ -482,21 +486,28 @@
 
           <div id="dropzone" class="dropzone" ondragover="onDrag(event,true)" ondragleave="onDrag(event,false)" ondrop="onDrop(event)">
             <input type="file" id="f-file" accept=".pdf,.doc,.docx" onchange="onFileSelect(event)">
-            <div class="dropzone-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <div class="dz-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
             </div>
-            <div class="dropzone-text">Sleep je CV hier of <span class="dropzone-link">klik om te uploaden</span></div>
-            <div class="dropzone-sub">PDF of Word · max 10 MB</div>
+            <div class="dz-text">Sleep je CV hier of <span class="dz-link">klik om te uploaden</span></div>
+            <div class="dz-sub">PDF of Word · max 10 MB</div>
           </div>
 
-          <div id="file-selected" class="file-selected" style="display:none">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1B4FBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            <span class="file-name" id="file-name">bestand.pdf</span>
-            <span class="file-remove" onclick="removeFile()" title="Verwijder bestand">×</span>
+          <div id="file-selected" class="file-preview" style="display:none">
+            <div class="file-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div class="file-info">
+              <div class="file-name" id="file-name">bestand.pdf</div>
+              <div class="file-size" id="file-size">PDF</div>
+            </div>
+            <div class="file-remove" onclick="removeFile()" title="Verwijder">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </div>
           </div>
 
           <div id="progress-wrap" class="progress-wrap" style="display:none">
-            <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+            <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
             <div class="progress-label" id="progress-label">Uploaden…</div>
           </div>
 
@@ -505,71 +516,107 @@
             CV versturen — Gratis
           </button>
           <p class="form-privacy">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
             Je gegevens worden nooit gedeeld zonder jouw toestemming
           </p>
         </div>
 
         <div id="success-state" style="display:none">
           <div class="success-state">
-            <div class="success-icon">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <div class="success-lottie">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
             </div>
             <h3>CV ontvangen!</h3>
             <p>Een adviseur neemt <strong>binnen 24 uur</strong> contact op via e-mail of telefoon.</p>
             <div class="success-steps">
-              <p>Wat gebeurt er nu?</p>
+              <div class="success-steps-label">Wat gebeurt er nu?</div>
               <ul>
-                <li>Wij reviewen jouw CV vandaag nog</li>
-                <li>We matchen je met passende vacatures</li>
-                <li>Je ontvangt een persoonlijk gesprek</li>
+                <li><span class="success-step-num">1</span>Wij reviewen jouw CV vandaag nog</li>
+                <li><span class="success-step-num">2</span>We matchen je met passende vacatures</li>
+                <li><span class="success-step-num">3</span>Je ontvangt een persoonlijk gesprek</li>
               </ul>
             </div>
-            <button onclick="resetForm()" style="margin-top:16px;background:none;border:none;font-size:13px;color:var(--g400);cursor:pointer;font-family:var(--fb);text-decoration:underline">Nog een CV uploaden</button>
+            <button onclick="resetForm()" style="margin-top:18px;background:none;border:none;font-size:13px;color:var(--g400);cursor:pointer;font-family:var(--fb);text-decoration:underline;text-underline-offset:2px">Nog een CV uploaden</button>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 
   <!-- STATS -->
   <div class="stats-bar">
     <div class="stats-wrap">
-      <div class="stat"><div class="stat-n">1.200<em>+</em></div><div class="stat-l">geplaatste vakmensen</div></div>
-      <div class="stat"><div class="stat-n">140<em>+</em></div><div class="stat-l">partnerbedrijven</div></div>
+      <div class="stat"><div class="stat-n" data-count="1200">0<em>+</em></div><div class="stat-l">geplaatste vakmensen</div></div>
+      <div class="stat"><div class="stat-n" data-count="140">0<em>+</em></div><div class="stat-l">partnerbedrijven</div></div>
       <div class="stat"><div class="stat-n">24<em>u</em></div><div class="stat-l">gemiddelde reactietijd</div></div>
       <div class="stat"><div class="stat-n">4.9<em>★</em></div><div class="stat-l">gemiddelde beoordeling</div></div>
     </div>
   </div>
 </section>
 
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-icon green">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      100% gratis voor vakmensen
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#1B4FBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      Reactie binnen 24 uur
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon orange">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      </div>
+      AVG-proof & veilig
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon green">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+      </div>
+      Heel Nederland
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#1B4FBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      Geen verplichtingen
+    </div>
+  </div>
+</div>
+
 <!-- HOE HET WERKT -->
 <section class="section section-alt" id="stappen">
   <div class="wrap">
-    <div class="section-center">
+    <div class="center reveal">
       <div class="eyebrow">Zo simpel is het</div>
       <h2 class="section-h">Van CV naar contract in 3 stappen</h2>
-      <p class="section-p centered">Geen ingewikkelde procedures. Geen weken wachten. WerkGo regelt het snel en persoonlijk.</p>
+      <p class="section-p centered-p">Geen ingewikkelde procedures. Geen weken wachten. WerkGo regelt het snel en persoonlijk.</p>
     </div>
     <div class="steps-grid">
-      <div class="step step-1">
+      <div class="steps-connector"></div>
+      <div class="step step-1 reveal reveal-delay-1">
         <div class="step-num">1</div>
         <h3>Upload je CV</h3>
         <p>Vul je gegevens in en upload je CV. Duurt minder dan 2 minuten. Volledig gratis en vrijblijvend.</p>
-        <div class="step-time">⏱ 2 minuten</div>
+        <div class="step-badge">⏱ 2 minuten</div>
       </div>
-      <div class="step step-2">
+      <div class="step step-2 reveal reveal-delay-2">
         <div class="step-num">2</div>
         <h3>Wij matchen je</h3>
         <p>Onze adviseurs koppelen je binnen 24 uur aan de beste bouwbedrijven in Nederland die bij jou passen.</p>
-        <div class="step-time">⏱ Binnen 24 uur</div>
+        <div class="step-badge">⏱ Binnen 24 uur</div>
       </div>
-      <div class="step step-3">
+      <div class="step step-3 reveal reveal-delay-3">
         <div class="step-num">3</div>
         <h3>Aan de slag</h3>
         <p>Jij kiest het bedrijf dat bij je past. WerkGo regelt het contract, je uren en de betaling. Altijd op tijd.</p>
-        <div class="step-time">⏱ Zo snel als jij wil</div>
+        <div class="step-badge">⏱ Zo snel als jij wil</div>
       </div>
     </div>
   </div>
@@ -578,52 +625,52 @@
 <!-- VAKKEN -->
 <section class="section" id="vakken">
   <div class="wrap">
-    <div class="vak-section-inner">
-      <div class="vak-left">
+    <div class="vak-wrap">
+      <div class="reveal-left">
         <div class="eyebrow">Vakgebieden</div>
         <h2 class="section-h">In welk vak werk jij?</h2>
-        <p class="section-p">Klik op je vakgebied — we vullen het formulier alvast in en brengen je direct naar de upload.</p>
+        <p class="section-p">Klik op je vakgebied — we vullen het formulier alvast in.</p>
       </div>
-      <div class="vak-pills">
+      <div class="vak-pills reveal">
         <button class="vak-pill" onclick="kiesVak(this,'Metselaar')">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="9" height="9" rx="1"/><rect x="13" y="3" width="9" height="9" rx="1"/><rect x="2" y="14" width="9" height="7" rx="1"/><rect x="13" y="14" width="9" height="7" rx="1"/></svg>
-          Metselaar <span class="vak-count">14</span>
+          Metselaar <span class="vak-n">14</span>
         </button>
         <button class="vak-pill" onclick="kiesVak(this,'Timmerman')">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 12l-8.5 8.5a2.12 2.12 0 01-3-3L12 9"/><path d="M17.64 15L22 10.36"/><path d="M20.7 3.3a1 1 0 000 1.4l-1.4 1.4a1 1 0 01-1.4 0L16.5 4.7a1 1 0 010-1.4l1.4-1.4a1 1 0 011.4 0l1.4 1.4z"/></svg>
-          Timmerman <span class="vak-count">11</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 12l-8.5 8.5a2.12 2.12 0 01-3-3L12 9"/><path d="M17.64 15L22 10.36"/></svg>
+          Timmerman <span class="vak-n">11</span>
         </button>
         <button class="vak-pill" onclick="kiesVak(this,'Loodgieter')">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-          Loodgieter <span class="vak-count">8</span>
+          Loodgieter <span class="vak-n">8</span>
         </button>
         <button class="vak-pill" onclick="kiesVak(this,'Elektricien')">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          Elektricien <span class="vak-count">12</span>
+          Elektricien <span class="vak-n">12</span>
         </button>
         <button class="vak-pill" onclick="kiesVak(this,'Schilder')">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.37 2.63L14 7l-1.59-1.59a2 2 0 00-2.82 0L8 7l9 9 1.59-1.59a2 2 0 000-2.82L17 10l4.37-4.37a2.12 2.12 0 00-3-3z"/><path d="M2 22l4-4"/></svg>
-          Schilder <span class="vak-count">6</span>
+          Schilder <span class="vak-n">6</span>
         </button>
         <button class="vak-pill" onclick="kiesVak(this,'Stucadoor')">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          Stucadoor <span class="vak-count">5</span>
+          Stucadoor <span class="vak-n">5</span>
         </button>
         <button class="vak-pill" onclick="kiesVak(this,'Kraanmachinist')">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18a1 1 0 001 1h18a1 1 0 001-1v-2a1 1 0 00-1-1H3a1 1 0 00-1 1v2z"/><path d="M10 10V5a1 1 0 011-1h2a1 1 0 011 1v5"/><path d="M4 15v-3a8 8 0 0116 0v3"/></svg>
-          Kraanmachinist <span class="vak-count">3</span>
+          Kraanmachinist <span class="vak-n">3</span>
         </button>
         <button class="vak-pill" onclick="kiesVak(this,'Dakdekker')">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          Dakdekker <span class="vak-count">7</span>
+          Dakdekker <span class="vak-n">7</span>
         </button>
         <button class="vak-pill" onclick="kiesVak(this,'Grondwerker')">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22h20"/><path d="M6 22V12l6-8 6 8v10"/><path d="M12 14v8"/></svg>
-          Grondwerker <span class="vak-count">9</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22h20"/><path d="M6 22V12l6-8 6 8v10"/></svg>
+          Grondwerker <span class="vak-n">9</span>
         </button>
         <button class="vak-pill" onclick="kiesVak(this,'Tegelzetter')">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="9" height="9"/><rect x="13" y="2" width="9" height="9"/><rect x="2" y="13" width="9" height="9"/><rect x="13" y="13" width="9" height="9"/></svg>
-          Tegelzetter <span class="vak-count">4</span>
+          Tegelzetter <span class="vak-n">4</span>
         </button>
       </div>
     </div>
@@ -633,40 +680,25 @@
 <!-- OVER ONS -->
 <section class="section section-alt" id="over-ons">
   <div class="wrap">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
-      <div>
+    <div class="over-grid">
+      <div class="reveal-left">
         <div class="eyebrow">Over WerkGo</div>
         <h2 class="section-h">Wij verbinden vakmanschap met de juiste werkgever</h2>
         <p class="section-p" style="margin-bottom:20px">WerkGo is een CV-platform speciaal voor de bouw & techniek. Wij verzamelen CV's van vakmensen door heel Nederland en koppelen die aan erkende uitzendbureaus en bouwbedrijven die actief op zoek zijn naar personeel.</p>
         <p class="section-p">Jij hoeft maar één ding te doen: je CV uploaden. Wij doen de rest — snel, gratis en zonder verplichtingen.</p>
       </div>
-      <div style="display:flex;flex-direction:column;gap:16px">
-        <div style="background:#fff;border:1px solid var(--g100);border-radius:14px;padding:22px 24px;display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow-sm)">
-          <div style="width:40px;height:40px;background:#EFF4FF;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1B4FBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-          </div>
-          <div>
-            <div style="font-family:var(--fh);font-weight:700;font-size:15px;color:var(--navy);margin-bottom:4px">Jouw CV, jouw keuze</div>
-            <div style="font-size:13px;color:var(--g600);line-height:1.6">Jij bepaalt altijd zelf of je een aanbieding accepteert. Nul verplichtingen.</div>
-          </div>
+      <div style="display:flex;flex-direction:column;gap:14px" class="reveal-right">
+        <div class="over-card">
+          <div class="over-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="#1B4FBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div><div class="over-card-title">Jouw CV, jouw keuze</div><div class="over-card-text">Jij bepaalt altijd zelf of je een aanbieding accepteert. Nul verplichtingen.</div></div>
         </div>
-        <div style="background:#fff;border:1px solid var(--g100);border-radius:14px;padding:22px 24px;display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow-sm)">
-          <div style="width:40px;height:40px;background:#FFF7ED;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-          </div>
-          <div>
-            <div style="font-family:var(--fh);font-weight:700;font-size:15px;color:var(--navy);margin-bottom:4px">Veilig & privacyvriendelijk</div>
-            <div style="font-size:13px;color:var(--g600);line-height:1.6">Je CV wordt nooit zonder jouw toestemming gedeeld. Wij voldoen aan de AVG.</div>
-          </div>
+        <div class="over-card">
+          <div class="over-icon orange"><svg viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+          <div><div class="over-card-title">Veilig & privacyvriendelijk</div><div class="over-card-text">Je CV wordt nooit zonder jouw toestemming gedeeld. Wij voldoen aan de AVG.</div></div>
         </div>
-        <div style="background:#fff;border:1px solid var(--g100);border-radius:14px;padding:22px 24px;display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow-sm)">
-          <div style="width:40px;height:40px;background:rgba(16,185,129,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div>
-            <div style="font-family:var(--fh);font-weight:700;font-size:15px;color:var(--navy);margin-bottom:4px">Altijd gratis voor vakmensen</div>
-            <div style="font-size:13px;color:var(--g600);line-height:1.6">WerkGo is 100% gratis voor werkzoekenden. Altijd.</div>
-          </div>
+        <div class="over-card">
+          <div class="over-icon green"><svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><div class="over-card-title">Altijd gratis voor vakmensen</div><div class="over-card-text">WerkGo is 100% gratis voor werkzoekenden. Altijd.</div></div>
         </div>
       </div>
     </div>
@@ -676,42 +708,35 @@
 <!-- FAQ -->
 <section class="section" id="faq">
   <div class="wrap">
-    <div class="section-center" style="margin-bottom:48px">
+    <div class="center reveal" style="margin-bottom:52px">
       <div class="eyebrow">Veelgestelde vragen</div>
       <h2 class="section-h">Alles wat je wil weten</h2>
     </div>
-    <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:12px">
-
-      <details class="faq-item">
-        <summary class="faq-q">Kost het mij iets om mijn CV in te sturen?</summary>
+    <div style="max-width:740px;margin:0 auto;display:flex;flex-direction:column;gap:10px">
+      <details class="faq-item reveal reveal-delay-1">
+        <summary class="faq-q">Kost het mij iets om mijn CV in te sturen?<span class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></summary>
         <div class="faq-a">Nee, WerkGo is volledig gratis voor vakmensen. Jij betaalt nooit iets.</div>
       </details>
-
-      <details class="faq-item">
-        <summary class="faq-q">Ben ik ergens aan verplicht na het uploaden?</summary>
+      <details class="faq-item reveal reveal-delay-2">
+        <summary class="faq-q">Ben ik ergens aan verplicht na het uploaden?<span class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></summary>
         <div class="faq-a">Absoluut niet. Je uploadt je CV vrijblijvend. Als je een aanbieding krijgt, beslis jij of je er iets mee doet. Je kunt op elk moment je gegevens laten verwijderen via info@werkgo.nl.</div>
       </details>
-
-      <details class="faq-item">
-        <summary class="faq-q">Wat gebeurt er precies met mijn CV?</summary>
-        <div class="faq-a">Jouw CV wordt bekeken door onze adviseurs. Wij matchen je profiel met erkende bouwbedrijven en uitzendbureaus die actief op zoek zijn naar iemand met jouw achtergrond. Als er een match is, nemen wij contact met je op — altijd eerst met jouw toestemming voordat je CV wordt gedeeld.</div>
+      <details class="faq-item reveal reveal-delay-3">
+        <summary class="faq-q">Wat gebeurt er precies met mijn CV?<span class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></summary>
+        <div class="faq-a">Jouw CV wordt bekeken door onze adviseurs. Wij matchen je profiel met bouwbedrijven en uitzendbureaus die actief op zoek zijn naar iemand met jouw achtergrond. Als er een match is, nemen wij contact met je op — altijd eerst met jouw toestemming voordat je CV wordt gedeeld.</div>
       </details>
-
-      <details class="faq-item">
-        <summary class="faq-q">Ik heb al werk, maar zoek iets beters. Kan ik ook meedoen?</summary>
+      <details class="faq-item reveal reveal-delay-4">
+        <summary class="faq-q">Ik heb al werk, maar zoek iets beters. Kan ik ook meedoen?<span class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></summary>
         <div class="faq-a">Ja, dat is juist slim. Veel vakmensen uploaden hun CV alvast om te zien wat er beschikbaar is. Je bent nergens aan gebonden en kunt altijd nee zeggen.</div>
       </details>
-
-      <details class="faq-item">
-        <summary class="faq-q">Hoe snel word ik teruggebeld?</summary>
+      <details class="faq-item reveal reveal-delay-4">
+        <summary class="faq-q">Hoe snel word ik teruggebeld?<span class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></summary>
         <div class="faq-a">Gemiddeld binnen 24 uur op werkdagen. Heb je je CV in het weekend gestuurd? Dan hoor je maandag van ons.</div>
       </details>
-
-      <details class="faq-item">
-        <summary class="faq-q">In welke vakgebieden zijn jullie actief?</summary>
+      <details class="faq-item reveal reveal-delay-4">
+        <summary class="faq-q">In welke vakgebieden zijn jullie actief?<span class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></summary>
         <div class="faq-a">Wij werken door heel Nederland in alle bouw- en techniekberoepen: metselaars, timmermannen, loodgieters, elektriciens, schilders, stucadoors, dakdekkers, grondwerkers en meer.</div>
       </details>
-
     </div>
   </div>
 </section>
@@ -719,39 +744,42 @@
 <!-- REVIEWS -->
 <section class="section section-alt" id="reviews">
   <div class="wrap">
-    <div class="reviews-header">
+    <div class="reviews-hd reveal">
       <div>
         <div class="eyebrow">Ervaringen</div>
         <h2 class="section-h" style="margin-bottom:0">Wat vakmensen zeggen</h2>
       </div>
-      <div class="reviews-rating">
-        <div class="reviews-rating-big">4.9</div>
-        <div class="reviews-rating-detail">
-          <div class="reviews-stars-lg">★★★★★</div>
-          <div class="reviews-count">200+ beoordelingen</div>
+      <div class="reviews-score">
+        <div class="reviews-score-num">4.9</div>
+        <div>
+          <div class="reviews-score-stars">★★★★★</div>
+          <div class="reviews-score-label">200+ beoordelingen</div>
         </div>
       </div>
     </div>
     <div class="reviews-grid">
-      <div class="review">
+      <div class="review reveal reveal-delay-1">
+        <div class="review-quote">"</div>
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Binnen 2 dagen na het uploaden van mijn CV had ik al 3 concrete aanbiedingen. WerkGo regelt alles: contract, uren, betaling. Altijd op tijd betaald."</p>
+        <p class="review-text">Binnen 2 dagen na het uploaden van mijn CV had ik al 3 concrete aanbiedingen. WerkGo regelt alles: contract, uren, betaling. Altijd op tijd betaald.</p>
         <div class="review-author">
           <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80&auto=format&fit=crop&crop=face" alt="Ralf Bakker">
           <div><div class="review-name">Ralf Bakker</div><div class="review-role">Metselaar · Utrecht</div></div>
         </div>
       </div>
-      <div class="review">
+      <div class="review reveal reveal-delay-2">
+        <div class="review-quote">"</div>
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Op zoek naar een vaste opdrachtgever en WerkGo heeft dat perfect geregeld. Persoonlijk contact en ze kennen de bouw echt van binnen."</p>
+        <p class="review-text">Op zoek naar een vaste opdrachtgever en WerkGo heeft dat perfect geregeld. Persoonlijk contact en ze kennen de bouw echt van binnen.</p>
         <div class="review-author">
           <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80&auto=format&fit=crop&crop=face" alt="Kevin Jansen">
           <div><div class="review-name">Kevin Jansen</div><div class="review-role">Timmerman · Hoorn</div></div>
         </div>
       </div>
-      <div class="review">
+      <div class="review reveal reveal-delay-3">
+        <div class="review-quote">"</div>
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">"CV geüpload, de volgende dag gebeld en een week later stond ik op de bouwplaats. Dit is precies hoe het hoort te werken."</p>
+        <p class="review-text">CV geüpload, de volgende dag gebeld en een week later stond ik op de bouwplaats. Dit is precies hoe het hoort te werken.</p>
         <div class="review-author">
           <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80&auto=format&fit=crop&crop=face" alt="Thomas van der Berg">
           <div><div class="review-name">Thomas van der Berg</div><div class="review-role">Loodgieter · Zaandam</div></div>
@@ -763,7 +791,7 @@
 
 <!-- CTA -->
 <section class="cta-section">
-  <div class="cta-inner">
+  <div class="cta-inner reveal">
     <h2>Klaar om aan de slag te gaan?</h2>
     <p>Upload je CV vandaag nog en ontvang morgen al concrete aanbiedingen van bouwbedrijven door heel Nederland.</p>
     <button class="cta-btn" onclick="scrollToForm()">
@@ -781,7 +809,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-wrap">
-    <div class="footer-top">
+    <div class="footer-grid">
       <div class="footer-brand">
         <a href="/" class="logo">
           <div class="logo-mark"><svg viewBox="0 0 32 32" fill="none"><path d="M6 10l5 12 5-8 5 8 5-12" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -792,8 +820,8 @@
       <div class="footer-links">
         <h4>Navigatie</h4>
         <a href="#form-anchor" onclick="scrollToForm();return false;">CV uploaden</a>
-        <a href="#vakken" onclick="scrollToVakken();return false;">Vakgebieden</a>
-        <a href="#stappen" onclick="scrollToStappen();return false;">Hoe het werkt</a>
+        <a href="#vakken">Vakgebieden</a>
+        <a href="#stappen">Hoe het werkt</a>
         <a href="#over-ons">Over WerkGo</a>
         <a href="#faq">Veelgestelde vragen</a>
         <a href="#reviews">Ervaringen</a>
@@ -807,38 +835,71 @@
     </div>
     <div class="footer-bottom">
       <span class="footer-copy">© 2026 WerkGo</span>
-      <span class="footer-copy"><a href="/privacy" style="color:inherit;text-decoration:none">Privacy</a> · <a href="/privacy" style="color:inherit;text-decoration:none">Voorwaarden</a></span>
+      <span class="footer-copy"><a href="/privacy">Privacy</a> · <a href="/privacy">Voorwaarden</a></span>
     </div>
   </div>
 </footer>
 
 <script>
 const { createClient } = supabase;
-const sb = createClient(
-  'https://rxyygtmcufesijggrcmx.supabase.co',
-  'sb_publishable_WMpDauoU_KF1l0POAOUT1w_A3yS5grZ'
-);
-
+const sb = createClient('https://rxyygtmcufesijggrcmx.supabase.co','sb_publishable_WMpDauoU_KF1l0POAOUT1w_A3yS5grZ');
 let selectedFile = null;
 
-function scrollToForm() {
-  document.getElementById('form-anchor').scrollIntoView({ behavior: 'smooth', block: 'start' });
+/* ── SCROLL ANIMATIONS ── */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+
+/* ── NAV SCROLL SHADOW ── */
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 10);
+});
+
+/* ── ANIMATED STAT COUNTERS ── */
+const statObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = +el.dataset.count;
+    const suffix = el.innerHTML.match(/<em>(.*?)<\/em>/)?.[1] || '';
+    let start = 0;
+    const step = target / 60;
+    const tick = () => {
+      start = Math.min(start + step, target);
+      el.innerHTML = Math.round(start).toLocaleString('nl') + `<em>${suffix}</em>`;
+      if (start < target) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    statObs.unobserve(el);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(el => statObs.observe(el));
+
+/* ── INLINE VALIDATION ── */
+function validateField(field) {
+  const v = field.value.trim();
+  if (!v) { field.classList.remove('valid'); return; }
+  if (field.type === 'email' && !v.includes('@')) { field.classList.remove('valid'); return; }
+  field.classList.add('valid');
 }
-function scrollToVakken() {
-  document.getElementById('vakken').scrollIntoView({ behavior: 'smooth' });
-}
-function scrollToStappen() {
-  document.getElementById('stappen').scrollIntoView({ behavior: 'smooth' });
-}
+document.querySelectorAll('.field').forEach(f => {
+  f.addEventListener('blur', () => validateField(f));
+  f.addEventListener('input', () => { if (f.classList.contains('valid')) validateField(f); });
+});
+
+/* ── NAVIGATION ── */
+function scrollToForm() { document.getElementById('form-anchor').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
 
 function kiesVak(el, vak) {
   document.querySelectorAll('.vak-pill').forEach(p => p.classList.remove('active'));
   el.classList.add('active');
   const sel = document.getElementById('f-vak');
-  for (let o of sel.options) { if (o.text === vak) { sel.value = o.value || o.text; break; } }
+  for (let o of sel.options) { if (o.text === vak) { sel.value = o.value || o.text; validateField(sel); break; } }
   scrollToForm();
 }
 
+/* ── FILE HANDLING ── */
 function onFileSelect(e) { if (e.target.files[0]) setFile(e.target.files[0]); }
 function onDrag(e, over) { e.preventDefault(); document.getElementById('dropzone').classList.toggle('over', over); }
 function onDrop(e) { e.preventDefault(); document.getElementById('dropzone').classList.remove('over'); if (e.dataTransfer.files[0]) setFile(e.dataTransfer.files[0]); }
@@ -849,6 +910,7 @@ function setFile(file) {
   selectedFile = file;
   document.getElementById('dropzone').style.display = 'none';
   document.getElementById('file-name').textContent = file.name;
+  document.getElementById('file-size').textContent = (file.size / 1024).toFixed(0) + ' KB · ' + file.name.split('.').pop().toUpperCase();
   document.getElementById('file-selected').style.display = 'flex';
 }
 
@@ -859,6 +921,7 @@ function removeFile() {
   document.getElementById('file-selected').style.display = 'none';
 }
 
+/* ── SUBMIT ── */
 async function submitCV() {
   const naam   = document.getElementById('f-naam').value.trim();
   const achter = document.getElementById('f-achter').value.trim();
@@ -867,7 +930,7 @@ async function submitCV() {
   const stad   = document.getElementById('f-stad').value.trim();
   const vak    = document.getElementById('f-vak').value;
 
-  if (!naam || !achter)              { toast('Vul je naam in', 'err'); return; }
+  if (!naam || !achter)               { toast('Vul je naam in', 'err'); return; }
   if (!email || !email.includes('@')) { toast('Vul een geldig e-mailadres in', 'err'); return; }
   if (!tel)                           { toast('Vul je telefoonnummer in', 'err'); return; }
   if (!vak)                           { toast('Kies je vakspecialisme', 'err'); return; }
@@ -875,13 +938,13 @@ async function submitCV() {
 
   const btn = document.getElementById('submit-btn');
   btn.disabled = true;
-  btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="animation:spin 1s linear infinite"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg> Bezig…';
+  btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="animation:spin 1s linear infinite"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg> Bezig…`;
   document.getElementById('progress-wrap').style.display = 'block';
   setProg(20, 'CV uploaden…');
 
   try {
     const ext  = selectedFile.name.split('.').pop();
-    const path = `cvs/${Date.now()}_${naam}_${achter}.${ext}`.replace(/\s+/g, '_');
+    const path = `cvs/${Date.now()}_${naam}_${achter}.${ext}`.replace(/\s+/g,'_');
     setProg(40, 'Bestand opslaan…');
     const { error: se } = await sb.storage.from('cv-uploads').upload(path, selectedFile, { contentType: selectedFile.type, upsert: false });
     if (se) throw se;
@@ -900,10 +963,11 @@ async function submitCV() {
       await sb.from('cv_submissions').insert({ voornaam: naam, achternaam: achter, email, telefoon: tel, locatie: stad, vak, cv_bestand: null, status: 'nieuw' });
       document.getElementById('form-state').style.display = 'none';
       document.getElementById('success-state').style.display = 'block';
+      if (window.ttq) ttq.track('SubmitForm', { content_name: 'CV Upload', content_category: vak });
     } catch {
-      toast('Er ging iets mis. Probeer opnieuw of bel ons.', 'err');
+      toast('Er ging iets mis. Probeer opnieuw of mail info@werkgo.nl', 'err');
       btn.disabled = false;
-      btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> CV versturen — Gratis';
+      btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> CV versturen — Gratis`;
       document.getElementById('progress-wrap').style.display = 'none';
     }
   }
@@ -917,25 +981,22 @@ function setProg(pct, label) {
 function resetForm() {
   document.getElementById('form-state').style.display = 'block';
   document.getElementById('success-state').style.display = 'none';
-  document.getElementById('submit-btn').disabled = false;
-  document.getElementById('submit-btn').innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> CV versturen — Gratis';
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = false;
+  btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> CV versturen — Gratis`;
   document.getElementById('progress-wrap').style.display = 'none';
   removeFile();
-  ['f-naam','f-achter','f-email','f-tel','f-stad'].forEach(id => document.getElementById(id).value = '');
+  ['f-naam','f-achter','f-email','f-tel','f-stad'].forEach(id => { const el = document.getElementById(id); el.value=''; el.classList.remove('valid'); });
   document.getElementById('f-vak').value = '';
 }
 
 function toast(msg, type) {
   const el = document.createElement('div');
   el.className = `toast ${type}`;
-  el.innerHTML = `<span>${type === 'ok' ? '✓' : '✕'}</span> ${msg}`;
+  el.innerHTML = `<span>${type==='ok'?'✓':'✕'}</span> ${msg}`;
   document.getElementById('toasts').appendChild(el);
   setTimeout(() => el.remove(), 3500);
 }
 </script>
-
-<style>
-  @keyframes spin { to { transform: rotate(360deg); } }
-</style>
 </body>
 </html>
