@@ -249,17 +249,48 @@
 
     /* ── HERO ── */
     .hero { background: var(--navy); padding: 88px 0 0; overflow: hidden; position: relative; }
+    /* radial purple tint from HeroSection */
     .hero-bg {
       position: absolute; inset: 0; pointer-events: none;
       background:
-        radial-gradient(ellipse 60% 70% at 80% 30%, rgba(27,79,191,0.45) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 50% at 0% 100%, rgba(249,115,22,0.12) 0%, transparent 55%),
-        radial-gradient(ellipse 30% 30% at 40% 0%, rgba(255,255,255,0.04) 0%, transparent 60%);
+        radial-gradient(ellipse 20% 80% at 50% -20%, rgba(120,119,198,0.22) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 70% at 80% 30%, rgba(27,79,191,0.35) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 0% 100%, rgba(249,115,22,0.1) 0%, transparent 55%);
     }
     .hero-noise { position: absolute; inset: 0; pointer-events: none; opacity: 0.025;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
       background-size: 200px 200px; }
-    .hero-grid { position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px); background-size: 72px 72px; }
+
+    /* RetroGrid — perspective scrolling grid */
+    .retro-grid {
+      position: absolute; inset: 0; pointer-events: none;
+      perspective: 200px;
+      opacity: 0.38;
+    }
+    .retro-grid-inner {
+      position: absolute; inset: 0;
+      transform: rotateX(65deg);
+      transform-origin: 100% 0 0;
+    }
+    .retro-grid-lines {
+      position: absolute;
+      inset: 0%;
+      margin-left: -200%;
+      width: 600vw;
+      height: 300vh;
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,.07) 1px, transparent 0),
+        linear-gradient(to bottom, rgba(255,255,255,.07) 1px, transparent 0);
+      background-size: 50px 50px;
+      background-repeat: repeat;
+      animation: retrogrid 12s linear infinite;
+    }
+    @keyframes retrogrid { to { transform: translateY(50px); } }
+    .retro-grid-fade {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, var(--navy) 10%, transparent 90%);
+    }
+    .hero-grid { display: none; } /* replaced by retro-grid */
     .hero-wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 430px; gap: 64px; align-items: start; }
 
     .hero-pill {
@@ -271,10 +302,56 @@
     .hero-pill-dot { width: 7px; height: 7px; border-radius: 50%; background: #10B981; animation: pulse 2s infinite; flex-shrink: 0; }
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.8)} }
 
-    .hero h1 { font-family: var(--fh); font-size: clamp(40px, 4.8vw, 60px); font-weight: 800; color: #fff; line-height: 1.06; letter-spacing: -0.03em; margin-bottom: 24px; }
-    .hero h1 .accent { color: var(--orange); }
+    .hero h1 {
+      font-family: var(--fh); font-size: clamp(40px, 4.8vw, 60px); font-weight: 800;
+      line-height: 1.06; letter-spacing: -0.03em; margin-bottom: 24px;
+      background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,.72) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero h1 .accent {
+      background: linear-gradient(90deg, var(--orange) 0%, #fb923c 50%, #f97316 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
     .accent-line { position: relative; display: inline-block; }
     .accent-line::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--orange), rgba(249,115,22,0.3)); border-radius: 2px; }
+
+    /* Spinning conic-gradient CTA border (from HeroSection) */
+    .cta-spin-wrap {
+      position: relative; display: inline-block;
+      border-radius: 999px; padding: 1.5px;
+      overflow: hidden;
+    }
+    .cta-spin-wrap::before {
+      content: '';
+      position: absolute; inset: -100%;
+      background: conic-gradient(from 90deg at 50% 50%, #E2CBFF 0%, #393BB2 50%, #E2CBFF 100%);
+      animation: spin-border 2s linear infinite;
+      border-radius: 999px;
+    }
+    @keyframes spin-border { to { transform: rotate(360deg); } }
+    .cta-spin-inner {
+      position: relative; z-index: 1;
+      background: rgba(10,22,40,.95);
+      border-radius: 999px;
+      display: inline-flex;
+    }
+    .btn-spin {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(to right, rgba(147,51,234,.15), rgba(249,115,22,.12), transparent);
+      border: 1px solid rgba(255,255,255,.12);
+      color: #fff; border-radius: 999px;
+      padding: 12px 28px;
+      font-family: var(--fb); font-weight: 700; font-size: 14px;
+      cursor: pointer; transition: all .2s; white-space: nowrap;
+      text-decoration: none;
+    }
+    .btn-spin:hover {
+      background: linear-gradient(to right, rgba(147,51,234,.28), rgba(249,115,22,.22), transparent);
+    }
+    .btn-spin svg { width: 14px; height: 14px; transition: transform .2s; }
+    .btn-spin:hover svg { transform: translateX(3px); }
 
     .hero-sub { font-size: 17px; line-height: 1.85; color: rgba(255,255,255,0.45); max-width: 440px; margin-bottom: 44px; }
 
@@ -633,7 +710,13 @@
 <section class="hero" aria-label="WerkGo — CV uploaden voor bouw en techniek vacatures">
   <div class="hero-bg"></div>
   <div class="hero-noise"></div>
-  <div class="hero-grid"></div>
+  <!-- RetroGrid (HeroSection port) -->
+  <div class="retro-grid">
+    <div class="retro-grid-inner">
+      <div class="retro-grid-lines"></div>
+    </div>
+    <div class="retro-grid-fade"></div>
+  </div>
   <div class="hero-wrap">
 
     <div class="hero-left">
@@ -643,6 +726,18 @@
       </div>
       <h1>Jouw volgende baan<br>begint met<br><span class="accent accent-line">één upload.</span></h1>
       <p class="hero-sub">Upload je CV en wij presenteren jou binnen 24 uur bij de beste bouwbedrijven in Nederland. Gratis, persoonlijk en zonder gedoe.</p>
+
+      <!-- Spinning CTA button (HeroSection port) -->
+      <div style="margin-bottom:36px">
+        <span class="cta-spin-wrap">
+          <span class="cta-spin-inner">
+            <button class="btn-spin" onclick="scrollToForm()">
+              CV gratis uploaden
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </span>
+        </span>
+      </div>
 
       <div class="hero-proof">
         <div class="proof-avatars">
