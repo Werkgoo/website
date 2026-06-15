@@ -133,7 +133,7 @@
     .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .work { position: relative; border-radius: 24px; overflow: hidden; border: 1px solid var(--line); aspect-ratio: 16/11; cursor: pointer; transition: all .4s cubic-bezier(.2,.7,.2,1); }
     .work:hover { border-color: var(--line2); transform: translateY(-4px); }
-    .work-bg { position: absolute; inset: 0; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+    .work-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
     .work:hover .work-bg { transform: scale(1.06); }
     .work-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(7,8,13,0.92) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 34px; }
     .work-cat { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
@@ -355,7 +355,7 @@
     </div>
     <div class="work-grid">
       <div class="work up">
-        <div class="work-bg bg-a"></div>
+        <div class="work-bg bg-a" style="background-image:url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=900&q=80&auto=format&fit=crop')"></div>
         <div class="work-overlay">
           <div class="work-cat">E-commerce</div>
           <h3>Lumière Atelier <span class="work-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span></h3>
@@ -363,7 +363,7 @@
         </div>
       </div>
       <div class="work up d1">
-        <div class="work-bg bg-b"></div>
+        <div class="work-bg bg-b" style="background-image:url('https://images.unsplash.com/photo-1551434678-e076c223a692?w=900&q=80&auto=format&fit=crop')"></div>
         <div class="work-overlay">
           <div class="work-cat">SaaS Platform</div>
           <h3>Northwind <span class="work-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span></h3>
@@ -371,7 +371,7 @@
         </div>
       </div>
       <div class="work up d2">
-        <div class="work-bg bg-c"></div>
+        <div class="work-bg bg-c" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&q=80&auto=format&fit=crop')"></div>
         <div class="work-overlay">
           <div class="work-cat">Hospitality</div>
           <h3>Maison Vert <span class="work-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span></h3>
@@ -379,10 +379,10 @@
         </div>
       </div>
       <div class="work up d3">
-        <div class="work-bg bg-d"></div>
+        <div class="work-bg bg-d" style="background-image:url('https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=900&q=80&auto=format&fit=crop')"></div>
         <div class="work-overlay">
           <div class="work-cat">Persoonlijk merk</div>
-          <h3>Studio Kaया <span class="work-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span></h3>
+          <h3>Studio Kaya <span class="work-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span></h3>
           <p>Portfolio-site voor een fotograaf met een filmische beeldbeleving.</p>
         </div>
       </div>
@@ -491,15 +491,15 @@
     </div>
 
     <div class="form up d1">
-      <div id="formBody">
+      <form id="formBody" onsubmit="submitForm(event)">
         <div class="frow">
-          <div><label class="fl" for="naam">Naam</label><input class="fi" id="naam" type="text" placeholder="Jan Smit"></div>
-          <div><label class="fl" for="email">E-mail</label><input class="fi" id="email" type="email" placeholder="jan@bedrijf.nl"></div>
+          <div><label class="fl" for="naam">Naam</label><input class="fi" id="naam" name="naam" type="text" placeholder="Jan Smit" required></div>
+          <div><label class="fl" for="email">E-mail</label><input class="fi" id="email" name="email" type="email" placeholder="jan@bedrijf.nl" required></div>
         </div>
         <label class="fl" for="bedrijf">Bedrijf / merk</label>
-        <input class="fi" id="bedrijf" type="text" placeholder="Jouw bedrijf">
+        <input class="fi" id="bedrijf" name="bedrijf" type="text" placeholder="Jouw bedrijf">
         <label class="fl" for="type">Waar kunnen we mee helpen?</label>
-        <select class="fi" id="type">
+        <select class="fi" id="type" name="dienst">
           <option value="">Selecteer een dienst…</option>
           <option>Nieuwe website</option>
           <option>Webshop / e-commerce</option>
@@ -508,12 +508,12 @@
           <option>Iets anders</option>
         </select>
         <label class="fl" for="bericht">Vertel over je project</label>
-        <textarea class="fi" id="bericht" placeholder="Wat wil je bereiken? Wat is je visie?"></textarea>
-        <button class="btn btn-primary" onclick="submitForm()">Verstuur aanvraag
+        <textarea class="fi" id="bericht" name="bericht" placeholder="Wat wil je bereiken? Wat is je visie?" required></textarea>
+        <button class="btn btn-primary" type="submit" id="submitBtn">Verstuur aanvraag
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
         <p class="form-note">Binnen 24 uur reactie · Altijd vrijblijvend</p>
-      </div>
+      </form>
       <div id="ok">
         <div class="ok-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
         <h3>Bericht verzonden!</h3>
@@ -577,17 +577,30 @@ document.querySelectorAll('.up, .fade').forEach(el => io.observe(el));
   t.innerHTML = html;
 })();
 
-/* form */
-function submitForm(){
-  const n = document.getElementById('naam').value.trim();
-  const e = document.getElementById('email').value.trim();
-  const b = document.getElementById('bericht').value.trim();
-  if(!n){ alert('Vul je naam in.'); return; }
-  if(!e || !e.includes('@')){ alert('Vul een geldig e-mailadres in.'); return; }
-  if(!b){ alert('Vertel iets over je project.'); return; }
-  /* koppel hier later Formspree / Supabase / EmailJS */
-  document.getElementById('formBody').style.display = 'none';
-  document.getElementById('ok').style.display = 'block';
+/* form — Formspree
+   ▼▼▼ VERVANG 'YOUR_ID' door jouw Formspree-endpoint (bv. xayzwdkr) ▼▼▼ */
+const FORM_ENDPOINT = 'https://formspree.io/f/YOUR_ID';
+
+async function submitForm(ev){
+  ev.preventDefault();
+  const form = document.getElementById('formBody');
+  const btn  = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Versturen…';
+  try {
+    const res = await fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    });
+    if (!res.ok) throw new Error('mislukt');
+    form.style.display = 'none';
+    document.getElementById('ok').style.display = 'block';
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = 'Verstuur aanvraag';
+    alert('Er ging iets mis. Probeer het opnieuw of mail naar info@nutel.nl');
+  }
 }
 </script>
 </body>
