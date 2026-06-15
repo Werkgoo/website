@@ -87,6 +87,7 @@
     .hero-noise { position: absolute; inset: 0; pointer-events: none; opacity: 0.025;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
       background-size: 200px 200px; }
+    .hero-grid { position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px); background-size: 72px 72px; }
     .hero-wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 430px; gap: 64px; align-items: start; }
 
     .hero-pill {
@@ -214,24 +215,24 @@
     .centered-p { max-width: 500px; margin: 0 auto; }
 
     /* TRUST BAR */
-    .trust-bar { background: #fff; border-top: 1px solid var(--g100); border-bottom: 1px solid var(--g100); padding: 20px 0; }
-    .trust-inner { max-width: 1120px; margin: 0 auto; padding: 0 28px; display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
-    .trust-item { display: flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 600; color: var(--g600); }
-    .trust-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
-    .trust-icon.blue { background: #EFF4FF; }
-    .trust-icon.green { background: rgba(16,185,129,0.08); }
-    .trust-icon.orange { background: #FFF7ED; }
-    .trust-icon svg { width: 16px; height: 16px; }
+    .trust-bar { background: #fff; border-top: 1px solid var(--g100); border-bottom: 1px solid var(--g100); padding: 16px 0; overflow: hidden; }
+    .marquee-track { display: flex; width: max-content; animation: marquee 24s linear infinite; }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+    .marquee-item { display: flex; align-items: center; gap: 10px; padding: 0 36px; font-size: 13px; font-weight: 600; color: var(--g600); white-space: nowrap; }
+    .marquee-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
 
     /* STEPS */
     .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 60px; position: relative; }
     .steps-connector { position: absolute; top: 26px; left: calc(16.67% + 24px); right: calc(16.67% + 24px); height: 1px; background: repeating-linear-gradient(90deg, var(--g200) 0, var(--g200) 6px, transparent 6px, transparent 12px); z-index: 0; }
-    .step { background: #fff; border: 1px solid var(--g100); border-radius: 18px; padding: 30px 26px; box-shadow: var(--s1); transition: all .25s; position: relative; z-index: 1; }
+    .step { background: #fff; border: 1px solid var(--g100); border-radius: 18px; padding: 30px 26px; box-shadow: var(--s1); transition: all .25s; position: relative; z-index: 1; border-top: 3px solid transparent; }
     .step:hover { box-shadow: var(--s3); transform: translateY(-4px); border-color: var(--g200); }
     .step-num { width: 48px; height: 48px; border-radius: 14px; color: #fff; font-family: var(--fh); font-weight: 800; font-size: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 22px; }
     .step-1 .step-num { background: var(--navy); }
     .step-2 .step-num { background: var(--blue); }
     .step-3 .step-num { background: var(--orange); }
+    .step-1 { border-top-color: var(--navy); }
+    .step-2 { border-top-color: var(--blue); }
+    .step-3 { border-top-color: var(--orange); }
     .step h3 { font-family: var(--fh); font-size: 17px; font-weight: 700; margin-bottom: 10px; color: var(--navy); }
     .step p { font-size: 14px; color: var(--g600); line-height: 1.8; }
     .step-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; color: var(--blue); background: #EFF4FF; padding: 4px 10px; border-radius: 999px; margin-top: 16px; }
@@ -293,11 +294,20 @@
     .cta-inner { position: relative; z-index: 1; text-align: center; max-width: 600px; margin: 0 auto; padding: 0 28px; }
     .cta-inner h2 { font-family: var(--fh); font-size: clamp(28px, 4vw, 46px); font-weight: 800; color: #fff; letter-spacing: -0.03em; margin-bottom: 16px; line-height: 1.08; }
     .cta-inner p { font-size: 17px; color: rgba(255,255,255,0.4); margin-bottom: 40px; line-height: 1.75; }
-    .cta-btn { background: var(--orange); color: #fff; border: none; padding: 17px 44px; border-radius: 12px; font-family: var(--fb); font-weight: 700; font-size: 16px; cursor: pointer; transition: all .2s; display: inline-flex; align-items: center; gap: 10px; }
-    .cta-btn:hover { background: #ea6c10; transform: translateY(-2px); box-shadow: 0 12px 36px rgba(249,115,22,0.4); }
+    .cta-btn { background: var(--orange); color: #fff; border: none; padding: 17px 44px; border-radius: 12px; font-family: var(--fb); font-weight: 700; font-size: 16px; cursor: pointer; transition: all .2s; display: inline-flex; align-items: center; gap: 10px; position: relative; overflow: hidden; }
+    .cta-btn:hover { background: #ea6c10; transform: translateY(-2px); box-shadow: 0 16px 48px rgba(249,115,22,.5); }
+    .cta-btn::after { content:''; position:absolute; inset:0; background:rgba(255,255,255,0); transition: background .2s; }
+    .cta-btn:hover::after { background: rgba(255,255,255,.08); }
     .cta-trust { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; margin-top: 24px; }
     .cta-trust span { font-size: 13px; color: rgba(255,255,255,0.28); display: flex; align-items: center; gap: 6px; }
     .cta-trust span::before { content: '✓'; color: var(--green); font-weight: 800; }
+
+    /* PULL QUOTE */
+    .pull-quote-sec { background: var(--navy); padding: 80px 0; }
+    .pq-inner { position: relative; text-align: center; max-width: 720px; margin: 0 auto; }
+    .pq-mark { font-size: 120px; line-height: .6; color: rgba(249,115,22,.15); font-family: Georgia, serif; margin-bottom: 16px; }
+    .pq-text { font-family: var(--fh); font-size: clamp(20px,2.8vw,32px); font-weight: 600; color: #fff; line-height: 1.55; letter-spacing: -.02em; margin-bottom: 24px; }
+    .pq-author { font-size: 13px; color: rgba(255,255,255,.35); font-weight: 500; letter-spacing: .05em; }
 
     /* FOOTER */
     footer { background: #060D1C; padding: 56px 0 32px; }
@@ -388,6 +398,7 @@
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-noise"></div>
+  <div class="hero-grid"></div>
   <div class="hero-wrap">
 
     <div class="hero-left">
@@ -556,38 +567,7 @@
 
 <!-- TRUST BAR -->
 <div class="trust-bar">
-  <div class="trust-inner">
-    <div class="trust-item">
-      <div class="trust-icon green">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-      </div>
-      100% gratis voor vakmensen
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon blue">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#1B4FBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      </div>
-      Reactie binnen 24 uur
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon orange">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-      </div>
-      AVG-proof & veilig
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon green">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-      </div>
-      Heel Nederland
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon blue">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#1B4FBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-      </div>
-      Geen verplichtingen
-    </div>
-  </div>
+  <div class="marquee-track" id="marquee-track"></div>
 </div>
 
 <!-- HOE HET WERKT -->
@@ -789,6 +769,17 @@
   </div>
 </section>
 
+<!-- PULL QUOTE -->
+<div class="pull-quote-sec">
+  <div class="wrap">
+    <div class="pq-inner reveal">
+      <div class="pq-mark">"</div>
+      <p class="pq-text">CV geüpload op maandag, dinsdag gebeld, woensdag op de bouwplaats. WerkGo doet precies wat het belooft.</p>
+      <div class="pq-author">— Thomas van der Berg · Loodgieter · Zaandam</div>
+    </div>
+  </div>
+</div>
+
 <!-- CTA -->
 <section class="cta-section">
   <div class="cta-inner reveal">
@@ -844,6 +835,15 @@
 const { createClient } = supabase;
 const sb = createClient('https://rxyygtmcufesijggrcmx.supabase.co','sb_publishable_WMpDauoU_KF1l0POAOUT1w_A3yS5grZ');
 let selectedFile = null;
+
+/* ── MARQUEE ── */
+(function(){
+  const items = ['100% gratis voor vakmensen','Binnen 24 uur reactie','AVG-proof & veilig','Heel Nederland','Geen verplichtingen','1.200+ vakmensen geplaatst','Persoonlijk contact','140+ partnerbedrijven'];
+  const track = document.getElementById('marquee-track');
+  if (!track) return;
+  const html = [...items,...items].map(t=>`<span class="marquee-item"><span class="marquee-dot"></span>${t}</span>`).join('');
+  track.innerHTML = html + html;
+})();
 
 /* ── SCROLL ANIMATIONS ── */
 const observer = new IntersectionObserver(entries => {
