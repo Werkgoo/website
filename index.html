@@ -251,48 +251,12 @@
 
     /* ── HERO ── */
     .hero { background: var(--navy); padding: 88px 0 0; overflow: hidden; position: relative; }
-    /* radial purple tint from HeroSection */
     .hero-bg {
       position: absolute; inset: 0; pointer-events: none;
       background:
-        radial-gradient(ellipse 20% 80% at 50% -20%, rgba(120,119,198,0.22) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 70% at 80% 30%, rgba(27,79,191,0.35) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 50% at 0% 100%, rgba(249,115,22,0.1) 0%, transparent 55%);
+        radial-gradient(ellipse 70% 60% at 20% 50%, rgba(27,79,191,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 80% 20%, rgba(249,115,22,0.08) 0%, transparent 60%);
     }
-    .hero-noise { position: absolute; inset: 0; pointer-events: none; opacity: 0.025;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size: 200px 200px; }
-
-    /* RetroGrid — perspective scrolling grid */
-    .retro-grid {
-      position: absolute; inset: 0; pointer-events: none;
-      perspective: 200px;
-      opacity: 0.38;
-    }
-    .retro-grid-inner {
-      position: absolute; inset: 0;
-      transform: rotateX(65deg);
-      transform-origin: 100% 0 0;
-    }
-    .retro-grid-lines {
-      position: absolute;
-      inset: 0%;
-      margin-left: -200%;
-      width: 600vw;
-      height: 300vh;
-      background-image:
-        linear-gradient(to right, rgba(255,255,255,.07) 1px, transparent 0),
-        linear-gradient(to bottom, rgba(255,255,255,.07) 1px, transparent 0);
-      background-size: 50px 50px;
-      background-repeat: repeat;
-      animation: retrogrid 12s linear infinite;
-    }
-    @keyframes retrogrid { to { transform: translateY(50px); } }
-    .retro-grid-fade {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, var(--navy) 10%, transparent 90%);
-    }
-    .hero-grid { display: none; } /* replaced by retro-grid */
     .hero-wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 430px; gap: 64px; align-items: start; }
 
     .hero-pill {
@@ -328,58 +292,18 @@
     .accent-line::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--orange), rgba(249,115,22,0.3)); border-radius: 2px; }
 
     /* Spinning conic-gradient CTA border (from HeroSection) */
-    .cta-spin-wrap {
-      position: relative; display: inline-block;
-      border-radius: 999px; padding: 1.5px;
-      overflow: hidden;
-    }
-    .cta-spin-wrap::before {
-      content: '';
-      position: absolute; inset: -100%;
-      background: conic-gradient(from 90deg at 50% 50%, #E2CBFF 0%, #393BB2 50%, #E2CBFF 100%);
-      animation: spin-border 2s linear infinite;
-      border-radius: 999px;
-    }
-    @keyframes spin-border { to { transform: rotate(360deg); } }
-    .cta-spin-inner {
-      position: relative; z-index: 1;
-      background: rgba(10,22,40,.95);
-      border-radius: 999px;
-      display: inline-flex;
-    }
-    .btn-spin {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: linear-gradient(to right, rgba(147,51,234,.15), rgba(249,115,22,.12), transparent);
-      border: 1px solid rgba(255,255,255,.12);
-      color: #fff; border-radius: 999px;
-      padding: 12px 28px;
-      font-family: var(--fb); font-weight: 700; font-size: 14px;
+    .btn-hero {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--orange); color: #fff; border: none;
+      padding: 15px 32px; border-radius: 12px;
+      font-family: var(--fb); font-weight: 700; font-size: 16px;
       cursor: pointer; transition: all .2s; white-space: nowrap;
-      text-decoration: none;
     }
-    .btn-spin:hover {
-      background: linear-gradient(to right, rgba(147,51,234,.28), rgba(249,115,22,.22), transparent);
-    }
-    .btn-spin svg { width: 14px; height: 14px; transition: transform .2s; }
-    .btn-spin:hover svg { transform: translateX(3px); }
+    .btn-hero:hover { background: #ea6c10; transform: translateY(-2px); box-shadow: 0 10px 32px rgba(249,115,22,.4); }
+    .btn-hero svg { width: 16px; height: 16px; transition: transform .2s; }
+    .btn-hero:hover svg { transform: translateX(3px); }
 
     .hero-sub { font-size: 17px; line-height: 1.85; color: rgba(255,255,255,0.45); max-width: 440px; margin-bottom: 44px; }
-
-    .hero-float-card {
-      display: inline-flex; align-items: center; gap: 12px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      backdrop-filter: blur(16px);
-      border-radius: 12px; padding: 10px 16px;
-      margin-bottom: 24px;
-      animation: floatY 3s ease-in-out infinite;
-    }
-    @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
-    .hfc-icon { width:28px;height:28px;border-radius:8px;background:rgba(16,185,129,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0; }
-    .hfc-body { display:flex;flex-direction:column;gap:2px; }
-    .hfc-title { font-size:12px;font-weight:700;color:#fff;letter-spacing:.01em; }
-    .hfc-sub { font-size:11px;color:rgba(255,255,255,.4); }
-    .hfc-time { font-size:11px;color:rgba(16,185,129,.7);font-weight:600;margin-left:auto;white-space:nowrap; }
     .hero-proof { display: flex; align-items: center; gap: 20px; padding-bottom: 72px; flex-wrap: wrap; }
     .proof-avatars { display: flex; }
     .proof-avatars img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2.5px solid rgba(255,255,255,0.15); margin-right: -10px; }
@@ -742,14 +666,6 @@
 <!-- HERO -->
 <section class="hero" aria-label="WerkGo — CV uploaden voor bouw en techniek vacatures">
   <div class="hero-bg"></div>
-  <div class="hero-noise"></div>
-  <!-- RetroGrid (HeroSection port) -->
-  <div class="retro-grid">
-    <div class="retro-grid-inner">
-      <div class="retro-grid-lines"></div>
-    </div>
-    <div class="retro-grid-fade"></div>
-  </div>
   <div class="hero-wrap">
 
     <div class="hero-left">
@@ -760,28 +676,12 @@
       <h1>Jouw volgende baan<br>begint met<br><span class="accent accent-line">één upload.</span></h1>
       <p class="hero-sub">Upload je CV en wij presenteren jou binnen 24 uur bij de beste bouwbedrijven in Nederland. Gratis, persoonlijk en zonder gedoe.</p>
 
-      <!-- Spinning CTA button (HeroSection port) -->
-      <div style="margin-bottom:36px">
-        <span class="cta-spin-wrap">
-          <span class="cta-spin-inner">
-            <button class="btn-spin" onclick="scrollToForm()">
-              CV gratis uploaden
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
-          </span>
-        </span>
+      <div style="margin-bottom:40px">
+        <button class="btn-hero" onclick="scrollToForm()">
+          CV gratis uploaden
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
       </div>
-
-      <div class="hero-float-card reveal reveal-delay-1">
-  <div class="hfc-icon">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-  </div>
-  <div class="hfc-body">
-    <div class="hfc-title">Nieuw: match gevonden!</div>
-    <div class="hfc-sub">Marco V. · Elektricien · Den Haag</div>
-  </div>
-  <div class="hfc-time">Nu</div>
-</div>
       <div class="hero-proof">
         <div class="proof-avatars">
           <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80&auto=format&fit=crop&crop=face" alt="Bouwvakker die werk vond via WerkGo" loading="lazy" width="38" height="38">
@@ -944,52 +844,6 @@
 </div>
 
 <!-- DISPLAY CARDS -->
-<section class="display-cards-section">
-  <div class="dc-wrap">
-    <div class="dc-text reveal-left">
-      <div class="eyebrow">Realtime updates</div>
-      <h2 class="section-h">Elke dag nieuwe<br>matches voor jou</h2>
-      <p class="section-p">Onze adviseurs plaatsen dagelijks nieuwe vakmensen. Zodra jouw CV binnenkomt, gaan wij direct aan de slag.</p>
-      <button class="nav-cta" style="border:none;cursor:pointer" onclick="scrollToForm()">CV uploaden →</button>
-    </div>
-    <div class="dc-stack reveal">
-      <!-- Card 1 -->
-      <div class="dc-card">
-        <div class="dc-card-top">
-          <div class="dc-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>
-          </div>
-          <span class="dc-card-title">Nieuw geplaatst</span>
-        </div>
-        <div class="dc-card-body">Ralf B. · Metselaar · Utrecht</div>
-        <div class="dc-card-date"><span class="dc-card-dot"></span>2 uur geleden</div>
-      </div>
-      <!-- Card 2 -->
-      <div class="dc-card">
-        <div class="dc-card-top">
-          <div class="dc-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-          </div>
-          <span class="dc-card-title">CV ontvangen</span>
-        </div>
-        <div class="dc-card-body">Kevin J. · Timmerman · Hoorn</div>
-        <div class="dc-card-date"><span class="dc-card-dot"></span>5 uur geleden</div>
-      </div>
-      <!-- Card 3 -->
-      <div class="dc-card">
-        <div class="dc-card-top">
-          <div class="dc-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <span class="dc-card-title">Match gevonden</span>
-        </div>
-        <div class="dc-card-body">Thomas v.d.B. · Loodgieter · Zaandam</div>
-        <div class="dc-card-date"><span class="dc-card-dot"></span>Vandaag</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- HOE HET WERKT -->
 <section class="section section-alt" id="stappen">
   <div class="wrap">
