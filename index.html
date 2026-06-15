@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nutel — Websites voor ondernemers, zonder gedoe</title>
-  <meta name="description" content="Ik maak nette, snelle websites voor ZZP'ers en kleine bedrijven. Eén aanspreekpunt, vaste prijs vooraf en meestal binnen een paar weken online.">
+  <title>Nutel — Websites die klanten opleveren</title>
+  <meta name="description" content="Ik maak nette, snelle websites voor ZZP'ers en kleine bedrijven. Vaste prijs vooraf, klaar in 2–4 weken, altijd één aanspreekpunt.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://nutel.nl/">
-  <meta property="og:title" content="Nutel — Websites voor ondernemers, zonder gedoe">
+  <meta property="og:title" content="Nutel — Websites die klanten opleveren">
   <meta property="og:description" content="Nette, snelle websites voor ZZP'ers en kleine bedrijven. Vaste prijs, snel klaar.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://nutel.nl/">
@@ -53,7 +53,7 @@
     header.scrolled { background: rgba(7,8,13,0.72); backdrop-filter: blur(18px) saturate(160%); border-bottom: 1px solid var(--line); }
     .nav { display: flex; align-items: center; justify-content: space-between; height: 76px; }
     .brand { font-family: var(--fh); font-size: 23px; font-weight: 700; letter-spacing: -0.04em; display: flex; align-items: center; gap: 9px; }
-    .brand-dot { width: 9px; height: 9px; border-radius: 50%; background: linear-gradient(135deg, var(--brand), var(--accent)); box-shadow: 0 0 14px var(--glow); }
+    .brand-dot { width: 9px; height: 9px; border-radius: 50%; background: linear-gradient(135deg, var(--brand), var(--accent)); box-shadow: 0 0 14px var(--glow); flex-shrink: 0; }
     .brand span { background: linear-gradient(120deg, var(--brand2), var(--accent)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
     .nav-links { display: flex; align-items: center; gap: 6px; }
     .nav-links a { font-size: 14px; font-weight: 500; color: var(--mut); padding: 9px 16px; border-radius: 10px; transition: all .15s; }
@@ -84,81 +84,76 @@
     .orb1 { width: 560px; height: 560px; background: radial-gradient(circle, var(--brand) 0%, transparent 70%); top: -160px; left: -120px; }
     .orb2 { width: 480px; height: 480px; background: radial-gradient(circle, var(--accent) 0%, transparent 70%); top: 40px; right: -140px; opacity: .3; }
     .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 0%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 0%, transparent 75%); pointer-events: none; }
-    .hero-inner { position: relative; max-width: 880px; }
-    .pill { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.04); border: 1px solid var(--line2); padding: 8px 8px 8px 8px; border-radius: 999px; font-size: 13px; color: var(--mut); margin-bottom: 32px; }
+    .hero-inner { position: relative; max-width: 820px; }
+    .pill { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.04); border: 1px solid var(--line2); padding: 8px 16px 8px 8px; border-radius: 999px; font-size: 13px; color: var(--mut); margin-bottom: 32px; }
     .pill b { background: linear-gradient(120deg, var(--brand2), var(--accent)); color: #07080D; font-weight: 700; padding: 3px 11px; border-radius: 999px; font-size: 11px; letter-spacing: .3px; }
-    h1 { font-family: var(--fh); font-size: clamp(44px, 7vw, 88px); font-weight: 700; line-height: 1.02; letter-spacing: -0.04em; margin-bottom: 28px; }
-    .hero-sub { font-size: clamp(17px, 2.2vw, 21px); color: var(--mut); max-width: 600px; margin-bottom: 44px; line-height: 1.7; }
+    h1 { font-family: var(--fh); font-size: clamp(42px, 6.5vw, 82px); font-weight: 700; line-height: 1.04; letter-spacing: -0.04em; margin-bottom: 28px; }
+    .hero-sub { font-size: clamp(17px, 2.2vw, 20px); color: var(--mut); max-width: 580px; margin-bottom: 44px; line-height: 1.75; }
     .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
-    .hero-meta { display: flex; align-items: center; gap: 14px; margin-top: 56px; flex-wrap: wrap; }
-    .avatars { display: flex; }
-    .avatars div { width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--bg); margin-left: -10px; background-size: cover; background-position: center; }
-    .avatars div:first-child { margin-left: 0; }
-    .hero-meta-txt { font-size: 14px; color: var(--mut); }
-    .hero-meta-txt b { color: var(--txt); }
-    .stars { color: var(--accent); letter-spacing: 1px; font-size: 13px; }
-
-    /* ── MARQUEE LOGOS ── */
-    .logos { padding: 48px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; }
-    .logos-label { text-align: center; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--mut2); margin-bottom: 28px; }
-    .marquee { display: flex; gap: 64px; width: max-content; animation: scroll 28s linear infinite; }
-    @keyframes scroll { to { transform: translateX(-50%); } }
-    .marquee span { font-family: var(--fh); font-size: 22px; font-weight: 600; color: var(--mut2); white-space: nowrap; transition: color .2s; }
+    .hero-stats { display: flex; gap: 40px; margin-top: 60px; flex-wrap: wrap; }
+    .hero-stat-item { display: flex; flex-direction: column; gap: 4px; }
+    .hero-stat-num { font-family: var(--fh); font-size: 28px; font-weight: 700; letter-spacing: -0.03em; background: linear-gradient(120deg, var(--txt), var(--mut)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-stat-lbl { font-size: 13px; color: var(--mut2); }
+    .hero-stat-sep { width: 1px; background: var(--line2); align-self: stretch; }
 
     /* ── SECTION shells ── */
     section { position: relative; }
-    .sec { padding: 130px 0; }
+    .sec { padding: 120px 0; }
     .sec-head { max-width: 640px; margin-bottom: 64px; }
     .sec-head.center { margin-left: auto; margin-right: auto; text-align: center; }
     .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--accent); letter-spacing: .5px; margin-bottom: 18px; }
     .eyebrow::before { content: ''; width: 22px; height: 1px; background: var(--accent); }
+    .sec-head.center .eyebrow { justify-content: center; }
     .sec-head.center .eyebrow::before { display: none; }
     h2 { font-family: var(--fh); font-size: clamp(32px, 4.4vw, 54px); font-weight: 700; line-height: 1.06; letter-spacing: -0.035em; margin-bottom: 20px; }
     .lead { font-size: 18px; color: var(--mut); line-height: 1.7; }
 
-    /* ── SERVICES ── */
+    /* ── WERK / PORTFOLIO ── */
+    .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .work { position: relative; border-radius: 24px; overflow: hidden; border: 1px solid var(--line); aspect-ratio: 16/11; cursor: default; transition: all .4s cubic-bezier(.2,.7,.2,1); }
+    .work:hover { border-color: var(--line2); transform: translateY(-4px); box-shadow: 0 30px 60px -30px rgba(0,0,0,0.8); }
+    .work-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+    .work:hover .work-bg { transform: scale(1.05); }
+    .work-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 20%, rgba(7,8,13,0.96) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 32px; }
+    .work-cat { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .work h3 { font-family: var(--fh); font-size: 24px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .work-outcome { font-size: 14px; color: var(--mut); line-height: 1.55; }
+    .work-outcome strong { color: var(--txt); }
+
+    /* ── MID CTA ── */
+    .mid-cta { text-align: center; padding: 20px 0 0; }
+    .mid-cta p { font-size: 15px; color: var(--mut); margin-top: 14px; }
+
+    /* ── DIENSTEN ── */
     .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .svc { position: relative; background: linear-gradient(180deg, var(--surf), var(--bg2)); border: 1px solid var(--line); border-radius: 22px; padding: 38px 32px; overflow: hidden; transition: all .3s cubic-bezier(.2,.7,.2,1); }
     .svc::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--brand2), transparent); opacity: 0; transition: opacity .3s; }
     .svc:hover { transform: translateY(-6px); border-color: var(--line2); box-shadow: 0 30px 60px -30px rgba(0,0,0,0.8); }
     .svc:hover::before { opacity: 1; }
-    .svc-ico { width: 56px; height: 56px; border-radius: 16px; background: linear-gradient(135deg, rgba(109,94,246,0.2), rgba(52,224,196,0.12)); border: 1px solid var(--line2); display: flex; align-items: center; justify-content: center; margin-bottom: 26px; }
-    .svc-ico svg { width: 26px; height: 26px; stroke: var(--brand2); }
-    .svc h3 { font-family: var(--fh); font-size: 22px; font-weight: 600; margin-bottom: 12px; letter-spacing: -0.02em; }
+    .svc-ico { width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, rgba(109,94,246,0.18), rgba(52,224,196,0.1)); border: 1px solid var(--line2); display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+    .svc-ico svg { width: 24px; height: 24px; stroke: var(--brand2); }
+    .svc h3 { font-family: var(--fh); font-size: 21px; font-weight: 600; margin-bottom: 12px; letter-spacing: -0.02em; }
     .svc p { font-size: 15px; color: var(--mut); line-height: 1.7; }
-    .svc-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+    .svc-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
     .svc-tags span { font-size: 12px; color: var(--mut); background: rgba(255,255,255,0.04); border: 1px solid var(--line); padding: 5px 12px; border-radius: 999px; }
 
-    /* ── PORTFOLIO ── */
-    .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-    .work { position: relative; border-radius: 24px; overflow: hidden; border: 1px solid var(--line); aspect-ratio: 16/11; cursor: pointer; transition: all .4s cubic-bezier(.2,.7,.2,1); }
-    .work:hover { border-color: var(--line2); transform: translateY(-4px); }
-    .work-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
-    .work:hover .work-bg { transform: scale(1.06); }
-    .work-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(7,8,13,0.92) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 34px; }
-    .work-cat { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
-    .work h3 { font-family: var(--fh); font-size: 26px; font-weight: 600; letter-spacing: -0.02em; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-    .work-arrow { width: 42px; height: 42px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid var(--line2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all .3s; }
-    .work:hover .work-arrow { background: var(--brand); transform: rotate(-45deg); }
-    .work-arrow svg { width: 18px; height: 18px; stroke: #fff; }
-    .work p { font-size: 14px; color: var(--mut); margin-top: 10px; max-width: 80%; opacity: 0; max-height: 0; transition: all .4s; }
-    .work:hover p { opacity: 1; max-height: 60px; }
+    /* ── PRICING ── */
+    .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
+    .price-card { border: 1px solid var(--line); border-radius: 24px; padding: 36px 30px; background: var(--bg2); transition: all .3s cubic-bezier(.2,.7,.2,1); }
+    .price-card:hover { border-color: var(--line2); transform: translateY(-4px); }
+    .price-card.featured { border-color: var(--brand); background: linear-gradient(160deg, rgba(109,94,246,0.1), var(--bg2)); position: relative; }
+    .price-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--brand); color: #fff; font-size: 12px; font-weight: 700; padding: 4px 18px; border-radius: 999px; white-space: nowrap; }
+    .price-name { font-family: var(--fh); font-size: 14px; font-weight: 600; color: var(--mut2); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; }
+    .price-amount { font-family: var(--fh); font-size: 48px; font-weight: 700; letter-spacing: -0.04em; line-height: 1; margin-bottom: 6px; }
+    .price-amount small { font-size: 18px; letter-spacing: -0.01em; color: var(--mut); font-weight: 500; }
+    .price-desc { font-size: 14px; color: var(--mut); margin-bottom: 28px; line-height: 1.6; }
+    .price-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+    .price-list li { display: flex; gap: 12px; font-size: 14px; color: var(--mut); align-items: flex-start; }
+    .price-list li::before { content: ''; display: block; width: 18px; height: 18px; border-radius: 50%; background: rgba(52,224,196,0.14); border: 1px solid rgba(52,224,196,0.3); flex-shrink: 0; margin-top: 1px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none' stroke='%2334E0C4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 9l3.5 3.5L14 6'/%3E%3C/svg%3E"); background-size: contain; }
+    .price-list li span { color: var(--txt); }
+    .price-card .btn { width: 100%; justify-content: center; }
 
-    /* gradients as placeholder "images" */
-    .bg-a { background: radial-gradient(circle at 30% 20%, #6D5EF6, #1a1440 70%); }
-    .bg-b { background: radial-gradient(circle at 70% 30%, #34E0C4, #0a3a35 70%); }
-    .bg-c { background: radial-gradient(circle at 40% 60%, #F472B6, #3a1530 70%); }
-    .bg-d { background: radial-gradient(circle at 60% 40%, #FBBF24, #3a2e0a 70%); }
-
-    /* ── PROCESS ── */
-    .proc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-    .proc-step { padding: 32px 28px; border: 1px solid var(--line); border-radius: 20px; background: var(--bg2); position: relative; transition: all .3s; }
-    .proc-step:hover { border-color: var(--line2); background: var(--surf); }
-    .proc-num { font-family: var(--fh); font-size: 15px; font-weight: 600; color: var(--brand2); margin-bottom: 20px; }
-    .proc-step h3 { font-family: var(--fh); font-size: 20px; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.02em; }
-    .proc-step p { font-size: 14px; color: var(--mut); line-height: 1.65; }
-
-    /* ── FEATURES / WHY ── */
+    /* ── WAAROM ── */
     .why-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: center; }
     .feat { display: flex; gap: 18px; padding: 22px 0; border-bottom: 1px solid var(--line); }
     .feat:last-child { border-bottom: none; }
@@ -176,12 +171,20 @@
     .tst-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .tst { background: var(--bg2); border: 1px solid var(--line); border-radius: 22px; padding: 34px 30px; display: flex; flex-direction: column; transition: all .3s; }
     .tst:hover { border-color: var(--line2); transform: translateY(-4px); }
-    .tst .stars { margin-bottom: 18px; font-size: 15px; }
+    .tst .stars { margin-bottom: 18px; font-size: 15px; color: var(--accent); letter-spacing: 1px; }
     .tst-q { font-size: 16px; line-height: 1.7; color: var(--txt); margin-bottom: 26px; flex: 1; }
     .tst-by { display: flex; align-items: center; gap: 13px; padding-top: 22px; border-top: 1px solid var(--line); }
     .tst-av { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg, var(--brand), var(--accent)); display: flex; align-items: center; justify-content: center; font-family: var(--fh); font-weight: 700; color: #07080D; flex-shrink: 0; }
     .tst-name { font-weight: 600; font-size: 15px; }
     .tst-role { font-size: 13px; color: var(--mut2); margin-top: 2px; }
+
+    /* ── PROCES ── */
+    .proc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .proc-step { padding: 32px 28px; border: 1px solid var(--line); border-radius: 20px; background: var(--bg2); position: relative; transition: all .3s; }
+    .proc-step:hover { border-color: var(--line2); background: var(--surf); }
+    .proc-num { font-family: var(--fh); font-size: 15px; font-weight: 600; color: var(--brand2); margin-bottom: 20px; }
+    .proc-step h3 { font-family: var(--fh); font-size: 20px; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.02em; }
+    .proc-step p { font-size: 14px; color: var(--mut); line-height: 1.65; }
 
     /* ── FAQ ── */
     .faq-wrap { max-width: 760px; margin: 0 auto; }
@@ -220,7 +223,7 @@
     footer { border-top: 1px solid var(--line); padding: 70px 0 40px; }
     .foot-top { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; margin-bottom: 56px; }
     .foot-brand { max-width: 320px; }
-    .foot-brand p { color: var(--mut); margin-top: 16px; font-size: 15px; }
+    .foot-brand p { color: var(--mut); margin-top: 16px; font-size: 15px; line-height: 1.7; }
     .foot-cols { display: flex; gap: 72px; flex-wrap: wrap; }
     .foot-col h5 { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mut2); margin-bottom: 18px; }
     .foot-col a { display: block; color: var(--mut); font-size: 15px; padding: 6px 0; transition: color .15s; }
@@ -230,25 +233,27 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 980px) {
-      .svc-grid, .tst-grid, .proc { grid-template-columns: 1fr 1fr; }
+      .svc-grid, .tst-grid, .price-grid { grid-template-columns: 1fr 1fr; }
+      .proc { grid-template-columns: 1fr 1fr; }
       .why-grid { grid-template-columns: 1fr; gap: 48px; }
     }
     @media (max-width: 820px) {
       .nav-links, .nav > .btn-primary { display: none; }
       .nav-burger { display: flex; }
-      .sec { padding: 90px 0; }
-      .hero { padding: 150px 0 90px; }
+      .sec { padding: 80px 0; }
+      .hero { padding: 150px 0 80px; }
     }
     @media (max-width: 680px) {
       .container { padding: 0 20px; }
-      .svc-grid, .tst-grid, .proc, .work-grid { grid-template-columns: 1fr; }
+      .svc-grid, .tst-grid, .proc, .work-grid, .price-grid { grid-template-columns: 1fr; }
       .frow { grid-template-columns: 1fr; }
       .stat-row { grid-template-columns: 1fr 1fr; }
       .form, .cta { padding: 30px 22px; }
-      .work p { opacity: 1; max-height: 60px; }
       .foot-cols { gap: 40px; }
       h1 { line-height: 1.06; }
       .hero-cta .btn { width: 100%; justify-content: center; }
+      .hero-stats { gap: 24px; }
+      .price-card.featured { margin-top: 12px; }
     }
   </style>
 </head>
@@ -258,10 +263,10 @@
   <div class="container nav">
     <a href="/" class="brand"><span class="brand-dot"></span>nu<span>tel</span></a>
     <nav class="nav-links">
-      <a href="#diensten">Diensten</a>
       <a href="#werk">Werk</a>
-      <a href="#proces">Proces</a>
-      <a href="#waarom">Waarom Nutel</a>
+      <a href="#diensten">Diensten</a>
+      <a href="#prijzen">Prijzen</a>
+      <a href="#over">Over mij</a>
       <a href="#contact">Contact</a>
     </nav>
     <a href="#contact" class="btn btn-primary">Start een project
@@ -272,10 +277,10 @@
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#diensten">Diensten</a>
   <a href="#werk">Werk</a>
-  <a href="#proces">Proces</a>
-  <a href="#waarom">Waarom Nutel</a>
+  <a href="#diensten">Diensten</a>
+  <a href="#prijzen">Prijzen</a>
+  <a href="#over">Over mij</a>
   <a href="#contact">Contact</a>
   <a href="#contact" class="btn btn-primary">Start een project</a>
 </div>
@@ -287,146 +292,198 @@
   <div class="hero-grid-bg"></div>
   <div class="container">
     <div class="hero-inner">
-      <div class="pill up"><b>2026</b> Ik neem nieuwe projecten aan</div>
-      <h1 class="up d1">Een website waar je<br>klanten <span class="grad-text">op afkomen.</span></h1>
-      <p class="hero-sub up d2">Ik ben Nutel — ik ontwerp en bouw websites voor ondernemers die serieus genomen willen worden. Geen template van de plank, maar iets dat past bij wat jij doet en oplevert wat je nodig hebt.</p>
+      <div class="pill up"><b>Beschikbaar</b>&nbsp; ik neem nieuwe projecten aan in 2026</div>
+      <h1 class="up d1">Jij doet waar je<br>goed in bent. Ik zorg<br>dat klanten <span class="grad-text">je vinden.</span></h1>
+      <p class="hero-sub up d2">Ik maak websites voor ondernemers die serieus genomen willen worden. Geen kant-en-klaar thema — iets dat past bij jouw bedrijf en dat ook echt klanten oplevert.</p>
       <div class="hero-cta up d3">
-        <a href="#contact" class="btn btn-primary btn-lg">Vertel me over je idee
+        <a href="#contact" class="btn btn-primary btn-lg">Laten we samenwerken
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="#werk" class="btn btn-ghost btn-lg">Bekijk recent werk</a>
+        <a href="#werk" class="btn btn-ghost btn-lg">Bekijk mijn werk</a>
       </div>
-      <div class="hero-meta up d4">
-        <div class="avatars">
-          <div style="background-image:url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80&fit=crop&crop=face')"></div>
-          <div style="background-image:url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80&fit=crop&crop=face')"></div>
-          <div style="background-image:url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80&fit=crop&crop=face')"></div>
-          <div style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80&fit=crop&crop=face')"></div>
-        </div>
-        <div class="hero-meta-txt"><div class="stars">★★★★★</div>Ondernemers die me al inschakelden</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ LOGOS ═══ -->
-<div class="logos">
-  <p class="logos-label">Een greep uit de bedrijven die ik hielp</p>
-  <div class="marquee" id="marquee"></div>
-</div>
-
-<!-- ═══ DIENSTEN ═══ -->
-<section class="sec" id="diensten">
-  <div class="container">
-    <div class="sec-head">
-      <div class="eyebrow up">Wat ik doe</div>
-      <h2 class="up d1">Van idee tot online.<br>Zonder gedoe.</h2>
-      <p class="lead up d2">Ik regel het hele traject: het ontwerp, de techniek en de tekst. Jij hoeft het alleen maar goed te keuren.</p>
-    </div>
-    <div class="svc-grid">
-      <div class="svc up">
-        <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
-        <h3>Ontwerp</h3>
-        <p>Een ontwerp dat klopt bij jouw bedrijf en waar je trots op bent. Geen standaard-thema, maar iets dat van jou is.</p>
-        <div class="svc-tags"><span>Webdesign</span><span>Huisstijl</span><span>Logo</span></div>
-      </div>
-      <div class="svc up d1">
-        <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-        <h3>Bouwen</h3>
-        <p>Snel ladende websites en webshops die het op elke telefoon doen en goed vindbaar zijn in Google.</p>
-        <div class="svc-tags"><span>Websites</span><span>Webshops</span><span>Onderhoud</span></div>
-      </div>
-      <div class="svc up d2">
-        <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg></div>
-        <h3>Vindbaar maken</h3>
-        <p>Een mooie website heeft weinig zin als niemand 'm vindt. Ik zorg dat je opduikt waar je klanten zoeken.</p>
-        <div class="svc-tags"><span>SEO</span><span>Google</span><span>Teksten</span></div>
+      <div class="hero-stats up d4">
+        <div class="hero-stat-item"><span class="hero-stat-num">2–4</span><span class="hero-stat-lbl">weken tot live</span></div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat-item"><span class="hero-stat-num">€0</span><span class="hero-stat-lbl">verborgen kosten</span></div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat-item"><span class="hero-stat-num">1</span><span class="hero-stat-lbl">vast aanspreekpunt</span></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ═══ WERK / PORTFOLIO ═══ -->
-<section class="sec" id="werk" style="padding-top:0">
+<section class="sec" id="werk" style="padding-top:60px">
   <div class="container">
     <div class="sec-head">
       <div class="eyebrow up">Recent werk</div>
-      <h2 class="up d1">Een paar dingen<br>die ik heb gemaakt.</h2>
+      <h2 class="up d1">Websites die ik maakte<br>voor echte bedrijven.</h2>
+      <p class="lead up d2">Elk project begint met een gesprek over wat jij wilt bereiken. Het resultaat zie je hier.</p>
     </div>
     <div class="work-grid">
       <div class="work up">
-        <div class="work-bg bg-a" style="background-image:url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=900&q=80&auto=format&fit=crop')"></div>
+        <div class="work-bg" style="background-image:url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=900&q=80&auto=format&fit=crop'); background-color:#1a1440;"></div>
         <div class="work-overlay">
-          <div class="work-cat">Webshop</div>
-          <h3>Lumière Atelier <span class="work-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span></h3>
-          <p>Webshop voor een handgemaakt sieradenmerk. Verkoopt nu ook 's nachts door.</p>
+          <div class="work-cat">Webshop · Sieraden</div>
+          <h3>Lumière Atelier</h3>
+          <p class="work-outcome">Handgemaakt sieradenmerk zonder online winkel. <strong>Nu verkoopt ze ook 's nachts door.</strong></p>
         </div>
       </div>
       <div class="work up d1">
-        <div class="work-bg bg-b" style="background-image:url('https://images.unsplash.com/photo-1551434678-e076c223a692?w=900&q=80&auto=format&fit=crop')"></div>
+        <div class="work-bg" style="background-image:url('https://images.unsplash.com/photo-1551434678-e076c223a692?w=900&q=80&auto=format&fit=crop'); background-color:#0a3a35;"></div>
         <div class="work-overlay">
-          <div class="work-cat">Bedrijfssite</div>
-          <h3>Northwind <span class="work-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span></h3>
-          <p>Nieuwe site voor een installatiebedrijf dat van zijn oude site af wilde.</p>
+          <div class="work-cat">Bedrijfssite · Techniek</div>
+          <h3>Northwind Installatie</h3>
+          <p class="work-outcome">Verouderde site die opdrachten kostte. <strong>Nieuwe site levert wekelijks offerteaanvragen op.</strong></p>
         </div>
       </div>
       <div class="work up d2">
-        <div class="work-bg bg-c" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&q=80&auto=format&fit=crop')"></div>
+        <div class="work-bg" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&q=80&auto=format&fit=crop'); background-color:#3a1530;"></div>
         <div class="work-overlay">
-          <div class="work-cat">Restaurant</div>
-          <h3>Maison Vert <span class="work-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span></h3>
-          <p>Site met menu en online reserveren voor een buurtrestaurant.</p>
+          <div class="work-cat">Horeca · Restaurant</div>
+          <h3>Maison Vert</h3>
+          <p class="work-outcome">Site met menu en online reserveren. <strong>Terras is nu elke vrijdagavond volgeboekt.</strong></p>
         </div>
       </div>
       <div class="work up d3">
-        <div class="work-bg bg-d" style="background-image:url('https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=900&q=80&auto=format&fit=crop')"></div>
+        <div class="work-bg" style="background-image:url('https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=900&q=80&auto=format&fit=crop'); background-color:#3a2e0a;"></div>
         <div class="work-overlay">
-          <div class="work-cat">Portfolio</div>
-          <h3>Studio Kaya <span class="work-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span></h3>
-          <p>Portfolio voor een fotograaf, waar het werk centraal staat.</p>
+          <div class="work-cat">Portfolio · Fotografie</div>
+          <h3>Studio Kaya</h3>
+          <p class="work-outcome">Foto's verdwenen in een slechte lay-out. <strong>Portfolio laat nu het werk voor zich spreken.</strong></p>
         </div>
+      </div>
+    </div>
+    <div class="mid-cta up d2">
+      <a href="#contact" class="btn btn-primary btn-lg">Mijn project bespreken
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <p>Vrijblijvend kennismaken · Binnen 24 uur reactie</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DIENSTEN ═══ -->
+<section class="sec" id="diensten" style="background:var(--bg2)">
+  <div class="container">
+    <div class="sec-head">
+      <div class="eyebrow up">Wat ik doe</div>
+      <h2 class="up d1">Van idee tot online.<br>Eén traject, één persoon.</h2>
+      <p class="lead up d2">Ik regel het ontwerp, de bouw en de teksten. Jij hoeft alleen maar te vertellen wat je wilt en goed te keuren hoe het eruitziet.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc up">
+        <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3>Webdesign</h3>
+        <p>Een ontwerp dat klopt bij jouw bedrijf — niet een thema van het internet waar honderd anderen ook op zitten. Iets dat van jou is.</p>
+        <div class="svc-tags"><span>Lay-out</span><span>Huisstijl</span><span>Mobiel</span></div>
+      </div>
+      <div class="svc up d1">
+        <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>Websites & webshops</h3>
+        <p>Snel, veilig en goed vindbaar in Google. Werkt op elke telefoon. Jij kunt daarna zelf teksten en foto's aanpassen.</p>
+        <div class="svc-tags"><span>Websites</span><span>Webshops</span><span>SEO</span></div>
+      </div>
+      <div class="svc up d2">
+        <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+        <h3>Vindbaar in Google</h3>
+        <p>Een mooie site die niemand ziet is weggegooid geld. Ik zorg dat je opduikt bij de zoekopdrachten van jouw klanten.</p>
+        <div class="svc-tags"><span>SEO</span><span>Teksten</span><span>Google</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ PROCES ═══ -->
-<section class="sec" id="proces" style="background:var(--bg2)">
+<!-- ═══ PRICING ═══ -->
+<section class="sec" id="prijzen">
   <div class="container">
     <div class="sec-head center">
-      <div class="eyebrow up">Hoe het gaat</div>
-      <h2 class="up d1">Geen lange offerte­trajecten.<br>Gewoon aan de slag.</h2>
+      <div class="eyebrow up">Prijzen</div>
+      <h2 class="up d1">Vaste prijs, geen verrassingen.</h2>
+      <p class="lead up d2">Je weet van tevoren precies wat het kost. Geen uurtje-factuurtje, geen kleine lettertjes, geen extra's op het eind.</p>
     </div>
-    <div class="proc">
-      <div class="proc-step up"><div class="proc-num">01</div><h3>We bellen</h3><p>Je vertelt wat je nodig hebt. Ik stel vragen en denk mee. Kost je niks.</p></div>
-      <div class="proc-step up d1"><div class="proc-num">02</div><h3>Voorstel</h3><p>Je krijgt een helder plan met een vaste prijs. Geen kleine lettertjes.</p></div>
-      <div class="proc-step up d2"><div class="proc-num">03</div><h3>Ik bouw</h3><p>Je ziet tussentijds hoe het wordt en kunt aangeven wat je anders wilt.</p></div>
-      <div class="proc-step up d3"><div class="proc-num">04</div><h3>Online</h3><p>De site gaat live. De eerste maand erna ben ik er voor je vragen.</p></div>
+    <div class="price-grid up d1">
+      <div class="price-card">
+        <div class="price-name">Starter</div>
+        <div class="price-amount grad-text">€1.200<small> eenmalig</small></div>
+        <p class="price-desc">Een strak visitekaartje voor als je snel online wilt staan en een eerlijk beeld geeft van wat je doet.</p>
+        <ul class="price-list">
+          <li><span>Tot 5 pagina's</span></li>
+          <li><span>Mobielvriendelijk</span></li>
+          <li><span>Contactformulier</span></li>
+          <li><span>Basis SEO</span></li>
+          <li><span>1 maand nazorg</span></li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost">Start met Starter</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-badge">Meest gekozen</div>
+        <div class="price-name">Pro</div>
+        <div class="price-amount grad-text">€2.500<small> eenmalig</small></div>
+        <p class="price-desc">Een complete bedrijfssite die serieus overkomt, goed gevonden wordt en klanten omzet in aanvragen.</p>
+        <ul class="price-list">
+          <li><span>Tot 10 pagina's</span></li>
+          <li><span>Eigen ontwerp</span></li>
+          <li><span>Teksten schrijven</span></li>
+          <li><span>SEO-geoptimaliseerd</span></li>
+          <li><span>Google Analytics</span></li>
+          <li><span>3 maanden nazorg</span></li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Start met Pro
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="price-card">
+        <div class="price-name">Webshop</div>
+        <div class="price-amount grad-text">v.a. €4.000<small></small></div>
+        <p class="price-desc">Een complete webwinkel waar klanten producten kunnen vinden, bestellen en betalen. Prijs afhankelijk van omvang.</p>
+        <ul class="price-list">
+          <li><span>Onbeperkt producten</span></li>
+          <li><span>iDEAL & creditcard</span></li>
+          <li><span>Voorraad & orders</span></li>
+          <li><span>Eigen ontwerp</span></li>
+          <li><span>SEO & marketing</span></li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost">Vraag offerte aan</a>
+      </div>
     </div>
+    <p class="up d2" style="text-align:center; margin-top:32px; font-size:14px; color:var(--mut2)">Niet zeker welk pakket past? Bel of mail me — dan kijken we samen wat logisch is.</p>
   </div>
 </section>
 
 <!-- ═══ WAAROM ═══ -->
-<section class="sec" id="waarom">
+<section class="sec" id="over" style="background:var(--bg2)">
   <div class="container why-grid">
     <div>
       <div class="sec-head" style="margin-bottom:40px">
         <div class="eyebrow up">Waarom met mij werken</div>
-        <h2 class="up d1">Je hebt met één<br>persoon te maken.</h2>
-        <p class="lead up d2">Geen bureau met accountmanagers en doorlooptijden. Je belt mij, ik bouw 'm, en als er iets is bel je weer mij.</p>
+        <h2 class="up d1">Je belt mij.<br>Ik bouw 'm.<br>Je belt weer mij.</h2>
+        <p class="lead up d2">Geen bureau met vijf lagen ertussen. Ik ben de persoon die opneemt, ontwerpt, bouwt en na livegang je vragen beantwoordt.</p>
       </div>
       <div class="up d2">
-        <div class="feat"><div class="feat-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></div><div><h4>Snel klaar</h4><p>De meeste sites staan binnen een paar weken online. Geen maandenlang traject.</p></div></div>
-        <div class="feat"><div class="feat-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><h4>Vaste prijs vooraf</h4><p>Je weet van tevoren wat het kost. Geen verrassingen op de factuur.</p></div></div>
-        <div class="feat"><div class="feat-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div><h4>Korte lijnen</h4><p>Een appje of telefoontje en je hebt me. Geen ticketsysteem of wachtrij.</p></div></div>
-        <div class="feat"><div class="feat-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div><div><h4>Helemaal van jou</h4><p>Na livegang is de site van jou. Geen abonnement waar je aan vastzit.</p></div></div>
+        <div class="feat">
+          <div class="feat-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></div>
+          <div><h4>Snel klaar</h4><p>De meeste sites staan binnen 2–4 weken online zodra ik je inhoud heb. Geen maandenlang wachten.</p></div>
+        </div>
+        <div class="feat">
+          <div class="feat-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><h4>Vaste prijs vooraf</h4><p>Je weet van tevoren wat het kost. Op de factuur staat precies wat we afspraken.</p></div>
+        </div>
+        <div class="feat">
+          <div class="feat-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.37a16 16 0 006.72 6.72l1.73-1.73a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div><h4>Korte lijnen</h4><p>Een appje of telefoontje en je hebt me. Geen ticketsysteem, geen wachtrij van drie weken.</p></div>
+        </div>
+        <div class="feat">
+          <div class="feat-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <div><h4>Helemaal van jou</h4><p>Na livegang is de site van jou. Geen maandelijks abonnement waar je aan vastzit als je wil stoppen.</p></div>
+        </div>
       </div>
     </div>
     <div class="stat-card up d2">
       <div class="stat-row">
-        <div><div class="stat-num grad-text">2-4</div><div class="stat-lbl">weken tot je site live staat</div></div>
+        <div><div class="stat-num grad-text">2–4</div><div class="stat-lbl">weken tot je site live staat</div></div>
         <div><div class="stat-num grad-text">1</div><div class="stat-lbl">vast aanspreekpunt — ik</div></div>
-        <div><div class="stat-num grad-text">0</div><div class="stat-lbl">verborgen kosten achteraf</div></div>
+        <div><div class="stat-num grad-text">€0</div><div class="stat-lbl">verborgen kosten achteraf</div></div>
         <div><div class="stat-num grad-text">∞</div><div class="stat-lbl">keer dat je 'm zelf kunt aanpassen</div></div>
       </div>
     </div>
@@ -434,28 +491,44 @@
 </section>
 
 <!-- ═══ TESTIMONIALS ═══ -->
-<section class="sec" style="padding-top:0">
+<section class="sec">
   <div class="container">
     <div class="sec-head center">
       <div class="eyebrow up">Wat ze zeggen</div>
-      <h2 class="up d1">Mensen voor wie<br>ik werkte.</h2>
+      <h2 class="up d1">Wat klanten<br>over me zeggen.</h2>
     </div>
     <div class="tst-grid">
       <div class="tst up">
         <div class="stars">★★★★★</div>
-        <p class="tst-q">"Ik had geen idee waar ik moest beginnen. Hij heeft alles uit handen genomen en ik had binnen drie weken een webshop staan waar ik trots op ben."</p>
+        <p class="tst-q">"Ik had geen idee waar te beginnen. Hij heeft alles uit handen genomen — drie weken later stond er een webshop waar ik trots op ben en die ook echt bestellingen krijgt."</p>
         <div class="tst-by"><div class="tst-av">M</div><div><div class="tst-name">Marieke de Vries</div><div class="tst-role">Lumière Atelier</div></div></div>
       </div>
       <div class="tst up d1">
         <div class="stars">★★★★★</div>
-        <p class="tst-q">"Onze oude site was van geen kanten. Reageerde snel, dacht mee en hield zich netjes aan de prijs die was afgesproken. Aanrader."</p>
+        <p class="tst-q">"Onze oude site kostte ons opdrachten. Nu bellen mensen ons nadat ze de site hebben gezien. Hield zich netjes aan de prijs en leverde gewoon wat hij beloofde."</p>
         <div class="tst-by"><div class="tst-av">R</div><div><div class="tst-name">Rens Bakker</div><div class="tst-role">Northwind Installatie</div></div></div>
       </div>
       <div class="tst up d2">
         <div class="stars">★★★★★</div>
-        <p class="tst-q">"Wat ik fijn vond: gewoon iemand die opneemt als je belt. Hij snapte meteen wat ik wilde en mijn foto's komen nu echt tot hun recht."</p>
+        <p class="tst-q">"Wat ik fijn vond: gewoon iemand die opneemt als je belt. Snapte meteen wat ik wilde, dacht mee over wat het beste werkt en mijn foto's komen nu eindelijk tot hun recht."</p>
         <div class="tst-by"><div class="tst-av">S</div><div><div class="tst-name">Sandra Mol</div><div class="tst-role">Studio Kaya</div></div></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCES ═══ -->
+<section class="sec" style="padding-top:0">
+  <div class="container">
+    <div class="sec-head center">
+      <div class="eyebrow up">Hoe het werkt</div>
+      <h2 class="up d1">Geen lange offertetrajecten.<br>Gewoon aan de slag.</h2>
+    </div>
+    <div class="proc">
+      <div class="proc-step up"><div class="proc-num">01</div><h3>We bellen</h3><p>Je vertelt wat je nodig hebt. Ik stel vragen en denk mee. Duurt een kwartier en kost niks.</p></div>
+      <div class="proc-step up d1"><div class="proc-num">02</div><h3>Voorstel</h3><p>Je krijgt een helder plan met een vaste prijs. Geen kleine lettertjes, geen verrassingen later.</p></div>
+      <div class="proc-step up d2"><div class="proc-num">03</div><h3>Ik bouw</h3><p>Je ziet tussentijds hoe het wordt en kunt direct aangeven wat je anders wil.</p></div>
+      <div class="proc-step up d3"><div class="proc-num">04</div><h3>Online</h3><p>De site gaat live. De eerste weken daarna ben ik er voor vragen of kleine aanpassingen.</p></div>
     </div>
   </div>
 </section>
@@ -468,11 +541,12 @@
       <h2 class="up d1">Dit wordt me<br>vaak gevraagd.</h2>
     </div>
     <div class="faq-wrap up d2">
-      <details class="faq"><summary>Wat kost een website?<span class="faq-plus">+</span></summary><div class="faq-a">Dat hangt af van wat je nodig hebt. Een eenvoudige site is een stuk goedkoper dan een webshop met honderden producten. Na een kort gesprek weet ik wat je zoekt en krijg je een vaste prijs. Bellen kost niks.</div></details>
-      <details class="faq"><summary>Hoe lang duurt het?<span class="faq-plus">+</span></summary><div class="faq-a">De meeste sites staan binnen 2 tot 4 weken online, zodra ik je teksten en foto's heb. Heb je haast? Zeg het, dan kijk ik wat kan.</div></details>
-      <details class="faq"><summary>Kan ik 'm later zelf aanpassen?<span class="faq-plus">+</span></summary><div class="faq-a">Ja. Ik lever de site zo op dat je zelf teksten en foto's kunt wijzigen. En kleine aanpassingen in de eerste maand doe ik gratis voor je.</div></details>
-      <details class="faq"><summary>Ik heb geen teksten of foto's. Wat nu?<span class="faq-plus">+</span></summary><div class="faq-a">Geen probleem. Ik help met het schrijven van de teksten en het uitzoeken van passende foto's. Je hoeft het niet alleen te doen.</div></details>
-      <details class="faq"><summary>Voor wie werk je?<span class="faq-plus">+</span></summary><div class="faq-a">Vooral ZZP'ers en kleine bedrijven die een nette website willen zonder gedoe. Van kapper tot fotograaf tot installatiebedrijf.</div></details>
+      <details class="faq"><summary>Wat kost een website?<span class="faq-plus">+</span></summary><div class="faq-a">Ik werk met vaste prijzen zodat je nooit voor verrassingen staat. Een eenvoudige site begint bij €1.200, een complete bedrijfssite zit rond de €2.500 en een webshop start vanaf €4.000. Zie de <a href="#prijzen" style="color:var(--accent)">prijzenpagina</a> voor details, of bel me als je twijfelt welk pakket past.</div></details>
+      <details class="faq"><summary>Hoe lang duurt het?<span class="faq-plus">+</span></summary><div class="faq-a">Zodra ik je teksten en foto's heb, staan de meeste sites binnen 2 tot 4 weken online. Heb je haast? Dat is in veel gevallen op te lossen — zeg het gewoon.</div></details>
+      <details class="faq"><summary>Kan ik 'm later zelf aanpassen?<span class="faq-plus">+</span></summary><div class="faq-a">Ja. Ik lever de site zo op dat je zelf teksten en foto's kunt wijzigen, zonder dat je iets van code hoeft te weten. Kleine tweaks in de eerste maand doe ik gratis voor je.</div></details>
+      <details class="faq"><summary>Ik heb geen teksten of foto's. Wat nu?<span class="faq-plus">+</span></summary><div class="faq-a">Geen probleem. Ik help met het schrijven van teksten en het uitzoeken van goede foto's. Je hoeft niet alles klaar te hebben om te beginnen.</div></details>
+      <details class="faq"><summary>Voor wie werk je?<span class="faq-plus">+</span></summary><div class="faq-a">Vooral ZZP'ers en kleine bedrijven die een nette website willen zonder gedoe. Van kapper tot installatiebedrijf tot fotograaf — zolang je maar weet wat je wil bereiken, kom ik er wel mee.</div></details>
+      <details class="faq"><summary>Wat heb ik van jou nodig om te beginnen?<span class="faq-plus">+</span></summary><div class="faq-a">Eigenlijk niets meer dan een idee. We starten met een gesprek, dan maak ik een voorstel. Teksten, foto's en domeinnaam regelen we gaandeweg. Je kunt ook op dag 1 alles hebben — dat werkt ook.</div></details>
     </div>
   </div>
 </section>
@@ -484,9 +558,9 @@
       <div class="cta-orb a"></div>
       <div class="cta-orb b"></div>
       <div class="cta-inner">
-        <div class="eyebrow center" style="justify-content:center">Even kennismaken?</div>
+        <div class="eyebrow" style="justify-content:center">Even kennismaken?</div>
         <h2>Heb je een idee?<br>Ik hoor het graag.</h2>
-        <p class="cta-lead">Stuur een berichtje met waar je mee zit. Ik reageer meestal dezelfde dag nog. Nergens aan verbonden.</p>
+        <p class="cta-lead">Stuur een berichtje met wat je zoekt. Ik reageer dezelfde dag nog. Nergens aan verbonden.</p>
       </div>
     </div>
 
@@ -498,26 +572,26 @@
         </div>
         <label class="fl" for="bedrijf">Bedrijf / merk</label>
         <input class="fi" id="bedrijf" name="bedrijf" type="text" placeholder="Jouw bedrijf">
-        <label class="fl" for="type">Waar kunnen we mee helpen?</label>
+        <label class="fl" for="type">Wat zoek je?</label>
         <select class="fi" id="type" name="dienst">
-          <option value="">Selecteer een dienst…</option>
+          <option value="">Selecteer een optie…</option>
           <option>Nieuwe website</option>
-          <option>Webshop / e-commerce</option>
-          <option>Herontwerp / restyling</option>
-          <option>Branding & strategie</option>
+          <option>Webshop</option>
+          <option>Herontwerp van bestaande site</option>
+          <option>Alleen advies / vrijblijvend gesprek</option>
           <option>Iets anders</option>
         </select>
         <label class="fl" for="bericht">Vertel over je project</label>
-        <textarea class="fi" id="bericht" name="bericht" placeholder="Wat wil je bereiken? Wat is je visie?" required></textarea>
+        <textarea class="fi" id="bericht" name="bericht" placeholder="Wat wil je bereiken? Wat is je idee?" required></textarea>
         <button class="btn btn-primary" type="submit" id="submitBtn">Verstuur aanvraag
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
-        <p class="form-note">Binnen 24 uur reactie · Altijd vrijblijvend</p>
+        <p class="form-note">Reactie binnen 24 uur · Altijd vrijblijvend</p>
       </form>
       <div id="ok">
         <div class="ok-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
         <h3>Bericht verzonden!</h3>
-        <p>Bedankt — we nemen binnen 24 uur contact met je op.</p>
+        <p>Ik kom er zo snel mogelijk op terug — meestal dezelfde dag.</p>
       </div>
     </div>
   </div>
@@ -529,15 +603,15 @@
     <div class="foot-top">
       <div class="foot-brand">
         <a href="/" class="brand"><span class="brand-dot"></span>nu<span>tel</span></a>
-        <p>Ik maak websites voor ondernemers die zonder gedoe online willen. Eén aanspreekpunt, vaste prijs, snel klaar.</p>
+        <p>Ik maak websites voor ondernemers die zonder gedoe online willen. Eén aanspreekpunt, vaste prijs, klaar in een paar weken.</p>
       </div>
       <div class="foot-cols">
         <div class="foot-col">
-          <h5>Studio</h5>
-          <a href="#diensten">Diensten</a>
+          <h5>Navigatie</h5>
           <a href="#werk">Werk</a>
-          <a href="#proces">Proces</a>
-          <a href="#waarom">Waarom Nutel</a>
+          <a href="#diensten">Diensten</a>
+          <a href="#prijzen">Prijzen</a>
+          <a href="#over">Over mij</a>
         </div>
         <div class="foot-col">
           <h5>Contact</h5>
@@ -566,16 +640,10 @@ burger.addEventListener('click', () => document.body.classList.toggle('menu-open
 mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => document.body.classList.remove('menu-open')));
 
 /* reveal */
-const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}), { threshold: .1 });
 document.querySelectorAll('.up, .fade').forEach(el => io.observe(el));
-
-/* marquee */
-(function(){
-  const names = ['Lumière','Northwind','Maison Vert','Studio Kaya','Vela','Aurora','Brightside','Kestrel','Nova Labs','Hverk'];
-  const t = document.getElementById('marquee');
-  const html = [...names, ...names].map(n => `<span>${n}</span>`).join('');
-  t.innerHTML = html;
-})();
 
 /* form — Formspree
    ▼▼▼ VERVANG 'YOUR_ID' door jouw Formspree-endpoint (bv. xayzwdkr) ▼▼▼ */
