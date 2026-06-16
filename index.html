@@ -5,249 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nutel — Websites die uw merk laten groeien</title>
 <meta name="description" content="Nutel ontwerpt en bouwt strakke, snelle websites op maat voor ondernemers. Van concept tot livegang — wij regelen alles.">
+<link rel="canonical" href="https://nutel.nl/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#0B0B0F;
-  --bg2:#13131A;
-  --panel:#16161F;
-  --white:#FFFFFF;
-  --txt:#EDEDF2;
-  --muted:#9A9AAB;
-  --line:rgba(255,255,255,.09);
-  --accent:#6E56F7;
-  --accent2:#A78BFA;
-  --lime:#C6F24E;
-  --fh:'Space Grotesk',sans-serif;
-  --fb:'Inter',sans-serif;
-}
-html{scroll-behavior:smooth}
-body{font-family:var(--fb);background:var(--bg);color:var(--txt);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-ul{list-style:none}
-.container{max-width:1180px;margin:0 auto;padding:0 32px}
-
-/* HEADER */
-.header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
-.header.scrolled{background:rgba(11,11,15,.8);backdrop-filter:blur(16px);border-bottom-color:var(--line)}
-.header-inner{display:flex;align-items:center;height:74px;gap:32px}
-.logo{font-family:var(--fh);font-weight:700;font-size:1.35rem;letter-spacing:-.02em;color:var(--white);flex-shrink:0}
-.logo span{color:var(--accent2)}
-nav{display:flex;gap:6px;margin-left:auto}
-nav a{font-size:.88rem;font-weight:500;color:var(--muted);padding:8px 14px;border-radius:8px;transition:color .2s,background .2s}
-nav a:hover{color:var(--white);background:rgba(255,255,255,.05)}
-.btn{font-family:var(--fb);font-weight:600;font-size:.88rem;border:none;cursor:pointer;border-radius:10px;transition:transform .2s,background .2s,box-shadow .2s;display:inline-flex;align-items:center;gap:8px}
-.btn-accent{background:var(--accent);color:#fff;padding:11px 22px;box-shadow:0 6px 20px rgba(110,86,247,.35)}
-.btn-accent:hover{background:#7d68ff;transform:translateY(-2px)}
-.btn-lg{padding:15px 30px;font-size:.95rem}
-.btn-ghost{background:rgba(255,255,255,.06);color:var(--white);border:1px solid var(--line);padding:14px 28px;font-size:.95rem}
-.btn-ghost:hover{background:rgba(255,255,255,.1)}
-.header .btn-accent{flex-shrink:0}
-.nav-toggle{display:none;background:none;border:none;color:var(--white);cursor:pointer}
-
-/* HERO */
-.hero{position:relative;padding:180px 0 120px;overflow:hidden}
-.hero-glow{position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:700px;background:radial-gradient(ellipse at center,rgba(110,86,247,.28),transparent 65%);pointer-events:none;z-index:0}
-.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000,transparent);opacity:.5;z-index:0}
-.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.4;z-index:0;-webkit-mask-image:radial-gradient(ellipse 85% 75% at 50% 25%,#000,transparent 75%);mask-image:radial-gradient(ellipse 85% 75% at 50% 25%,#000,transparent 75%)}
-.hero-inner{position:relative;z-index:1;text-align:center;max-width:840px;margin:0 auto}
-.pill{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:30px;padding:7px 16px;font-size:.8rem;color:var(--muted);margin-bottom:30px;animation:fade-up .7s ease both}
-.pill .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime)}
-.hero h1{font-family:var(--fh);font-weight:700;font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.05;letter-spacing:-.03em;color:var(--white);margin-bottom:26px;animation:fade-up .7s ease .08s both}
-.hero h1 em{font-style:normal;background:linear-gradient(120deg,var(--accent2),var(--accent));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.hero-sub{font-size:1.18rem;color:var(--muted);font-weight:300;max-width:560px;margin:0 auto 40px;animation:fade-up .7s ease .16s both}
-.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fade-up .7s ease .24s both}
-@keyframes fade-up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
-.hero-logos{margin-top:88px;animation:fade-up .7s ease .4s both}
-.hero-logos p{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:26px}
-.logo-row{display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap;opacity:.55}
-.logo-row span{font-family:var(--fh);font-weight:600;font-size:1.15rem;color:var(--white)}
-
-/* SECTION */
-.section{padding:120px 0;position:relative}
-.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--fh);font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:18px}
-.eyebrow::before{content:'';width:24px;height:1px;background:var(--accent2)}
-.section-h{font-family:var(--fh);font-weight:700;font-size:clamp(2rem,4vw,3rem);letter-spacing:-.02em;line-height:1.12;color:var(--white);margin-bottom:18px}
-.section-p{color:var(--muted);font-size:1.05rem;font-weight:300;max-width:560px;margin-bottom:64px}
-.center{text-align:center}
-.center .eyebrow::before{display:none}
-.center .section-p{margin-left:auto;margin-right:auto}
-
-/* SERVICES */
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.service-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:34px 30px;transition:transform .3s,border-color .3s,background .3s;position:relative;overflow:hidden}
-.service-card::after{content:'';position:absolute;inset:0;background:radial-gradient(400px circle at var(--mx,50%) 0%,rgba(110,86,247,.12),transparent 60%);opacity:0;transition:opacity .3s}
-.service-card:hover{transform:translateY(-6px);border-color:rgba(110,86,247,.4)}
-.service-card:hover::after{opacity:1}
-.service-icon{width:52px;height:52px;border-radius:13px;background:linear-gradient(135deg,rgba(110,86,247,.25),rgba(167,139,250,.12));display:flex;align-items:center;justify-content:center;margin-bottom:22px;color:var(--accent2)}
-.service-card h3{font-family:var(--fh);font-weight:600;font-size:1.22rem;color:var(--white);margin-bottom:11px;position:relative}
-.service-card p{color:var(--muted);font-size:.92rem;font-weight:300;position:relative}
-
-/* PROCESS */
-.process-bg{background:var(--bg2)}
-.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:step}
-.process-step{position:relative;padding-top:30px}
-.process-step::before{counter-increment:step;content:"0" counter(step);font-family:var(--fh);font-weight:700;font-size:.85rem;color:var(--accent2);position:absolute;top:0;left:0}
-.process-step::after{content:'';position:absolute;top:7px;left:34px;right:-12px;height:1px;background:var(--line)}
-.process-grid .process-step:last-child::after{display:none}
-.process-step h3{font-family:var(--fh);font-weight:600;font-size:1.1rem;color:var(--white);margin-bottom:10px;margin-top:14px}
-.process-step p{color:var(--muted);font-size:.9rem;font-weight:300}
-
-/* WORK */
-.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-.work-card{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--panel);transition:transform .35s,border-color .35s;position:relative}
-.work-card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.2)}
-.work-thumb{aspect-ratio:16/10;overflow:hidden;position:relative}
-.work-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
-.work-card:hover .work-thumb img{transform:scale(1.05)}
-.work-body{padding:26px 28px;display:flex;justify-content:space-between;align-items:center;gap:16px}
-.work-body h3{font-family:var(--fh);font-weight:600;font-size:1.2rem;color:var(--white);margin-bottom:5px}
-.work-tags{display:flex;gap:8px;flex-wrap:wrap}
-.work-tags span{font-size:.72rem;color:var(--muted);background:rgba(255,255,255,.05);border:1px solid var(--line);padding:4px 11px;border-radius:20px}
-.work-arrow{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--white);flex-shrink:0;transition:background .25s,transform .25s}
-.work-card:hover .work-arrow{background:var(--accent);transform:rotate(-45deg)}
-
-/* STATS */
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.stat{text-align:center;padding:36px 20px;background:var(--panel);border:1px solid var(--line);border-radius:18px}
-.stat-num{font-family:var(--fh);font-weight:700;font-size:2.8rem;line-height:1;background:linear-gradient(120deg,var(--white),var(--accent2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px}
-.stat-label{color:var(--muted);font-size:.88rem;font-weight:300}
-
-/* WHY / FEATURE LIST */
-.why-bg{background:var(--bg2)}
-.why-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.why-list{display:flex;flex-direction:column;gap:8px}
-.why-item{display:flex;gap:18px;padding:22px;border-radius:14px;transition:background .25s;border:1px solid transparent}
-.why-item:hover{background:var(--panel);border-color:var(--line)}
-.why-check{width:38px;height:38px;border-radius:10px;background:rgba(198,242,78,.12);color:var(--lime);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.why-item h4{font-family:var(--fh);font-weight:600;font-size:1.05rem;color:var(--white);margin-bottom:5px}
-.why-item p{color:var(--muted);font-size:.9rem;font-weight:300}
-.why-visual{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5}
-.why-visual img{width:100%;height:100%;object-fit:cover}
-.why-visual-glow{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,11,15,.7),transparent 50%)}
-
-/* REVIEWS */
-.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.review-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:30px 28px}
-.review-stars{display:flex;gap:3px;margin-bottom:18px;color:var(--lime)}
-.review-text{color:var(--txt);font-size:.96rem;font-weight:300;line-height:1.7;margin-bottom:24px}
-.review-author{display:flex;align-items:center;gap:13px}
-.review-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-weight:600;font-size:.95rem;color:#fff;flex-shrink:0}
-.review-name{font-weight:600;font-size:.9rem;color:var(--white)}
-.review-role{font-size:.78rem;color:var(--muted)}
-
-/* FORM / CTA */
-.cta-bg{background:var(--bg2)}
-.cta-wrap{background:linear-gradient(135deg,var(--panel),rgba(110,86,247,.08));border:1px solid var(--line);border-radius:28px;padding:0;overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
-.cta-left{padding:56px 52px}
-.cta-left .section-h{font-size:clamp(1.7rem,3vw,2.4rem);margin-bottom:14px}
-.cta-left .section-p{margin-bottom:32px}
-.cta-points{display:flex;flex-direction:column;gap:14px}
-.cta-point{display:flex;align-items:center;gap:12px;font-size:.92rem;color:var(--txt)}
-.cta-point svg{color:var(--lime);flex-shrink:0}
-.cta-form{padding:56px 52px;background:var(--bg);border-left:1px solid var(--line)}
-.cta-form h3{font-family:var(--fh);font-weight:600;font-size:1.3rem;color:var(--white);margin-bottom:6px}
-.cta-form>p{color:var(--muted);font-size:.88rem;font-weight:300;margin-bottom:28px}
-.field{margin-bottom:16px}
-.field label{display:block;font-size:.78rem;font-weight:500;color:var(--muted);margin-bottom:7px}
-.field label .req{color:var(--accent2)}
-.field input,.field select,.field textarea{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:13px 15px;font-size:.92rem;font-family:var(--fb);color:var(--white);outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none}
-.field input::placeholder,.field textarea::placeholder{color:#5c5c6e}
-.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(110,86,247,.15)}
-.field select{color:var(--white)}
-.field option{background:var(--panel)}
-.field textarea{resize:vertical;min-height:90px}
-.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.form-submit{width:100%;background:var(--accent);color:#fff;font-family:var(--fb);font-weight:600;font-size:.95rem;padding:15px;border:none;border-radius:11px;cursor:pointer;transition:background .25s,transform .2s;display:flex;align-items:center;justify-content:center;gap:9px;margin-top:6px;box-shadow:0 6px 20px rgba(110,86,247,.3)}
-.form-submit:hover{background:#7d68ff;transform:translateY(-2px)}
-.form-note{font-size:.74rem;color:var(--muted);text-align:center;margin-top:12px}
-#ok{display:none;text-align:center;padding:40px 0}
-#ok .ok-icon{width:68px;height:68px;border-radius:50%;background:rgba(198,242,78,.12);color:var(--lime);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
-#ok h3{font-family:var(--fh);font-weight:600;font-size:1.35rem;color:var(--white);margin-bottom:8px}
-#ok p{color:var(--muted);font-size:.92rem;font-weight:300}
-
-/* FAQ */
-.faq-wrap{max-width:760px;margin:0 auto}
-.faq-item{border-bottom:1px solid var(--line)}
-.faq-btn{width:100%;background:none;border:none;cursor:pointer;padding:24px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;text-align:left}
-.faq-btn span{font-family:var(--fh);font-weight:500;font-size:1.05rem;color:var(--white)}
-.faq-ic{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--muted);transition:all .25s}
-.faq-item.open .faq-ic{background:var(--accent);border-color:var(--accent);color:#fff}
-.faq-ic svg{transition:transform .3s}
-.faq-item.open .faq-ic svg{transform:rotate(45deg)}
-.faq-ans{max-height:0;overflow:hidden;transition:max-height .35s ease}
-.faq-item.open .faq-ans{max-height:240px}
-.faq-ans p{padding-bottom:24px;color:var(--muted);font-size:.95rem;font-weight:300;line-height:1.75}
-
-/* FOOTER */
-.footer{border-top:1px solid var(--line);padding:64px 0 32px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:48px;margin-bottom:48px}
-.footer-brand .logo{margin-bottom:16px;display:inline-block}
-.footer-brand p{color:var(--muted);font-size:.9rem;font-weight:300;max-width:260px;line-height:1.7}
-.footer-col h5{font-family:var(--fh);font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
-.footer-col ul{display:flex;flex-direction:column;gap:11px}
-.footer-col a{color:var(--txt);font-size:.9rem;font-weight:300;transition:color .2s}
-.footer-col a:hover{color:var(--accent2)}
-.footer-bottom{border-top:1px solid var(--line);padding-top:28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:.82rem;color:var(--muted)}
-.footer-social{display:flex;gap:12px}
-.footer-social a{width:36px;height:36px;border-radius:9px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:color .2s,border-color .2s}
-.footer-social a:hover{color:var(--white);border-color:var(--accent)}
-
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
-.reveal.on{opacity:1;transform:none}
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
-
-/* MOBILE */
-@media(max-width:1024px){
-  .why-layout{grid-template-columns:1fr;gap:48px}
-  .process-grid{grid-template-columns:1fr 1fr;gap:32px}
-  .process-step::after{display:none}
-  .footer-grid{grid-template-columns:1fr 1fr}
-  nav,.header .btn-accent{display:none}
-  .nav-toggle{display:block;margin-left:auto}
-}
-@media(max-width:720px){
-  .container{padding:0 22px}
-  .section{padding:80px 0}
-  .hero{padding:140px 0 80px}
-  .services-grid,.reviews-grid,.work-grid,.stats-grid{grid-template-columns:1fr}
-  .stats-grid{grid-template-columns:1fr 1fr}
-  .cta-wrap{grid-template-columns:1fr}
-  .cta-form{border-left:none;border-top:1px solid var(--line)}
-  .cta-left,.cta-form{padding:40px 28px}
-  .footer-grid{grid-template-columns:1fr}
-  .field-row{grid-template-columns:1fr}
-  .logo-row{gap:28px}
-}
-
-/* MOBILE NAV */
-.mnav{display:none;position:fixed;inset:0;z-index:300;background:var(--bg);flex-direction:column;padding:28px 24px}
-.mnav.open{display:flex}
-.mnav-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px}
-.mnav-close{background:none;border:none;color:var(--white);cursor:pointer}
-.mnav a{font-family:var(--fh);font-weight:600;font-size:1.6rem;color:var(--white);padding:18px 0;border-bottom:1px solid var(--line)}
-.mnav .btn-accent{margin-top:28px;justify-content:center;padding:16px}
-</style>
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
 <!-- Header -->
 <header class="header" id="header">
   <div class="container header-inner">
-    <a href="#" class="logo">nutel<span>.</span></a>
+    <a href="/" class="logo">nutel<span>.</span></a>
     <nav>
-      <a href="#diensten">Diensten</a>
-      <a href="#werkwijze">Werkwijze</a>
-      <a href="#werk">Werk</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#faq">FAQ</a>
+      <a href="/diensten">Diensten</a>
+      <a href="/werk">Werk</a>
+      <a href="/over">Over ons</a>
+      <a href="/contact">Contact</a>
     </nav>
-    <a href="#contact" class="btn btn-accent">Start een project</a>
+    <a href="/contact" class="btn btn-accent">Start een project</a>
     <button class="nav-toggle" id="navToggle"><svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
   </div>
 </header>
@@ -258,12 +35,11 @@ nav a:hover{color:var(--white);background:rgba(255,255,255,.05)}
     <span class="logo">nutel<span style="color:var(--accent2)">.</span></span>
     <button class="mnav-close" id="navClose"><svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
   </div>
-  <a href="#diensten" onclick="closeMnav()">Diensten</a>
-  <a href="#werkwijze" onclick="closeMnav()">Werkwijze</a>
-  <a href="#werk" onclick="closeMnav()">Werk</a>
-  <a href="#reviews" onclick="closeMnav()">Reviews</a>
-  <a href="#faq" onclick="closeMnav()">FAQ</a>
-  <a href="#contact" class="btn btn-accent" onclick="closeMnav()">Start een project</a>
+  <a href="/diensten" onclick="closeMnav()">Diensten</a>
+  <a href="/werk" onclick="closeMnav()">Werk</a>
+  <a href="/over" onclick="closeMnav()">Over ons</a>
+  <a href="/contact" onclick="closeMnav()">Contact</a>
+  <a href="/contact" class="btn btn-accent" onclick="closeMnav()">Start een project</a>
 </div>
 
 <!-- Hero -->
@@ -568,20 +344,20 @@ nav a:hover{color:var(--white);background:rgba(255,255,255,.05)}
       <div class="footer-col">
         <h5>Diensten</h5>
         <ul>
-          <li><a href="#diensten">Webdesign</a></li>
-          <li><a href="#diensten">Development</a></li>
-          <li><a href="#diensten">SEO</a></li>
-          <li><a href="#diensten">Branding</a></li>
-          <li><a href="#diensten">Onderhoud</a></li>
+          <li><a href="/diensten">Webdesign</a></li>
+          <li><a href="/diensten">Development</a></li>
+          <li><a href="/diensten">SEO</a></li>
+          <li><a href="/diensten">Branding</a></li>
+          <li><a href="/diensten">Onderhoud</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Bedrijf</h5>
         <ul>
-          <li><a href="#werkwijze">Werkwijze</a></li>
-          <li><a href="#werk">Werk</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="/over">Over ons</a></li>
+          <li><a href="/werk">Werk</a></li>
+          <li><a href="/#reviews">Reviews</a></li>
+          <li><a href="/contact">Contact</a></li>
           <li><a href="/privacy">Privacy</a></li>
         </ul>
       </div>
@@ -589,7 +365,7 @@ nav a:hover{color:var(--white);background:rgba(255,255,255,.05)}
         <h5>Contact</h5>
         <ul>
           <li><a href="mailto:info@nutel.nl">info@nutel.nl</a></li>
-          <li><a href="#contact">Start een project</a></li>
+          <li><a href="/contact">Start een project</a></li>
         </ul>
       </div>
     </div>
@@ -603,30 +379,6 @@ nav a:hover{color:var(--white);background:rgba(255,255,255,.05)}
   </div>
 </footer>
 
-<script>
-window.addEventListener('scroll',function(){document.getElementById('header').classList.toggle('scrolled',window.scrollY>20);});
-document.getElementById('navToggle').addEventListener('click',function(){document.getElementById('mnav').classList.add('open');});
-document.getElementById('navClose').addEventListener('click',function(){document.getElementById('mnav').classList.remove('open');});
-function closeMnav(){document.getElementById('mnav').classList.remove('open');}
-
-var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}});},{threshold:0.12});
-document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
-
-document.querySelectorAll('.service-card').forEach(function(card){
-  card.addEventListener('mousemove',function(e){var r=card.getBoundingClientRect();card.style.setProperty('--mx',(e.clientX-r.left)+'px');});
-});
-
-function toggleFaq(btn){var item=btn.closest('.faq-item');var open=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');});if(!open)item.classList.add('open');}
-
-var EP='https://formspree.io/f/YOUR_ID';
-function sendForm(e){
-  e.preventDefault();
-  var btn=document.getElementById('submitBtn');
-  btn.disabled=true;btn.textContent='Versturen…';
-  fetch(EP,{method:'POST',headers:{Accept:'application/json'},body:new FormData(e.target)})
-    .then(function(r){if(!r.ok)throw 0;document.getElementById('formBody').style.display='none';document.getElementById('ok').style.display='block';})
-    .catch(function(){btn.disabled=false;btn.textContent='Verstuur aanvraag';alert('Er ging iets mis. Mail ons op info@nutel.nl');});
-}
-</script>
+<script src="/app.js"></script>
 </body>
 </html>

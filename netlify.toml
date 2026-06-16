@@ -26,3 +26,23 @@
   from = "/privacy"
   to = "/privacy.html"
   status = 200
+
+[[redirects]]
+  from = "/diensten"
+  to = "/diensten.html"
+  status = 200
+
+[[redirects]]
+  from = "/werk"
+  to = "/werk.html"
+  status = 200
+
+[[redirects]]
+  from = "/over"
+  to = "/over.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
