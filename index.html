@@ -1,507 +1,735 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nutel — Websites die klanten opleveren</title>
-  <meta name="description" content="Ik maak professionele websites voor ondernemers. Vaste prijs, klaar in 2–4 weken, één aanspreekpunt.">
-  <link rel="canonical" href="https://nutel.nl/">
-  <meta property="og:title" content="Nutel — Websites die klanten opleveren">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://nutel.nl/">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nutel Kozijnen – Nieuwe kozijnen van A tot Z</title>
+<meta name="description" content="Nutel Kozijnen levert en monteert kunststof, aluminium en houten kozijnen. Gratis inmeting, vaste prijzen, 10 jaar garantie. Vraag vandaag nog een offerte aan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F5F6FA;
+  --white:#FFFFFF;
+  --blue:#1B3F8B;
+  --blue2:#2451A8;
+  --blue-l:#EEF2FF;
+  --orng:#EA580C;
+  --orng-l:#FFF4EE;
+  --txt:#111827;
+  --sub:#6B7280;
+  --line:#E5E7EB;
+  --line2:#D1D5DB;
+  --fh:'Space Grotesk',sans-serif;
+  --fb:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);color:var(--txt);background:var(--white);line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
 
-    :root {
-      --bg:    #09090F;
-      --card:  #111118;
-      --line:  rgba(255,255,255,0.07);
-      --line2: rgba(255,255,255,0.13);
-      --txt:   #EDEDF0;
-      --sub:   #8A8A9A;
-      --dim:   #444455;
-      --pur:   #7C5CF6;
-      --cyn:   #2DD4BF;
-      --fh:    'Space Grotesk', sans-serif;
-      --fb:    'Inter', sans-serif;
-      --r:     16px;
-    }
+/* USP bar */
+.usp-bar{background:var(--blue);color:#fff;font-size:.82rem;font-family:var(--fh);font-weight:500;text-align:center;padding:10px 24px}
+.usp-bar ul{display:flex;justify-content:center;gap:32px;flex-wrap:wrap}
+.usp-bar li{display:flex;align-items:center;gap:6px}
+.usp-bar svg{flex-shrink:0}
 
-    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-    body { background: var(--bg); color: var(--txt); font-family: var(--fb); overflow-x: hidden; line-height: 1.6; }
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
+/* Header */
+.header{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--line);box-shadow:0 1px 8px rgba(0,0,0,.07)}
+.header-inner{display:flex;align-items:center;gap:24px;height:68px}
+.logo{font-family:var(--fh);font-weight:700;font-size:1.3rem;color:var(--blue);flex-shrink:0}
+.logo span{color:var(--orng)}
+nav{display:flex;gap:4px;margin-left:auto}
+nav a{font-family:var(--fh);font-weight:500;font-size:.9rem;color:var(--txt);padding:8px 14px;border-radius:8px;transition:background .2s,color .2s}
+nav a:hover{background:var(--blue-l);color:var(--blue)}
+.header-phone{font-family:var(--fh);font-weight:600;font-size:.9rem;color:var(--blue);display:flex;align-items:center;gap:6px;white-space:nowrap}
+.btn-orng{background:var(--orng);color:#fff;font-family:var(--fh);font-weight:600;font-size:.9rem;padding:10px 20px;border-radius:10px;border:none;cursor:pointer;transition:opacity .2s;white-space:nowrap;display:inline-flex;align-items:center;gap:7px}
+.btn-orng:hover{opacity:.9}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:4px}
 
-    /* ── LAYOUT ── */
-    .wrap { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+/* Hero */
+.hero{background:var(--bg);padding:64px 0 56px}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.hero-content{animation:hero-in .9s ease both}
+@keyframes hero-in{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--blue-l);color:var(--blue);font-family:var(--fh);font-weight:600;font-size:.8rem;padding:6px 14px;border-radius:20px;margin-bottom:20px}
+.hero h1{font-family:var(--fh);font-size:clamp(2rem,4vw,2.9rem);font-weight:700;line-height:1.18;color:var(--txt);margin-bottom:20px}
+.hero h1 em{font-style:normal;color:var(--blue)}
+.hero-sub{color:var(--sub);font-size:1.05rem;margin-bottom:32px;max-width:480px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px}
+.btn-blue{background:var(--blue);color:#fff;font-family:var(--fh);font-weight:600;font-size:.95rem;padding:14px 26px;border-radius:10px;border:none;cursor:pointer;transition:opacity .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-blue:hover{opacity:.88}
+.btn-ghost{background:transparent;color:var(--blue);font-family:var(--fh);font-weight:600;font-size:.95rem;padding:13px 24px;border-radius:10px;border:2px solid var(--blue);cursor:pointer;transition:background .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-ghost:hover{background:var(--blue-l)}
+.trust-badges{display:flex;gap:20px;flex-wrap:wrap}
+.trust-badge{display:flex;align-items:center;gap:7px;font-size:.82rem;font-weight:600;color:var(--sub)}
+.trust-badge svg{color:var(--blue);flex-shrink:0}
+.hero-img{border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.13);aspect-ratio:1/0.8;object-fit:cover;width:100%}
 
-    /* ── NAV ── */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 68px; display: flex; align-items: center; background: rgba(9,9,15,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
-    .nav-logo { font-family: var(--fh); font-size: 19px; font-weight: 700; letter-spacing: -0.04em; display: flex; align-items: center; gap: 8px; }
-    .logo-sq { width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, var(--pur), var(--cyn)); flex-shrink: 0; }
-    .nav-links { display: flex; gap: 4px; }
-    .nav-links a { font-size: 14px; color: var(--sub); padding: 7px 13px; border-radius: 8px; transition: color .15s; }
-    .nav-links a:hover { color: var(--txt); }
-    .nav-btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--fh); font-weight: 600; font-size: 13px; background: var(--pur); color: #fff; padding: 9px 20px; border-radius: 999px; transition: opacity .2s, transform .2s; }
-    .nav-btn:hover { opacity: .85; transform: translateY(-1px); }
-    .burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
-    .burger span { display: block; width: 22px; height: 2px; background: var(--txt); border-radius: 2px; transition: all .3s; }
-    body.open .burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    body.open .burger span:nth-child(2) { opacity: 0; }
-    body.open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .mob-menu { display: none; position: fixed; inset: 68px 0 0; background: var(--bg); z-index: 99; padding: 32px 28px; flex-direction: column; }
-    body.open .mob-menu { display: flex; }
-    .mob-menu a { font-family: var(--fh); font-size: 26px; font-weight: 700; padding: 16px 0; border-bottom: 1px solid var(--line); letter-spacing: -0.03em; }
-    .mob-menu .nav-btn { margin-top: 28px; justify-content: center; font-size: 16px; padding: 16px; border-radius: 14px; }
+/* Products */
+.section{padding:80px 0}
+.section-tag{font-family:var(--fh);font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--orng);margin-bottom:10px}
+.section-title{font-family:var(--fh);font-weight:700;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--txt);margin-bottom:14px}
+.section-sub{color:var(--sub);font-size:1rem;max-width:540px;margin-bottom:48px}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.product-card{background:var(--white);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:box-shadow .25s,transform .25s}
+.product-card:hover{box-shadow:0 12px 40px rgba(27,63,139,.13);transform:translateY(-4px)}
+.product-card img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.product-card-body{padding:24px}
+.product-card h3{font-family:var(--fh);font-weight:700;font-size:1.1rem;margin-bottom:8px}
+.product-card p{color:var(--sub);font-size:.9rem;margin-bottom:16px}
+.product-card ul{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.product-card li{display:flex;align-items:center;gap:7px;font-size:.85rem;color:var(--txt)}
+.product-card li svg{color:var(--blue);flex-shrink:0}
+.card-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--fh);font-weight:600;font-size:.87rem;color:var(--blue)}
+.card-link:hover{text-decoration:underline}
 
-    /* ── HERO ── */
-    .hero { min-height: 100svh; display: flex; align-items: center; padding: 100px 0 80px; position: relative; overflow: hidden; }
-    .hero-bg { position: absolute; inset: 0; pointer-events: none; }
-    .hero-bg::before { content: ''; position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(124,92,246,.18) 0%, transparent 65%); top: -150px; left: -150px; }
-    .hero-bg::after  { content: ''; position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(45,212,191,.10) 0%, transparent 65%); bottom: -150px; right: -100px; }
-    .hero-content { position: relative; z-index: 1; max-width: 780px; animation: hero-in .9s ease both; }
-    @keyframes hero-in { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
-    .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: .4px; color: var(--cyn); background: rgba(45,212,191,.08); border: 1px solid rgba(45,212,191,.2); padding: 6px 14px; border-radius: 999px; margin-bottom: 32px; }
-    .tag-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cyn); animation: pulse 2s infinite; flex-shrink: 0; }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.8)} }
-    .hero h1 { font-family: var(--fh); font-size: clamp(44px, 7.5vw, 96px); font-weight: 700; line-height: 1.0; letter-spacing: -0.05em; margin-bottom: 24px; }
-    .grad { background: linear-gradient(120deg, var(--pur), var(--cyn)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-    .hero p { font-size: clamp(16px, 2.2vw, 19px); color: var(--sub); max-width: 520px; margin-bottom: 44px; line-height: 1.75; }
-    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn-main { display: inline-flex; align-items: center; gap: 9px; font-family: var(--fh); font-weight: 600; font-size: 15px; background: var(--pur); color: #fff; padding: 15px 30px; border-radius: 999px; border: none; cursor: pointer; transition: all .2s; box-shadow: 0 0 36px -6px rgba(124,92,246,.5); }
-    .btn-main:hover { transform: translateY(-2px); box-shadow: 0 0 48px -4px rgba(124,92,246,.6); }
-    .btn-sec { display: inline-flex; align-items: center; gap: 9px; font-family: var(--fh); font-weight: 600; font-size: 15px; color: var(--sub); background: rgba(255,255,255,.04); border: 1px solid var(--line2); padding: 14px 28px; border-radius: 999px; transition: all .2s; }
-    .btn-sec:hover { color: var(--txt); border-color: rgba(255,255,255,.25); }
+/* Why us */
+.why-bg{background:var(--bg)}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.why-card{background:var(--white);border-radius:16px;padding:28px 24px;text-align:center;border:1px solid var(--line)}
+.why-icon{width:52px;height:52px;background:var(--blue-l);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.why-icon svg{color:var(--blue)}
+.why-card h3{font-family:var(--fh);font-weight:700;font-size:1rem;margin-bottom:8px}
+.why-card p{color:var(--sub);font-size:.88rem}
 
-    /* ── REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
-    .reveal.on { opacity: 1; transform: none; }
+/* How it works */
+.how-bg{background:var(--blue)}
+.how-bg .section-tag{color:var(--orng)}
+.how-bg .section-title{color:#fff}
+.how-bg .section-sub{color:rgba(255,255,255,.65)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+.steps::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:2px;background:rgba(255,255,255,.15)}
+.step{text-align:center;position:relative}
+.step-num{width:56px;height:56px;border-radius:50%;background:var(--orng);color:#fff;font-family:var(--fh);font-weight:700;font-size:1.2rem;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;position:relative;z-index:1}
+.step h3{font-family:var(--fh);font-weight:600;font-size:.97rem;color:#fff;margin-bottom:8px}
+.step p{color:rgba(255,255,255,.6);font-size:.85rem}
 
-    /* ── SECTIONS ── */
-    section { padding: 100px 0; }
-    .label { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--pur); margin-bottom: 16px; }
-    h2 { font-family: var(--fh); font-size: clamp(30px, 4vw, 52px); font-weight: 700; line-height: 1.07; letter-spacing: -0.04em; margin-bottom: 16px; }
-    .sub { font-size: 17px; color: var(--sub); line-height: 1.75; }
-    .divider { height: 1px; background: var(--line); }
+/* Reviews */
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.review-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:28px}
+.stars{display:flex;gap:3px;margin-bottom:14px}
+.stars svg{color:#F59E0B}
+.review-text{color:var(--txt);font-size:.93rem;line-height:1.65;margin-bottom:18px}
+.reviewer{display:flex;align-items:center;gap:12px}
+.reviewer-avatar{width:42px;height:42px;border-radius:50%;background:var(--blue-l);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-weight:700;font-size:.9rem;color:var(--blue);flex-shrink:0}
+.reviewer-name{font-family:var(--fh);font-weight:600;font-size:.88rem}
+.reviewer-loc{font-size:.78rem;color:var(--sub)}
 
-    /* ── MARQUEE ── */
-    .ticker { overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 14px 0; }
-    .ticker-inner { display: flex; width: max-content; animation: tick 22s linear infinite; gap: 0; }
-    @keyframes tick { to { transform: translateX(-50%); } }
-    .ticker-item { display: flex; align-items: center; gap: 20px; padding: 0 28px; font-family: var(--fh); font-size: 13px; font-weight: 500; color: var(--dim); white-space: nowrap; }
-    .ticker-item::after { content: '·'; color: var(--pur); font-size: 18px; }
+/* Form */
+.form-bg{background:var(--bg)}
+.form-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:start}
+.form-info h2{font-family:var(--fh);font-weight:700;font-size:clamp(1.5rem,2.5vw,2rem);margin-bottom:16px}
+.form-info p{color:var(--sub);margin-bottom:28px}
+.form-usp{display:flex;flex-direction:column;gap:14px}
+.form-usp li{display:flex;align-items:flex-start;gap:12px;font-size:.92rem}
+.form-usp svg{color:var(--blue);flex-shrink:0;margin-top:2px}
+.form-usp strong{display:block;font-weight:600}
+.form-usp span{color:var(--sub);font-size:.85rem}
+.form-box{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:36px}
+.form-box h3{font-family:var(--fh);font-weight:700;font-size:1.15rem;margin-bottom:24px}
+.field{margin-bottom:18px}
+.field label{display:block;font-family:var(--fh);font-weight:600;font-size:.82rem;color:var(--txt);margin-bottom:7px}
+.field label .req{color:var(--orng)}
+.field input,.field select,.field textarea{width:100%;border:1px solid var(--line2);border-radius:10px;padding:11px 14px;font-size:.93rem;font-family:var(--fb);color:var(--txt);background:var(--white);outline:none;transition:border-color .2s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue)}
+.field textarea{resize:vertical;min-height:90px}
+.fields-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-submit{width:100%;padding:15px;background:var(--orng);color:#fff;font-family:var(--fh);font-weight:700;font-size:1rem;border:none;border-radius:12px;cursor:pointer;transition:opacity .2s;display:flex;align-items:center;justify-content:center;gap:9px;margin-top:6px}
+.form-submit:hover{opacity:.9}
+.form-note{font-size:.77rem;color:var(--sub);text-align:center;margin-top:10px}
+#ok{display:none;text-align:center;padding:32px 0}
+#ok h3{font-family:var(--fh);font-weight:700;font-size:1.2rem;color:var(--blue);margin-bottom:8px}
+#ok p{color:var(--sub);font-size:.92rem}
+#ok .ok-icon{width:64px;height:64px;background:var(--blue-l);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+#ok .ok-icon svg{color:var(--blue)}
 
-    /* ── WERK ── */
-    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 52px; }
-    .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; transition: border-color .25s, transform .25s; }
-    .card:hover { border-color: var(--line2); transform: translateY(-3px); }
-    .card-img { aspect-ratio: 16/10; overflow: hidden; }
-    .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; filter: brightness(.88); }
-    .card:hover .card-img img { transform: scale(1.04); filter: brightness(1); }
-    .card-body { padding: 24px; }
-    .card-tag { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--cyn); margin-bottom: 8px; }
-    .card-body h3 { font-family: var(--fh); font-size: 19px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
-    .card-body p { font-size: 13px; color: var(--sub); line-height: 1.6; }
-    .card-body p strong { color: var(--txt); }
+/* FAQ */
+.faq-layout{display:grid;grid-template-columns:1fr 1.8fr;gap:64px;align-items:start}
+.faq-layout .section-sub{margin-bottom:0}
+.faq-list{display:flex;flex-direction:column;gap:0}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-btn{width:100%;background:none;border:none;cursor:pointer;padding:18px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left}
+.faq-btn span{font-family:var(--fh);font-weight:600;font-size:.97rem;color:var(--txt)}
+.faq-icon{width:28px;height:28px;border-radius:50%;background:var(--blue-l);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}
+.faq-item.open .faq-icon{background:var(--blue)}
+.faq-icon svg{color:var(--blue);transition:transform .3s}
+.faq-item.open .faq-icon svg{color:#fff;transform:rotate(45deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-item.open .faq-answer{max-height:300px}
+.faq-answer p{padding-bottom:18px;color:var(--sub);font-size:.9rem;line-height:1.7}
 
-    /* ── DIENSTEN ── */
-    .svc-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-    .svc-intro h2 { margin-bottom: 18px; }
-    .svc-intro p { font-size: 16px; color: var(--sub); line-height: 1.75; margin-bottom: 32px; }
-    .svc-list { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
-    .svc-item { display: flex; gap: 20px; padding: 28px 0; border-bottom: 1px solid var(--line); }
-    .svc-num { font-family: var(--fh); font-size: 12px; font-weight: 700; color: var(--pur); padding-top: 2px; flex-shrink: 0; width: 24px; }
-    .svc-item h3 { font-family: var(--fh); font-size: 18px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
-    .svc-item p { font-size: 14px; color: var(--sub); line-height: 1.65; }
+/* Footer */
+.footer{background:#0F172A;color:rgba(255,255,255,.7);font-size:.87rem}
+.footer-top{padding:60px 0 40px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.footer-brand .logo{color:#fff;margin-bottom:12px;display:block}
+.footer-brand p{line-height:1.7;max-width:260px;font-size:.85rem}
+.footer-col h4{font-family:var(--fh);font-weight:600;font-size:.88rem;color:#fff;margin-bottom:16px}
+.footer-col ul{display:flex;flex-direction:column;gap:8px}
+.footer-col a{transition:color .2s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:20px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.8rem}
+.footer-bottom a{opacity:.7;transition:opacity .2s}
+.footer-bottom a:hover{opacity:1}
 
-    /* ── STATEMENT ── */
-    .statement { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 80px 60px; text-align: center; position: relative; overflow: hidden; }
-    .statement::before { content: ''; position: absolute; width: 480px; height: 480px; background: radial-gradient(circle, rgba(124,92,246,.15) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; border-radius: 50%; }
-    .statement h2 { font-size: clamp(28px, 4.5vw, 64px); position: relative; margin-bottom: 20px; max-width: 860px; margin-left: auto; margin-right: auto; }
-    .statement p { font-size: 17px; color: var(--sub); max-width: 500px; margin: 0 auto 36px; }
+/* Reveal animation */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.reveal.on{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
 
-    /* ── REVIEWS ── */
-    .reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 52px; }
-    .review { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 28px 24px; display: flex; flex-direction: column; }
-    .review-stars { color: #F59E0B; font-size: 13px; margin-bottom: 14px; }
-    .review-text { font-size: 14px; line-height: 1.75; color: var(--sub); flex: 1; margin-bottom: 20px; }
-    .review-text strong { color: var(--txt); }
-    .review-by { display: flex; align-items: center; gap: 10px; padding-top: 18px; border-top: 1px solid var(--line); }
-    .review-av { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--pur), var(--cyn)); display: flex; align-items: center; justify-content: center; font-family: var(--fh); font-weight: 800; font-size: 14px; color: #fff; flex-shrink: 0; }
-    .review-name { font-size: 13px; font-weight: 600; }
-    .review-role { font-size: 12px; color: var(--dim); margin-top: 1px; }
+/* Mobile */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr;gap:40px}
+  .hero-img{max-height:320px}
+  .products-grid,.why-grid,.steps,.reviews-grid{grid-template-columns:1fr 1fr}
+  .steps::before{display:none}
+  .form-layout,.faq-layout{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  nav{display:none}
+  .nav-toggle{display:block}
+  .header-phone{display:none}
+}
+@media(max-width:600px){
+  .products-grid,.why-grid,.steps,.reviews-grid{grid-template-columns:1fr}
+  .fields-row{grid-template-columns:1fr}
+  .hero{padding:48px 0 40px}
+  .usp-bar ul{gap:16px;font-size:.75rem}
+  .footer-grid{grid-template-columns:1fr}
+}
 
-    /* ── PROCES ── */
-    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 52px; }
-    .step { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 32px 24px; }
-    .step-n { font-family: var(--fh); font-size: 36px; font-weight: 800; letter-spacing: -0.05em; background: linear-gradient(120deg, var(--pur), var(--cyn)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 16px; line-height: 1; }
-    .step h3 { font-family: var(--fh); font-size: 17px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
-    .step p { font-size: 13px; color: var(--sub); line-height: 1.65; }
-
-    /* ── FAQ ── */
-    .faq-list { max-width: 720px; margin: 52px auto 0; }
-    details { border-bottom: 1px solid var(--line); }
-    details summary { list-style: none; cursor: pointer; padding: 22px 0; display: flex; justify-content: space-between; align-items: center; gap: 20px; font-family: var(--fh); font-size: 17px; font-weight: 600; letter-spacing: -0.02em; }
-    details summary::-webkit-details-marker { display: none; }
-    .faq-icon { width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--line2); display: flex; align-items: center; justify-content: center; font-size: 16px; color: var(--sub); flex-shrink: 0; transition: all .25s; }
-    details[open] .faq-icon { background: var(--pur); border-color: var(--pur); color: #fff; transform: rotate(45deg); }
-    .faq-ans { font-size: 14px; color: var(--sub); line-height: 1.8; padding-bottom: 24px; max-width: 87%; }
-
-    /* ── CONTACT ── */
-    .cta-box { background: var(--card); border: 1px solid var(--line2); border-radius: 24px; padding: 72px 60px; text-align: center; position: relative; overflow: hidden; }
-    .cta-box::before { content: ''; position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(124,92,246,.2) 0%, transparent 70%); top: -200px; left: -100px; pointer-events: none; border-radius: 50%; }
-    .cta-box::after  { content: ''; position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, rgba(45,212,191,.12) 0%, transparent 70%); bottom: -200px; right: -80px; pointer-events: none; border-radius: 50%; }
-    .cta-box h2 { position: relative; margin-bottom: 14px; }
-    .cta-box > p { font-size: 17px; color: var(--sub); margin-bottom: 48px; position: relative; }
-    .form { max-width: 580px; margin: 0 auto; text-align: left; position: relative; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    label { display: block; font-size: 12px; font-weight: 600; color: var(--sub); letter-spacing: .5px; text-transform: uppercase; margin-bottom: 7px; }
-    input, select, textarea { width: 100%; background: rgba(255,255,255,.04); border: 1px solid var(--line2); border-radius: 11px; padding: 12px 14px; color: var(--txt); font-family: var(--fb); font-size: 14px; outline: none; transition: border-color .18s, box-shadow .18s; margin-bottom: 14px; }
-    input:focus, select:focus, textarea:focus { border-color: var(--pur); box-shadow: 0 0 0 3px rgba(124,92,246,.12); }
-    input::placeholder, textarea::placeholder { color: var(--dim); }
-    select option { background: #111; }
-    textarea { resize: vertical; min-height: 110px; }
-    .form-submit { width: 100%; background: var(--pur); color: #fff; border: none; border-radius: 999px; padding: 15px; font-family: var(--fh); font-size: 15px; font-weight: 600; cursor: pointer; transition: all .2s; box-shadow: 0 0 32px -6px rgba(124,92,246,.5); }
-    .form-submit:hover { opacity: .88; transform: translateY(-1px); }
-    .form-note { text-align: center; font-size: 12px; color: var(--dim); margin-top: 12px; }
-    #ok { display: none; text-align: center; padding: 40px 0; }
-    #ok svg { width: 52px; height: 52px; stroke: var(--cyn); margin: 0 auto 16px; }
-    #ok h3 { font-family: var(--fh); font-size: 22px; font-weight: 700; margin-bottom: 8px; }
-    #ok p { color: var(--sub); }
-
-    /* ── FOOTER ── */
-    footer { border-top: 1px solid var(--line); padding: 56px 0 32px; }
-    .foot { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; margin-bottom: 40px; }
-    .foot-left p { font-size: 14px; color: var(--sub); margin-top: 12px; max-width: 260px; line-height: 1.65; }
-    .foot-cols { display: flex; gap: 56px; }
-    .foot-col h5 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--dim); margin-bottom: 14px; }
-    .foot-col a { display: block; font-size: 14px; color: var(--sub); padding: 4px 0; transition: color .15s; }
-    .foot-col a:hover { color: var(--txt); }
-    .foot-bot { display: flex; justify-content: space-between; padding-top: 24px; border-top: 1px solid var(--line); flex-wrap: wrap; gap: 10px; }
-    .foot-bot p { font-size: 12px; color: var(--dim); }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .grid2 { grid-template-columns: 1fr; }
-      .reviews { grid-template-columns: 1fr 1fr; }
-      .steps { grid-template-columns: 1fr 1fr; }
-      .svc-wrap { grid-template-columns: 1fr; gap: 40px; }
-      .cta-box, .statement { padding: 56px 32px; }
-    }
-    @media (max-width: 700px) {
-      .nav-links, .nav > .nav-btn { display: none; }
-      .burger { display: flex; }
-      section { padding: 72px 0; }
-      .hero { padding: 88px 0 60px; min-height: auto; }
-      .hero h1 { font-size: clamp(40px, 10vw, 60px); }
-    }
-    @media (max-width: 560px) {
-      .wrap { padding: 0 18px; }
-      .reviews, .steps { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
-      .hero-btns a { width: 100%; justify-content: center; }
-      .foot-cols { gap: 32px; }
-      .statement { padding: 44px 22px; }
-      .cta-box { padding: 44px 22px; }
-    }
-  </style>
+/* Mobile nav */
+.mobile-nav{display:none;position:fixed;inset:0;z-index:200;background:var(--white);flex-direction:column;padding:24px}
+.mobile-nav.show{display:flex}
+.mobile-nav-close{align-self:flex-end;background:none;border:none;cursor:pointer;padding:4px;margin-bottom:16px}
+.mobile-nav a{font-family:var(--fh);font-weight:600;font-size:1.1rem;color:var(--txt);padding:16px 0;border-bottom:1px solid var(--line)}
+.mobile-nav .btn-orng{margin-top:24px;justify-content:center;padding:16px}
+</style>
 </head>
 <body>
 
-<nav>
-  <div class="wrap nav-inner">
-    <a href="/" class="nav-logo"><span class="logo-sq"></span>nutel</a>
-    <div class="nav-links">
-      <a href="#werk">Werk</a>
-      <a href="#diensten">Diensten</a>
-      <a href="#over">Over</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <a href="#contact" class="nav-btn">Start een project</a>
-    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-
-<div class="mob-menu" id="mobMenu">
-  <a href="#werk">Werk</a>
-  <a href="#diensten">Diensten</a>
-  <a href="#over">Over</a>
-  <a href="#contact">Contact</a>
-  <a href="#contact" class="nav-btn">Start een project</a>
+<!-- USP bar -->
+<div class="usp-bar">
+  <ul>
+    <li>
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      Gratis inmeting
+    </li>
+    <li>
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      10 jaar garantie
+    </li>
+    <li>
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      Inclusief montage
+    </li>
+    <li>
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      Vaste prijzen, geen verrassingen
+    </li>
+  </ul>
 </div>
 
-<!-- HERO -->
+<!-- Header -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="#" class="logo">Nutel<span>.</span>Kozijnen</a>
+    <nav>
+      <a href="#producten">Producten</a>
+      <a href="#werkwijze">Werkwijze</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="tel:0850209090" class="header-phone">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+      085 &#8211; 020 9090
+    </a>
+    <a href="#offerte" class="btn-orng">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M9 12h6M12 9v6M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      Gratis offerte
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu openen">
+      <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="navClose" aria-label="Sluiten">
+    <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="#producten" onclick="document.getElementById('mobileNav').classList.remove('show')">Producten</a>
+  <a href="#werkwijze" onclick="document.getElementById('mobileNav').classList.remove('show')">Werkwijze</a>
+  <a href="#reviews" onclick="document.getElementById('mobileNav').classList.remove('show')">Reviews</a>
+  <a href="#faq" onclick="document.getElementById('mobileNav').classList.remove('show')">FAQ</a>
+  <a href="#offerte" class="btn-orng" onclick="document.getElementById('mobileNav').classList.remove('show')">Gratis offerte aanvragen</a>
+</div>
+
+<!-- Hero -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="wrap">
-    <div class="hero-content">
-      <div class="hero-tag"><span class="tag-dot"></span>Beschikbaar voor nieuwe projecten</div>
-      <h1>Websites die<br>klanten <span class="grad">opleveren.</span></h1>
-      <p>Ik ontwerp en bouw websites voor ondernemers die serieus genomen willen worden. Geen templates — iets dat echt bij jou past.</p>
-      <div class="hero-btns">
-        <a href="#contact" class="btn-main">Laten we samenwerken →</a>
-        <a href="#werk" class="btn-sec">Bekijk mijn werk</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-inner" id="ticker"></div>
-</div>
-
-<!-- WERK -->
-<section id="werk">
-  <div class="wrap">
-    <div class="reveal">
-      <p class="label">Recent werk</p>
-      <h2>Websites die ik bouwde<br>voor echte bedrijven.</h2>
-    </div>
-    <div class="grid2">
-      <div class="card reveal">
-        <div class="card-img"><img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80&auto=format&fit=crop" alt="Lumière Atelier" loading="lazy"></div>
-        <div class="card-body">
-          <p class="card-tag">Webshop · Sieraden</p>
-          <h3>Lumière Atelier</h3>
-          <p>Handgemaakt sieradenmerk zonder webshop. <strong>Nu verkoopt ze ook 's nachts door.</strong></p>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Al meer dan 2.000 tevreden klanten
+        </div>
+        <h1>Nieuwe kozijnen?<br>Wij regelen het <em>van A tot Z</em>.</h1>
+        <p class="hero-sub">Van gratis inmeting tot professionele montage &#8212; Nutel Kozijnen levert kunststof, aluminium en houten kozijnen op maat. Snel, betrouwbaar en tegen een vaste prijs.</p>
+        <div class="hero-ctas">
+          <a href="#offerte" class="btn-blue">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M9 12h6M12 9v6M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Gratis offerte aanvragen
+          </a>
+          <a href="tel:0850209090" class="btn-ghost">
+            <svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+            Bel ons direct
+          </a>
+        </div>
+        <div class="trust-badges">
+          <div class="trust-badge">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            10 jaar garantie
+          </div>
+          <div class="trust-badge">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Snelle levering
+          </div>
+          <div class="trust-badge">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Erkend installateur
+          </div>
         </div>
       </div>
-      <div class="card reveal">
-        <div class="card-img"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80&auto=format&fit=crop" alt="Northwind Installatie" loading="lazy"></div>
-        <div class="card-body">
-          <p class="card-tag">Bedrijfssite · Techniek</p>
-          <h3>Northwind Installatie</h3>
-          <p>Verouderde site die klanten kostte. <strong>Levert nu wekelijks aanvragen op.</strong></p>
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=900&q=80&auto=format&fit=crop"
+          alt="Modern huis met nieuwe kozijnen"
+          class="hero-img"
+          loading="eager"
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Products -->
+<section class="section" id="producten">
+  <div class="container">
+    <p class="section-tag reveal">Ons aanbod</p>
+    <h2 class="section-title reveal">Kozijnen voor elke woning</h2>
+    <p class="section-sub reveal">Wij leveren alle soorten kozijnen op maat, inclusief meting en montage door gecertificeerde installateurs.</p>
+    <div class="products-grid">
+      <div class="product-card reveal d1">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop" alt="Kunststof kozijnen" loading="lazy">
+        <div class="product-card-body">
+          <h3>Kunststof kozijnen</h3>
+          <p>De meest populaire keuze &#8212; onderhoudsvriendelijk, duurzaam en uitstekend isolerend.</p>
+          <ul>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Nauwelijks onderhoud nodig</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Uitstekende warmte-isolatie</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Verkrijgbaar in alle kleuren</li>
+          </ul>
+          <a href="#offerte" class="card-link">Offerte aanvragen
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
         </div>
       </div>
-      <div class="card reveal">
-        <div class="card-img"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80&auto=format&fit=crop" alt="Maison Vert" loading="lazy"></div>
-        <div class="card-body">
-          <p class="card-tag">Horeca · Restaurant</p>
-          <h3>Maison Vert</h3>
-          <p>Miste online reserveringen. <strong>Terras nu elke vrijdagavond volgeboekt.</strong></p>
+      <div class="product-card reveal d2">
+        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80&auto=format&fit=crop" alt="Aluminium kozijnen" loading="lazy">
+        <div class="product-card-body">
+          <h3>Aluminium kozijnen</h3>
+          <p>Strak, modern en extreem sterk. Ideaal voor grote vlakken en een eigentijdse uitstraling.</p>
+          <ul>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Slanke profielen, veel licht</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Corrosiebestendig</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Grote panelen mogelijk</li>
+          </ul>
+          <a href="#offerte" class="card-link">Offerte aanvragen
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
         </div>
       </div>
-      <div class="card reveal">
-        <div class="card-img"><img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=800&q=80&auto=format&fit=crop" alt="Studio Kaya" loading="lazy"></div>
-        <div class="card-body">
-          <p class="card-tag">Portfolio · Fotografie</p>
-          <h3>Studio Kaya</h3>
-          <p>Foto's verloren in slechte lay-out. <strong>Nu spreekt het werk voor zich.</strong></p>
+      <div class="product-card reveal d3">
+        <img src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?w=600&q=80&auto=format&fit=crop" alt="Houten kozijnen" loading="lazy">
+        <div class="product-card-body">
+          <h3>Houten kozijnen</h3>
+          <p>Klassiek vakmanschap, warme uitstraling. Perfect voor monumentale en authentieke woningen.</p>
+          <ul>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Duurzaam FSC-hout</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Authentieke uitstraling</li>
+            <li><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Op maat gemaakt</li>
+          </ul>
+          <a href="#offerte" class="card-link">Offerte aanvragen
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- STATEMENT -->
-<section>
-  <div class="wrap">
-    <div class="statement reveal">
-      <h2>Jouw concurrent heeft al een <span class="grad">killer website.</span><br>En jij?</h2>
-      <p>De eerste indruk maakt of breekt de deal. Ik zorg dat mensen op jouw site blijven — en contact opnemen.</p>
-      <a href="#contact" class="btn-main">Ik wil ook zoiets →</a>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- DIENSTEN -->
-<section id="diensten">
-  <div class="wrap">
-    <div class="svc-wrap">
-      <div class="reveal">
-        <p class="label">Wat ik doe</p>
-        <h2>Van idee tot live website.</h2>
-        <p class="sub">Ik regel het ontwerp, de techniek en de teksten. Jij hoeft alleen te zeggen wat je wilt en goed te keuren hoe het eruitziet.</p>
-        <a href="#contact" class="btn-main" style="display:inline-flex;margin-top:32px">Plan een gesprek →</a>
+<!-- Why us -->
+<section class="section why-bg">
+  <div class="container">
+    <p class="section-tag reveal">Waarom Nutel?</p>
+    <h2 class="section-title reveal">Onze beloftes aan u</h2>
+    <p class="section-sub reveal">Geen verrassingen achteraf. Wat we beloven, dat doen we.</p>
+    <div class="why-grid">
+      <div class="why-card reveal d1">
+        <div class="why-icon">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Gratis inmeting</h3>
+        <p>Een van onze specialisten komt kosteloos en vrijblijvend langs om alle maten op te nemen.</p>
       </div>
-      <div class="svc-list reveal">
-        <div class="svc-item"><div class="svc-num">01</div><div><h3>Webdesign op maat</h3><p>Geen standaard thema. Iets dat past bij jouw merk en dat mensen bijblijft.</p></div></div>
-        <div class="svc-item"><div class="svc-num">02</div><div><h3>Snelle websites & webshops</h3><p>Snel laden, veilig, perfect op telefoon en vindbaar in Google.</p></div></div>
-        <div class="svc-item"><div class="svc-num">03</div><div><h3>Teksten & SEO</h3><p>Ik schrijf de teksten en zorg dat je opduikt waar jouw klanten zoeken.</p></div></div>
-        <div class="svc-item"><div class="svc-num">04</div><div><h3>Onderhoud & support</h3><p>Na livegang ben ik bereikbaar voor vragen en aanpassingen.</p></div></div>
+      <div class="why-card reveal d2">
+        <div class="why-icon">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>10 jaar garantie</h3>
+        <p>Wij staan volledig achter onze producten en montage. 10 jaar garantie op materiaal en arbeid.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- REVIEWS -->
-<section id="over">
-  <div class="wrap">
-    <div class="reveal" style="text-align:center">
-      <p class="label">Klanten</p>
-      <h2>Wat ze over me zeggen.</h2>
-    </div>
-    <div class="reviews">
-      <div class="review reveal">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Ik had geen idee waar te beginnen. Hij heeft alles geregeld — drie weken later stond er een webshop <strong>waar ik bestellingen op binnenkrijg</strong>."</p>
-        <div class="review-by"><div class="review-av">M</div><div><p class="review-name">Marieke de Vries</p><p class="review-role">Lumière Atelier</p></div></div>
+      <div class="why-card reveal d3">
+        <div class="why-icon">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Snelle levering</h3>
+        <p>Dankzij onze eigen productielijn leveren wij de meeste kozijnen binnen 3 tot 5 weken.</p>
       </div>
-      <div class="review reveal">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Onze oude site kostte ons opdrachten. Nu bellen mensen ons na het zien van de site. <strong>Hield zich exact aan de afgesproken prijs.</strong>"</p>
-        <div class="review-by"><div class="review-av">R</div><div><p class="review-name">Rens Bakker</p><p class="review-role">Northwind Installatie</p></div></div>
-      </div>
-      <div class="review reveal">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Gewoon iemand die opneemt als je belt. Snapte meteen wat ik wilde en <strong>mijn foto's komen nu echt tot hun recht</strong>."</p>
-        <div class="review-by"><div class="review-av">S</div><div><p class="review-name">Sandra Mol</p><p class="review-role">Studio Kaya</p></div></div>
+      <div class="why-card reveal d4">
+        <div class="why-icon">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <h3>Vaste prijzen</h3>
+        <p>De offerte is uw eindprijs. Geen verborgen kosten of onverwachte meerwerk-facturen.</p>
       </div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- PROCES -->
-<section>
-  <div class="wrap">
-    <div class="reveal" style="text-align:center">
-      <p class="label">Hoe het werkt</p>
-      <h2>Van gesprek tot live<br>in een paar weken.</h2>
-    </div>
+<!-- How it works -->
+<section class="section how-bg" id="werkwijze">
+  <div class="container">
+    <p class="section-tag reveal">Zo werkt het</p>
+    <h2 class="section-title reveal">Van aanvraag tot gemonteerd kozijn</h2>
+    <p class="section-sub reveal" style="margin-bottom:56px">In vier eenvoudige stappen regelen wij alles voor u.</p>
     <div class="steps">
-      <div class="step reveal"><div class="step-n">01</div><h3>We bellen</h3><p>Je vertelt wat je nodig hebt. Ik stel vragen en denk mee. Kost niks.</p></div>
-      <div class="step reveal"><div class="step-n">02</div><h3>Voorstel</h3><p>Helder plan, vaste prijs. Geen kleine lettertjes.</p></div>
-      <div class="step reveal"><div class="step-n">03</div><h3>Ik bouw</h3><p>Je ziet hoe het wordt en geeft feedback. Tot je tevreden bent.</p></div>
-      <div class="step reveal"><div class="step-n">04</div><h3>Live</h3><p>Online — en ik ben er voor vragen en kleine tweaks.</p></div>
+      <div class="step reveal d1">
+        <div class="step-num">1</div>
+        <h3>Aanvraag indienen</h3>
+        <p>Vul het formulier in of bel ons. We reageren binnen één werkdag.</p>
+      </div>
+      <div class="step reveal d2">
+        <div class="step-num">2</div>
+        <h3>Gratis inmeting</h3>
+        <p>Onze specialist komt langs, neemt alle maten op en bespreekt uw wensen.</p>
+      </div>
+      <div class="step reveal d3">
+        <div class="step-num">3</div>
+        <h3>Offerte &amp; bevestiging</h3>
+        <p>U ontvangt een heldere, vaste offerte. Na akkoord plannen we de montage in.</p>
+      </div>
+      <div class="step reveal d4">
+        <div class="step-num">4</div>
+        <h3>Professionele montage</h3>
+        <p>Ons team monteert de kozijnen netjes en op de afgesproken datum. Klaar!</p>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
+<!-- Reviews -->
+<section class="section" id="reviews">
+  <div class="container">
+    <p class="section-tag reveal">Klantbeoordelingen</p>
+    <h2 class="section-title reveal">Wat onze klanten zeggen</h2>
+    <p class="section-sub reveal">Meer dan 2.000 tevreden klanten gingen u voor.</p>
+    <div class="reviews-grid">
+      <div class="review-card reveal d1">
+        <div class="stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="review-text">"Heel tevreden! Van de aanvraag tot de montage verliep alles soepel. De kozijnen zien er prachtig uit en de monteurs waren vriendelijk en netjes."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">MV</div>
+          <div>
+            <div class="reviewer-name">Marco van der Berg</div>
+            <div class="reviewer-loc">Amsterdam &#183; Kunststof kozijnen</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal d2">
+        <div class="stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="review-text">"Al jaren droomde ik van aluminium kozijnen. Nutel heeft het gerealiseerd binnen mijn budget en precies op tijd. Absoluut een aanrader!"</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">SJ</div>
+          <div>
+            <div class="reviewer-name">Sandra Jansen</div>
+            <div class="reviewer-loc">Utrecht &#183; Aluminium kozijnen</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal d3">
+        <div class="stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="review-text">"Onze jaren-30 woning heeft nu prachtige houten kozijnen die perfect passen bij de stijl. Vakmanschap van het hoogste niveau. Zeer tevreden!"</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">PD</div>
+          <div>
+            <div class="reviewer-name">Peter de Vries</div>
+            <div class="reviewer-loc">Den Haag &#183; Houten kozijnen</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Offerte form -->
+<section class="section form-bg" id="offerte">
+  <div class="container">
+    <div class="form-layout">
+      <div class="form-info reveal">
+        <p class="section-tag">Offerte aanvragen</p>
+        <h2>Ontvang uw vrijblijvende offerte</h2>
+        <p>Vul het formulier in en we nemen binnen één werkdag contact met u op voor een gratis inmeting.</p>
+        <ul class="form-usp">
+          <li>
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <strong>100% vrijblijvend</strong>
+              <span>Geen verplichtingen, geen kosten</span>
+            </div>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <strong>Reactie binnen 1 werkdag</strong>
+              <span>Vaak al dezelfde dag</span>
+            </div>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <strong>Gratis inmeting aan huis</strong>
+              <span>Onze specialist komt bij u langs</span>
+            </div>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <strong>Vaste prijs in offerte</strong>
+              <span>Geen verborgen kosten achteraf</span>
+            </div>
+          </li>
+        </ul>
+        <br>
+        <p style="font-size:.88rem;color:var(--sub)">Liever direct bellen?<br><a href="tel:0850209090" style="color:var(--blue);font-weight:600">085 &#8211; 020 9090</a> &#8212; Maandag t/m vrijdag 8:00&#8211;18:00</p>
+      </div>
+      <div class="form-box reveal d2">
+        <h3>Aanvraagformulier</h3>
+        <div id="formBody">
+          <form onsubmit="sendForm(event)">
+            <div class="fields-row">
+              <div class="field">
+                <label>Naam <span class="req">*</span></label>
+                <input type="text" name="naam" required placeholder="Uw volledige naam">
+              </div>
+              <div class="field">
+                <label>Telefoonnummer <span class="req">*</span></label>
+                <input type="tel" name="telefoon" required placeholder="06 &#8211; 12 34 56 78">
+              </div>
+            </div>
+            <div class="field">
+              <label>E-mailadres <span class="req">*</span></label>
+              <input type="email" name="email" required placeholder="u@voorbeeld.nl">
+            </div>
+            <div class="field">
+              <label>Adres (optioneel)</label>
+              <input type="text" name="adres" placeholder="Straat, huisnummer, postcode, plaats">
+            </div>
+            <div class="field">
+              <label>Welk product heeft u nodig? <span class="req">*</span></label>
+              <select name="product" required>
+                <option value="" disabled selected>Selecteer een product</option>
+                <option value="kunststof">Kunststof kozijnen</option>
+                <option value="aluminium">Aluminium kozijnen</option>
+                <option value="hout">Houten kozijnen</option>
+                <option value="voordeur">Voordeur</option>
+                <option value="schuifpui">Schuifpui</option>
+                <option value="dakkapel">Dakkapel</option>
+                <option value="combinatie">Combinatie / weet ik nog niet</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Omschrijving (optioneel)</label>
+              <textarea name="omschrijving" placeholder="Bijv. aantal kozijnen, situatie, bijzonderheden&#8230;"></textarea>
+            </div>
+            <button type="submit" class="form-submit" id="submitBtn">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Verstuur aanvraag
+            </button>
+            <p class="form-note">Door te verzenden gaat u akkoord met onze <a href="/privacy" style="color:var(--blue)">privacyverklaring</a>.</p>
+          </form>
+        </div>
+        <div id="ok">
+          <div class="ok-icon">
+            <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3>Aanvraag ontvangen!</h3>
+          <p>Bedankt voor uw aanvraag. We nemen binnen één werkdag contact met u op.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- FAQ -->
-<section>
-  <div class="wrap">
-    <div class="reveal" style="text-align:center">
-      <p class="label">Vragen</p>
-      <h2>Dit wordt me vaak gevraagd.</h2>
-    </div>
-    <div class="faq-list reveal">
-      <details><summary>Wat kost een website?<span class="faq-icon">+</span></summary><p class="faq-ans">Dat hangt af van wat je nodig hebt. Na een kort gesprek geef ik je een vaste prijs. Bellen kost niks en je zit nergens aan vast.</p></details>
-      <details><summary>Hoe lang duurt het?<span class="faq-icon">+</span></summary><p class="faq-ans">Zodra ik je teksten en foto's heb, staan de meeste sites binnen 2 tot 4 weken online. Haast? Dat is vaak op te lossen.</p></details>
-      <details><summary>Kan ik de site later zelf aanpassen?<span class="faq-icon">+</span></summary><p class="faq-ans">Ja. Ik lever de site zo op dat je zelf teksten en foto's kunt wijzigen, zonder code. Kleine tweaks in de eerste weken doe ik gratis.</p></details>
-      <details><summary>Ik heb geen teksten of foto's. Wat nu?<span class="faq-icon">+</span></summary><p class="faq-ans">Geen probleem. Ik help met teksten en het vinden van passende beelden. Je hoeft niet alles klaar te hebben om te beginnen.</p></details>
-      <details><summary>Voor wie werk je?<span class="faq-icon">+</span></summary><p class="faq-ans">ZZP'ers en kleine bedrijven die een nette website willen zonder gedoe. Van kapper tot installatiebedrijf tot fotograaf.</p></details>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="wrap">
-    <div class="cta-box reveal">
-      <h2>Klaar om iets<br><span class="grad">moois te bouwen?</span></h2>
-      <p>Stuur een berichtje. Ik reageer dezelfde dag. Altijd vrijblijvend.</p>
-      <div class="form">
-        <form id="formBody" onsubmit="sendForm(event)">
-          <div class="form-row">
-            <div><label for="naam">Naam</label><input id="naam" name="naam" type="text" placeholder="Jan Smit" required></div>
-            <div><label for="email">E-mail</label><input id="email" name="email" type="email" placeholder="jan@bedrijf.nl" required></div>
-          </div>
-          <label for="bedrijf">Bedrijf</label>
-          <input id="bedrijf" name="bedrijf" type="text" placeholder="Jouw bedrijfsnaam">
-          <label for="dienst">Wat zoek je?</label>
-          <select id="dienst" name="dienst">
-            <option value="">Kies een optie…</option>
-            <option>Nieuwe website</option>
-            <option>Webshop</option>
-            <option>Herontwerp</option>
-            <option>Vrijblijvend gesprek</option>
-          </select>
-          <label for="bericht">Je idee</label>
-          <textarea id="bericht" name="bericht" placeholder="Wat wil je bereiken?" required></textarea>
-          <button type="submit" class="form-submit" id="submitBtn">Verstuur aanvraag</button>
-          <p class="form-note">Reactie binnen 24 uur · Altijd vrijblijvend</p>
-        </form>
-        <div id="ok">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
-          <h3>Bericht ontvangen!</h3>
-          <p>Ik kom er zo snel mogelijk op terug — meestal dezelfde dag.</p>
+<section class="section" id="faq">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="reveal">
+        <p class="section-tag">FAQ</p>
+        <h2 class="section-title">Veelgestelde vragen</h2>
+        <p class="section-sub">Staat uw vraag er niet bij? Bel ons op <a href="tel:0850209090" style="color:var(--blue);font-weight:600">085 &#8211; 020 9090</a>.</p>
+      </div>
+      <div class="faq-list reveal d2">
+        <div class="faq-item">
+          <button class="faq-btn" onclick="toggleFaq(this)">
+            <span>Hoe lang duurt de montage van nieuwe kozijnen?</span>
+            <div class="faq-icon"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="faq-answer"><p>De montage van een gemiddeld rijtjeshuis duurt één tot twee werkdagen. Bij grotere projecten of vrijstaande woningen plannen we meerdere dagen in. U kunt gewoon thuis blijven; ons team zorgt voor een schone en nette werkplek.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" onclick="toggleFaq(this)">
+            <span>Wat kost een set nieuwe kozijnen gemiddeld?</span>
+            <div class="faq-icon"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="faq-answer"><p>De prijs hangt af van het type kozijn, de afmetingen en het aantal stuks. Kunststof kozijnen zijn doorgaans het voordeligst, gevolgd door aluminium en hout. Na de gratis inmeting ontvangt u een exacte, vaste offerte zonder verrassingen.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" onclick="toggleFaq(this)">
+            <span>Hoe lang moet ik wachten na mijn aanvraag?</span>
+            <div class="faq-icon"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="faq-answer"><p>Na uw aanvraag nemen we binnen één werkdag contact op voor het inplannen van de gratis inmeting. Na akkoord op de offerte leveren we de meeste kozijnen binnen 3 tot 5 weken en plannen we direct de montage in.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" onclick="toggleFaq(this)">
+            <span>Zijn uw kozijnen voorzien van dubbel of triple glas?</span>
+            <div class="faq-icon"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="faq-answer"><p>Standaard leveren wij HR++ dubbel glas. Triple glas (HR+++) is beschikbaar als upgrade en wordt aanbevolen voor woningen in koude regio&#8217;s of bij extra geluidsisolatie-wensen. Beide opties zijn in de offerte opgenomen.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" onclick="toggleFaq(this)">
+            <span>Ruimt u het oude materiaal ook op?</span>
+            <div class="faq-icon"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="faq-answer"><p>Ja! Onze monteurs nemen alle oude kozijnen, glas en overig materiaal mee. U hoeft zelf niets te regelen voor de afvoer. De werkplek laten we netjes achter.</p></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="wrap">
-    <div class="foot">
-      <div class="foot-left">
-        <a href="/" class="nav-logo"><span class="logo-sq"></span>nutel</a>
-        <p>Websites voor ondernemers die zonder gedoe online willen. Eén persoon, vaste prijs, snel klaar.</p>
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="logo">Nutel<span style="color:var(--orng)">.</span>Kozijnen</span>
+        <p>Wij leveren en monteren kwalitatieve kozijnen door heel Nederland. Van aanvraag tot montage regelen wij alles.</p>
       </div>
-      <div class="foot-cols">
-        <div class="foot-col">
-          <h5>Navigatie</h5>
-          <a href="#werk">Werk</a>
-          <a href="#diensten">Diensten</a>
-          <a href="#over">Over</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <div class="foot-col">
-          <h5>Contact</h5>
-          <a href="mailto:info@nutel.nl">info@nutel.nl</a>
-          <a href="#contact">Start een project</a>
-          <a href="/privacy">Privacy</a>
-        </div>
+      <div class="footer-col">
+        <h4>Producten</h4>
+        <ul>
+          <li><a href="#producten">Kunststof kozijnen</a></li>
+          <li><a href="#producten">Aluminium kozijnen</a></li>
+          <li><a href="#producten">Houten kozijnen</a></li>
+          <li><a href="#producten">Schuifpuien</a></li>
+          <li><a href="#producten">Voordeuren</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Bedrijf</h4>
+        <ul>
+          <li><a href="#werkwijze">Werkwijze</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="/privacy">Privacyverklaring</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:0850209090">085 &#8211; 020 9090</a></li>
+          <li><a href="mailto:info@nutel.nl">info@nutel.nl</a></li>
+          <li style="color:rgba(255,255,255,.5);font-size:.82rem;margin-top:8px">Ma &#8211; Vr: 8:00 &#8211; 18:00</li>
+          <li style="color:rgba(255,255,255,.5);font-size:.82rem">Za: 9:00 &#8211; 13:00</li>
+        </ul>
       </div>
     </div>
-    <div class="foot-bot">
-      <p>© 2026 Nutel</p>
-      <p>info@nutel.nl</p>
-    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>&#169; 2024 Nutel Kozijnen &#183; KvK: 12345678 &#183; BTW: NL123456789B01</span>
+    <a href="/privacy">Privacyverklaring</a>
   </div>
 </footer>
 
 <script>
-/* nav */
-document.getElementById('burger').addEventListener('click', () => document.body.classList.toggle('open'));
-document.querySelectorAll('.mob-menu a').forEach(a => a.addEventListener('click', () => document.body.classList.remove('open')));
+document.getElementById('navToggle').addEventListener('click',function(){document.getElementById('mobileNav').classList.add('show');});
+document.getElementById('navClose').addEventListener('click',function(){document.getElementById('mobileNav').classList.remove('show');});
 
-/* ticker */
-(function(){
-  const w=['Webdesign','Webshops','SEO','Branding','Portfolio','Bedrijfssites','E-commerce','Landingspagina\'s','Online stores'];
-  const t=document.getElementById('ticker');
-  t.innerHTML=[...w,...w,...w].map(n=>`<span class="ticker-item">${n}</span>`).join('');
-})();
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}});},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
 
-/* scroll reveal */
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
-}, { threshold: 0.08 });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+function toggleFaq(btn){
+  var item=btn.closest('.faq-item');
+  var wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');});
+  if(!wasOpen)item.classList.add('open');
+}
 
-/* form — vervang YOUR_ID met jouw Formspree ID */
-const EP = 'https://formspree.io/f/YOUR_ID';
-async function sendForm(e) {
+var EP='https://formspree.io/f/YOUR_ID';
+function sendForm(e){
   e.preventDefault();
-  const btn = document.getElementById('submitBtn');
-  btn.disabled = true; btn.textContent = 'Versturen…';
-  try {
-    const r = await fetch(EP, { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(e.target) });
-    if (!r.ok) throw 0;
-    document.getElementById('formBody').style.display = 'none';
-    document.getElementById('ok').style.display = 'block';
-  } catch {
-    btn.disabled = false; btn.textContent = 'Verstuur aanvraag';
-    alert('Er ging iets mis. Mail naar info@nutel.nl');
-  }
+  var btn=document.getElementById('submitBtn');
+  btn.disabled=true;
+  btn.textContent='Versturen…';
+  fetch(EP,{method:'POST',headers:{Accept:'application/json'},body:new FormData(e.target)})
+    .then(function(r){
+      if(!r.ok)throw new Error();
+      document.getElementById('formBody').style.display='none';
+      document.getElementById('ok').style.display='block';
+    })
+    .catch(function(){
+      btn.disabled=false;
+      btn.textContent='Verstuur aanvraag';
+      alert('Er ging iets mis. Bel ons op 085 – 020 9090 of mail naar info@nutel.nl');
+    });
 }
 </script>
 </body>
