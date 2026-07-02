@@ -340,7 +340,8 @@
         <p>Vul het formulier in — wij nemen contact op.</p>
         <div id="formBody">
           <form onsubmit="sendForm(event)">
-            <div class="field-row">
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <div class="field-row">
               <div class="field"><label>Naam <span class="req">*</span></label><input type="text" name="naam" required placeholder="Uw naam"></div>
               <div class="field"><label>Bedrijf</label><input type="text" name="bedrijf" placeholder="Uw bedrijf"></div>
             </div>

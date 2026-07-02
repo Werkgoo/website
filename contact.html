@@ -21,6 +21,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 <script>document.documentElement.classList.add("js")</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Hoe lang duurt het maken van een website?","acceptedAnswer":{"@type":"Answer","text":"Een gemiddeld project leveren we binnen twee weken op. De exacte doorlooptijd hangt af van de omvang en hoe snel we content en feedback ontvangen."}},
+    {"@type":"Question","name":"Kan ik de website later zelf aanpassen?","acceptedAnswer":{"@type":"Answer","text":"Zeker. We leveren een gebruiksvriendelijk systeem op zodat u zelf teksten en afbeeldingen kunt beheren. Liever uit handen geven? Dan verzorgen wij het onderhoud."}},
+    {"@type":"Question","name":"Verzorgen jullie ook de teksten en foto's?","acceptedAnswer":{"@type":"Answer","text":"Ja, desgewenst regelen wij professionele teksten, fotografie en beeldmateriaal. Zo is uw website van begin tot eind verzorgd."}},
+    {"@type":"Question","name":"Wordt mijn website goed gevonden in Google?","acceptedAnswer":{"@type":"Answer","text":"We bouwen elke website met een technisch sterke SEO-basis. Daarnaast bieden we aanvullende SEO-diensten om uw vindbaarheid verder te verbeteren."}},
+    {"@type":"Question","name":"Wat als ik na livegang hulp nodig heb?","acceptedAnswer":{"@type":"Answer","text":"We laten u niet in de steek. Met onze onderhouds- en supportopties blijft uw website veilig, snel en up-to-date."}}
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -82,6 +95,7 @@
           <p>Vul het formulier in — wij nemen contact op.</p>
           <div id="formBody">
             <form onsubmit="sendForm(event)">
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
               <div class="field-row">
                 <div class="field"><label>Naam <span class="req">*</span></label><input type="text" name="naam" required placeholder="Uw naam"></div>
                 <div class="field"><label>Bedrijf</label><input type="text" name="bedrijf" placeholder="Uw bedrijf"></div>
