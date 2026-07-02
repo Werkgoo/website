@@ -369,10 +369,14 @@ nav a.active{color:var(--ink);background:var(--card-hi)}
 .footer-social a{width:38px;height:38px;border-radius:50%;border:1px solid var(--line-soft);background:var(--card);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:color .2s,border-color .2s,box-shadow .2s}
 .footer-social a:hover{color:var(--ink);border-color:rgba(124,92,255,.5);box-shadow:0 0 20px rgba(124,92,255,.3)}
 
-/* ---------- reveal ---------- */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .75s ease,transform .75s ease}
-.reveal.on{opacity:1;transform:none}
+/* ---------- reveal (only hidden when JS is active) ---------- */
+html.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .75s ease,transform .75s ease}
+html.js .reveal.on{opacity:1;transform:none}
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html.js .reveal{opacity:1;transform:none}
+}
 
 /* ---------- responsive ---------- */
 @media(max-width:1024px){

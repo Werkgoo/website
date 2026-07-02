@@ -1,3 +1,4 @@
+document.documentElement.classList.add('js');
 var header=document.getElementById('header');
 if(header){window.addEventListener('scroll',function(){header.classList.toggle('scrolled',window.scrollY>20);});}
 
