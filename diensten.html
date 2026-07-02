@@ -7,9 +7,10 @@
 <meta name="description" content="Van webdesign en development tot SEO, branding, conversie-optimalisatie en onderhoud. Ontdek hoe Nutel uw online aanwezigheid van begin tot eind verzorgt.">
 <link rel="canonical" href="https://nutel.nl/diensten">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#FAF7F2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -24,204 +25,216 @@
       <a href="/over">Over ons</a>
       <a href="/contact">Contact</a>
     </nav>
-    <a href="/contact" class="btn btn-accent">Start een project</a>
-    <button class="nav-toggle" id="navToggle"><svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    <a href="/contact" class="btn btn-ink">Start een project</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
   </div>
 </header>
 
 <!-- Mobile nav -->
 <div class="mnav" id="mnav">
   <div class="mnav-head">
-    <span class="logo">nutel<span style="color:var(--accent2)">.</span></span>
-    <button class="mnav-close" id="navClose"><svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <span class="logo">nutel<span>.</span></span>
+    <button class="mnav-close" id="navClose" aria-label="Sluiten"><svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
   </div>
   <a href="/diensten" onclick="closeMnav()">Diensten</a>
   <a href="/werk" onclick="closeMnav()">Werk</a>
   <a href="/over" onclick="closeMnav()">Over ons</a>
   <a href="/contact" onclick="closeMnav()">Contact</a>
-  <a href="/contact" class="btn btn-accent" onclick="closeMnav()">Start een project</a>
+  <a href="/contact" class="btn btn-ink" onclick="closeMnav()">Start een project</a>
 </div>
 
 <!-- Page hero -->
 <section class="page-hero">
-  <div class="hero-glow"></div>
-  <div class="hero-grid-bg"></div>
   <div class="container">
-    <div class="eyebrow">Wat wij doen</div>
-    <h1>Alles voor een website<br>waar u <em>trots</em> op bent</h1>
-    <p>Van het eerste idee tot een live website die werkt. Wij nemen het volledige traject uit handen — ontwerp, bouw, vindbaarheid en alles ertussenin.</p>
+    <div class="crumb"><b>Nutel</b> / Diensten</div>
+    <h1>Alles voor een website waar u <em>trots</em> op bent</h1>
+    <p class="lead">Van het eerste idee tot een live website die werkt. Wij nemen het volledige traject uit handen — ontwerp, bouw, vindbaarheid en alles ertussenin.</p>
   </div>
 </section>
 
-<!-- Services detail -->
+<!-- Service detail -->
 <section class="section tight">
   <div class="container">
+    <div class="svc-detail">
 
-    <div class="svc-row reveal">
-      <div>
-        <div class="service-icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-        <h3>Webdesign op maat</h3>
-        <p class="svc-lead">Een uniek ontwerp dat past bij uw merk en doelgroep. Geen sjablonen — elk scherm wordt afgestemd op uw verhaal en uw klanten.</p>
-        <ul class="svc-bullets">
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Maatwerk ontwerp in uw huisstijl</li>
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Wireframes en interactief ontwerp vooraf</li>
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Mobile-first — perfect op elk scherm</li>
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Toegankelijk en gebruiksvriendelijk</li>
+      <div class="svc-block reveal">
+        <div class="num">01</div>
+        <div>
+          <h2>Webdesign op maat</h2>
+          <p class="svc-lead">Een uniek ontwerp dat past bij uw merk en doelgroep. Geen sjablonen — elk scherm wordt afgestemd op uw verhaal en uw klanten.</p>
+        </div>
+        <ul class="svc-bullets svc-right">
+          <li>Maatwerk ontwerp in uw huisstijl</li>
+          <li>Wireframes en interactief ontwerp vooraf</li>
+          <li>Mobile-first — perfect op elk scherm</li>
+          <li>Toegankelijk en gebruiksvriendelijk</li>
         </ul>
       </div>
-      <div class="svc-visual"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-    </div>
 
-    <div class="svc-row flip reveal">
-      <div>
-        <div class="service-icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-        <h3>Development &amp; bouw</h3>
-        <p class="svc-lead">Razendsnelle, veilige websites die op elk apparaat perfect werken. Schone code en optimale prestaties als fundament.</p>
-        <ul class="svc-bullets">
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Handgeschreven, schone code</li>
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Topscores op snelheid en Core Web Vitals</li>
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Veilig, stabiel en up-to-date</li>
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Koppelingen met externe systemen</li>
+      <div class="svc-block reveal">
+        <div class="num">02</div>
+        <div>
+          <h2>Development &amp; bouw</h2>
+          <p class="svc-lead">Razendsnelle, veilige websites die op elk apparaat perfect werken. Schone code en optimale prestaties als fundament.</p>
+        </div>
+        <ul class="svc-bullets svc-right">
+          <li>Handgeschreven, schone code</li>
+          <li>Topscores op snelheid en Core Web Vitals</li>
+          <li>Veilig, stabiel en up-to-date</li>
+          <li>Koppelingen met externe systemen</li>
         </ul>
       </div>
-      <div class="svc-visual"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-    </div>
 
-    <div class="svc-row reveal">
-      <div>
-        <div class="service-icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        <h3>SEO &amp; vindbaarheid</h3>
-        <p class="svc-lead">Goed gevonden worden in Google. Wij bouwen vanaf de technische basis met vindbaarheid in gedachten — en helpen u verder groeien.</p>
-        <ul class="svc-bullets">
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Technische SEO standaard ingebouwd</li>
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Zoekwoordonderzoek &amp; contentstrategie</li>
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Snelle laadtijden als rankingfactor</li>
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Meetbare groei in organisch verkeer</li>
+      <div class="svc-block reveal">
+        <div class="num">03</div>
+        <div>
+          <h2>SEO &amp; vindbaarheid</h2>
+          <p class="svc-lead">Goed gevonden worden in Google. Wij bouwen vanaf de technische basis met vindbaarheid in gedachten — en helpen u verder groeien.</p>
+        </div>
+        <ul class="svc-bullets svc-right">
+          <li>Technische SEO standaard ingebouwd</li>
+          <li>Zoekwoordonderzoek &amp; contentstrategie</li>
+          <li>Snelle laadtijden als rankingfactor</li>
+          <li>Meetbare groei in organisch verkeer</li>
         </ul>
       </div>
-      <div class="svc-visual"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-    </div>
 
-    <div class="svc-row flip reveal">
-      <div>
-        <div class="service-icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
-        <h3>Branding &amp; identiteit</h3>
-        <p class="svc-lead">Logo, kleuren en huisstijl die blijven hangen. Een consistente uitstraling over al uw kanalen, online én offline.</p>
-        <ul class="svc-bullets">
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo &amp; visuele identiteit</li>
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Kleur- en typografiesysteem</li>
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Heldere merkrichtlijnen</li>
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Consistente uitstraling overal</li>
+      <div class="svc-block reveal">
+        <div class="num">04</div>
+        <div>
+          <h2>Branding &amp; identiteit</h2>
+          <p class="svc-lead">Logo, kleuren en huisstijl die blijven hangen. Een consistente uitstraling over al uw kanalen, online én offline.</p>
+        </div>
+        <ul class="svc-bullets svc-right">
+          <li>Logo &amp; visuele identiteit</li>
+          <li>Kleur- en typografiesysteem</li>
+          <li>Heldere merkrichtlijnen</li>
+          <li>Consistente uitstraling overal</li>
         </ul>
       </div>
-      <div class="svc-visual"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
-    </div>
 
-    <div class="svc-row reveal">
-      <div>
-        <div class="service-icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-        <h3>Conversie-optimalisatie</h3>
-        <p class="svc-lead">We bouwen niet zomaar mooi — maar om bezoekers in klanten te veranderen. Data en gebruikersgedrag staan centraal.</p>
-        <ul class="svc-bullets">
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Heldere, overtuigende call-to-actions</li>
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Doordachte gebruikersflows</li>
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>A/B-tests en data-analyse</li>
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Meer aanvragen uit dezelfde bezoekers</li>
+      <div class="svc-block reveal">
+        <div class="num">05</div>
+        <div>
+          <h2>Conversie-optimalisatie</h2>
+          <p class="svc-lead">We bouwen niet zomaar mooi — maar om bezoekers in klanten te veranderen. Data en gebruikersgedrag staan centraal.</p>
+        </div>
+        <ul class="svc-bullets svc-right">
+          <li>Heldere, overtuigende call-to-actions</li>
+          <li>Doordachte gebruikersflows</li>
+          <li>A/B-tests en data-analyse</li>
+          <li>Meer aanvragen uit dezelfde bezoekers</li>
         </ul>
       </div>
-      <div class="svc-visual"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-    </div>
 
-    <div class="svc-row flip reveal">
-      <div>
-        <div class="service-icon"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
-        <h3>Onderhoud &amp; support</h3>
-        <p class="svc-lead">Na livegang laten we u niet los. Uw website blijft veilig, snel en up-to-date — en wij staan voor u klaar.</p>
-        <ul class="svc-bullets">
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Updates &amp; beveiliging</li>
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Back-ups en monitoring</li>
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Snelle support bij vragen</li>
-          <li><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Doorontwikkeling op aanvraag</li>
+      <div class="svc-block reveal">
+        <div class="num">06</div>
+        <div>
+          <h2>Onderhoud &amp; support</h2>
+          <p class="svc-lead">Na livegang laten we u niet los. Uw website blijft veilig, snel en up-to-date — en wij staan voor u klaar.</p>
+        </div>
+        <ul class="svc-bullets svc-right">
+          <li>Updates &amp; beveiliging</li>
+          <li>Back-ups en monitoring</li>
+          <li>Snelle support bij vragen</li>
+          <li>Doorontwikkeling op aanvraag</li>
         </ul>
       </div>
-      <div class="svc-visual"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
-    </div>
 
+    </div>
   </div>
 </section>
 
-<!-- Process -->
-<section class="section process-bg">
+<!-- Aanpak -->
+<section class="section alt-bg">
   <div class="container">
-    <div class="eyebrow reveal">Onze werkwijze</div>
-    <h2 class="section-h reveal">Van idee naar livegang<br>in vier stappen</h2>
-    <p class="section-p reveal">Een helder en transparant traject — u weet altijd waar we staan.</p>
-    <div class="process-grid">
-      <div class="process-step reveal d1"><h3>Kennismaking</h3><p>We bespreken uw doelen, doelgroep en wensen. Zo weten we precies waar we naartoe werken.</p></div>
-      <div class="process-step reveal d2"><h3>Ontwerp</h3><p>U krijgt een uniek ontwerp te zien en we verfijnen het samen tot het helemaal klopt.</p></div>
-      <div class="process-step reveal d3"><h3>Bouw</h3><p>We bouwen uw website: snel, veilig en klaar voor groei — met aandacht voor elk detail.</p></div>
-      <div class="process-step reveal d4"><h3>Livegang &amp; groei</h3><p>We zetten alles live, meten resultaten en blijven beschikbaar voor support en doorontwikkeling.</p></div>
+    <div class="split">
+      <div class="frame-wrap reveal">
+        <div class="frame">
+          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FEfoa0DM8RO5q60FciUMwUjdnk/hf_20260616_214048_758a295d-a74d-481e-98be-8d1508707cb9_min.webp" alt="Aan het werk in de studio" loading="lazy">
+          <span class="frame-cap">Studio — in productie</span>
+        </div>
+      </div>
+      <div class="split-body">
+        <div class="kicker reveal" style="margin-bottom:24px"><span class="idx">✦</span> Onze aanpak</div>
+        <h2 class="display reveal" style="font-size:clamp(2.1rem,4.2vw,3.2rem);margin-bottom:24px">Eén team, één<br><em>aanspreekpunt</em></h2>
+        <p class="reveal d1">Bij Nutel werkt u niet met een anonieme projectmanager, maar rechtstreeks met de mensen die uw website maken. <strong>Korte lijnen, snelle beslissingen en een resultaat dat klopt.</strong></p>
+        <p class="reveal d1">Elke dienst kan los worden afgenomen, maar de kracht zit in de combinatie: design, techniek en vindbaarheid die vanaf dag één op elkaar zijn afgestemd.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="section cta-bg">
-  <div class="container center">
-    <div class="eyebrow reveal">Aan de slag</div>
-    <h2 class="section-h reveal">Welke dienst past bij<br>uw project?</h2>
-    <p class="section-p reveal">Vertel ons over uw plannen. We denken graag met u mee en adviseren vrijblijvend.</p>
-    <a href="/contact" class="btn btn-accent btn-lg reveal d1">Start uw project
-      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+<!-- Werkwijze -->
+<section class="section">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker"><span class="idx">✦</span> Werkwijze</div>
+      <h2>Van idee naar livegang<br>in vier <em>stappen</em></h2>
+    </div>
+    <div class="process-grid reveal d1">
+      <div class="process-step"><div class="p-num">01</div><h3>Kennismaking</h3><p>We bespreken uw doelen, doelgroep en wensen. Zo weten we precies waar we naartoe werken.</p></div>
+      <div class="process-step"><div class="p-num">02</div><h3>Ontwerp</h3><p>U krijgt een uniek ontwerp te zien en we verfijnen het samen tot het helemaal klopt.</p></div>
+      <div class="process-step"><div class="p-num">03</div><h3>Bouw</h3><p>We bouwen uw website: snel, veilig en klaar voor groei — met aandacht voor elk detail.</p></div>
+      <div class="process-step"><div class="p-num">04</div><h3>Livegang &amp; groei</h3><p>We zetten alles live, meten resultaten en blijven beschikbaar voor support.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA + Footer -->
+<div class="foot-cta">
+  <div class="container foot-cta-inner">
+    <div class="kicker"><span class="idx">✦</span> Aan de slag</div>
+    <h2>Welke dienst past bij<br>uw <em>project</em>?</h2>
+    <a href="/contact" class="btn btn-paper btn-lg">Start uw project
+      <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
   </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="/" class="logo">nutel<span style="color:var(--accent2)">.</span></a>
-        <p>Wij ontwerpen en bouwen websites die ondernemers laten groeien. Van concept tot livegang.</p>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">nutel<span>.</span></a>
+          <p>Wij ontwerpen en bouwen websites die ondernemers laten groeien. Van concept tot livegang.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Diensten</h5>
+          <ul>
+            <li><a href="/diensten">Webdesign</a></li>
+            <li><a href="/diensten">Development</a></li>
+            <li><a href="/diensten">SEO</a></li>
+            <li><a href="/diensten">Branding</a></li>
+            <li><a href="/diensten">Onderhoud</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Bedrijf</h5>
+          <ul>
+            <li><a href="/over">Over ons</a></li>
+            <li><a href="/werk">Werk</a></li>
+            <li><a href="/#reviews">Reviews</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="mailto:info@nutel.nl">info@nutel.nl</a></li>
+            <li><a href="/contact">Start een project</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-col">
-        <h5>Diensten</h5>
-        <ul>
-          <li><a href="/diensten">Webdesign</a></li>
-          <li><a href="/diensten">Development</a></li>
-          <li><a href="/diensten">SEO</a></li>
-          <li><a href="/diensten">Branding</a></li>
-          <li><a href="/diensten">Onderhoud</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Bedrijf</h5>
-        <ul>
-          <li><a href="/over">Over ons</a></li>
-          <li><a href="/werk">Werk</a></li>
-          <li><a href="/#reviews">Reviews</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="/privacy">Privacy</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Contact</h5>
-        <ul>
-          <li><a href="mailto:info@nutel.nl">info@nutel.nl</a></li>
-          <li><a href="/contact">Start een project</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Nutel · Alle rechten voorbehouden</span>
-      <div class="footer-social">
-        <a href="#" aria-label="Instagram"><svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg></a>
-        <a href="#" aria-label="LinkedIn"><svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      <div class="footer-bottom">
+        <span>© 2026 Nutel · Alle rechten voorbehouden</span>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
+</div>
 
 <script src="/app.js"></script>
 </body>
