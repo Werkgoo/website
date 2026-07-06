@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Over Motions Occasions — Autobedrijf in Alkmaar</title>
-<meta name="description" content="Maak kennis met Motions Occasions: een no-nonsense autobedrijf aan de Kamerlingh Onnesstraat in Alkmaar. Eerlijk advies, vakkundige monteurs en occasions waar we zelf achter staan.">
-<link rel="canonical" href="https://www.motionsoccasions.nl/over.html">
+<title>Occasions kopen in Alkmaar — Actueel aanbod | Motions Occasions</title>
+<meta name="description" content="Bekijk het actuele occasion-aanbod van Motions Occasions in Alkmaar. Alle auto's met garantie, NAP-gecontroleerd en rijklaar geleverd met nieuwe APK. Filter op merk, prijs en brandstof.">
+<link rel="canonical" href="https://www.motionsoccasions.nl/occasions.html">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Motions Occasions">
 <meta property="og:locale" content="nl_NL">
-<meta property="og:url" content="https://www.motionsoccasions.nl/over.html">
-<meta property="og:title" content="Over Motions Occasions — Autobedrijf in Alkmaar">
-<meta property="og:description" content="No-nonsense autobedrijf in Alkmaar. Eerlijk advies, vakkundige monteurs en occasions waar we zelf achter staan.">
+<meta property="og:url" content="https://www.motionsoccasions.nl/occasions.html">
+<meta property="og:title" content="Occasions kopen in Alkmaar — Actueel aanbod | Motions Occasions">
+<meta property="og:description" content="Betrouwbare occasions met garantie in Alkmaar. NAP-gecontroleerd en rijklaar geleverd.">
 <meta property="og:image" content="https://www.motionsoccasions.nl/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -28,7 +28,7 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.motionsoccasions.nl/" },
-    { "@type": "ListItem", "position": 2, "name": "Over ons", "item": "https://www.motionsoccasions.nl/over.html" }
+    { "@type": "ListItem", "position": 2, "name": "Occasions", "item": "https://www.motionsoccasions.nl/occasions.html" }
   ]
 }
 </script>
@@ -49,10 +49,10 @@
     </a>
     <nav aria-label="Hoofdnavigatie">
       <a href="/">Home</a>
-      <a href="/occasions.html">Occasions</a>
+      <a href="/occasions.html" class="active" aria-current="page">Occasions</a>
       <a href="/diensten.html">Diensten</a>
       <a href="/apk.html">APK</a>
-      <a href="/over.html" class="active" aria-current="page">Over ons</a>
+      <a href="/over.html">Over ons</a>
       <a href="/contact.html">Contact</a>
     </nav>
     <div class="header-cta">
@@ -83,70 +83,58 @@
 <main id="main">
   <section class="page-hero">
     <div class="container">
-      <span class="kicker">Over ons</span>
-      <h1>Passie voor auto's, <span style="color:var(--red-2)">eerlijk</span> in zaken</h1>
-      <p>Motions Occasions is een no-nonsense autobedrijf in Alkmaar. Wij geloven dat een auto kopen of laten onderhouden gewoon prettig en transparant kan zijn — zonder verkooppraatjes en zonder verrassingen op de factuur.</p>
+      <span class="kicker">Aanbod</span>
+      <h1>Occasions in <span style="color:var(--red-2)">Alkmaar</span></h1>
+      <p>Al onze occasions zijn NAP-gecontroleerd, volledig nagekeken in eigen werkplaats en worden rijklaar geleverd met nieuwe APK en garantie.</p>
     </div>
   </section>
 
-  <section class="section" aria-label="Ons verhaal">
+  <section class="section" aria-label="Occasion-aanbod">
     <div class="container">
-      <div class="svc-detail" style="border-bottom:0;padding-top:0">
-        <div>
-          <span class="kicker">Ons verhaal</span>
-          <h2>Van sleutelen in de avonduren naar een eigen zaak</h2>
-          <p>Wat begon met pure liefde voor techniek en auto's, groeide uit tot een volwaardig autobedrijf aan de Kamerlingh Onnesstraat 10 in Alkmaar. Vandaag verkopen we occasions waar we zelf 100% achter staan en onderhouden we auto's van klanten uit heel Noord-Holland.</p>
-          <p>Elke auto die bij ons binnenkomt gaat eerst de brug op. Pas als onze monteurs hem technisch hebben goedgekeurd — en eventuele gebreken zijn verholpen — krijgt hij een plek in de showroom. Zo weet u zeker dat u geen kat in de zak koopt.</p>
-          <ul>
-            <li>RDW-erkend voor APK-keuringen en tenaamstelling</li>
-            <li>Elke occasion NAP-gecontroleerd en volledig nagekeken</li>
-            <li>Garantie en gratis eerste onderhoudscheck na aankoop</li>
-            <li>Vaste, eerlijke prijzen — vooraf afgesproken</li>
-          </ul>
-          <a href="/contact.html" class="btn btn-red">Kom kennismaken</a>
-        </div>
-        <div class="svc-visual" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M14 6.5l3.5-3.5a5 5 0 0 1 6 6L20 12.5"/><path d="M10 17.5L6.5 21a5 5 0 0 1-6-6L4 11.5"/><path d="M8 8l8 8"/></svg>
-        </div>
-      </div>
+      <form class="filterbar" id="filterbar" aria-label="Filter occasions">
+        <select id="fMerk" aria-label="Merk"><option value="">Alle merken</option></select>
+        <select id="fPrijs" aria-label="Maximale prijs">
+          <option value="">Max. prijs</option>
+          <option value="15000">tot € 15.000</option>
+          <option value="20000">tot € 20.000</option>
+          <option value="25000">tot € 25.000</option>
+          <option value="30000">tot € 30.000</option>
+        </select>
+        <select id="fBrandstof" aria-label="Brandstof">
+          <option value="">Brandstof</option>
+          <option>Benzine</option>
+          <option>Diesel</option>
+          <option>Hybride</option>
+          <option>Elektrisch</option>
+        </select>
+        <select id="fTransmissie" aria-label="Transmissie">
+          <option value="">Transmissie</option>
+          <option>Handgeschakeld</option>
+          <option>Automaat</option>
+        </select>
+        <select id="fSort" aria-label="Sorteren">
+          <option value="nieuw">Nieuwste eerst</option>
+          <option value="prijs-op">Prijs oplopend</option>
+          <option value="prijs-af">Prijs aflopend</option>
+          <option value="km">Kilometerstand</option>
+          <option value="jaar">Bouwjaar (nieuwste)</option>
+        </select>
+        <button type="reset" class="btn btn-ghost btn-sm" id="fReset">Wissen</button>
+      </form>
+
+      <p class="result-count" id="resultCount" aria-live="polite"></p>
+      <div class="car-grid" id="carGrid"></div>
     </div>
   </section>
 
-  <section class="section section-dark" aria-label="Onze beloften">
-    <div class="container">
-      <div style="text-align:center;margin-bottom:44px">
-        <span class="kicker" style="justify-content:center">Waar we voor staan</span>
-        <h2 class="section-title">Onze beloften</h2>
-      </div>
-      <div class="usp-strip">
-        <div class="usp reveal">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-          <div><strong>Eerlijkheid eerst</strong><span>Een auto met een verhaal? Dan vertellen we dat verhaal. Altijd.</span></div>
-        </div>
-        <div class="usp reveal">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 14 0v1"/></svg>
-          <div><strong>Persoonlijk contact</strong><span>U spreekt bij ons de mensen die ook echt aan uw auto werken.</span></div>
-        </div>
-        <div class="usp reveal">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 3H7l-4 6 9 12 9-12-4-6z"/><path d="M3 9h18"/></svg>
-          <div><strong>Kwaliteit boven volume</strong><span>Liever tien perfecte occasions dan vijftig middelmatige.</span></div>
-        </div>
-        <div class="usp reveal">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
-          <div><strong>Afspraak = afspraak</strong><span>Klaar wanneer we zeggen dat het klaar is, voor de prijs die we noemden.</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" aria-label="Kennismaken">
+  <section class="section section-dark" aria-label="Auto niet gevonden">
     <div class="container">
       <div class="cta-banner reveal">
-        <h2>Kom eens langs voor een <span style="color:var(--red-2)">kop koffie</span></h2>
-        <p>Kamerlingh Onnesstraat 10, Alkmaar. Loop gerust binnen — ook als u alleen advies wilt.</p>
+        <h2>Staat jouw auto er niet tussen?</h2>
+        <p>Ons aanbod wisselt wekelijks. Vertel ons wat je zoekt — grote kans dat we hem binnen enkele weken voor je vinden via ons netwerk.</p>
         <div class="hero-actions">
-          <a href="/contact.html" class="btn btn-red btn-lg">Route &amp; contact</a>
-          <a href="/occasions.html" class="btn btn-white btn-lg">Bekijk het aanbod</a>
+          <a href="/contact.html#afspraak" class="btn btn-red btn-lg">Zoekopdracht plaatsen</a>
+          <a href="https://wa.me/31612345678" target="_blank" rel="noopener" class="btn btn-white btn-lg">App ons je wensen</a>
         </div>
       </div>
     </div>
@@ -209,6 +197,55 @@
 
 <script src="/data.js"></script>
 <script src="/app.js"></script>
-<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+(function () {
+  const grid = document.getElementById("carGrid");
+  const count = document.getElementById("resultCount");
+  const fMerk = document.getElementById("fMerk");
+  const fPrijs = document.getElementById("fPrijs");
+  const fBrandstof = document.getElementById("fBrandstof");
+  const fTransmissie = document.getElementById("fTransmissie");
+  const fSort = document.getElementById("fSort");
+
+  const cars = moLoadCars();
+
+  // merken-filter vullen op basis van voorraad
+  [...new Set(cars.map(c => c.merk))].sort().forEach(m => {
+    const o = document.createElement("option");
+    o.textContent = m; o.value = m;
+    fMerk.appendChild(o);
+  });
+
+  function render() {
+    let list = cars.slice();
+    if (fMerk.value) list = list.filter(c => c.merk === fMerk.value);
+    if (fPrijs.value) list = list.filter(c => c.prijs <= Number(fPrijs.value));
+    if (fBrandstof.value) list = list.filter(c => c.brandstof === fBrandstof.value);
+    if (fTransmissie.value) list = list.filter(c => c.transmissie === fTransmissie.value);
+
+    switch (fSort.value) {
+      case "prijs-op": list.sort((a, b) => a.prijs - b.prijs); break;
+      case "prijs-af": list.sort((a, b) => b.prijs - a.prijs); break;
+      case "km":       list.sort((a, b) => a.km - b.km); break;
+      case "jaar":     list.sort((a, b) => b.bouwjaar - a.bouwjaar); break;
+      default:         list.sort((a, b) => (b.createdAt || "").localeCompare(a.createdAt || ""));
+    }
+    // verkochte auto's achteraan
+    list.sort((a, b) => (a.status === "verkocht") - (b.status === "verkocht"));
+
+    count.innerHTML = "<strong>" + list.length + "</strong> occasion" + (list.length === 1 ? "" : "s") + " gevonden";
+    grid.innerHTML = list.length
+      ? list.map(moCarCard).join("")
+      : '<div class="empty-state" style="grid-column:1/-1">Geen occasions gevonden met deze filters. <br>Probeer een ander filter of <a href="/contact.html" style="color:var(--red-2)">plaats een zoekopdracht</a>.</div>';
+    window.moRewatchReveal();
+  }
+
+  [fMerk, fPrijs, fBrandstof, fTransmissie, fSort].forEach(el => el.addEventListener("change", render));
+  document.getElementById("filterbar").addEventListener("reset", () => setTimeout(render, 0));
+  render();
+})();
+</script>
 </body>
 </html>
