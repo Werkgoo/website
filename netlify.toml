@@ -13,15 +13,17 @@
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
 
+# css/js hebben een versienummer in de URL (?v=…); korte cache voorkomt
+# dat bezoekers na een wijziging met verouderde opmaak blijven zitten
 [[headers]]
   for = "/*.css"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=3600, must-revalidate"
 
 [[headers]]
   for = "/*.js"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=3600, must-revalidate"
 
 # nette URL's zonder .html
 [[redirects]]
