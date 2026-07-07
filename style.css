@@ -170,6 +170,9 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:800;line-height:1.15;letter
 .car-card:hover{transform:translateY(-5px);border-color:var(--line-2);box-shadow:var(--shadow)}
 .car-media{position:relative;aspect-ratio:4/2.7;background:var(--surface-2);overflow:hidden}
 .car-media img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+/* persfoto's op witte achtergrond: passend tonen zodat alle auto's hetzelfde formaat hebben */
+.car-media.studio{background:#fff}
+.car-media.studio img{object-fit:contain;padding:7% 6%}
 .car-card:hover .car-media img{transform:scale(1.05)}
 .car-status{
   position:absolute;top:14px;left:14px;z-index:2;
@@ -201,10 +204,15 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:800;line-height:1.15;letter
 
 /* ---------- Filters ---------- */
 .filterbar{
-  display:grid;grid-template-columns:repeat(5,1fr) auto;gap:12px;
   background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);
   padding:16px;margin-bottom:36px;
 }
+.filter-top{display:flex;gap:12px;align-items:center}
+.filter-search{position:relative;flex:1}
+.filter-search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--faint);pointer-events:none}
+.filter-search input{padding-left:42px!important}
+.filter-toggle{display:none;align-items:center;gap:8px}
+.filter-grid{display:grid;grid-template-columns:repeat(6,1fr) auto;gap:12px;margin-top:12px}
 .filterbar select,.filterbar input{
   background:var(--surface-2);border:1px solid var(--line-2);border-radius:10px;
   color:var(--text);padding:11px 13px;font-size:.92rem;width:100%;
@@ -226,6 +234,10 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:800;line-height:1.15;letter
   background:var(--surface-2);border:1px solid var(--line);
 }
 .gallery-main img{width:100%;height:100%;object-fit:cover}
+.gallery-main.studio{background:#fff}
+.gallery-main.studio img{object-fit:contain;padding:5%}
+.gallery-thumbs button.studio{background:#fff}
+.gallery-thumbs button.studio img{object-fit:contain;padding:8%}
 .gallery-thumbs{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:10px}
 .gallery-thumbs button{
   aspect-ratio:4/3;border-radius:10px;overflow:hidden;border:2px solid transparent;
@@ -510,6 +522,23 @@ h1,h2,h3,h4{font-family:var(--font-head);font-weight:800;line-height:1.15;letter
 .faq details[open] summary::after{content:"–"}
 .faq details p{color:var(--muted);padding:0 0 22px;font-size:.96rem}
 
+/* ---------- Mobiele actiebalk ---------- */
+.mobile-bar{
+  display:none;position:fixed;left:0;right:0;bottom:0;z-index:95;
+  background:rgba(12,12,16,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-top:1px solid var(--line-2);
+  padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+  grid-template-columns:1fr 1fr 1fr;gap:10px;
+}
+.mobile-bar a{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  padding:9px 4px;border-radius:12px;font-size:.72rem;font-weight:700;
+  background:var(--surface-2);border:1px solid var(--line-2);color:var(--text);
+}
+.mobile-bar a svg{width:19px;height:19px}
+.mobile-bar a.bel{background:var(--red);border-color:var(--red)}
+.mobile-bar a.app{color:#25d366;border-color:rgba(37,211,102,.4)}
+
 /* ---------- Misc ---------- */
 .wa-float{
   position:fixed;bottom:24px;right:24px;z-index:90;
@@ -532,7 +561,7 @@ html:not(.js) .reveal{opacity:1;transform:none}
   .hero-art{max-width:560px}
   .car-grid,.svc-grid,.review-grid{grid-template-columns:repeat(2,1fr)}
   .usp-strip,.stats{grid-template-columns:repeat(2,1fr)}
-  .filterbar{grid-template-columns:repeat(3,1fr)}
+  .filter-grid{grid-template-columns:repeat(3,1fr)}
   .detail-grid{grid-template-columns:1fr}
   .detail-panel{position:static}
   .footer-grid{grid-template-columns:1fr 1fr}
@@ -540,18 +569,50 @@ html:not(.js) .reveal{opacity:1;transform:none}
   .contact-grid{grid-template-columns:1fr}
 }
 @media(max-width:760px){
-  .header nav,.header-cta .header-phone,.header-cta .btn{display:none}
+  html{-webkit-text-size-adjust:100%}
+  .header nav,.header-cta .btn{display:none}
+  .header-inner{height:64px}
+  .logo svg{height:38px}
+  /* telefoonknop blijft zichtbaar, compact als icoon */
+  .header-cta .header-phone{
+    display:flex;width:42px;height:42px;border-radius:50%;justify-content:center;
+    background:var(--surface-2);border:1px solid var(--line-2);font-size:0;gap:0;
+  }
+  .header-cta .header-phone svg{width:18px;height:18px}
   .nav-toggle{display:block}
-  .section{padding:60px 0}
-  .car-grid,.svc-grid,.review-grid{grid-template-columns:1fr}
-  .filterbar{grid-template-columns:1fr 1fr}
+  .section{padding:56px 0}
+  .section-head{margin-bottom:28px}
+  .car-grid,.svc-grid,.review-grid{grid-template-columns:1fr;gap:18px}
+  .btn{padding:14px 26px}
+  .btn-lg{width:100%;max-width:420px;justify-content:center}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .hero-usps{gap:12px 20px;margin-top:30px}
+  /* filters: inklapbaar achter een knop */
+  .filter-toggle{display:inline-flex}
+  .filter-grid{grid-template-columns:1fr 1fr;display:none}
+  .filterbar.open .filter-grid{display:grid}
+  .filter-grid select,.filter-grid input,.filter-grid button{min-height:48px}
   .form-row{grid-template-columns:1fr}
-  .cta-banner{padding:44px 26px}
-  .usp-strip,.stats{grid-template-columns:1fr 1fr}
-  .footer-grid{grid-template-columns:1fr}
-  .gallery-thumbs{grid-template-columns:repeat(4,1fr)}
+  .field input,.field select,.field textarea{min-height:48px}
+  .cta-banner{padding:40px 22px}
+  .usp-strip,.stats{grid-template-columns:1fr 1fr;gap:14px}
+  .usp{padding:18px;gap:12px}
+  .footer-grid{grid-template-columns:1fr;gap:30px}
+  .footer{padding-top:44px}
+  .gallery-thumbs{grid-template-columns:repeat(4,1fr);gap:7px}
   .detail-quick{grid-template-columns:1fr 1fr}
-  .hero{padding:56px 0 48px}
+  .detail-panel{padding:22px}
+  .hero{padding:48px 0 44px}
+  .breadcrumbs{padding-top:16px}
+  .spec-table td{padding:11px 2px;font-size:.9rem}
+  /* actiebalk onderin + ruimte zodat content er niet achter valt */
+  .mobile-bar{display:grid}
+  body{padding-bottom:86px}
+  .wa-float{display:none}
+  .toast{bottom:100px}
+  .admin-wrap{padding-top:20px}
+  .plate-input{width:170px;font-size:1.2rem}
+  .admin-table th:nth-child(5),.admin-table td:nth-child(5){display:none}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
