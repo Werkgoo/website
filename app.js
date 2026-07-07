@@ -1,70 +1,106 @@
-document.documentElement.classList.add('js');
-var header=document.getElementById('header');
-if(header){window.addEventListener('scroll',function(){header.classList.toggle('scrolled',window.scrollY>20);});}
+// Adil Zorg — site interactions
 
-var navToggle=document.getElementById('navToggle'),navClose=document.getElementById('navClose'),mnav=document.getElementById('mnav');
-if(navToggle&&mnav){navToggle.addEventListener('click',function(){mnav.classList.add('open');});}
-if(navClose&&mnav){navClose.addEventListener('click',function(){mnav.classList.remove('open');});}
-function closeMnav(){if(mnav)mnav.classList.remove('open');}
+(function () {
+  "use strict";
 
-var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}});},{threshold:0.12});
-document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
-
-document.querySelectorAll('.service-card').forEach(function(card){
-  card.addEventListener('mousemove',function(e){var r=card.getBoundingClientRect();card.style.setProperty('--mx',(e.clientX-r.left)+'px');});
-});
-
-function toggleFaq(btn){var item=btn.closest('.faq-item');var open=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');});if(!open)item.classList.add('open');}
-
-/* scroll progress bar */
-var pbar=document.createElement('div');pbar.className='pbar';pbar.innerHTML='<i></i>';document.body.appendChild(pbar);
-var pfill=pbar.firstChild;
-window.addEventListener('scroll',function(){
-  var h=document.documentElement.scrollHeight-window.innerHeight;
-  pfill.style.width=(h>0?(window.scrollY/h*100):0)+'%';
-},{passive:true});
-
-/* count-up stats */
-var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-function countUp(el){
-  var node=el.firstChild;
-  if(!node||node.nodeType!==3)return;
-  var target=parseInt(node.nodeValue,10);
-  if(isNaN(target))return;
-  var start=null,dur=1300;
-  function step(t){
-    if(!start)start=t;
-    var p=Math.min((t-start)/dur,1);
-    node.nodeValue=Math.round(target*(1-Math.pow(1-p,3)));
-    if(p<1)requestAnimationFrame(step);
+  // Sticky header shadow
+  var header = document.getElementById("header");
+  function onScroll() {
+    if (header) header.classList.toggle("scrolled", window.scrollY > 8);
   }
-  requestAnimationFrame(step);
-}
-if(!reduce&&'IntersectionObserver' in window){
-  var statObs=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){countUp(e.target);statObs.unobserve(e.target);}});
-  },{threshold:0.6});
-  document.querySelectorAll('.stat-num').forEach(function(el){statObs.observe(el);});
-}
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
 
-/* subtle tilt on the browser mock */
-var mock=document.querySelector('.mock-stage .browser');
-if(mock&&!reduce&&window.matchMedia('(pointer: fine)').matches){
-  var stage=mock.parentElement;
-  stage.addEventListener('mousemove',function(e){
-    var r=stage.getBoundingClientRect();
-    var x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
-    mock.style.transform='perspective(1100px) rotateY('+(x*5)+'deg) rotateX('+(-y*4)+'deg)';
+  // Mobile nav
+  var mnav = document.getElementById("mnav");
+  var navToggle = document.getElementById("navToggle");
+  var navClose = document.getElementById("navClose");
+
+  function openMnav() {
+    if (!mnav) return;
+    mnav.classList.add("open");
+    mnav.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMnav() {
+    if (!mnav) return;
+    mnav.classList.remove("open");
+    mnav.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  if (navToggle) navToggle.addEventListener("click", openMnav);
+  if (navClose) navClose.addEventListener("click", closeMnav);
+  if (mnav) {
+    mnav.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", closeMnav);
+    });
+  }
+
+  // Reveal on scroll
+  var revealEls = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window && revealEls.length) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -30px 0px" });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add("in"); });
+  }
+
+  // Animated counters (stats)
+  var counters = document.querySelectorAll("[data-count]");
+  function animateCount(el) {
+    var target = parseInt(el.getAttribute("data-count"), 10) || 0;
+    var suffix = el.getAttribute("data-suffix") || "";
+    var start = null;
+    var dur = 1400;
+    function tick(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  if ("IntersectionObserver" in window && counters.length) {
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          cio.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(function (el) { cio.observe(el); });
+  } else {
+    counters.forEach(function (el) {
+      el.textContent = el.getAttribute("data-count") + (el.getAttribute("data-suffix") || "");
+    });
+  }
+
+  // FAQ accordion
+  document.querySelectorAll(".faq-item").forEach(function (item) {
+    var btn = item.querySelector(".faq-q");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      var isOpen = item.classList.contains("open");
+      document.querySelectorAll(".faq-item.open").forEach(function (other) {
+        other.classList.remove("open");
+        var b = other.querySelector(".faq-q");
+        if (b) b.setAttribute("aria-expanded", "false");
+      });
+      if (!isOpen) {
+        item.classList.add("open");
+        btn.setAttribute("aria-expanded", "true");
+      }
+    });
   });
-  stage.addEventListener('mouseleave',function(){mock.style.transform='';});
-}
-
-var EP='https://formspree.io/f/YOUR_ID';
-function sendForm(e){
-  e.preventDefault();
-  var btn=document.getElementById('submitBtn');
-  btn.disabled=true;btn.textContent='Versturen…';
-  fetch(EP,{method:'POST',headers:{Accept:'application/json'},body:new FormData(e.target)})
-    .then(function(r){if(!r.ok)throw 0;document.getElementById('formBody').style.display='none';document.getElementById('ok').style.display='block';})
-    .catch(function(){btn.disabled=false;btn.textContent='Verstuur aanvraag';alert('Er ging iets mis. Mail ons op info@nutel.nl');});
-}
+})();
