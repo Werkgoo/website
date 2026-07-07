@@ -15,7 +15,7 @@ const MO_SEED = [
     deuren: 5, zitplaatsen: 5, vermogen: "150 pk (110 kW)", apk: "2027-03-14",
     opties: ["Adaptieve cruisecontrol", "Navigatie", "Apple CarPlay / Android Auto", "Stoelverwarming", "LED-koplampen", "Parkeersensoren v+a"],
     omschrijving: "Zeer nette Golf Highline uit 2019 met volledige onderhoudshistorie. Eerste eigenaar, altijd bij de dealer onderhouden. Rijklaar afgeleverd met nieuwe APK en beurt.",
-    fotos: ["/fotos/vw-golf-2019.png"], status: "te-koop", createdAt: "2026-06-01"
+    fotos: ["/fotos/vw-golf-2019.jpg"], status: "te-koop", createdAt: "2026-06-01"
   },
   {
     id: "bmw-3-2018",
@@ -26,7 +26,7 @@ const MO_SEED = [
     deuren: 4, zitplaatsen: 5, vermogen: "184 pk (135 kW)", apk: "2026-11-02",
     opties: ["Leder interieur", "Head-up display", "Harman Kardon audio", "Elektrische achterklep", "Sportstoelen", "Keyless entry"],
     omschrijving: "Prachtige 320i High Executive in nieuwstaat. Dealeronderhouden, tweede eigenaar. Complete uitvoering met o.a. head-up display en Harman Kardon geluidssysteem.",
-    fotos: ["/fotos/bmw-3-2018.png"], status: "te-koop", createdAt: "2026-06-08"
+    fotos: ["/fotos/bmw-3-2018.jpg"], status: "te-koop", createdAt: "2026-06-08"
   },
   {
     id: "audi-a3-2020",
@@ -37,7 +37,7 @@ const MO_SEED = [
     deuren: 5, zitplaatsen: 5, vermogen: "150 pk (110 kW)", apk: "2027-01-20",
     opties: ["Virtual cockpit", "S-line exterieur", "Matrix LED", "Draadloos laden", "Achteruitrijcamera", "18\" lichtmetaal"],
     omschrijving: "Sportieve A3 Sportback S edition met de gewilde 35 TFSI-motor. NAP-gecontroleerd, schadevrij en in absolute topstaat.",
-    fotos: ["/fotos/audi-a3-2020.png"], status: "te-koop", createdAt: "2026-06-12"
+    fotos: ["/fotos/audi-a3-2020.jpg"], status: "te-koop", createdAt: "2026-06-12"
   },
   {
     id: "toyota-yaris-2021",
@@ -48,18 +48,18 @@ const MO_SEED = [
     deuren: 5, zitplaatsen: 5, vermogen: "116 pk (85 kW)", apk: "2027-05-30",
     opties: ["Toyota Safety Sense", "Climate control", "Achteruitrijcamera", "Smart entry", "Lane assist", "DAB+ radio"],
     omschrijving: "Zuinige Yaris Hybrid met fabrieksgarantie tot 2031 (bij onderhoud). Ideale stadsauto: 1 op 25 en wegenbelasting-vriendelijk.",
-    fotos: ["/fotos/toyota-yaris-2021.png"], status: "te-koop", createdAt: "2026-06-15"
+    fotos: ["/fotos/toyota-yaris-2021.jpg"], status: "te-koop", createdAt: "2026-06-15"
   },
   {
     id: "mercedes-a-2019",
     kenteken: "XN-777-B",
     merk: "Mercedes-Benz", model: "A-klasse", uitvoering: "A180 Business Solution AMG",
     prijs: 26500, bouwjaar: 2019, km: 68900,
-    brandstof: "Benzine", transmissie: "Automaat", kleur: "Grijs",
+    brandstof: "Benzine", transmissie: "Automaat", kleur: "Zwart",
     deuren: 5, zitplaatsen: 5, vermogen: "136 pk (100 kW)", apk: "2026-12-18",
     opties: ["AMG-styling", "MBUX widescreen", "Sfeerverlichting", "Stoelverwarming", "Camera", "Cruise control"],
     omschrijving: "Sportief uitgevoerde A-klasse met AMG-pakket en het indrukwekkende MBUX-systeem. Perfect onderhouden en zichtbaar goed verzorgd.",
-    fotos: ["/fotos/mercedes-a-2019.png"], status: "gereserveerd", createdAt: "2026-06-18"
+    fotos: ["/fotos/mercedes-a-2019.jpg"], status: "gereserveerd", createdAt: "2026-06-18"
   },
   {
     id: "kia-picanto-2022",
@@ -70,12 +70,12 @@ const MO_SEED = [
     deuren: 5, zitplaatsen: 4, vermogen: "67 pk (49 kW)", apk: "2027-08-09",
     opties: ["Fabrieksgarantie t/m 2029", "Airco", "Apple CarPlay", "Achteruitrijcamera", "Bluetooth", "LED-dagrijverlichting"],
     omschrijving: "Jonge Picanto met nog ruim 3 jaar fabrieksgarantie. Lage kilometerstand, eerste eigenaar en compleet onderhouden. Instapklaar!",
-    fotos: ["/fotos/kia-picanto-2022.png"], status: "te-koop", createdAt: "2026-06-22"
+    fotos: ["/fotos/kia-picanto-2022.jpg"], status: "te-koop", createdAt: "2026-06-22"
   }
 ];
 
 /* ---------- opslag ---------- */
-const MO_SEED_VERSION = "2";
+const MO_SEED_VERSION = "3";
 
 function moLoadCars() {
   try {
