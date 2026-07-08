@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voorbeeld 4 · Fitness — VOLT | Personal training</title>
+<meta name="description" content="Voorbeeldwebsite voor een personal trainer / gym: dark met neon energie.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0a0f0d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0f0d;
+  --bg-2: #101714;
+  --wit: #f2f7f4;
+  --dim: rgba(242, 247, 244, .62);
+  --neon: #c8f531;
+  --neon-dim: rgba(200, 245, 49, .14);
+  --line: rgba(242, 247, 244, .12);
+  --disp: "Space Grotesk", "Inter", sans-serif;
+  --sans: "Inter", sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--wit); font-family: var(--sans); line-height: 1.65; font-size: 16.5px; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+.container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+h1, h2, h3 { font-family: var(--disp); font-weight: 700; line-height: 1.02; letter-spacing: -.03em; }
+h1 { font-size: clamp(3rem, 8.5vw, 6.4rem); text-transform: uppercase; }
+h2 { font-size: clamp(2rem, 4.4vw, 3.4rem); }
+h1 em, h2 em { font-style: normal; color: var(--neon); }
+.kicker { font-size: .76rem; font-weight: 700; letter-spacing: .28em; text-transform: uppercase; color: var(--neon); display: inline-flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.kicker::before { content: ""; width: 30px; height: 2px; background: var(--neon); }
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 15px 32px; border-radius: 12px; background: var(--neon); color: #10160a; font-weight: 700; font-size: .9rem; letter-spacing: .05em; transition: transform .15s ease, box-shadow .15s ease; box-shadow: 0 14px 34px -12px rgba(200, 245, 49, .55); }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 18px 42px -12px rgba(200, 245, 49, .7); }
+.btn.ghost { background: transparent; color: var(--wit); border: 1.5px solid rgba(242,247,244,.35); box-shadow: none; }
+.btn.ghost:hover { border-color: var(--neon); color: var(--neon); }
+
+/* header */
+.hd { position: fixed; inset: 0 0 auto; z-index: 60; transition: background .3s ease; }
+.hd.on { background: rgba(10,15,13,.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.hd-in { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+.logo { font-family: var(--disp); font-weight: 700; font-size: 1.6rem; letter-spacing: -.02em; display: inline-flex; align-items: center; gap: 9px; }
+.logo i { width: 30px; height: 30px; border-radius: 8px; background: var(--neon); color: #10160a; display: grid; place-items: center; font-style: normal; font-size: 1.1rem; }
+.hd nav { display: flex; gap: 32px; }
+.hd nav a { font-size: .85rem; font-weight: 600; color: var(--dim); transition: color .15s ease; }
+.hd nav a:hover { color: var(--neon); }
+@media (max-width: 860px) { .hd nav { display: none; } }
+
+/* hero */
+.hero { min-height: 100svh; display: grid; align-items: center; position: relative; padding: 130px 0 90px; isolation: isolate; overflow: hidden; }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: -2; background: url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat, #131a16; }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(100deg, rgba(10,15,13,.95) 30%, rgba(10,15,13,.5) 75%, rgba(10,15,13,.7)); }
+.hero p { max-width: 46ch; color: var(--dim); font-size: 1.1rem; margin: 24px 0 36px; }
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-stats { display: flex; gap: 42px; margin-top: 52px; flex-wrap: wrap; }
+.hero-stats div b { font-family: var(--disp); font-size: 2rem; font-weight: 700; color: var(--neon); display: block; line-height: 1; }
+.hero-stats div span { font-size: .84rem; color: var(--dim); }
+
+/* programma's */
+section { padding: 104px 0; }
+.progs { background: var(--bg-2); border-block: 1px solid var(--line); }
+.prog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 54px; }
+.prog { background: var(--bg); border: 1px solid var(--line); border-radius: 18px; padding: 34px 28px; position: relative; overflow: hidden; transition: transform .2s ease, border-color .2s ease; }
+.prog:hover { transform: translateY(-6px); border-color: rgba(200, 245, 49, .5); }
+.prog::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--neon); opacity: 0; transition: opacity .2s ease; }
+.prog:hover::before { opacity: 1; }
+.prog .num { font-family: var(--disp); font-weight: 700; font-size: .95rem; color: var(--neon); letter-spacing: .2em; }
+.prog h3 { font-size: 1.5rem; margin: 14px 0 10px; }
+.prog p { color: var(--dim); font-size: .94rem; }
+.prog ul { list-style: none; margin-top: 18px; display: grid; gap: 8px; }
+.prog li { font-size: .88rem; color: var(--dim); display: flex; gap: 9px; }
+.prog li::before { content: "▸"; color: var(--neon); }
+
+/* transformatie band */
+.band { background: var(--neon); color: #10160a; overflow: hidden; padding: 15px 0; transform: rotate(-1.2deg) scale(1.02); }
+.band-track { display: flex; gap: 46px; width: max-content; animation: bd 20s linear infinite; font-family: var(--disp); font-weight: 700; font-size: 1.1rem; text-transform: uppercase; letter-spacing: .06em; white-space: nowrap; }
+.band-track span { display: inline-flex; align-items: center; gap: 46px; }
+.band-track span::after { content: "⚡"; }
+@keyframes bd { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* coach */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.split .ph { aspect-ratio: 4/5; border-radius: 20px; background: url("https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat, #1a221d; border: 1px solid var(--line); position: relative; overflow: hidden; }
+.split .ph::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 -120px 90px -60px rgba(10,15,13,.8); }
+.split p { color: var(--dim); margin-top: 18px; }
+.split .q { border-left: 3px solid var(--neon); padding-left: 18px; margin-top: 26px; font-family: var(--disp); font-size: 1.2rem; font-weight: 600; }
+
+/* pricing */
+.price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 54px; }
+.price { background: var(--bg-2); border: 1px solid var(--line); border-radius: 18px; padding: 36px 30px; text-align: center; transition: transform .2s ease, border-color .2s ease; }
+.price:hover { transform: translateY(-6px); }
+.price.hot { border-color: var(--neon); background: linear-gradient(180deg, var(--neon-dim), var(--bg-2) 55%); position: relative; }
+.price .tag { font-size: .74rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); }
+.price.hot .tag { color: var(--neon); }
+.price .amt { font-family: var(--disp); font-weight: 700; font-size: 3rem; margin: 14px 0 4px; }
+.price .amt small { font-size: 1rem; color: var(--dim); font-weight: 500; }
+.price ul { list-style: none; margin: 22px 0 28px; display: grid; gap: 9px; font-size: .9rem; color: var(--dim); }
+.price .btn { width: 100%; justify-content: center; }
+
+/* cta */
+.cta { text-align: center; background: radial-gradient(640px 380px at 50% -20%, rgba(200, 245, 49, .14), transparent 65%), var(--bg); }
+.cta p { color: var(--dim); max-width: 44ch; margin: 20px auto 38px; }
+
+footer { border-top: 1px solid var(--line); padding: 38px 0 92px; }
+.ft { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; font-size: .82rem; color: var(--dim); }
+
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.in { opacity: 1; transform: none; }
+html:not(.js) .reveal { opacity: 1; transform: none; }
+
+.demo-nav { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); z-index: 90; display: flex; gap: 6px; background: rgba(10,15,13,.92); backdrop-filter: blur(12px); border: 1px solid var(--line); border-radius: 999px; padding: 7px; box-shadow: 0 18px 44px -14px rgba(0,0,0,.6); }
+.demo-nav a { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; color: var(--dim); font-weight: 700; font-size: .92rem; transition: all .15s ease; }
+.demo-nav a:hover { background: rgba(255,255,255,.1); color: #fff; transform: translateY(-2px); }
+.demo-nav a.on { background: var(--neon); color: #10160a; }
+
+@media (max-width: 900px) {
+  section { padding: 72px 0; }
+  .prog-grid, .price-grid { grid-template-columns: 1fr; }
+  .split { grid-template-columns: 1fr; gap: 40px; }
+}
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } .band-track { animation: none; } }
+</style>
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+
+<header class="hd" id="hd">
+  <div class="container hd-in">
+    <a href="#" class="logo"><i>⚡</i>VOLT</a>
+    <nav>
+      <a href="#programmas">Programma's</a>
+      <a href="#coach">Coach</a>
+      <a href="#tarieven">Tarieven</a>
+      <a href="#start">Proefles</a>
+    </nav>
+    <a href="#start" class="btn">Gratis proefles</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <span class="kicker">Personal training · Utrecht</span>
+    <h1>Word de sterkste<br>versie van <em>jezelf</em></h1>
+    <p>1-op-1 coaching, kleine groepslessen en voedingsbegeleiding. Geen quick fixes — wél resultaat dat blijft.</p>
+    <div class="hero-ctas">
+      <a href="#start" class="btn">Start met een gratis proefles</a>
+      <a href="#programmas" class="btn ghost">Bekijk programma's</a>
+    </div>
+    <div class="hero-stats">
+      <div><b>250+</b><span>leden getraind</span></div>
+      <div><b>8 jr</b><span>coach-ervaring</span></div>
+      <div><b>4.9★</b><span>gemiddelde review</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="progs" id="programmas">
+  <div class="container">
+    <div class="reveal">
+      <span class="kicker">Programma's</span>
+      <h2>Kies jouw <em>track</em></h2>
+    </div>
+    <div class="prog-grid">
+      <div class="prog reveal">
+        <span class="num">01</span>
+        <h3>Personal 1-op-1</h3>
+        <p>Volledig op jou afgestemd: techniek, kracht en mindset, elke sessie samen met je coach.</p>
+        <ul><li>2–3 sessies per week</li><li>Voedingsplan op maat</li><li>Wekelijkse check-ins</li></ul>
+      </div>
+      <div class="prog reveal">
+        <span class="num">02</span>
+        <h3>Small group</h3>
+        <p>Trainen in groepen van max. 6. De energie van samen, de aandacht van persoonlijk.</p>
+        <ul><li>Max. 6 personen</li><li>Kracht + conditie</li><li>Elke dag lessen</li></ul>
+      </div>
+      <div class="prog reveal">
+        <span class="num">03</span>
+        <h3>Online coaching</h3>
+        <p>Train waar je wilt met jouw schema in de app, met video-feedback en wekelijks contact.</p>
+        <ul><li>App met jouw schema</li><li>Video techniek-checks</li><li>Maandelijkse meting</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band" aria-hidden="true">
+  <div class="band-track">
+    <span>Kracht</span><span>Conditie</span><span>Voeding</span><span>Mindset</span><span>Resultaat</span>
+    <span>Kracht</span><span>Conditie</span><span>Voeding</span><span>Mindset</span><span>Resultaat</span>
+  </div>
+</div>
+
+<section id="coach">
+  <div class="container split">
+    <div class="ph reveal" role="img" aria-label="Training in de gym"></div>
+    <div class="reveal">
+      <span class="kicker">Jouw coach</span>
+      <h2>Trainen met een <em>plan</em></h2>
+      <p>Ik ben Coach Jay. Acht jaar geleden hielp ik mijn eerste klant van de fysio af en sindsdien is mijn missie simpel: mensen sterker, fitter en zelfverzekerder maken — zonder onzin, zonder crash-diëten.</p>
+      <p>Elke week meten we voortgang. Elke maand stellen we bij. Zo weet jij altijd waar je staat en waarom je doet wat je doet.</p>
+      <div class="q">"Discipline weegt grammen, spijt weegt kilo's."</div>
+    </div>
+  </div>
+</section>
+
+<section id="tarieven" class="progs">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <span class="kicker" style="justify-content:center">Tarieven</span>
+      <h2>Investeer in <em>jezelf</em></h2>
+    </div>
+    <div class="price-grid">
+      <div class="price reveal">
+        <span class="tag">Small group</span>
+        <div class="amt">€79<small>/mnd</small></div>
+        <ul><li>Onbeperkt groepslessen</li><li>Intake + meetmoment</li><li>Community events</li></ul>
+        <a href="#start" class="btn ghost">Kies small group</a>
+      </div>
+      <div class="price hot reveal">
+        <span class="tag">★ Meest gekozen</span>
+        <div class="amt">€249<small>/mnd</small></div>
+        <ul><li>2× per week 1-op-1</li><li>Voedingsplan op maat</li><li>Wekelijkse check-ins</li><li>App + video feedback</li></ul>
+        <a href="#start" class="btn">Kies personal</a>
+      </div>
+      <div class="price reveal">
+        <span class="tag">Online</span>
+        <div class="amt">€59<small>/mnd</small></div>
+        <ul><li>Schema in de app</li><li>Video techniek-checks</li><li>Maandelijkse meting</li></ul>
+        <a href="#start" class="btn ghost">Kies online</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="start">
+  <div class="container reveal">
+    <span class="kicker" style="justify-content:center">Gratis proefles</span>
+    <h2>Vandaag beginnen is <em>gratis</em></h2>
+    <p>Kom langs voor een gratis proefles + intake. We meten waar je staat en maken een plan dat bij jóu past.</p>
+    <a href="mailto:info@voltpt.nl" class="btn">Claim je gratis proefles</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container ft">
+    <span>© 2026 VOLT — voorbeeldwebsite</span>
+    <span><a href="/">Alle voorbeelden</a></span>
+  </div>
+</footer>
+
+<nav class="demo-nav" aria-label="Voorbeeldwebsites">
+  <a href="/" title="Alle voorbeelden">✦</a>
+  <a href="/website1">1</a>
+  <a href="/website2">2</a>
+  <a href="/website3">3</a>
+  <a href="/website4" class="on">4</a>
+  <a href="/website5">5</a>
+</nav>
+
+<script>
+(function () {
+  var hd = document.getElementById("hd");
+  function sc() { hd.classList.toggle("on", window.scrollY > 30); }
+  window.addEventListener("scroll", sc, { passive: true }); sc();
+  var els = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: .12 });
+    els.forEach(function (el) { io.observe(el); });
+  } else { els.forEach(function (el) { el.classList.add("in"); }); }
+})();
+</script>
+</body>
+</html>
