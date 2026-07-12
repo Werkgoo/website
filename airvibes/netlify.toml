@@ -31,8 +31,23 @@
     Cache-Control = "public, max-age=86400"
 
 [[redirects]]
-  from = "/verhuur"
-  to = "/verhuur.html"
+  from = "/partytenten"
+  to = "/partytenten.html"
+  status = 200
+
+[[redirects]]
+  from = "/springkussens"
+  to = "/springkussens.html"
+  status = 200
+
+[[redirects]]
+  from = "/feestartikelen"
+  to = "/feestartikelen.html"
+  status = 200
+
+[[redirects]]
+  from = "/over-ons"
+  to = "/over-ons.html"
   status = 200
 
 [[redirects]]
@@ -44,3 +59,8 @@
   from = "/bedankt"
   to = "/bedankt.html"
   status = 200
+
+[[redirects]]
+  from = "/verhuur"
+  to = "/feestartikelen"
+  status = 301
