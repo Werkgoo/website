@@ -387,7 +387,28 @@ h1,h2,h3,h4{font-family:var(--font-head);line-height:1.12;font-weight:800}
   width:6px;height:6px;border-radius:50%;background:var(--yellow);
 }
 .kal-dag.sel.marker::after{background:var(--navy)}
+.kal-dag.vast{cursor:not-allowed;opacity:.7;background:rgba(255,77,90,.22)}
 .datum-tekst{margin-top:10px;font-size:.92rem;font-weight:600;color:var(--yellow)}
+
+/* productkeuze in het formulier */
+.product-keuze{display:flex;flex-direction:column;gap:8px}
+.product-groep{
+  font-family:var(--font-head);font-weight:700;font-size:.8rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--yellow);margin-top:6px;
+}
+.product-groep:first-child{margin-top:0}
+.product-optie{
+  display:flex;align-items:center;gap:12px;cursor:pointer;
+  background:var(--bg);border:var(--border);border-radius:12px;padding:10px 14px;
+  font-weight:500;font-size:.95rem;transition:border-color .15s;
+}
+.product-optie:hover{border-color:var(--yellow)}
+.product-optie input{
+  width:18px;height:18px;accent-color:var(--yellow);flex-shrink:0;cursor:pointer;
+}
+.product-optie span{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-grow:1}
+.product-optie small{color:var(--muted);font-weight:600;white-space:nowrap}
+.product-optie:has(input:checked){border-color:var(--yellow);background:rgba(255,211,53,.08)}
 .form-fout{
   display:none;background:rgba(255,77,90,.12);border:1px solid rgba(255,77,90,.45);
   color:#FF8A93;border-radius:12px;padding:12px 16px;font-size:.92rem;margin-bottom:16px;
@@ -395,6 +416,7 @@ h1,h2,h3,h4{font-family:var(--font-head);line-height:1.12;font-weight:800}
 .kal-legenda{display:flex;gap:18px;margin-top:12px;font-size:.85rem;color:var(--muted)}
 .kal-legenda .leg{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:6px;vertical-align:-1px}
 .leg-blok{background:rgba(255,77,90,.5)}
+.leg-vast{background:rgba(255,77,90,.9)}
 .leg-marker{background:var(--yellow);border-radius:50%}
 
 /* ---------- beheer ---------- */

@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/style.css?v=3">
 <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
@@ -61,13 +61,18 @@
       </div>
       <div>
         <h2 class="beheer-h2">📅 Beschikbaarheid</h2>
-        <p style="color:var(--muted);font-size:.92rem;margin-bottom:14px">Klik op een dag om hem te <strong style="color:var(--ink)">blokkeren</strong> of weer <strong style="color:var(--ink)">vrij te geven</strong>. Geblokkeerde dagen zijn voor bezoekers niet te kiezen. Een gele stip = er is een aanvraag voor die dag.</p>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:14px">Kies hieronder <strong style="color:var(--ink)">het hele bedrijf</strong> of <strong style="color:var(--ink)">één product</strong>, en klik op een dag om hem te blokkeren of weer vrij te geven. Geblokkeerde dagen zijn voor bezoekers niet te kiezen. Een gele stip = er is een aanvraag voor die dag.</p>
+        <div class="field" style="margin-bottom:14px">
+          <label for="scopeSelect">Beschikbaarheid regelen voor</label>
+          <select id="scopeSelect"></select>
+        </div>
         <div id="beheerKalender" class="kalender"></div>
         <div class="kal-legenda">
           <span><i class="leg leg-blok"></i> Geblokkeerd</span>
+          <span id="legVast" style="display:none"><i class="leg leg-vast"></i> Hele bedrijf dicht</span>
           <span><i class="leg leg-marker"></i> Aanvraag</span>
         </div>
-        <h3 style="font-size:1.05rem;margin:22px 0 10px">Geblokkeerde dagen</h3>
+        <h3 style="font-size:1.05rem;margin:22px 0 10px" id="blokTitel">Geblokkeerde dagen</h3>
         <div id="blokLijst" class="blok-lijst"></div>
       </div>
     </div>
@@ -83,8 +88,9 @@
   </div>
 </footer>
 
-<script src="/app.js"></script>
-<script src="/kalender.js"></script>
-<script src="/beheer.js"></script>
+<script src="/app.js?v=3"></script>
+<script src="/producten.js?v=3"></script>
+<script src="/kalender.js?v=3"></script>
+<script src="/beheer.js?v=3"></script>
 </body>
 </html>

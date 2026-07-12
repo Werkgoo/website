@@ -1,4 +1,4 @@
-// AirVibes beheerpaneel: aanvragen bekijken + dagen blokkeren
+// AirVibes beheerpaneel: aanvragen bekijken + dagen blokkeren (algemeen of per product)
 (function () {
   "use strict";
 
@@ -10,12 +10,28 @@
   var loginFout = document.getElementById("loginFout");
   var resLijst = document.getElementById("resLijst");
   var blokLijst = document.getElementById("blokLijst");
+  var blokTitel = document.getElementById("blokTitel");
+  var legVast = document.getElementById("legVast");
   var statsEl = document.getElementById("stats");
   var kalEl = document.getElementById("beheerKalender");
+  var scopeSelect = document.getElementById("scopeSelect");
+  var PRODUCTEN = window.AV_PRODUCTEN || [];
 
   var kal = null;
-  var geblokkeerd = new Set();
+  var geblokkeerd = new Set();    // bedrijfsbreed
+  var perProduct = {};            // { productId: ["YYYY-MM-DD"] }
   var reserveringen = [];
+  var scope = "";                 // "" = hele bedrijf, anders product-id
+
+  // scope-keuzelijst vullen
+  scopeSelect.innerHTML =
+    '<option value="">Hele bedrijf (alle producten)</option>' +
+    PRODUCTEN.map(function (p) { return '<option value="' + p.id + '">' + p.naam + "</option>"; }).join("");
+  scopeSelect.addEventListener("change", function () {
+    scope = scopeSelect.value;
+    renderKalender();
+    renderBlokLijst();
+  });
 
   function code() { return sessionStorage.getItem("avBeheerCode") || ""; }
 
@@ -51,6 +67,10 @@
     });
   }
 
+  function scopeDagen() {
+    return scope ? new Set(perProduct[scope] || []) : new Set(geblokkeerd);
+  }
+
   function renderStats() {
     var nieuw = reserveringen.filter(function (r) { return r.status === "nieuw"; }).length;
     var bevestigd = reserveringen.filter(function (r) { return r.status === "bevestigd"; }).length;
@@ -77,7 +97,7 @@
         '<div class="res-regels">' +
         "<p>📅 <strong>" + datumMooi(r.datum) + "</strong>" + (r.tijd ? " · " + esc(r.tijd) : "") + "</p>" +
         (r.plaats ? "<p>📍 " + esc(r.plaats) + "</p>" : "") +
-        "<p>🎪 " + esc(r.items) + "</p>" +
+        "<p>🎪 " + esc(r.items || "—") + "</p>" +
         (r.bericht ? '<p class="res-bericht">💬 ' + esc(r.bericht) + "</p>" : "") +
         '<p class="res-contact">✉️ <a href="mailto:' + esc(r.email) + '">' + esc(r.email) + "</a>" +
         (r.telefoon ? ' · 📞 <a href="tel:' + esc(r.telefoon) + '">' + esc(r.telefoon) + "</a>" : "") + "</p>" +
@@ -103,9 +123,12 @@
   }
 
   function renderBlokLijst() {
-    var dagen = Array.from(geblokkeerd).sort();
+    var naam = scope ? (PRODUCTEN.find(function (p) { return p.id === scope; }) || {}).naam : null;
+    blokTitel.textContent = naam ? "Geblokkeerde dagen — " + naam : "Geblokkeerde dagen — hele bedrijf";
+    var dagen = Array.from(scopeDagen()).sort();
     if (!dagen.length) {
-      blokLijst.innerHTML = '<span style="color:var(--muted);font-size:.92rem">Geen geblokkeerde dagen — alle dagen zijn te boeken.</span>';
+      blokLijst.innerHTML = '<span style="color:var(--muted);font-size:.92rem">' +
+        (scope ? "Geen geblokkeerde dagen voor dit product." : "Geen bedrijfsbrede blokkades — alle dagen zijn te boeken.") + "</span>";
       return;
     }
     blokLijst.innerHTML = dagen.map(function (d) {
@@ -117,26 +140,32 @@
   }
 
   function markers() {
-    return new Set(reserveringen.filter(function (r) { return r.status !== "geannuleerd"; }).map(function (r) { return r.datum; }));
+    var relevant = reserveringen.filter(function (r) {
+      if (r.status === "geannuleerd") return false;
+      if (!scope) return true;
+      return (r.producten || []).indexOf(scope) !== -1;
+    });
+    return new Set(relevant.map(function (r) { return r.datum; }));
   }
 
   function renderKalender() {
+    var vast = scope ? new Set(geblokkeerd) : new Set();
+    legVast.style.display = scope ? "" : "none";
+    var data = { geblokkeerd: scopeDagen(), vast: vast, markers: markers() };
     if (!kal) {
-      kal = window.AVKalender(kalEl, {
-        admin: true,
-        geblokkeerd: geblokkeerd,
-        markers: markers(),
-        onToggle: function (datum) { toggleDag(datum, !geblokkeerd.has(datum)); },
-      });
+      kal = window.AVKalender(kalEl, Object.assign({ admin: true, onToggle: function (datum) { toggleDag(datum, !scopeDagen().has(datum)); } }, data));
     } else {
-      kal.refresh({ geblokkeerd: geblokkeerd, markers: markers() });
+      kal.refresh(data);
     }
   }
 
   function toggleDag(datum, blokkeren) {
-    api("/api/beheer/dag", { datum: datum, geblokkeerd: blokkeren })
+    var body = { datum: datum, geblokkeerd: blokkeren };
+    if (scope) body.product = scope;
+    api("/api/beheer/dag", body)
       .then(function (d) {
         geblokkeerd = new Set(d.geblokkeerd || []);
+        perProduct = d.producten || {};
         renderKalender();
         renderBlokLijst();
       })
@@ -152,6 +181,7 @@
     return api("/api/beheer/overzicht").then(function (d) {
       reserveringen = d.reserveringen || [];
       geblokkeerd = new Set(d.geblokkeerd || []);
+      perProduct = d.producten || {};
       renderStats();
       renderReserveringen();
       renderKalender();

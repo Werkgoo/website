@@ -1,6 +1,7 @@
 // AirVibes reserverings-API
 // Opslag: Netlify Blobs (store "airvibes-data")
-//  - key "geblokkeerde-dagen": JSON-array van "YYYY-MM-DD"
+//  - key "geblokkeerde-dagen": JSON-array van "YYYY-MM-DD" (hele bedrijf dicht)
+//  - key "blokkades-product": object { productId: ["YYYY-MM-DD", ...] }
 //  - keys "res-<id>": één reservering per key
 import { getStore } from "@netlify/blobs";
 
@@ -8,6 +9,16 @@ const JSONH = { "content-type": "application/json; charset=utf-8" };
 const j = (data, status = 200) => new Response(JSON.stringify(data), { status, headers: JSONH });
 const DATUM_RE = /^\d{4}-\d{2}-\d{2}$/;
 const STATUSSEN = ["nieuw", "bevestigd", "geannuleerd"];
+
+// Moet gelijk blijven aan public/producten.js
+const PRODUCTEN = {
+  "krokodil": "Krokodil Multiplay springkussen",
+  "eenhoorn": "Eenhoorn Multiplay springkussen",
+  "pawpatrol": "Paw Patrol springkussen",
+  "peppa": "Peppa Pig springkussen",
+  "tent-8x6": "Partytent 8×6 meter",
+  "tent-55x45": "Partytent 5,5×4,5 meter",
+};
 
 // Datum van vandaag in Nederlandse tijd (sv-SE geeft YYYY-MM-DD)
 const vandaag = () => new Intl.DateTimeFormat("sv-SE", { timeZone: "Europe/Amsterdam" }).format(new Date());
@@ -17,15 +28,18 @@ const tekst = (v, max) => (v == null ? "" : String(v)).trim().slice(0, max);
 async function geblokkeerdeDagen(store) {
   return (await store.get("geblokkeerde-dagen", { type: "json" })) || [];
 }
+async function productBlokkades(store) {
+  return (await store.get("blokkades-product", { type: "json" })) || {};
+}
 
 export default async (req) => {
   const url = new URL(req.url);
   const pad = url.pathname.replace(/\/+$/, "");
   const store = getStore("airvibes-data");
 
-  // --- publiek: geblokkeerde dagen ophalen ---
+  // --- publiek: beschikbaarheid ophalen (algemeen + per product) ---
   if (pad === "/api/beschikbaarheid" && req.method === "GET") {
-    return j({ geblokkeerd: await geblokkeerdeDagen(store) });
+    return j({ geblokkeerd: await geblokkeerdeDagen(store), producten: await productBlokkades(store) });
   }
 
   // --- publiek: reservering indienen ---
@@ -34,6 +48,7 @@ export default async (req) => {
     try { b = await req.json(); } catch { return j({ fout: "Ongeldige aanvraag." }, 400); }
     if (tekst(b["bot-field"], 10)) return j({ ok: true }); // honeypot: doe alsof het lukte
 
+    const producten = Array.isArray(b.producten) ? b.producten.filter((p) => PRODUCTEN[p]).slice(0, 20) : [];
     const res = {
       naam: tekst(b.naam, 120),
       email: tekst(b.email, 160),
@@ -41,10 +56,11 @@ export default async (req) => {
       datum: tekst(b.datum, 10),
       tijd: tekst(b.tijd, 40),
       plaats: tekst(b.plaats, 160),
+      producten,
       items: tekst(b.items, 1000),
       bericht: tekst(b.bericht, 2000),
     };
-    if (!res.naam || !res.email.includes("@") || !res.items || !DATUM_RE.test(res.datum)) {
+    if (!res.naam || !res.email.includes("@") || !DATUM_RE.test(res.datum) || (!producten.length && !res.items)) {
       return j({ fout: "Vul alle verplichte velden in." }, 400);
     }
     if (res.datum < vandaag()) {
@@ -52,6 +68,12 @@ export default async (req) => {
     }
     if ((await geblokkeerdeDagen(store)).includes(res.datum)) {
       return j({ fout: "Deze datum is helaas niet beschikbaar. Kies een andere datum." }, 409);
+    }
+    const blokkades = await productBlokkades(store);
+    for (const pid of producten) {
+      if ((blokkades[pid] || []).includes(res.datum)) {
+        return j({ fout: PRODUCTEN[pid] + " is op deze datum helaas niet beschikbaar. Kies een andere datum of een ander product." }, 409);
+      }
     }
 
     const id = `res-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
@@ -66,7 +88,7 @@ export default async (req) => {
       return j({ fout: "Onjuiste beheercode." }, 401);
     }
 
-    // overzicht: alle reserveringen + geblokkeerde dagen
+    // overzicht: alle reserveringen + alle blokkades
     if (pad === "/api/beheer/overzicht" && req.method === "GET") {
       const reserveringen = [];
       const { blobs } = await store.list({ prefix: "res-" });
@@ -75,7 +97,7 @@ export default async (req) => {
         if (r) reserveringen.push(r);
       }
       reserveringen.sort((a, z) => (z.ontvangen || "").localeCompare(a.ontvangen || ""));
-      return j({ reserveringen, geblokkeerd: await geblokkeerdeDagen(store) });
+      return j({ reserveringen, geblokkeerd: await geblokkeerdeDagen(store), producten: await productBlokkades(store) });
     }
 
     // reservering bijwerken of verwijderen
@@ -95,15 +117,25 @@ export default async (req) => {
       return j({ ok: true, reservering: r });
     }
 
-    // dag blokkeren of vrijgeven
+    // dag blokkeren of vrijgeven — algemeen, of per product als "product" is meegegeven
     if (pad === "/api/beheer/dag" && req.method === "POST") {
       const b = await req.json().catch(() => null);
       const datum = tekst(b?.datum, 10);
       if (!DATUM_RE.test(datum)) return j({ fout: "Ongeldige datum." }, 400);
+      const product = tekst(b?.product, 30);
+      if (product) {
+        if (!PRODUCTEN[product]) return j({ fout: "Onbekend product." }, 400);
+        const blokkades = await productBlokkades(store);
+        let dagen = blokkades[product] || [];
+        dagen = b.geblokkeerd ? [...new Set([...dagen, datum])].sort() : dagen.filter((d) => d !== datum);
+        blokkades[product] = dagen;
+        await store.setJSON("blokkades-product", blokkades);
+        return j({ geblokkeerd: await geblokkeerdeDagen(store), producten: blokkades });
+      }
       let dagen = await geblokkeerdeDagen(store);
       dagen = b.geblokkeerd ? [...new Set([...dagen, datum])].sort() : dagen.filter((d) => d !== datum);
       await store.setJSON("geblokkeerde-dagen", dagen);
-      return j({ geblokkeerd: dagen });
+      return j({ geblokkeerd: dagen, producten: await productBlokkades(store) });
     }
   }
 

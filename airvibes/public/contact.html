@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/style.css?v=3">
 <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
@@ -120,19 +120,34 @@
           </div>
         </div>
         <div class="field">
+          <label>Wat wil je huren? *</label>
+          <div class="product-keuze" id="productKeuze">
+            <span class="product-groep">Springkussens</span>
+            <label class="product-optie"><input type="checkbox" name="producten" value="Krokodil Multiplay springkussen" data-id="krokodil"><span>Krokodil Multiplay <small>€125 / dag</small></span></label>
+            <label class="product-optie"><input type="checkbox" name="producten" value="Eenhoorn Multiplay springkussen" data-id="eenhoorn"><span>Eenhoorn Multiplay <small>€110 / dag</small></span></label>
+            <label class="product-optie"><input type="checkbox" name="producten" value="Paw Patrol springkussen" data-id="pawpatrol"><span>Paw Patrol <small>€90 / dag</small></span></label>
+            <label class="product-optie"><input type="checkbox" name="producten" value="Peppa Pig springkussen" data-id="peppa"><span>Peppa Pig <small>€90 / dag</small></span></label>
+            <span class="product-groep">Partytenten</span>
+            <label class="product-optie"><input type="checkbox" name="producten" value="Partytent 8×6 meter" data-id="tent-8x6"><span>Partytent 8×6 m <small>€225 / dag</small></span></label>
+            <label class="product-optie"><input type="checkbox" name="producten" value="Partytent 5,5×4,5 meter" data-id="tent-55x45"><span>Partytent 5,5×4,5 m <small>€185 / dag</small></span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="extras">Feestartikelen &amp; overige wensen</label>
+          <textarea id="extras" name="extras" placeholder="Bijv. 4 statafels, JBL Partybox, rookmachine, heater"></textarea>
+        </div>
+        <div class="field">
           <label>Datum van je feest *</label>
           <div id="kalender" class="kalender" aria-label="Kies een datum"></div>
           <input type="hidden" id="datum" name="datum">
+          <input type="hidden" id="itemsSamengesteld" name="items">
           <p id="datumTekst" class="datum-tekst"></p>
+          <p class="form-hint" style="text-align:left;margin-top:8px">De kalender laat automatisch zien welke dagen beschikbaar zijn voor de producten die je hierboven aanvinkt.</p>
           <noscript><p class="form-fout" style="display:block">Zet JavaScript aan om een datum te kiezen, of mail je aanvraag naar info@airvibes.nl.</p></noscript>
         </div>
         <div class="field">
           <label for="plaats">Plaats / adres van het feest</label>
           <input type="text" id="plaats" name="plaats" placeholder="Bijv. Alkmaar" autocomplete="address-level2">
-        </div>
-        <div class="field">
-          <label for="items">Wat wil je huren? *</label>
-          <textarea id="items" name="items" required placeholder="Bijv. Eenhoorn Multiplay springkussen, 4 statafels, JBL Partybox"></textarea>
         </div>
         <div class="field">
           <label for="bericht">Opmerkingen of vragen</label>
@@ -182,8 +197,8 @@
   </div>
 </footer>
 
-<script src="/app.js"></script>
-<script src="/kalender.js"></script>
-<script src="/reserveren.js"></script>
+<script src="/app.js?v=3"></script>
+<script src="/kalender.js?v=3"></script>
+<script src="/reserveren.js?v=3"></script>
 </body>
 </html>

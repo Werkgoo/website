@@ -11,11 +11,13 @@
 
   // opts:
   //   geblokkeerd : Set van "YYYY-MM-DD" die niet gekozen kunnen worden
+  //   vast        : Set van datums die altijd geblokkeerd tonen en nooit klikbaar zijn
+  //                 (bijv. bedrijfsbrede blokkades in een product-kalender)
   //   markers     : Set van datums die een stip krijgen (bijv. dagen met reserveringen)
   //   admin       : true = klikken op elke toekomstige dag roept onToggle aan
   //   onSelect(datum) / onToggle(datum)
   window.AVKalender = function (el, opts) {
-    var opt = Object.assign({ geblokkeerd: new Set(), markers: new Set(), admin: false, onSelect: null, onToggle: null }, opts || {});
+    var opt = Object.assign({ geblokkeerd: new Set(), vast: new Set(), markers: new Set(), admin: false, onSelect: null, onToggle: null }, opts || {});
     var nu = new Date();
     var minMaand = nu.getFullYear() * 12 + nu.getMonth();
     var cur = new Date(nu.getFullYear(), nu.getMonth(), 1);
@@ -41,13 +43,15 @@
         var str = fmt(new Date(cur.getFullYear(), cur.getMonth(), dag));
         var cls = "kal-dag";
         var voorbij = str < vandaagStr;
-        var blok = opt.geblokkeerd.has(str);
+        var vast = opt.vast.has(str);
+        var blok = opt.geblokkeerd.has(str) || vast;
         if (voorbij) cls += " voorbij";
         if (blok) cls += " blok";
+        if (vast) cls += " vast";
         if (str === vandaagStr) cls += " vandaag";
         if (str === selected) cls += " sel";
         if (opt.markers.has(str)) cls += " marker";
-        var klikbaar = !voorbij && (opt.admin || !blok);
+        var klikbaar = !voorbij && !vast && (opt.admin || !blok);
         html += '<button type="button" class="' + cls + '" data-datum="' + str + '"' + (klikbaar ? "" : " disabled") + ">" + dag + "</button>";
       }
       html += "</div>";
@@ -77,6 +81,7 @@
     return {
       refresh: function (nieuw) {
         if (nieuw.geblokkeerd) opt.geblokkeerd = nieuw.geblokkeerd;
+        if (nieuw.vast) opt.vast = nieuw.vast;
         if (nieuw.markers) opt.markers = nieuw.markers;
         render();
       },
