@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beheer — AirVibes</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#15111F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="/" class="logo"><span class="word"><span class="air">AIR</span><span class="vibes">VIBES</span></span><span class="tagline">Jump & Fun</span></a>
+    <span class="badge" style="margin:0"><span class="pulse"></span> Beheer</span>
+  </div>
+</header>
+
+<!-- Login -->
+<section class="section" id="loginVak">
+  <div class="container" style="max-width:440px">
+    <div class="form-card">
+      <h1 style="font-size:1.7rem;margin-bottom:8px">Reserveringsbeheer</h1>
+      <p style="color:var(--muted);margin-bottom:22px">Log in met je beheercode om aanvragen te bekijken en dagen te blokkeren.</p>
+      <form id="loginForm">
+        <div class="field">
+          <label for="code">Beheercode</label>
+          <input type="password" id="code" autocomplete="current-password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Inloggen</button>
+        <p id="loginFout" class="form-fout" style="display:none"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Paneel -->
+<section class="section" id="paneel" hidden style="padding-top:40px">
+  <div class="container">
+    <div class="beheer-kop">
+      <div>
+        <h1 style="font-size:clamp(1.7rem,3.5vw,2.4rem)">Reserveringsbeheer</h1>
+        <div class="chips" id="stats"></div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn btn-sm" id="verversKnop">↻ Verversen</button>
+        <button class="btn btn-sm btn-ghost" id="uitlogKnop">Uitloggen</button>
+      </div>
+    </div>
+
+    <div class="beheer-grid">
+      <div>
+        <h2 class="beheer-h2">📥 Binnengekomen aanvragen</h2>
+        <div id="resLijst"></div>
+      </div>
+      <div>
+        <h2 class="beheer-h2">📅 Beschikbaarheid</h2>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:14px">Klik op een dag om hem te <strong style="color:var(--ink)">blokkeren</strong> of weer <strong style="color:var(--ink)">vrij te geven</strong>. Geblokkeerde dagen zijn voor bezoekers niet te kiezen. Een gele stip = er is een aanvraag voor die dag.</p>
+        <div id="beheerKalender" class="kalender"></div>
+        <div class="kal-legenda">
+          <span><i class="leg leg-blok"></i> Geblokkeerd</span>
+          <span><i class="leg leg-marker"></i> Aanvraag</span>
+        </div>
+        <h3 style="font-size:1.05rem;margin:22px 0 10px">Geblokkeerde dagen</h3>
+        <div id="blokLijst" class="blok-lijst"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" style="margin-top:0">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0">
+      <span>© <span id="year">2026</span> AirVibes — beheer</span>
+      <span><a href="/">← Naar de website</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/app.js"></script>
+<script src="/kalender.js"></script>
+<script src="/beheer.js"></script>
+</body>
+</html>

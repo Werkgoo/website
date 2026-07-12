@@ -109,9 +109,22 @@
             <input type="tel" id="telefoon" name="telefoon" autocomplete="tel">
           </div>
           <div class="field">
-            <label for="datum">Datum van je feest *</label>
-            <input type="date" id="datum" name="datum" required>
+            <label for="tijd">Tijd / dagdeel *</label>
+            <select id="tijd" name="tijd" required>
+              <option value="Hele dag" selected>Hele dag</option>
+              <option value="Ochtend (09:00–12:00)">Ochtend (09:00–12:00)</option>
+              <option value="Middag (12:00–17:00)">Middag (12:00–17:00)</option>
+              <option value="Avond (17:00–21:00)">Avond (17:00–21:00)</option>
+              <option value="In overleg">In overleg</option>
+            </select>
           </div>
+        </div>
+        <div class="field">
+          <label>Datum van je feest *</label>
+          <div id="kalender" class="kalender" aria-label="Kies een datum"></div>
+          <input type="hidden" id="datum" name="datum">
+          <p id="datumTekst" class="datum-tekst"></p>
+          <noscript><p class="form-fout" style="display:block">Zet JavaScript aan om een datum te kiezen, of mail je aanvraag naar info@airvibes.nl.</p></noscript>
         </div>
         <div class="field">
           <label for="plaats">Plaats / adres van het feest</label>
@@ -125,6 +138,7 @@
           <label for="bericht">Opmerkingen of vragen</label>
           <textarea id="bericht" name="bericht" placeholder="Bezorgen of zelf ophalen? Hoe laat begint het feest?"></textarea>
         </div>
+        <p id="formFout" class="form-fout" style="display:none" role="alert"></p>
         <button type="submit" class="btn btn-primary">Verstuur aanvraag</button>
         <p class="form-hint">Vrijblijvend — je zit nog nergens aan vast. Wij nemen snel contact met je op.</p>
       </form>
@@ -169,5 +183,7 @@
 </footer>
 
 <script src="/app.js"></script>
+<script src="/kalender.js"></script>
+<script src="/reserveren.js"></script>
 </body>
 </html>
