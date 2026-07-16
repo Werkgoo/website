@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt &amp; Anmeldung – Fahrschule Grafweg Langenfeld</title>
+  <meta name="description" content="Kontaktieren Sie die Fahrschule Grafweg in Langenfeld: Hauptstr. 64–66, Telefon 02173 / 28 70 70. Anmeldung, Beratung und Fragen zu allen Führerscheinklassen und zur BKF-Ausbildung.">
+  <link rel="canonical" href="https://www.fahrschule-grafweg.de/kontakt.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <span>📍 Hauptstr. 64–66 · 40764 Langenfeld (Rheinland)</span>
+      <span class="topbar-hours">Bürozeiten: Mo–Fr ab 17:00 Uhr</span>
+      <a href="tel:+492173287070">☎ 02173 / 28 70 70</a>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="21" fill="none" stroke="#ffb400" stroke-width="4"/>
+          <circle cx="24" cy="24" r="6" fill="#ffb400"/>
+          <path d="M6 22 L18 22 M30 22 L42 22 M24 30 L24 44" stroke="#ffb400" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-text">
+          <strong>Fahrschule Grafweg</strong>
+          <span>u. Berufskraftfahrerschule</span>
+        </span>
+      </a>
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="index.html">Start</a></li>
+          <li><a href="klassen.html">Führerscheinklassen</a></li>
+          <li><a href="bkf.html">Berufskraftfahrer</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="kontakt.html" aria-current="page">Kontakt</a></li>
+          <li><a class="nav-cta" href="kontakt.html#anmeldung">Jetzt anmelden</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="container">
+        <h1>Kontakt &amp; Anmeldung</h1>
+        <p>Ob Anmeldung, Beratung oder eine kurze Frage – ruf uns an, schreib uns oder komm einfach vorbei. Wir freuen uns auf dich.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-grid">
+
+        <div>
+          <div class="info-block">
+            <h3>Fahrschule u. Berufskraftfahrerschule Grafweg</h3>
+            <p>Hauptstr. 64–66<br>40764 Langenfeld (Rheinland)</p>
+            <p style="margin-top:12px;">
+              ☎ <a href="tel:+492173287070">02173 / 28 70 70</a><br>
+              ✉ <a href="mailto:info@fahrschule-grafweg.de">info@fahrschule-grafweg.de</a>
+            </p>
+            <p style="margin-top:12px;">
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Fahrschule+Grafweg+Hauptstr.+64-66+40764+Langenfeld" target="_blank" rel="noopener">Route in Google Maps öffnen →</a>
+            </p>
+          </div>
+
+          <div class="info-block">
+            <h3>Bürozeiten</h3>
+            <table class="hours-table">
+              <tr><td>Montag – Freitag</td><td>17:00 – 19:00 Uhr</td></tr>
+              <tr><td>Samstag &amp; Sonntag</td><td>geschlossen</td></tr>
+            </table>
+            <p style="margin-top:12px; font-size:0.88rem;">
+              Fahrstunden und Unterricht finden auch außerhalb der Bürozeiten statt –
+              Termine nach Vereinbarung.
+            </p>
+          </div>
+
+          <div class="info-block">
+            <h3>Gut zu wissen</h3>
+            <p>Zur Anmeldung brauchst du lediglich deinen Personalausweis. Alles Weitere – Sehtest, Passbilder, Erste-Hilfe-Kurs – erklären wir dir beim ersten Gespräch.</p>
+          </div>
+        </div>
+
+        <form class="contact-form" id="anmeldung" name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/danke.html">
+          <p style="display:none;">
+            <label>Nicht ausfüllen: <input name="bot-field"></label>
+          </p>
+          <div>
+            <h3 style="color: var(--navy); margin-bottom: 4px;">Schreib uns eine Nachricht</h3>
+            <p style="color: var(--muted); font-size: 0.95rem;">Wir melden uns schnellstmöglich bei dir zurück.</p>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Name *</label>
+              <input type="text" id="name" name="name" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="telefon">Telefon</label>
+              <input type="tel" id="telefon" name="telefon" autocomplete="tel">
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">E-Mail *</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="anliegen">Worum geht es?</label>
+            <select id="anliegen" name="anliegen">
+              <option>Anmeldung – Auto (B / B96 / BE)</option>
+              <option>Anmeldung – Motorrad (AM / A1 / A2 / A)</option>
+              <option>Anmeldung – LKW (C-Klassen)</option>
+              <option>Anmeldung – Bus (D-Klassen)</option>
+              <option>BKF-Weiterbildung / Grundqualifikation</option>
+              <option>Firmenanfrage</option>
+              <option>Allgemeine Frage</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="nachricht">Deine Nachricht *</label>
+            <textarea id="nachricht" name="nachricht" required placeholder="Erzähl uns kurz, wobei wir dir helfen können …"></textarea>
+          </div>
+          <button class="btn btn-navy" type="submit">Nachricht senden</button>
+          <p class="form-note">
+            Mit dem Absenden erklärst du dich mit der Verarbeitung deiner Angaben zur Bearbeitung
+            der Anfrage einverstanden. Details in der <a href="datenschutz.html">Datenschutzerklärung</a>.
+          </p>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>Fahrschule u. Berufskraftfahrerschule Grafweg</h4>
+        <p>Ausbildung in allen Führerscheinklassen sowie Aus- und Weiterbildung für Berufskraftfahrer in Langenfeld (Rheinland).</p>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p>Hauptstr. 64–66<br>40764 Langenfeld</p>
+        <p><a href="tel:+492173287070">02173 / 28 70 70</a><br>
+        <a href="mailto:info@fahrschule-grafweg.de">info@fahrschule-grafweg.de</a></p>
+      </div>
+      <div>
+        <h4>Seiten</h4>
+        <ul>
+          <li><a href="klassen.html">Führerscheinklassen</a></li>
+          <li><a href="bkf.html">Berufskraftfahrer</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="kontakt.html">Kontakt &amp; Anmeldung</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 Fahrschule u. Berufskraftfahrerschule Grafweg</span>
+      <span>Langenfeld (Rheinland)</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
