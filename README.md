@@ -15,6 +15,11 @@ Complete rebuild van [fahrschule-grafweg.de](https://www.fahrschule-grafweg.de/)
 | `impressum.html` / `datenschutz.html` | Juridische pagina's (placeholders aanvullen!) |
 | `404.html` | Foutpagina |
 
+## Huisstijl & afbeeldingen
+
+- Logo (`img/logo.svg` + witte variant) is een SVG-reconstructie van het originele Grafweg-logo, incl. slogan *"Vom Mofa bis zum Bus – wir bilden Sie aus!"*.
+- Alle illustraties in `img/` zijn zelfgemaakte SVG's in de huisstijl (navy `#0e2a47` / amber `#ffb400`) — geen externe afhankelijkheden of licentiekwesties. Vervang ze desgewenst door echte foto's (zelfde bestandsnamen aanhouden).
+
 ## Techniek
 
 - Puur statisch: HTML + CSS + een klein beetje JavaScript (mobiel menu). Geen build-stap.

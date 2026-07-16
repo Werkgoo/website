@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 150" role="img" aria-label="Fahrschule u. Berufskraftfahrerschule Grafweg – Vom Mofa bis zum Bus, wir bilden Sie aus!">
+  <!-- Car line-art -->
+  <g fill="none" stroke="#ffb400" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M103 44 l-9 0 q-7 0 -7 -6 q0 -5 8 -6 l18 -2 q12 -13 30 -14 l40 -1 q16 0 28 7 l14 8 q16 2 22 5 q6 2 6 6 q0 3 -6 3 l-10 0"/>
+    <path d="M128 44 l82 0"/>
+    <circle cx="116" cy="44" r="9"/>
+    <circle cx="222" cy="44" r="9"/>
+    <path d="M150 18 l-1 12 M180 17 l0 13 M120 31 l110 0" stroke-width="2.2"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="170" y="74" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" fill="#ffffff">Fahrschule u. Berufskraftfahrerschule</text>
+  <text x="170" y="117" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="800" letter-spacing="2" fill="#ffffff">GRAFWEG</text>
+  <text x="170" y="141" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13.5" font-weight="700" font-style="italic" fill="#ffb400">Vom Mofa bis zum Bus – wir bilden Sie aus!</text>
+</svg>

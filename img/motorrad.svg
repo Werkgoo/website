@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="Illustration: Motorrad-Ausbildung mit Pylonen">
+  <rect x="0" y="0" width="640" height="400" rx="20" fill="#eef3f8"/>
+  <circle cx="110" cy="90" r="42" fill="#ffb400" opacity="0.85"/>
+  <rect x="0" y="290" width="640" height="70" fill="#0e2a47"/>
+  <g stroke="#ffb400" stroke-width="5" stroke-dasharray="26 20"><line x1="10" y1="325" x2="630" y2="325"/></g>
+  <!-- cones -->
+  <path d="M110 288 l14 -34 l14 34 z" fill="#ffb400"/><rect x="102" y="284" width="44" height="8" rx="4" fill="#e09e00"/>
+  <path d="M530 288 l14 -34 l14 34 z" fill="#ffb400"/><rect x="522" y="284" width="44" height="8" rx="4" fill="#e09e00"/>
+  <ellipse cx="325" cy="296" rx="150" ry="10" fill="#0e2a47" opacity="0.2"/>
+  <!-- motorcycle -->
+  <g>
+    <!-- wheels -->
+    <circle cx="215" cy="252" r="44" fill="none" stroke="#081b30" stroke-width="15"/>
+    <circle cx="215" cy="252" r="8" fill="#081b30"/>
+    <circle cx="435" cy="252" r="44" fill="none" stroke="#081b30" stroke-width="15"/>
+    <circle cx="435" cy="252" r="8" fill="#081b30"/>
+    <!-- swingarm & frame -->
+    <path d="M215 252 L300 244" stroke="#16385d" stroke-width="14" stroke-linecap="round"/>
+    <path d="M300 244 L330 210" stroke="#16385d" stroke-width="14" stroke-linecap="round"/>
+    <!-- front fork -->
+    <path d="M435 252 L398 176" stroke="#081b30" stroke-width="13" stroke-linecap="round"/>
+    <!-- main body -->
+    <rect x="256" y="192" width="140" height="48" rx="22" fill="#16385d"/>
+    <!-- exhaust -->
+    <path d="M262 244 L392 250" stroke="#8aa5c0" stroke-width="12" stroke-linecap="round"/>
+    <!-- tank -->
+    <rect x="308" y="180" width="76" height="30" rx="15" fill="#ffb400"/>
+    <!-- seat -->
+    <rect x="244" y="176" width="62" height="20" rx="10" fill="#081b30"/>
+    <!-- handlebar -->
+    <path d="M398 176 L378 158 M398 176 L416 162" stroke="#081b30" stroke-width="10" stroke-linecap="round"/>
+    <!-- headlight -->
+    <circle cx="412" cy="184" r="11" fill="#ffd670"/>
+    <!-- front fender -->
+    <path d="M395 218 a44 44 0 0 1 62 20" fill="none" stroke="#ffb400" stroke-width="11" stroke-linecap="round"/>
+  </g>
+</svg>
