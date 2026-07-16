@@ -18,7 +18,14 @@ Complete rebuild van [fahrschule-grafweg.de](https://www.fahrschule-grafweg.de/)
 ## Huisstijl & afbeeldingen
 
 - Logo (`img/logo.svg` + witte variant) is een SVG-reconstructie van het originele Grafweg-logo, incl. slogan *"Vom Mofa bis zum Bus – wir bilden Sie aus!"*.
-- Alle illustraties in `img/` zijn zelfgemaakte SVG's in de huisstijl (navy `#0e2a47` / amber `#ffb400`) — geen externe afhankelijkheden of licentiekwesties. Vervang ze desgewenst door echte foto's (zelfde bestandsnamen aanhouden).
+- Alle illustraties in `img/` zijn zelfgemaakte SVG's in de huisstijl (navy `#0e2a47` / amber `#ffb400`) — geen externe afhankelijkheden of licentiekwesties.
+- Daarnaast staan er 5 **AI-gegenereerde foto's** (Higgsfield / Nano Banana Pro) in de site, gehotlinkt vanaf het Higgsfield-CDN met de SVG's als automatische fallback (`onerror`):
+  - Hero (startpagina): fahrschoolauto met FAHRSCHULE-dakbord
+  - Startpagina "Warum Grafweg": instructeur met leerling in de auto
+  - Klassenpagina: motorrijder tussen pylonen
+  - BKF-pagina: vrachtwagen op de Autobahn
+  - Over ons: theorielokaal
+- **Aanbevolen vóór livegang:** download deze 5 PNG's (URL's staan in de HTML, zoek op `cloudfront.net`), zet ze in `img/` en pas de `src`-attributen aan naar de lokale paden. Dan ben je niet afhankelijk van het externe CDN.
 
 ## Techniek
 
