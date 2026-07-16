@@ -688,7 +688,12 @@ form.contact-form {
 }
 
 @media (max-width: 720px) {
-  .grid-4, .grid-3, .grid-2, .form-row { grid-template-columns: 1fr; }
+  .grid-3, .grid-2, .form-row { grid-template-columns: 1fr; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .grid { gap: 16px; }
+  .grid-4 .card { padding: 16px; }
+  .grid-4 .card h3 { font-size: 0.98rem; }
+  .grid-4 .card p { font-size: 0.85rem; }
   .hero { padding: 60px 0 70px; }
   .hero-badges { gap: 20px; }
   .footer-grid { grid-template-columns: 1fr; }
@@ -720,7 +725,38 @@ form.contact-form {
 
   .mobile-cta a.accent { background: var(--amber); color: var(--navy-dark); }
 
+  .topbar { font-size: 0.8rem; }
   .topbar .container { justify-content: center; text-align: center; }
+  .topbar .topbar-loc { display: none; }
+
+  .hero-kicker { font-size: 0.66rem; letter-spacing: 0.8px; padding: 5px 12px; }
+  .hero h1 { font-size: 1.75rem; }
+  .hero p.lead { font-size: 1rem; margin-bottom: 24px; }
+  .hero-art { margin-top: 6px; }
+
+  .hero-badges {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+    padding-top: 22px;
+  }
+  .hero-badge strong { font-size: 1.2rem; }
+  .hero-badge span { font-size: 0.8rem; }
+
+  .card-img { max-height: 150px; object-fit: cover; }
+
+  .section-head h2 { font-size: 1.45rem; }
+  .section-head p { font-size: 0.98rem; }
+
+  .cta-band { padding: 44px 0; }
+  .cta-band .btn { width: 100%; text-align: center; }
+
+  .site-footer { padding-top: 40px; }
+  .footer-grid { gap: 26px; padding-bottom: 28px; }
+  .site-footer img { margin-left: auto; margin-right: auto; }
+  .footer-grid { text-align: center; }
+  .footer-grid ul { justify-items: center; }
 
   .card { padding: 22px; }
   form.contact-form { padding: 22px; }
@@ -737,12 +773,6 @@ form.contact-form {
 }
 
 @media (max-width: 430px) {
-  .hero-badges {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-  }
-
   .hero-actions .btn { flex: 1 1 100%; text-align: center; }
 
   .brand-text span { font-size: 0.56rem; }
