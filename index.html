@@ -3,19 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nutel — Digitale studio voor websites die werken</title>
-<meta name="description" content="Nutel is een digitale studio die websites ontwerpt en bouwt voor ondernemers. Doordacht design, schone techniek en meetbaar resultaat — van concept tot livegang.">
-<link rel="canonical" href="https://nutel.nl/">
+<title>Barber Achie — Barbershop in Heerhugowaard</title>
+<meta name="description" content="Barber Achie is de barbershop van Heerhugowaard: snel, flexibel, betaalbaar en vriendelijk. Knippen vanaf €15, zes dagen per week open aan de G. Rietveldweg.">
+<link rel="canonical" href="https://barberachie.nl/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Nutel">
+<meta property="og:site_name" content="Barber Achie">
 <meta property="og:locale" content="nl_NL">
-<meta property="og:url" content="https://nutel.nl/">
-<meta property="og:title" content="Nutel — Digitale studio voor websites die werken">
-<meta property="og:description" content="Nutel ontwerpt en bouwt websites voor ondernemers. Doordacht design, schone techniek en meetbaar resultaat — van concept tot livegang.">
-<meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3FEfoa0DM8RO5q60FciUMwUjdnk/hf_20260702_103032_8ed6f505-6271-485a-8f12-4add124ae9df.png">
+<meta property="og:url" content="https://barberachie.nl/">
+<meta property="og:title" content="Barber Achie — Barbershop in Heerhugowaard">
+<meta property="og:description" content="Snel, flexibel, betaalbaar & vriendelijk. Knippen vanaf €15 aan de G. Rietveldweg in Heerhugowaard.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#06060B">
+<meta name="theme-color" content="#0A0806">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -24,12 +23,25 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Nutel",
-  "url": "https://nutel.nl",
-  "email": "info@nutel.nl",
-  "description": "Digitale studio die websites ontwerpt en bouwt voor ondernemers.",
-  "areaServed": "NL"
+  "@type": "HairSalon",
+  "name": "Barber Achie",
+  "url": "https://barberachie.nl",
+  "telephone": "+31685422395",
+  "email": "achiesbarbershop@gmail.com",
+  "priceRange": "€€",
+  "description": "Barbershop in Heerhugowaard. Snel, flexibel, betaalbaar en vriendelijk.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "G. Rietveldweg 4",
+    "postalCode": "1703 DD",
+    "addressLocality": "Heerhugowaard",
+    "addressCountry": "NL"
+  },
+  "openingHoursSpecification": [
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday"],"opens":"11:00","closes":"21:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Thursday","opens":"11:00","closes":"22:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"10:00","closes":"22:00"}
+  ]
 }
 </script>
 </head>
@@ -38,14 +50,14 @@
 <!-- Header -->
 <header class="header" id="header">
   <div class="container header-inner">
-    <a href="/" class="logo">nutel<span>.</span></a>
+    <a href="/" class="logo">barber achie<span>.</span></a>
     <nav>
       <a href="/diensten">Diensten</a>
-      <a href="/werk">Werk</a>
+      <a href="/prijzen">Prijzen</a>
       <a href="/over">Over ons</a>
       <a href="/contact">Contact</a>
     </nav>
-    <a href="/contact" class="btn btn-ink">Start een project</a>
+    <a href="tel:+31685422395" class="btn btn-ink">Bel voor een afspraak</a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu"><svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
   </div>
 </header>
@@ -53,59 +65,64 @@
 <!-- Mobile nav -->
 <div class="mnav" id="mnav">
   <div class="mnav-head">
-    <span class="logo">nutel<span>.</span></span>
+    <span class="logo">barber achie<span>.</span></span>
     <button class="mnav-close" id="navClose" aria-label="Sluiten"><svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
   </div>
   <a href="/diensten" onclick="closeMnav()">Diensten</a>
-  <a href="/werk" onclick="closeMnav()">Werk</a>
+  <a href="/prijzen" onclick="closeMnav()">Prijzen</a>
   <a href="/over" onclick="closeMnav()">Over ons</a>
   <a href="/contact" onclick="closeMnav()">Contact</a>
-  <a href="/contact" class="btn btn-ink" onclick="closeMnav()">Start een project</a>
+  <a href="tel:+31685422395" class="btn btn-ink" onclick="closeMnav()">Bel voor een afspraak</a>
 </div>
 
 <!-- Hero -->
 <section class="hero">
-  <div class="hero-video" aria-hidden="true"><video autoplay muted loop playsinline preload="metadata" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3FEfoa0DM8RO5q60FciUMwUjdnk/hf_20260702_103032_8ed6f505-6271-485a-8f12-4add124ae9df_min.webp"><source src="https://d8j0ntlcm91z4.cloudfront.net/user_3FEfoa0DM8RO5q60FciUMwUjdnk/hf_20260702_104306_0198d9b4-18be-48d1-9c8e-6d10acc11f05.mp4" type="video/mp4"></video></div>
   <div class="container">
-    <div class="kicker"><span class="pill-dot"></span> Nu plek voor nieuwe projecten <span class="idx">◆</span> Digitale studio · Nederland</div>
-    <h1>Wij bouwen websites die uw merk laten <em>groeien</em></h1>
+    <div class="kicker">
+      <span class="pill-dot"></span>
+      <span>Barbershop · Heerhugowaard</span>
+      <span class="idx">◆</span>
+      <span>G. Rietveldweg 4</span>
+      <span class="status" data-status><span class="dot"></span><b>Openingstijden</b> — ma t/m za</span>
+    </div>
+    <h1>Scherp geknipt, <em>zonder gedoe</em></h1>
     <div class="hero-foot">
-      <p class="hero-sub">Doordacht ontwerp, schone techniek en een scherp oog voor conversie. <strong>Van concept tot livegang</strong> — wij nemen het volledige traject uit handen.</p>
+      <p class="hero-sub">Snel, flexibel, betaalbaar en vriendelijk — dat is Barber Achie. <strong>Knippen vanaf €15</strong>, zes dagen per week, tot laat in de avond open.</p>
       <div class="hero-ctas">
-        <a href="/contact" class="btn btn-ink btn-lg">Start uw project
-          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        <a href="tel:+31685422395" class="btn btn-ink btn-lg">Bel 06 85422395
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
         </a>
-        <a href="/werk" class="btn btn-line btn-lg">Bekijk ons werk</a>
+        <a href="/prijzen" class="btn btn-line btn-lg">Bekijk de prijzen</a>
       </div>
     </div>
   </div>
 
   <div class="container showcase">
     <div class="mock-stage">
-      <div class="chip chip-1">PageSpeed <b>100/100</b></div>
-      <div class="chip chip-2">Live in <b>&lt;2 weken</b></div>
-      <div class="chip chip-3">SEO-klaar <b>vanaf dag één</b></div>
-      <div class="browser">
-        <div class="browser-bar">
-          <div class="b-dots"><span></span><span></span><span></span></div>
-          <div class="b-url">https://<b>uwbedrijf.nl</b> — gebouwd door nutel</div>
-          <div class="b-spacer"></div>
+      <div class="chip chip-1">Knippen vanaf <b>€15</b></div>
+      <div class="chip chip-2">Zes dagen <b>per week open</b></div>
+      <div class="chip chip-3">Vrij &amp; zat tot <b>22:00</b></div>
+      <div class="board">
+        <div class="board-bar">
+          <span class="pole" aria-hidden="true"></span>
+          <div class="board-title">Prijskaart — <b>Barber Achie</b></div>
+          <div class="status" data-status><span class="dot"></span><b>Openingstijden</b></div>
         </div>
-        <div class="browser-body">
-          <div class="m-nav">
-            <span class="m-logo">uwmerk<span>.</span></span>
-            <div class="m-links"><span>Diensten</span><span>Over</span><span>Cases</span><span>Contact</span></div>
-            <span class="m-cta">Offerte</span>
+        <div class="board-body">
+          <div class="board-head">
+            <h3>De <em>hele kaart</em>, geen verrassingen</h3>
+            <p>Vaste prijzen, contant of pin — u weet vooraf waar u aan toe bent.</p>
           </div>
-          <div class="m-hero">
-            <h3>Een website die<br><em>klanten oplevert</em></h3>
-            <p>Zo kan uw nieuwe website eruitzien — snel, vindbaar en op maat.</p>
-            <div class="m-btns"><span>Start project</span><span>Bekijk werk</span></div>
-          </div>
-          <div class="m-cards">
-            <div class="m-card"><div class="m-row"><span class="m-label">Performance</span><span class="m-score">100</span></div><div class="m-bar"><i style="width:100%"></i></div></div>
-            <div class="m-card"><div class="m-row"><span class="m-label">SEO</span><span class="m-score">98</span></div><div class="m-bar"><i style="width:98%"></i></div></div>
-            <div class="m-card"><div class="m-row"><span class="m-label">Conversie</span><span class="m-score">A+</span></div><div class="m-bar"><i style="width:92%"></i></div></div>
+          <ul class="price-list">
+            <li class="price-row"><span class="p-name">Knippen</span><span class="p-dots"></span><span class="p-price">€ 15,00</span></li>
+            <li class="price-row"><span class="p-name">Knippen + baard</span><span class="p-dots"></span><span class="p-price">€ 18,00</span></li>
+            <li class="price-row"><span class="p-name">Baard</span><span class="p-dots"></span><span class="p-price">€ 10,00</span></li>
+            <li class="price-row"><span class="p-name">Kinderen t/m 12 jaar</span><span class="p-dots"></span><span class="p-price">€ 12,50</span></li>
+            <li class="price-row"><span class="p-name">Wassen &amp; stylen</span><span class="p-dots"></span><span class="p-price">€ 7,50</span></li>
+          </ul>
+          <div class="board-foot">
+            <span>Ook <b>wenkbrauwen</b> en <b>harsen</b> — € 5,00</span>
+            <span>G. Rietveldweg 4 · <b>Heerhugowaard</b></span>
           </div>
         </div>
       </div>
@@ -114,8 +131,8 @@
 
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>Lumio Studio</span><span>Vértex Consultancy</span><span>Kasa Interieur</span><span>Northwind</span><span>Bloom &amp; Co</span>
-      <span>Lumio Studio</span><span>Vértex Consultancy</span><span>Kasa Interieur</span><span>Northwind</span><span>Bloom &amp; Co</span>
+      <span>Fades</span><span>Baard trimmen</span><span>Scheren</span><span>Kinderknippen</span><span>Wenkbrauwen</span><span>Wassen &amp; stylen</span>
+      <span>Fades</span><span>Baard trimmen</span><span>Scheren</span><span>Kinderknippen</span><span>Wenkbrauwen</span><span>Wassen &amp; stylen</span>
     </div>
   </div>
 </section>
@@ -125,147 +142,138 @@
   <div class="container">
     <div class="sec-head reveal">
       <div class="kicker"><span class="idx">(01)</span> Diensten</div>
-      <h2>Alles onder één dak,<br>van schets tot <em>livegang</em></h2>
+      <h2>Alles voor een<br>strak <em>eindresultaat</em></h2>
     </div>
     <div class="bento reveal d1">
 
       <a href="/diensten" class="b-cell b-wide b-feature">
         <span class="b-num">01</span>
-        <div class="b-ic"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-        <h3>Webdesign op maat</h3>
-        <p>Uniek ontwerp dat past bij uw merk en doelgroep. Geen sjablonen — alles afgestemd op uw verhaal.</p>
-        <span class="b-link">Meer over deze dienst <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        <div class="b-ic"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.1" y2="15.9"/><line x1="14.5" y1="14.5" x2="20" y2="20"/><line x1="8.1" y1="8.1" x2="12" y2="12"/></svg></div>
+        <h3>Knippen &amp; fades</h3>
+        <p>Van een strakke skin fade tot een klassieke coupe. We knippen naar uw hoofdvorm en haartype — en denken mee over wat u staat.</p>
+        <span class="b-link">Bekijk deze dienst <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
 
       <a href="/diensten" class="b-cell">
         <span class="b-num">02</span>
-        <div class="b-ic"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-        <h3>Development</h3>
-        <p>Razendsnel, veilig en perfect op elk apparaat. Schone code als fundament.</p>
+        <div class="b-ic"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M4 4v6a8 8 0 0 0 16 0V4"/><path d="M8 14c1.5 3 6.5 3 8 0"/></svg></div>
+        <h3>Baard &amp; scheren</h3>
+        <p>Baard bijwerken, strakke lijnen en een gladde afwerking met het scheermes.</p>
       </a>
 
       <a href="/diensten" class="b-cell">
         <span class="b-num">03</span>
-        <div class="b-ic"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        <h3>SEO &amp; vindbaarheid</h3>
-        <p>Goed gevonden worden in Google, vanaf de technische basis.</p>
+        <div class="b-ic"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M12 2s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></div>
+        <h3>Wassen &amp; stylen</h3>
+        <p>Haren wassen en in model brengen, zodat u er meteen goed uitloopt.</p>
       </a>
 
       <a href="/diensten" class="b-cell">
         <span class="b-num">04</span>
-        <div class="b-ic"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
-        <h3>Branding</h3>
-        <p>Logo, kleuren en huisstijl die blijven hangen — overal consistent.</p>
+        <div class="b-ic"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></div>
+        <h3>Kinderknippen</h3>
+        <p>Rustig en geduldig knippen voor kinderen tot en met twaalf jaar.</p>
       </a>
 
       <a href="/diensten" class="b-cell">
         <span class="b-num">05</span>
-        <div class="b-ic"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-        <h3>Conversie</h3>
-        <p>Gebouwd om bezoekers in klanten te veranderen. Data staat centraal.</p>
+        <div class="b-ic"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M3 12c3-4 6-4 9 0s6 4 9 0"/><path d="M3 17c3-3 6-3 9 0"/></svg></div>
+        <h3>Wenkbrauwen</h3>
+        <p>Wenkbrauwen bijwerken voor een verzorgd en scherp gezicht.</p>
       </a>
 
       <a href="/diensten" class="b-cell b-wide">
         <span class="b-num">06</span>
-        <div class="b-ic"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
-        <h3>Onderhoud &amp; support</h3>
-        <p>Na livegang blijft uw website veilig, snel en up-to-date — en staan wij voor u klaar.</p>
-        <span class="b-link">Meer over deze dienst <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        <div class="b-ic"><svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M10 2.5l1.9 5.2 5.2 1.9-5.2 1.9L10 16.7l-1.9-5.2L2.9 9.6l5.2-1.9z"/><path d="M17.5 14l.9 2.4 2.4.9-2.4.9-.9 2.4-.9-2.4-2.4-.9 2.4-.9z"/></svg></div>
+        <h3>Harsen</h3>
+        <p>Ongewenste haren in het gezicht — neus, oren of wangen — snel en netjes verwijderd.</p>
+        <span class="b-link">Bekijk deze dienst <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
 
     </div>
   </div>
 </section>
 
-<!-- Werkwijze -->
-<section class="section alt-bg" id="werkwijze">
+<!-- Prijzen + openingstijden -->
+<section class="section alt-bg" id="prijzen">
   <div class="container">
     <div class="sec-head reveal">
-      <div class="kicker"><span class="idx">(02)</span> Werkwijze</div>
-      <h2>Een helder traject,<br>zonder <em>verrassingen</em></h2>
+      <div class="kicker"><span class="idx">(02)</span> Prijzen &amp; tijden</div>
+      <h2>Eerlijke prijzen,<br>ruime <em>openingstijden</em></h2>
+      <p class="sec-note">Geen abonnementen, geen toeslagen. U ziet vooraf precies wat een behandeling kost — en wanneer u langs kunt komen.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card reveal d1">
+        <h3>Onze prijskaart</h3>
+        <p>Alle behandelingen, alle prijzen. Contant en pin worden geaccepteerd.</p>
+        <ul class="price-list">
+          <li class="price-row"><span class="p-name">Knippen</span><span class="p-dots"></span><span class="p-price">€ 15,00</span></li>
+          <li class="price-row"><span class="p-name">Knippen + baard</span><span class="p-dots"></span><span class="p-price">€ 18,00</span></li>
+          <li class="price-row"><span class="p-name">Baard</span><span class="p-dots"></span><span class="p-price">€ 10,00</span></li>
+          <li class="price-row"><span class="p-name">Kinderen t/m 12 jaar</span><span class="p-dots"></span><span class="p-price">€ 12,50</span></li>
+          <li class="price-row"><span class="p-name">Wassen &amp; stylen</span><span class="p-dots"></span><span class="p-price">€ 7,50</span></li>
+          <li class="price-row"><span class="p-name">Wenkbrauwen</span><span class="p-dots"></span><span class="p-price">€ 5,00</span></li>
+          <li class="price-row"><span class="p-name">Harsen</span><span class="p-dots"></span><span class="p-price">€ 5,00</span></li>
+        </ul>
+        <div class="price-note"><b>Combineren mag.</b> Knippen én baard samen kost € 18,00 in plaats van € 25,00 — de meestgekozen combinatie in de zaak.</div>
+      </div>
+
+      <div class="today-card reveal d2">
+        <h3>Openingstijden</h3>
+        <div class="hours">
+          <div class="hours-row" data-day="1"><span class="h-day">Maandag</span><span class="h-time">11:00 – 21:00</span></div>
+          <div class="hours-row" data-day="2"><span class="h-day">Dinsdag</span><span class="h-time">11:00 – 21:00</span></div>
+          <div class="hours-row" data-day="3"><span class="h-day">Woensdag</span><span class="h-time">11:00 – 21:00</span></div>
+          <div class="hours-row" data-day="4"><span class="h-day">Donderdag</span><span class="h-time">11:00 – 22:00</span></div>
+          <div class="hours-row" data-day="5"><span class="h-day">Vrijdag</span><span class="h-time">10:00 – 22:00</span></div>
+          <div class="hours-row" data-day="6"><span class="h-day">Zaterdag</span><span class="h-time">10:00 – 22:00</span></div>
+          <div class="hours-row is-closed" data-day="0"><span class="h-day">Zondag</span><span class="h-time">Gesloten</span></div>
+        </div>
+        <div style="margin-top:22px"><span class="status" data-status><span class="dot"></span><b>Openingstijden</b></span></div>
+      </div>
+    </div>
+
+    <div class="walkin reveal d2" style="margin-top:22px">
+      <div>
+        <h3>Liever meteen zekerheid?</h3>
+        <p>Bel of app even en we zetten u in het boek. Zo staat uw stoel klaar op het moment dat het u uitkomt.</p>
+      </div>
+      <div class="hero-ctas">
+        <a href="tel:+31685422395" class="btn btn-ink">Bel 06 85422395</a>
+        <a href="https://wa.me/31685422395" class="btn btn-line" rel="noopener">Stuur een WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Zo werkt het -->
+<section class="section" id="werkwijze">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker"><span class="idx">(03)</span> Zo werkt het</div>
+      <h2>Van binnenkomst tot<br><em>klaar</em> in vier stappen</h2>
     </div>
     <div class="process-grid reveal d1">
-      <div class="process-step"><div class="p-num">01</div><h3>Kennismaking</h3><p>We bespreken uw doelen, doelgroep en wensen. Zo weten we precies waar we naartoe werken.</p></div>
-      <div class="process-step"><div class="p-num">02</div><h3>Ontwerp</h3><p>U krijgt een uniek ontwerp te zien en we verfijnen het samen tot het helemaal klopt.</p></div>
-      <div class="process-step"><div class="p-num">03</div><h3>Bouw</h3><p>We bouwen uw website: snel, veilig en klaar voor groei — met aandacht voor elk detail.</p></div>
-      <div class="process-step"><div class="p-num">04</div><h3>Livegang &amp; groei</h3><p>We zetten alles live, meten resultaten en blijven beschikbaar voor support.</p></div>
+      <div class="process-step"><div class="p-num">01</div><h3>Even bellen</h3><p>Bel of app om een tijd af te spreken. Schikt het vandaag nog? Vaak lukt dat gewoon.</p></div>
+      <div class="process-step"><div class="p-num">02</div><h3>Wat wordt het?</h3><p>We nemen kort door wat u wilt. Twijfelt u? Dan adviseren we wat bij uw haar en gezicht past.</p></div>
+      <div class="process-step"><div class="p-num">03</div><h3>In de stoel</h3><p>Rustig en precies werken, met scherpe lijnen en aandacht voor de afwerking.</p></div>
+      <div class="process-step"><div class="p-num">04</div><h3>Afwerken</h3><p>Even nastylen, spiegel erbij, afrekenen met pin of contant. Klaar om te laten zien.</p></div>
     </div>
   </div>
 </section>
 
-<!-- Werk -->
-<section class="section" id="werk">
-  <div class="container">
-    <div class="sec-head reveal">
-      <div class="kicker"><span class="idx">(03)</span> Recent werk</div>
-      <h2>Projecten waar we<br><em>trots</em> op zijn</h2>
-      <p class="sec-note">Een greep uit de websites en webshops die wij voor ondernemers ontwierpen en bouwden.</p>
-    </div>
-    <div class="work-grid">
-      <a href="/werk" class="work-card reveal d1">
-        <div class="work-thumb"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FEfoa0DM8RO5q60FciUMwUjdnk/hf_20260702_103137_f2066cb8-30ba-4885-a5e4-72b97646293f_min.webp" alt="Project Lumio Studio" loading="lazy"></div>
-        <div class="work-body">
-          <div class="work-head">
-            <div>
-              <h3>Lumio Studio</h3>
-              <div class="work-tags"><span>Webdesign</span><span>Branding</span></div>
-            </div>
-            <div class="work-arrow"><svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
-          </div>
-        </div>
-      </a>
-      <a href="/werk" class="work-card reveal d2">
-        <div class="work-thumb"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FEfoa0DM8RO5q60FciUMwUjdnk/hf_20260702_103219_b0266f81-ead4-4f9f-baef-98f72434e985_min.webp" alt="Project Vértex Consultancy" loading="lazy"></div>
-        <div class="work-body">
-          <div class="work-head">
-            <div>
-              <h3>Vértex Consultancy</h3>
-              <div class="work-tags"><span>Development</span><span>SEO</span></div>
-            </div>
-            <div class="work-arrow"><svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
-          </div>
-        </div>
-      </a>
-      <a href="/werk" class="work-card reveal d1">
-        <div class="work-thumb"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FEfoa0DM8RO5q60FciUMwUjdnk/hf_20260702_103304_cc38394c-0650-4a1f-8a9f-b59548f979f0_min.webp" alt="Project Kasa Interieur" loading="lazy"></div>
-        <div class="work-body">
-          <div class="work-head">
-            <div>
-              <h3>Kasa Interieur</h3>
-              <div class="work-tags"><span>Webshop</span><span>Webdesign</span></div>
-            </div>
-            <div class="work-arrow"><svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
-          </div>
-        </div>
-      </a>
-      <a href="/werk" class="work-card reveal d2">
-        <div class="work-thumb"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FEfoa0DM8RO5q60FciUMwUjdnk/hf_20260702_103353_5cfa9bae-dc34-4671-bd3f-dbe7fe0a2140_min.webp" alt="Project Northwind" loading="lazy"></div>
-        <div class="work-body">
-          <div class="work-head">
-            <div>
-              <h3>Northwind</h3>
-              <div class="work-tags"><span>Landingspagina</span><span>Conversie</span></div>
-            </div>
-            <div class="work-arrow"><svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
-          </div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- Stats -->
+<!-- Cijfers -->
 <section class="band-ink">
   <div class="container">
     <div class="sec-head reveal" style="margin-bottom:56px">
-      <div class="kicker"><span class="idx">(04)</span> In cijfers</div>
-      <h2>Resultaat dat<br><em>meetbaar</em> is</h2>
+      <div class="kicker"><span class="idx">(04)</span> In het kort</div>
+      <h2>Waarom klanten<br><em>terugkomen</em></h2>
     </div>
     <div class="stats-row reveal d1">
-      <div class="stat"><div class="stat-num">120<sup>+</sup></div><div class="stat-label">Opgeleverde websites</div></div>
-      <div class="stat"><div class="stat-num">98<sup>%</sup></div><div class="stat-label">Tevreden klanten</div></div>
-      <div class="stat"><div class="stat-num">7<sup>jr</sup></div><div class="stat-label">Ervaring</div></div>
-      <div class="stat"><div class="stat-num">&lt;2<sup>wk</sup></div><div class="stat-label">Gem. doorlooptijd</div></div>
+      <div class="stat"><div class="stat-num">15<sup>,-</sup></div><div class="stat-label">Knippen vanaf</div></div>
+      <div class="stat"><div class="stat-num">6<sup>dgn</sup></div><div class="stat-label">Per week open</div></div>
+      <div class="stat"><div class="stat-num">12<sup>uur</sup></div><div class="stat-label">Open op zaterdag</div></div>
+      <div class="stat"><div class="stat-num">7<sup>×</sup></div><div class="stat-label">Behandelingen op de kaart</div></div>
     </div>
   </div>
 </section>
@@ -275,91 +283,101 @@
   <div class="container">
     <div class="split">
       <div class="split-body">
-        <div class="kicker reveal" style="margin-bottom:24px"><span class="idx">(05)</span> Waarom Nutel</div>
-        <h2 class="display reveal" style="font-size:clamp(2.1rem,4.2vw,3.2rem);margin-bottom:24px">Een partner,<br>geen <em>leverancier</em></h2>
-        <p class="reveal d1">Wij denken mee met uw business en bouwen een website die echt voor u werkt — <strong>geen standaard oplossingen, maar maatwerk met aandacht.</strong></p>
+        <div class="kicker reveal" style="margin-bottom:24px"><span class="idx">(05)</span> Waarom Barber Achie</div>
+        <h2 class="display reveal" style="font-size:clamp(2.1rem,4.2vw,3.2rem);margin-bottom:24px">Snel geholpen,<br>strak <em>afgewerkt</em></h2>
+        <p class="reveal d1">Bij ons hoeft u niet te kiezen tussen betaalbaar en goed. <strong>Vakwerk tegen een eerlijke prijs — en een stoel die vrij is wanneer het u uitkomt.</strong></p>
         <div class="ticks reveal d2">
-          <div class="tick"><span class="t-num">a.</span><div><h4>Volledig maatwerk</h4><p>Geen sjablonen. Elk ontwerp is uniek en past bij uw merk.</p></div></div>
-          <div class="tick"><span class="t-num">b.</span><div><h4>Snel &amp; mobielvriendelijk</h4><p>Optimale laadtijden en een perfecte weergave op elk scherm.</p></div></div>
-          <div class="tick"><span class="t-num">c.</span><div><h4>Persoonlijk contact</h4><p>Direct contact met de ontwerper. Korte lijnen, snelle reacties.</p></div></div>
-          <div class="tick"><span class="t-num">d.</span><div><h4>Resultaatgericht</h4><p>Gebouwd om bezoekers in klanten te veranderen.</p></div></div>
+          <div class="tick"><span class="t-num">a.</span><div><h4>Snel</h4><p>Korte wachttijden en tempo in de stoel, zonder in te leveren op precisie.</p></div></div>
+          <div class="tick"><span class="t-num">b.</span><div><h4>Flexibel</h4><p>Zes dagen per week open, doordeweeks tot 21:00 en in het weekend tot 22:00.</p></div></div>
+          <div class="tick"><span class="t-num">c.</span><div><h4>Betaalbaar</h4><p>Knippen vanaf € 15,- en vaste prijzen die op de kaart staan.</p></div></div>
+          <div class="tick"><span class="t-num">d.</span><div><h4>Vriendelijk</h4><p>Iedereen is welkom. U wordt geholpen door mensen die de tijd voor u nemen.</p></div></div>
         </div>
       </div>
       <div class="frame-wrap reveal d2">
         <div class="frame">
-          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FEfoa0DM8RO5q60FciUMwUjdnk/hf_20260702_103436_205e3ee9-f94e-4a5c-ad43-04b96a6ed51e_min.webp" alt="Nutel aan het werk" loading="lazy">
-          <span class="frame-cap">Studio — aan het werk</span>
+          <!-- Fotoslot: vervang dit blok door <img src="/img/zaak.jpg" alt="..."> zodra er foto's zijn. -->
+          <div class="photo-slot">
+            <div class="ps-mark">
+              <span class="ps-ic"><svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="15" rx="2"/><circle cx="12" cy="12.5" r="3.6"/><path d="M8 5l1.5-2h5L16 5"/></svg></span>
+              <span class="ps-txt">Foto van de zaak</span>
+            </div>
+          </div>
+          <span class="frame-cap">Barber Achie — Heerhugowaard</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Reviews -->
-<section class="section alt-bg" id="reviews">
+<!-- Waar we voor staan -->
+<section class="section alt-bg" id="belofte">
   <div class="container">
     <div class="sec-head reveal">
-      <div class="kicker"><span class="idx">(06)</span> Klanten aan het woord</div>
-      <h2>Wat ondernemers<br>over ons <em>zeggen</em></h2>
+      <div class="kicker"><span class="idx">(06)</span> Onze belofte</div>
+      <h2>Waar we elke dag<br>op <em>afgerekend</em> willen worden</h2>
     </div>
+    <!--
+      Ruimte voor echte Google-reviews. Vervang de kaarten hieronder door
+      citaten van klanten zodra die er zijn — de opmaak blijft hetzelfde.
+    -->
     <div class="quotes-grid">
       <div class="quote-card reveal d1">
         <div class="qmark">“</div>
-        <blockquote>Nutel heeft onze verwachtingen overtroffen. De website is prachtig, snel en we krijgen merkbaar meer aanvragen binnen.</blockquote>
-        <div class="quote-who"><div class="q-name">Lisa de Groot</div><div class="q-role">Eigenaar — Lumio Studio</div></div>
+        <blockquote>U loopt hier niet weg met een half werkje. Lijnen kloppen, overgangen kloppen — en anders werken we het bij.</blockquote>
+        <div class="quote-who"><div class="q-name">Vakwerk</div><div class="q-role">Barber Achie — onze belofte</div></div>
       </div>
       <div class="quote-card reveal d2">
         <div class="qmark">“</div>
-        <blockquote>Professioneel, snel en meedenkend. Het hele traject verliep soepel en het eindresultaat mag er zijn. Echt een aanrader.</blockquote>
-        <div class="quote-who"><div class="q-name">Mark Visser</div><div class="q-role">Directeur — Vértex Consultancy</div></div>
+        <blockquote>Geen verrassingen bij de kassa. Wat op de prijskaart staat, betaalt u — of het nu druk is of rustig.</blockquote>
+        <div class="quote-who"><div class="q-name">Eerlijke prijs</div><div class="q-role">Barber Achie — onze belofte</div></div>
       </div>
       <div class="quote-card reveal d3">
         <div class="qmark">“</div>
-        <blockquote>Onze webshop draait perfect en ziet er fantastisch uit. Klanten complimenteren ons er voortdurend mee. Top samenwerking!</blockquote>
-        <div class="quote-who"><div class="q-name">Sanne Kuipers</div><div class="q-role">Oprichter — Kasa Interieur</div></div>
+        <blockquote>Werkdag uitgelopen? Wij zijn er nog. Doordeweeks tot 21:00 en op vrijdag en zaterdag zelfs tot 22:00.</blockquote>
+        <div class="quote-who"><div class="q-name">Ruime tijden</div><div class="q-role">Barber Achie — onze belofte</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Contact / form -->
-<section class="section" id="contact">
+<!-- Afspraak -->
+<section class="section" id="afspraak">
   <div class="container">
     <div class="cta-wrap reveal">
       <div class="cta-left">
-        <h2>Klaar voor een website die <em>werkt</em>?</h2>
-        <p>Vertel ons over uw plannen — we reageren binnen één werkdag.</p>
+        <h2>Klaar voor een <em>frisse coupe</em>?</h2>
+        <p>Laat uw gegevens achter, dan bellen of appen wij u terug met een tijd.</p>
         <div class="cta-points">
-          <div class="cta-point">Vrijblijvend kennismakingsgesprek</div>
-          <div class="cta-point">Persoonlijk advies op maat</div>
-          <div class="cta-point">Reactie binnen één werkdag</div>
+          <div class="cta-point">Vaak nog dezelfde week terecht</div>
+          <div class="cta-point">Vaste prijzen, pin en contant</div>
+          <div class="cta-point">Liever direct? Bel 06 85422395</div>
         </div>
       </div>
       <div class="cta-form">
-        <h3>Vraag een gesprek aan</h3>
-        <p>Vul het formulier in — wij nemen contact op.</p>
+        <h3>Afspraak aanvragen</h3>
+        <p>Vul het formulier in — wij nemen contact met u op.</p>
         <div id="formBody">
           <form onsubmit="sendForm(event)">
             <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
-              <div class="field-row">
+            <div class="field-row">
               <div class="field"><label>Naam <span class="req">*</span></label><input type="text" name="naam" required placeholder="Uw naam"></div>
-              <div class="field"><label>Bedrijf</label><input type="text" name="bedrijf" placeholder="Uw bedrijf"></div>
+              <div class="field"><label>Telefoonnummer <span class="req">*</span></label><input type="tel" name="telefoon" required placeholder="06 — 00 00 00 00"></div>
             </div>
-            <div class="field"><label>E-mailadres <span class="req">*</span></label><input type="email" name="email" required placeholder="u@voorbeeld.nl"></div>
-            <div class="field"><label>Telefoonnummer</label><input type="tel" name="telefoon" placeholder="06 — 00 00 00 00"></div>
+            <div class="field"><label>E-mailadres</label><input type="email" name="email" placeholder="u@voorbeeld.nl"></div>
             <div class="field">
-              <label>Wat heeft u nodig? <span class="req">*</span></label>
-              <select name="dienst" required>
-                <option value="" disabled selected>Selecteer een dienst</option>
-                <option value="nieuwe-website">Nieuwe website</option>
-                <option value="redesign">Bestaande website vernieuwen</option>
-                <option value="webshop">Webshop</option>
-                <option value="landingspagina">Landingspagina</option>
-                <option value="branding">Branding &amp; huisstijl</option>
-                <option value="anders">Iets anders</option>
+              <label>Welke behandeling? <span class="req">*</span></label>
+              <select name="behandeling" required>
+                <option value="" disabled selected>Kies een behandeling</option>
+                <option value="knippen">Knippen — € 15,00</option>
+                <option value="knippen-baard">Knippen + baard — € 18,00</option>
+                <option value="baard">Baard — € 10,00</option>
+                <option value="kinderen">Kinderen t/m 12 jaar — € 12,50</option>
+                <option value="wassen-stylen">Wassen &amp; stylen — € 7,50</option>
+                <option value="wenkbrauwen">Wenkbrauwen — € 5,00</option>
+                <option value="harsen">Harsen — € 5,00</option>
               </select>
             </div>
-            <div class="field"><label>Vertel over uw project</label><textarea name="bericht" placeholder="Waar kunnen we u mee helpen?"></textarea></div>
+            <div class="field"><label>Wanneer schikt het?</label><textarea name="bericht" placeholder="Bijvoorbeeld: donderdagavond na 19:00"></textarea></div>
             <button type="submit" class="form-submit" id="submitBtn">Verstuur aanvraag
               <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
             </button>
@@ -369,7 +387,7 @@
         <div id="ok">
           <div class="ok-icon"><svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg></div>
           <h3>Bedankt!</h3>
-          <p>Uw aanvraag is ontvangen. We nemen binnen één werkdag contact met u op.</p>
+          <p>Uw aanvraag is ontvangen. We nemen zo snel mogelijk contact met u op.</p>
         </div>
       </div>
     </div>
@@ -384,11 +402,11 @@
       <h2>Veelgestelde <em>vragen</em></h2>
     </div>
     <div class="faq-wrap reveal d1">
-      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span>Hoe lang duurt het maken van een website?</span><div class="faq-ic"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-ans"><p>Een gemiddeld project leveren we binnen twee weken op. De exacte doorlooptijd hangt af van de omvang en hoe snel we content en feedback ontvangen.</p></div></div>
-      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span>Kan ik de website later zelf aanpassen?</span><div class="faq-ic"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-ans"><p>Zeker. We leveren een gebruiksvriendelijk systeem op zodat u zelf teksten en afbeeldingen kunt beheren. Liever uit handen geven? Dan verzorgen wij het onderhoud.</p></div></div>
-      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span>Verzorgen jullie ook de teksten en foto's?</span><div class="faq-ic"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-ans"><p>Ja, desgewenst regelen wij professionele teksten, fotografie en beeldmateriaal. Zo is uw website van begin tot eind verzorgd.</p></div></div>
-      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span>Wordt mijn website goed gevonden in Google?</span><div class="faq-ic"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-ans"><p>We bouwen elke website met een technisch sterke SEO-basis. Daarnaast bieden we aanvullende SEO-diensten om uw vindbaarheid verder te verbeteren.</p></div></div>
-      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span>Wat als ik na livegang hulp nodig heb?</span><div class="faq-ic"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-ans"><p>We laten u niet in de steek. Met onze onderhouds- en supportopties blijft uw website veilig, snel en up-to-date — en wij staan voor u klaar.</p></div></div>
+      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span>Moet ik een afspraak maken?</span><div class="faq-ic"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-ans"><p>Een afspraak geeft u de meeste zekerheid, zeker op vrijdag en zaterdag. Bel of app naar 06 85422395 en we plannen een tijd in die u uitkomt.</p></div></div>
+      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span>Wat kost knippen bij Barber Achie?</span><div class="faq-ic"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-ans"><p>Knippen kost € 15,00. Knippen in combinatie met de baard is € 18,00. Kinderen tot en met twaalf jaar knippen we voor € 12,50. De volledige prijskaart staat op de <a href="/prijzen">prijzenpagina</a>.</p></div></div>
+      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span>Kan ik met pin betalen?</span><div class="faq-ic"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-ans"><p>Ja, u kunt zowel pinnen als contant betalen.</p></div></div>
+      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span>Knippen jullie ook kinderen?</span><div class="faq-ic"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-ans"><p>Zeker. Kinderen tot en met twaalf jaar knippen we voor € 12,50 — rustig en met geduld, ook als het de eerste keer is.</p></div></div>
+      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span>Tot hoe laat zijn jullie open?</span><div class="faq-ic"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="faq-ans"><p>Maandag tot en met woensdag zijn we open van 11:00 tot 21:00, donderdag van 11:00 tot 22:00 en vrijdag en zaterdag van 10:00 tot 22:00. Op zondag zijn we gesloten.</p></div></div>
     </div>
   </div>
 </section>
@@ -396,9 +414,9 @@
 <!-- CTA + Footer -->
 <div class="foot-cta">
   <div class="container foot-cta-inner">
-    <div class="kicker"><span class="idx">✦</span> Nutel — digitale studio</div>
-    <h2>Laten we samen iets<br><em>moois</em> maken</h2>
-    <a href="/contact" class="btn btn-paper btn-lg">Start een project
+    <div class="kicker"><span class="idx">✦</span> Barber Achie — Heerhugowaard</div>
+    <h2>Tijd voor een<br><em>verse coupe</em></h2>
+    <a href="tel:+31685422395" class="btn btn-paper btn-lg">Bel 06 85422395
       <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
   </div>
@@ -406,25 +424,24 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="/" class="logo">nutel<span>.</span></a>
-          <p>Wij ontwerpen en bouwen websites die ondernemers laten groeien. Van concept tot livegang.</p>
+          <a href="/" class="logo">barber achie<span>.</span></a>
+          <p>Barbershop in Heerhugowaard. Snel, flexibel, betaalbaar en vriendelijk — zes dagen per week.</p>
         </div>
         <div class="footer-col">
           <h5>Diensten</h5>
           <ul>
-            <li><a href="/diensten">Webdesign</a></li>
-            <li><a href="/diensten">Development</a></li>
-            <li><a href="/diensten">SEO</a></li>
-            <li><a href="/diensten">Branding</a></li>
-            <li><a href="/diensten">Onderhoud</a></li>
+            <li><a href="/diensten">Knippen &amp; fades</a></li>
+            <li><a href="/diensten">Baard &amp; scheren</a></li>
+            <li><a href="/diensten">Wassen &amp; stylen</a></li>
+            <li><a href="/diensten">Kinderknippen</a></li>
+            <li><a href="/diensten">Wenkbrauwen &amp; harsen</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h5>Bedrijf</h5>
+          <h5>Zaak</h5>
           <ul>
+            <li><a href="/prijzen">Prijzen</a></li>
             <li><a href="/over">Over ons</a></li>
-            <li><a href="/werk">Werk</a></li>
-            <li><a href="/#reviews">Reviews</a></li>
             <li><a href="/contact">Contact</a></li>
             <li><a href="/privacy">Privacy</a></li>
           </ul>
@@ -432,17 +449,15 @@
         <div class="footer-col">
           <h5>Contact</h5>
           <ul>
-            <li><a href="mailto:info@nutel.nl">info@nutel.nl</a></li>
-            <li><a href="/contact">Start een project</a></li>
+            <li><a href="tel:+31685422395">06 85422395</a></li>
+            <li><a href="mailto:achiesbarbershop@gmail.com">achiesbarbershop@gmail.com</a></li>
+            <li><a href="https://maps.google.com/?q=G.+Rietveldweg+4,+1703+DD+Heerhugowaard" rel="noopener">G. Rietveldweg 4<br>1703 DD Heerhugowaard</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 Nutel · Alle rechten voorbehouden</span>
-        <div class="footer-social">
-          <a href="#" aria-label="Instagram"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg></a>
-          <a href="#" aria-label="LinkedIn"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-        </div>
+        <span>© 2026 Barber Achie — Alle rechten voorbehouden</span>
+        <span>Ma t/m za geopend · Zondag gesloten</span>
       </div>
     </div>
   </footer>
