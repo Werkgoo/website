@@ -426,3 +426,28 @@ section[id]{scroll-margin-top:88px}
 @media(max-width:720px){
   .map-card{height:280px}
 }
+
+/* ---------- social-knoppen ---------- */
+.socials{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;padding-top:20px;border-top:1px solid var(--line-soft)}
+.btn-social{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-size:.86rem;font-weight:600;
+  color:var(--ink2);background:var(--card);border:1px solid var(--line);border-radius:100px;padding:11px 18px;
+  transition:color .2s,border-color .2s,box-shadow .2s,transform .2s,background .2s}
+.btn-social svg{flex-shrink:0;transition:color .2s}
+.btn-social:hover{transform:translateY(-2px);color:var(--ink);background:var(--card-hi)}
+/* Merkkleur pas bij hover, zodat de kaart rustig blijft. */
+.btn-social--ig:hover{border-color:#E1306C;box-shadow:0 0 26px rgba(225,48,108,.32)}
+.btn-social--ig:hover svg{color:#E1306C}
+.btn-social--tt:hover{border-color:#25F4EE;box-shadow:0 0 26px rgba(37,244,238,.28)}
+.btn-social--tt:hover svg{color:#25F4EE}
+@media(max-width:720px){
+  .socials{gap:8px}
+  .btn-social{font-size:.82rem;padding:10px 15px;flex:1 1 auto;justify-content:center}
+}
+
+/* Op smalle schermen drukte een lang e-mailadres het label uit elkaar
+   ("E-" / "MAIL"). Daarom label boven waarde in plaats van ernaast. */
+@media(max-width:560px){
+  .p-line{flex-direction:column;align-items:flex-start;gap:5px}
+  .p-line .p-val{text-align:left}
+  .p-line .p-val br{display:none}
+}
