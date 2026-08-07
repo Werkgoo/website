@@ -42,6 +42,21 @@ De tijden staan op **twee** plekken en moeten samen worden bijgewerkt:
 Huidige tijden: ma t/m wo 11:00–21:00, do 11:00–22:00, vr en za 10:00–22:00,
 zondag gesloten.
 
+## WhatsApp
+
+Nummer en standaardbericht staan op één plek: bovenin `app.js`, in
+`WA_NUMBER` en `WA_TEXT`. Het nummer is internationaal, zonder `+` en
+zonder de 0 van 06 — `06 85422395` wordt dus `31685422395`.
+
+Er zijn drie ingangen: de groene knop in de hero, de regel in de
+contactkaart, en een zwevende knop rechtsonder die verschijnt zodra de
+bezoeker voorbij de hero scrollt. Alle drie openen WhatsApp in een nieuw
+tabblad met het bericht alvast ingevuld.
+
+De links in `index.html` bevatten het nummer ook rechtstreeks, zodat ze
+blijven werken als JavaScript uitstaat; `app.js` voegt daar het bericht
+aan toe. Wijzigt het nummer, pas het dan op beide plekken aan.
+
 ## Nog in te vullen
 
 - **Formulier** — `app.js` verstuurt naar `https://formspree.io/f/YOUR_ID`.
@@ -59,8 +74,10 @@ Deze gegevens komen uit openbare vermeldingen, niet uit de oude website.
 Even nalopen voor livegang:
 
 - Zondag als sluitingsdag.
-- Of 06 85422395 ook op WhatsApp bereikbaar is — de knoppen
-  `wa.me/31685422395` gaan daarvan uit.
+- **Of 06 85422395 op WhatsApp geregistreerd staat.** De knoppen gaan
+  daarvan uit. Is het nummer niet bekend bij WhatsApp, dan opent er wel
+  een venster maar meldt WhatsApp dat het nummer ongeldig is. Even zelf
+  testen door op de knop te klikken.
 - Of pinnen inderdaad mogelijk is (staat bij de prijzen).
 
 ## Publiceren
