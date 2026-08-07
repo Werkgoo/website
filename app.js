@@ -59,12 +59,12 @@ function openState(){
     return {open:true,text:'Nu open',detail:'tot '+hhmm(today[1])};
   }
   if(today&&now.minutes<today[0]*60){
-    return {open:false,text:'Gesloten',detail:'vandaag open vanaf '+hhmm(today[0])};
+    return {open:false,text:'Gesloten',detail:'opent '+hhmm(today[0])};
   }
   var nxt=nextOpening(now.day);
   if(!nxt)return {open:false,text:'Gesloten',detail:''};
   var when=nxt.offset===1?'morgen':DAY_NAMES[nxt.day];
-  return {open:false,text:'Gesloten',detail:when+' open vanaf '+hhmm(nxt.open)};
+  return {open:false,text:'Gesloten',detail:when+' vanaf '+hhmm(nxt.open)};
 }
 
 function paintStatus(){
@@ -72,7 +72,7 @@ function paintStatus(){
   document.querySelectorAll('[data-status]').forEach(function(el){
     el.classList.remove('is-open','is-closed');
     el.classList.add(st.open?'is-open':'is-closed');
-    el.innerHTML='<span class="dot"></span><b>'+st.text+'</b>'+(st.detail?' — '+st.detail:'');
+    el.innerHTML='<span class="dot"></span><b>'+st.text+'</b>'+(st.detail?' · '+st.detail:'');
   });
 }
 

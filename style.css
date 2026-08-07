@@ -212,11 +212,11 @@ html.js .reveal.on{opacity:1;transform:none}
 @keyframes pole{to{transform:translateY(24px)}}
 
 /* ---------- live open/gesloten status ---------- */
-.status{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);background:rgba(10,8,6,.55);border:1px solid var(--line-soft);border-radius:100px;padding:6px 14px;white-space:nowrap}
+.status{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-size:.82rem;font-weight:400;letter-spacing:0;text-transform:none;color:var(--muted);background:rgba(10,8,6,.5);border:1px solid var(--line-soft);border-radius:100px;padding:7px 15px 7px 13px;white-space:nowrap;backdrop-filter:blur(10px)}
 .status .dot{width:7px;height:7px;border-radius:50%;background:var(--muted);flex-shrink:0}
 .status.is-open .dot{background:#4ADE80;box-shadow:0 0 10px rgba(74,222,128,.8);animation:pulse 2.4s ease-in-out infinite}
 .status.is-closed .dot{background:#F87171;box-shadow:0 0 10px rgba(248,113,113,.7)}
-.status b{font-weight:500;color:var(--ink)}
+.status b{font-weight:600;color:var(--ink)}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
 @media(prefers-reduced-motion:reduce){.status.is-open .dot{animation:none}}
 
@@ -268,10 +268,10 @@ html.js .reveal.on{opacity:1;transform:none}
 
 /* ---------- hero met foto ---------- */
 .hero-photo{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.hero-photo img{width:100%;height:100%;object-fit:cover;opacity:.34}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 42%;opacity:.7}
 .hero-photo::after{content:'';position:absolute;inset:0;background:
-  linear-gradient(180deg,rgba(10,8,6,.86) 0%,rgba(10,8,6,.55) 38%,rgba(10,8,6,.92) 100%),
-  radial-gradient(ellipse 60% 50% at 50% 40%,transparent,rgba(10,8,6,.6))}
+  linear-gradient(90deg,rgba(10,8,6,.94) 0%,rgba(10,8,6,.8) 34%,rgba(10,8,6,.34) 68%,rgba(10,8,6,.52) 100%),
+  linear-gradient(180deg,rgba(10,8,6,.8) 0%,rgba(10,8,6,.12) 24%,rgba(10,8,6,.2) 60%,var(--paper) 100%)}
 .hero--photo{padding:158px 0 92px;min-height:min(76vh,700px);display:flex;align-items:center}
 .hero--photo .container{position:relative;z-index:1;width:100%}
 .hero--photo h1{max-width:15ch;margin-bottom:26px}
@@ -316,7 +316,16 @@ html.js .reveal.on{opacity:1;transform:none}
   .practical,.book{grid-template-columns:1fr}
 }
 @media(max-width:720px){
-  .hero--photo{padding:132px 0 72px;min-height:0}
+  /* Op een staand scherm sneed de liggende foto te hard bij. Daarom staat
+     de zaak hier als eigen beeld bovenaan, met de tekst eronder. */
+  .hero--photo{padding:0 0 8px;min-height:0;display:block}
+  .hero-photo{position:relative;inset:auto;width:100%;aspect-ratio:5/4;margin-bottom:-36px}
+  .hero-photo img{opacity:1;object-position:center 46%}
+  .hero-photo::after{background:
+    linear-gradient(180deg,rgba(10,8,6,.78) 0%,rgba(10,8,6,.12) 26%,rgba(10,8,6,.42) 68%,var(--paper) 99%)}
+  .hero--photo .container{padding-top:0}
+  .hero--photo .kicker{margin-bottom:22px}
+  .hero--photo h1{max-width:none}
   /* Volle breedte geeft op mobiel een veel groter raakvlak. */
   .hero--photo .hero-ctas{flex-direction:column;align-items:stretch}
   .hero--photo .hero-ctas .btn{justify-content:center}
