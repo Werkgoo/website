@@ -8,8 +8,24 @@ if(navToggle&&mnav){navToggle.addEventListener('click',function(){mnav.classList
 if(navClose&&mnav){navClose.addEventListener('click',function(){mnav.classList.remove('open');});}
 function closeMnav(){if(mnav)mnav.classList.remove('open');}
 
-var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}});},{threshold:0.12});
-document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+/* Onthullen tijdens het scrollen. Met een vangnet: wat al bijna in beeld
+   staat komt direct, alles is uiterlijk na 8 seconden zichtbaar, en bij
+   afdrukken klapt alles open. Inhoud blijft dus nooit onzichtbaar hangen. */
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  if(!els.length)return;
+  function toon(el){el.classList.add('on');}
+  if(!('IntersectionObserver' in window)){els.forEach(toon);return;}
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){toon(e.target);obs.unobserve(e.target);}});
+  },{threshold:0.12});
+  els.forEach(function(el){
+    if(el.getBoundingClientRect().top<window.innerHeight*1.25){toon(el);return;}
+    obs.observe(el);
+  });
+  setTimeout(function(){els.forEach(toon);},8000);
+  window.addEventListener('beforeprint',function(){els.forEach(toon);});
+})();
 
 
 /* scroll progress bar */
@@ -119,14 +135,41 @@ document.querySelectorAll('a[data-wa]').forEach(function(a){
 })();
 
 /* ============================================================
-   Afspraakformulier — vervang YOUR_ID door het Formspree-form-ID.
+   Afspraakformulier.
+   Het endpoint staat in het action-attribuut van het formulier in de HTML,
+   zodat het ook zonder JavaScript werkt. Vervang daar YOUR_ID door het
+   Formspree-form-ID.
    ============================================================ */
-var EP='https://formspree.io/f/YOUR_ID';
 function sendForm(e){
+  var form=e.target;
+  var ep=form.getAttribute('action');
+  if(!ep||ep.indexOf('YOUR_ID')!==-1){
+    e.preventDefault();
+    alert('Het formulier is nog niet gekoppeld. Bel of app ons op 06 85422395.');
+    return;
+  }
   e.preventDefault();
   var btn=document.getElementById('submitBtn');
   btn.disabled=true;btn.textContent='Versturen…';
-  fetch(EP,{method:'POST',headers:{Accept:'application/json'},body:new FormData(e.target)})
+  fetch(ep,{method:'POST',headers:{Accept:'application/json'},body:new FormData(form)})
     .then(function(r){if(!r.ok)throw 0;document.getElementById('formBody').style.display='none';document.getElementById('ok').style.display='block';})
     .catch(function(){btn.disabled=false;btn.textContent='Verstuur aanvraag';alert('Er ging iets mis. Bel of app ons op 06 85422395.');});
 }
+
+/* ============================================================
+   Navigatie volgt de sectie waar de bezoeker is (het is één pagina).
+   ============================================================ */
+(function(){
+  var links=[].slice.call(document.querySelectorAll('nav a[href^="#"]'));
+  if(!links.length||!('IntersectionObserver' in window))return;
+  var doelen=links.map(function(a){return document.querySelector(a.getAttribute('href'));}).filter(Boolean);
+  var spy=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting)return;
+      links.forEach(function(a){
+        a.classList.toggle('active',a.getAttribute('href')==='#'+en.target.id);
+      });
+    });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  doelen.forEach(function(d){spy.observe(d);});
+})();

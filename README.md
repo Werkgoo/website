@@ -26,9 +26,9 @@ werken.
 
 ## Prijzen wijzigen
 
-De prijslijst staat in `index.html` in de `<ul class="menu">`. Let op: de
-keuzelijst in het afspraakformulier verderop op dezelfde pagina noemt de
-prijzen ook — die twee moeten gelijk blijven.
+De prijslijst staat in `index.html` in de `<ul class="menu">`, en nergens
+anders. De keuzelijst in het afspraakformulier noemt alleen de
+behandelingen, zonder bedragen, zodat de prijzen niet uiteen kunnen lopen.
 
 ## Openingstijden wijzigen
 
@@ -59,9 +59,12 @@ aan toe. Wijzigt het nummer, pas het dan op beide plekken aan.
 
 ## Nog in te vullen
 
-- **Formulier** — `app.js` verstuurt naar `https://formspree.io/f/YOUR_ID`.
-  Maak een formulier aan op formspree.io en vervang `YOUR_ID`. Tot dat
-  gebeurd is, toont het formulier een foutmelding met het telefoonnummer.
+- **Formulier** — het endpoint staat in het `action`-attribuut van het
+  formulier in `index.html`: `https://formspree.io/f/YOUR_ID`. Maak een
+  formulier aan op formspree.io en vervang `YOUR_ID` daar. Tot dat gebeurd
+  is, meldt het formulier dat het nog niet gekoppeld is en noemt het het
+  telefoonnummer. Doordat het endpoint in de HTML staat, werkt het
+  formulier ook als JavaScript uitstaat.
 - **Logo** — `img/logo.png` ontbreekt nog. Zolang dat zo is, valt de header
   terug op het tekstlogo. Zet het logo met transparante achtergrond neer
   onder die naam, dan verschijnt het vanzelf.

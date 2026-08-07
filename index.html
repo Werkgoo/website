@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
+<link rel="preload" as="image" href="/img/interieur.jpg" fetchpriority="high">
 <script>document.documentElement.classList.add("js")</script>
 <script type="application/ld+json">
 {
@@ -48,6 +49,7 @@
 </script>
 </head>
 <body>
+<a href="#prijzen" class="skip-link">Naar de inhoud</a>
 
 <!-- Header -->
 <header class="header" id="header">
@@ -80,13 +82,13 @@
 <!-- Hero -->
 <section class="hero hero--photo" id="top">
   <div class="hero-photo" aria-hidden="true">
-    <img src="/img/interieur.jpg" alt="" onerror="this.remove()">
+    <img src="/img/interieur.jpg" width="1448" height="1086" alt="" fetchpriority="high" decoding="async" onerror="this.remove()">
   </div>
   <div class="container">
     <div class="kicker">
       <span class="pill-dot"></span>
       <span>Barbershop · Heerhugowaard</span>
-      <span class="status" data-status><span class="dot"></span><b>Openingstijden</b> — ma t/m za</span>
+      <span class="status" data-status><span class="dot"></span><b>Ma t/m za</b> · geopend</span>
     </div>
     <h1>Scherp geknipt, <em>zonder gedoe</em></h1>
     <p class="hero-sub">Knippen vanaf <strong>€ 15,-</strong>, met baard <strong>€ 18,-</strong>. Zes dagen per week open aan de G. Rietveldweg, tot laat in de avond.</p>
@@ -184,15 +186,15 @@
     </div>
     <div class="gallery reveal d1">
       <figure>
-        <img src="/img/kapsel-1.jpg" alt="Blonde coupe met strakke fade, zijaanzicht" loading="lazy" onerror="this.remove()">
+        <img src="/img/kapsel-1.jpg" width="933" height="1400" alt="Blonde coupe met strakke fade, zijaanzicht" loading="lazy" onerror="this.remove()">
         <figcaption>Fade met blonde coupe</figcaption>
       </figure>
       <figure>
-        <img src="/img/kapsel-2.jpg" alt="Getextureerde taper fade, zijaanzicht" loading="lazy" onerror="this.remove()">
+        <img src="/img/kapsel-2.jpg" width="933" height="1400" alt="Getextureerde taper fade, zijaanzicht" loading="lazy" onerror="this.remove()">
         <figcaption>Getextureerde taper fade</figcaption>
       </figure>
       <figure>
-        <img src="/img/barber-aan-het-werk.jpg" alt="Achie knipt een klant in de zaak in Heerhugowaard" loading="lazy" onerror="this.remove()">
+        <img src="/img/barber-aan-het-werk.jpg" width="1050" height="1400" alt="Achie knipt een klant in de zaak in Heerhugowaard" loading="lazy" onerror="this.remove()">
         <figcaption>In de zaak</figcaption>
       </figure>
     </div>
@@ -218,7 +220,7 @@
           <div class="hours-row" data-day="6"><span class="h-day">Zaterdag</span><span class="h-time">10:00 – 22:00</span></div>
           <div class="hours-row is-closed" data-day="0"><span class="h-day">Zondag</span><span class="h-time">Gesloten</span></div>
         </div>
-        <div style="margin-top:20px"><span class="status" data-status><span class="dot"></span><b>Openingstijden</b></span></div>
+        <div style="margin-top:20px"><span class="status" data-status><span class="dot"></span><b>Ma t/m za</b> · geopend</span></div>
       </div>
 
       <div class="p-card reveal d2">
@@ -249,26 +251,26 @@
       </div>
       <div class="book-right">
         <div id="formBody">
-          <form onsubmit="sendForm(event)">
+          <form action="https://formspree.io/f/YOUR_ID" method="POST" onsubmit="sendForm(event)">
             <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="field-row">
-              <div class="field"><label>Naam <span class="req">*</span></label><input type="text" name="naam" required placeholder="Uw naam"></div>
-              <div class="field"><label>Telefoonnummer <span class="req">*</span></label><input type="tel" name="telefoon" required placeholder="06 — 00 00 00 00"></div>
+              <div class="field"><label for="f-naam">Naam <span class="req">*</span></label><input id="f-naam" type="text" name="naam" required autocomplete="name" placeholder="Uw naam"></div>
+              <div class="field"><label for="f-tel">Telefoonnummer <span class="req">*</span></label><input id="f-tel" type="tel" name="telefoon" required autocomplete="tel" placeholder="06 — 00 00 00 00"></div>
             </div>
             <div class="field">
-              <label>Welke behandeling? <span class="req">*</span></label>
-              <select name="behandeling" required>
+              <label for="f-behandeling">Welke behandeling? <span class="req">*</span></label>
+              <select id="f-behandeling" name="behandeling" required>
                 <option value="" disabled selected>Kies een behandeling</option>
-                <option value="knippen">Knippen — € 15,00</option>
-                <option value="knippen-baard">Knippen + baard — € 18,00</option>
-                <option value="baard">Baard — € 10,00</option>
-                <option value="kinderen">Kinderen t/m 12 jaar — € 12,50</option>
-                <option value="wassen-stylen">Wassen &amp; stylen — € 7,50</option>
-                <option value="wenkbrauwen">Wenkbrauwen — € 5,00</option>
-                <option value="harsen">Harsen — € 5,00</option>
+                <option value="knippen">Knippen</option>
+                <option value="knippen-baard">Knippen + baard</option>
+                <option value="baard">Baard</option>
+                <option value="kinderen">Kinderen t/m 12 jaar</option>
+                <option value="wassen-stylen">Wassen &amp; stylen</option>
+                <option value="wenkbrauwen">Wenkbrauwen</option>
+                <option value="harsen">Harsen</option>
               </select>
             </div>
-            <div class="field"><label>Wanneer schikt het?</label><textarea name="bericht" placeholder="Bijvoorbeeld: donderdagavond na 19:00"></textarea></div>
+            <div class="field"><label for="f-bericht">Wanneer schikt het?</label><textarea id="f-bericht" name="bericht" placeholder="Bijvoorbeeld: donderdagavond na 19:00"></textarea></div>
             <button type="submit" class="form-submit" id="submitBtn">Verstuur aanvraag
               <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
             </button>

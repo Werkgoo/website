@@ -45,7 +45,8 @@ ul{list-style:none}
 .display{font-family:var(--serif);font-stretch:118%;font-weight:750;letter-spacing:-.025em;line-height:1.02;color:var(--ink)}.display em,
 .sec-head h2 em,
 .page-hero h1 em,
-.hero h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero h1 em,
+.book-left h2 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 
 /* ---------- header ---------- */
 .header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .3s,border-color .3s}
@@ -362,3 +363,24 @@ html.js .reveal.on{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){
   .wa-float{transition:none}
 }
+
+/* ============================================================
+   TOEGANKELIJKHEID
+   ============================================================ */
+
+/* Sprong naar de inhoud, alleen zichtbaar bij toetsenbordgebruik. */
+.skip-link{position:absolute;left:16px;top:-60px;z-index:1300;background:var(--ink);color:#100C08;
+  font-family:var(--sans);font-weight:600;font-size:.9rem;padding:12px 20px;border-radius:0 0 12px 12px;
+  transition:top .2s}
+.skip-link:focus{top:0}
+
+/* De standaardomlijning van de browser verdwijnt op donkere vlakken en op
+   de ronde knoppen. Een eigen ring is overal zichtbaar. */
+:focus-visible{outline:2px solid var(--accent-deep);outline-offset:3px;border-radius:4px}
+.btn:focus-visible,nav a:focus-visible,.wa-float:focus-visible,.logo:focus-visible,
+.mnav a:focus-visible,.p-val:focus-visible{outline:2px solid var(--accent-deep);outline-offset:3px}
+.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{outline:none}
+
+/* Ankers niet onder de vaste header laten vallen bij het springen. */
+:target{scroll-margin-top:96px}
+section[id]{scroll-margin-top:88px}
