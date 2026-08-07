@@ -17,6 +17,16 @@ JavaScript-bestand.
 | `404.html` | Foutpagina |
 | `style.css` | Volledig ontwerpsysteem |
 | `app.js` | Navigatie, animaties, live openingsstatus, formulier |
+| `img/` | Logo en foto's — zie `img/README.md` voor de bestandsnamen |
+
+## Naamgeving
+
+Het logo leest **Achie's Barbershop**, terwijl het domein en de teksten
+`Barber Achie` aanhouden. Beide namen worden in de praktijk gebruikt. De
+teksten en de `<title>`-tags staan nu op "Barber Achie" (gelijk aan het
+domein); het logo in de header draagt de naam visueel. Wilt u alles op
+"Achie's Barbershop" zetten, dan moeten de titels, de JSON-LD `name` en de
+lopende teksten mee.
 
 ## Openingstijden
 
@@ -35,10 +45,11 @@ zondag gesloten.
 - **Formulier** — `app.js` verstuurt naar `https://formspree.io/f/YOUR_ID`.
   Maak een formulier aan op formspree.io en vervang `YOUR_ID`. Tot dat gebeurd
   is, toont het formulier een foutmelding met het telefoonnummer.
-- **Foto's** — er zijn nog geen foto's van de zaak. Op de plekken waar die
-  horen staat een `.photo-slot`-blok met een HTML-commentaar erboven; vervang
-  dat blok door `<img src="/img/naam.jpg" alt="...">`. Zet de bestanden in een
-  map `img/`. De CSP in `netlify.toml` staat eigen afbeeldingen al toe.
+- **Foto's** — de HTML verwijst al naar de foto's; alleen de bestanden zelf
+  ontbreken nog. Zet ze in `img/` met de namen uit `img/README.md`, dan pakt
+  de site ze meteen op. Zolang een bestand mist, haalt een `onerror`-handler
+  de `<img>` weg en blijft de plaatshouder eronder staan — de pagina raakt
+  dus nooit stuk door een ontbrekende foto.
 - **Reviews** — de sectie "Onze belofte" op de homepage gebruikt de opmaak van
   reviewkaarten. Zodra er echte Google-reviews zijn, kunnen die de kaarten
   vervangen; het commentaar in `index.html` wijst de plek aan.

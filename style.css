@@ -523,8 +523,8 @@ html.js .reveal.on{opacity:1;transform:none}
 
 /* ---------- galerij ---------- */
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+/* Alle foto's zijn staand, dus één verhouding houdt de rij netjes gelijk. */
 .gallery figure{border-radius:20px;overflow:hidden;border:1px solid var(--line-soft);background:var(--paper2);aspect-ratio:4/5;position:relative}
-.gallery figure:nth-child(4n+1){aspect-ratio:4/3}
 .gallery figure img{width:100%;height:100%;object-fit:cover}
 .gallery figcaption{position:absolute;left:16px;bottom:14px;z-index:2;font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:rgba(10,8,6,.6);backdrop-filter:blur(10px);border:1px solid var(--line-soft);padding:7px 13px;border-radius:100px}
 
@@ -539,4 +539,29 @@ html.js .reveal.on{opacity:1;transform:none}
   .gallery{grid-template-columns:1fr}
   .walkin{padding:26px 24px}
   .hero .status{margin-left:0}
+}
+
+/* ============================================================
+   ECHTE FOTO'S OVER DE PLAATSHOUDERS
+   De <img> ligt boven de .photo-slot. Ontbreekt het bestand, dan
+   haalt de onerror-handler de <img> weg en blijft de plaatshouder
+   staan — de pagina raakt daardoor nooit stuk.
+   ============================================================ */
+.frame,.gallery figure{position:relative}
+.frame .photo-slot,.gallery figure .photo-slot{position:absolute;inset:0;min-height:0}
+.frame>img,.gallery figure>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.frame-cap,.gallery figcaption{z-index:2}
+.gallery figure>img{transition:transform .6s ease}
+.gallery figure:hover>img{transform:scale(1.05)}
+
+/* ---------- logo als afbeelding ---------- */
+.logo-mark{display:inline-flex;align-items:center;flex-shrink:0}
+.logo-mark img{height:44px;width:auto;display:block}
+.logo-mark .logo-text{display:none}
+.logo-mark.no-logo .logo-text{display:inline}
+.footer .logo-mark img{height:60px}
+.mnav-head .logo-mark img{height:38px}
+@media(max-width:720px){
+  .logo-mark img{height:36px}
+  .footer .logo-mark img{height:52px}
 }
