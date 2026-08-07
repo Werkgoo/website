@@ -23,26 +23,32 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[redirects]]
-  from = "/diensten"
-  to = "/diensten.html"
-  status = 200
-
-[[redirects]]
-  from = "/prijzen"
-  to = "/prijzen.html"
-  status = 200
-
-[[redirects]]
-  from = "/over"
-  to = "/over.html"
-  status = 200
-
-[[redirects]]
-  from = "/contact"
-  to = "/contact.html"
-  status = 200
-
-[[redirects]]
   from = "/privacy"
   to = "/privacy.html"
   status = 200
+
+# De losse pagina's zijn samengevoegd tot een homepage; oude links blijven werken.
+[[redirects]]
+  from = "/diensten"
+  to = "/#prijzen"
+  status = 301
+
+[[redirects]]
+  from = "/prijzen"
+  to = "/#prijzen"
+  status = 301
+
+[[redirects]]
+  from = "/werk"
+  to = "/#werk"
+  status = 301
+
+[[redirects]]
+  from = "/over"
+  to = "/#praktisch"
+  status = 301
+
+[[redirects]]
+  from = "/contact"
+  to = "/#afspraak"
+  status = 301
