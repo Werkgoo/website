@@ -59,12 +59,11 @@ aan toe. Wijzigt het nummer, pas het dan op beide plekken aan.
 
 ## Nog in te vullen
 
-- **Formulier** — het endpoint staat in het `action`-attribuut van het
-  formulier in `index.html`: `https://formspree.io/f/YOUR_ID`. Maak een
-  formulier aan op formspree.io en vervang `YOUR_ID` daar. Tot dat gebeurd
-  is, meldt het formulier dat het nog niet gekoppeld is en noemt het het
-  telefoonnummer. Doordat het endpoint in de HTML staat, werkt het
-  formulier ook als JavaScript uitstaat.
+- **Formulier** — staat nu tijdelijk op WhatsApp, zie hieronder. Zodra u
+  het per e-mail wilt ontvangen: maak een formulier aan op formspree.io,
+  zet het form-ID in het `action`-attribuut van het formulier in
+  `index.html` (nu `https://formspree.io/f/YOUR_ID`) en zet
+  `FORMULIER_VIA_WHATSAPP` in `app.js` op `false`.
 - **Logo** — `img/logo.png` ontbreekt nog. Zolang dat zo is, valt de header
   terug op het tekstlogo. Zet het logo met transparante achtergrond neer
   onder die naam, dan verschijnt het vanzelf.
@@ -79,6 +78,23 @@ kaart overbodig maakt.
 
 Het frame is toegestaan via `frame-src https://www.google.com` in de CSP
 in `netlify.toml`. Haalt u de kaart weg, haal die regel er dan ook uit.
+
+## Formulier gaat tijdelijk via WhatsApp
+
+`FORMULIER_VIA_WHATSAPP` staat bovenaan het formulierblok in `app.js` op
+`true`. Het formulier verstuurt dan niets zelf: bij verzenden opent
+WhatsApp met de ingevulde gegevens als kant-en-klaar bericht, dat de
+klant zelf nog verstuurt. De verzendknop wordt daarop groen met het
+WhatsApp-icoon en het bijschrift vertelt wat er gebeurt — dat gebeurt
+allemaal vanuit die ene schakelaar, dus terugzetten is één regel.
+
+De verplichte velden blijven gewoon gelden: een leeg formulier opent geen
+WhatsApp. Wordt de pop-up geblokkeerd, dan opent WhatsApp in hetzelfde
+tabblad in plaats van dat er niets gebeurt.
+
+Let op: dit werkt via JavaScript. Staat dat uit, dan valt het formulier
+terug op de POST naar Formspree uit het `action`-attribuut — die moet dan
+wel ingesteld zijn.
 
 ## Social media
 

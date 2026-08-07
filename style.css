@@ -451,3 +451,8 @@ section[id]{scroll-margin-top:88px}
   .p-line .p-val{text-align:left}
   .p-line .p-val br{display:none}
 }
+
+/* Verzendknop in WhatsApp-groen zolang het formulier daarheen gaat. */
+.form-submit--wa{background:#25D366;color:#06301A;box-shadow:0 4px 24px rgba(37,211,102,.3)}
+.form-submit--wa:hover{background:#2EE472;box-shadow:0 0 40px rgba(37,211,102,.45)}
+.form-submit--wa svg{flex-shrink:0}
