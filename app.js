@@ -40,7 +40,7 @@ window.addEventListener('scroll',function(){
    Openingstijden — live status en markering van vandaag.
    Index 0 = zondag, null = gesloten. Uren als [open, dicht].
    ============================================================ */
-var OPENING=[null,[11,21],[11,21],[11,21],[11,22],[10,22],[10,22]];
+var OPENING=[[11,20],[11,21],[11,21],[11,21],[11,22],[10,22],[10,22]];
 var DAY_NAMES=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
 
 /* Klok van de zaak, niet van de bezoeker — anders klopt de status in het buitenland niet. */
@@ -133,6 +133,20 @@ document.querySelectorAll('a[data-wa]').forEach(function(a){
   window.addEventListener('scroll',toggle,{passive:true});
   toggle();
 })();
+
+/* ============================================================
+   Kaart pas laden als de bezoeker erom vraagt.
+   ============================================================ */
+function laadKaart(btn){
+  var kaart=btn.parentNode;
+  var f=document.createElement('iframe');
+  f.src='https://www.google.com/maps?q=G.+Rietveldweg+4,+1703+DD+Heerhugowaard&hl=nl&z=16&output=embed';
+  f.title='Kaart met de locatie van Barber Achie, G. Rietveldweg 4 in Heerhugowaard';
+  f.loading='lazy';
+  f.referrerPolicy='no-referrer-when-downgrade';
+  f.setAttribute('allowfullscreen','');
+  kaart.replaceChild(f,btn);
+}
 
 /* ============================================================
    Afspraakformulier.

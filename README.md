@@ -40,7 +40,7 @@ De tijden staan op **twee** plekken en moeten samen worden bijgewerkt:
    in de JSON-LD bovenaan diezelfde pagina.
 
 Huidige tijden: ma t/m wo 11:00–21:00, do 11:00–22:00, vr en za 10:00–22:00,
-zondag gesloten.
+zo 11:00–20:00. De zaak is dus zeven dagen per week open.
 
 ## WhatsApp
 
@@ -68,15 +68,29 @@ aan toe. Wijzigt het nummer, pas het dan op beide plekken aan.
 - **Logo** — `img/logo.png` ontbreekt nog. Zolang dat zo is, valt de header
   terug op het tekstlogo. Zet het logo met transparante achtergrond neer
   onder die naam, dan verschijnt het vanzelf.
-- **Social media** — Instagram en TikTok zijn niet gelinkt omdat de
-  gebruikersnamen ontbreken.
+
+## Kaart
+
+De kaart onder "Praktisch" laadt niet vanzelf. Standaard staat er een eigen
+paneel met de adrespin; pas na een klik op "Kaart laden" wordt de Google
+Maps-iframe geplaatst. Zo doet de site geen enkel verzoek aan Google
+zolang de bezoeker daar niet om vraagt, wat een cookiemelding voor de
+kaart overbodig maakt.
+
+Het frame is toegestaan via `frame-src https://www.google.com` in de CSP
+in `netlify.toml`. Haalt u de kaart weg, haal die regel er dan ook uit.
+
+## Social media
+
+Instagram (`@achie.sbarbershop`) en TikTok (`@achietheb`) staan in de
+contactkaart en in de `sameAs` van de structured data, zodat Google ze aan
+de zaak kan koppelen.
 
 ## Te controleren
 
 Deze gegevens komen uit openbare vermeldingen, niet uit de oude website.
 Even nalopen voor livegang:
 
-- Zondag als sluitingsdag.
 - **Of 06 85422395 op WhatsApp geregistreerd staat.** De knoppen gaan
   daarvan uit. Is het nummer niet bekend bij WhatsApp, dan opent er wel
   een venster maar meldt WhatsApp dat het nummer ongeldig is. Even zelf
