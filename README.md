@@ -131,6 +131,33 @@ Instagram (`@achie.sbarbershop`) en TikTok (`@achietheb`) staan in de
 contactkaart en in de `sameAs` van de structured data, zodat Google ze aan
 de zaak kan koppelen.
 
+## Mobiele actiebalk
+
+Onderaan `index.html`, `privacy.html` en `404.html` staat `.actionbar`:
+twee knoppen (bellen en WhatsApp) die op schermen tot 720px vast onderin
+blijven staan zodra de bezoeker voorbij de hero is. De zwevende
+WhatsApp-knop wordt daar verborgen, anders zou hij dubbelop zijn. Op
+desktop is het omgekeerde het geval.
+
+`body` krijgt op mobiel `padding-bottom` zodat de balk de footer niet
+afdekt, en de balk houdt rekening met `env(safe-area-inset-bottom)` voor
+telefoons met een streep onderaan.
+
+## Wat de concurrentie wel heeft en wij niet
+
+Uit de barbershops in Heerhugowaard (Barber Hasan, Zidan Barber, Barber
+Tangerino, Barber Shamo, De KapperIng):
+
+1. **Online boeken met tijdslots.** Vrijwel iedereen zit op Fresha of
+   Knipklok, waar de klant zelf een tijd kiest. Wij hebben alleen bellen,
+   WhatsApp en het formulier. Dit is het grootste gat en het enige punt
+   dat echt klanten kan schelen — buiten openingstijden kan niemand nu
+   iets vastleggen.
+2. **Zichtbare beoordelingen.** Barber Hasan toont 4,6 uit 5 over 178
+   reviews. Wij tonen geen enkel cijfer. Zodra er Google-reviews zijn, is
+   dat het sterkste vertrouwenssignaal dat er is.
+3. **De barbiers bij naam.** Meerdere concurrenten stellen hun team voor.
+
 ## Te controleren
 
 Deze gegevens komen uit openbare vermeldingen, niet uit de oude website.

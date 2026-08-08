@@ -558,3 +558,37 @@ h1 em .w-i,h2 em .w-i{background:var(--grad);-webkit-background-clip:text;backgr
   .sec-head .kicker::before{transform:scaleX(1)!important}
   .hero-photo img,.wa-float.show{animation:none!important}
 }
+
+/* ============================================================
+   VASTE ACTIEBALK OP MOBIEL
+   Bellen en WhatsApp altijd binnen duimbereik. Op desktop niet
+   nodig — daar staat de zwevende knop en de header-knop.
+   ============================================================ */
+.actionbar{display:none}
+@media(max-width:720px){
+  .actionbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;
+    position:fixed;left:0;right:0;bottom:0;z-index:1160;
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));
+    background:rgba(10,8,6,.86);backdrop-filter:blur(16px);
+    border-top:1px solid var(--line-soft);
+    transform:translateY(115%);transition:transform .35s cubic-bezier(.16,1,.3,1)}
+  .actionbar.show{transform:none}
+  .ab-btn{display:flex;align-items:center;justify-content:center;gap:9px;
+    min-height:52px;border-radius:100px;font-family:var(--sans);font-weight:600;font-size:.95rem}
+  .ab-bel{background:var(--grad);color:#fff}
+  .ab-wa{background:#25D366;color:#06301A}
+  .ab-btn svg{flex-shrink:0}
+  /* De zwevende knop zou hier dubbelop zijn. */
+  .wa-float{display:none}
+  /* Ruimte onderaan zodat de balk de footer niet afdekt. */
+  body{padding-bottom:82px}
+}
+@media(max-width:720px) and (prefers-reduced-motion:reduce){
+  .actionbar{transition:none}
+}
+
+/* ---------- raakvlakken groot genoeg om te tikken ---------- */
+/* De contactregels waren 27px hoog; dat is te klein voor een duim. */
+.p-line .p-val{display:inline-flex;align-items:center;min-height:44px}
+.p-line span.p-val{min-height:0}
+.nav-toggle{padding:10px;margin-right:-10px}
