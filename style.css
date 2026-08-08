@@ -96,8 +96,7 @@ nav a.active{color:var(--ink);background:var(--card-hi)}
 .hero-sub{font-size:1.08rem;color:var(--muted);font-weight:400;max-width:46ch}
 .hero-sub strong{color:var(--ink);font-weight:600}
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
-@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}/* Chips liggen op de randen van de prijskaart{top:2px;left:-30px}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
 
 /* ---------- marquee ---------- */
 .marquee{border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);padding:22px 0;overflow:hidden;margin-top:88px;position:relative}
@@ -456,3 +455,106 @@ section[id]{scroll-margin-top:88px}
 .form-submit--wa{background:#25D366;color:#06301A;box-shadow:0 4px 24px rgba(37,211,102,.3)}
 .form-submit--wa:hover{background:#2EE472;box-shadow:0 0 40px rgba(37,211,102,.45)}
 .form-submit--wa svg{flex-shrink:0}
+
+/* ============================================================
+   ANIMATIES
+   Alles draait op transform en opacity, zodat de browser het op de
+   grafische kaart kan afhandelen en er niets hoeft te herberekenen.
+   Onderaan dit blok staat de uitschakeling voor prefers-reduced-motion.
+   ============================================================ */
+
+/* ---------- woord-voor-woord onthullen ---------- */
+/* De mask krijgt wat ruimte onderaan, anders knipt hij staarten van de
+   g, p en j af. De negatieve marge haalt die ruimte weer weg. */
+.w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.16em;margin-bottom:-.16em}
+.w-i{display:inline-block;transform:translateY(115%);opacity:0;
+  transition:transform 1s cubic-bezier(.16,1,.3,1),opacity .7s ease}
+.is-in .w-i{transform:none;opacity:1}
+/* Het accentwoord houdt zijn goudverloop, ook nu het opgeknipt is. */
+h1 em .w-i,h2 em .w-i{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* ---------- hero ---------- */
+.hero-photo img{animation:kenburns 26s ease-in-out infinite alternate;will-change:transform}
+@keyframes kenburns{from{transform:scale(1) translate3d(0,0,0)}to{transform:scale(1.09) translate3d(-1.2%,-1%,0)}}
+.hero .kicker,.hero-sub,.hero-ctas{opacity:0;transform:translateY(22px);
+  transition:opacity .8s ease,transform 1s cubic-bezier(.16,1,.3,1)}
+.hero.is-in .kicker{opacity:1;transform:none;transition-delay:.05s}
+.hero.is-in .hero-sub{opacity:1;transform:none;transition-delay:.5s}
+.hero.is-in .hero-ctas{opacity:1;transform:none;transition-delay:.62s}
+/* De oude animatie op de kop is vervangen door het woordeffect. */
+.hero h1{animation:none}
+.hero .kicker{animation:none}
+
+/* ---------- kopregels in secties ---------- */
+.sec-head .kicker{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .8s cubic-bezier(.16,1,.3,1)}
+.sec-head.is-in .kicker{opacity:1;transform:none}
+/* De lijn boven de sectie tekent zichzelf. */
+.sec-head .kicker{position:relative}
+.sec-head .kicker::before{content:'';position:absolute;left:0;right:0;top:-13px;height:1px;
+  background:var(--grad);transform:scaleX(0);transform-origin:left;
+  transition:transform 1.1s cubic-bezier(.16,1,.3,1) .1s}
+.sec-head.is-in .kicker::before{transform:scaleX(1)}
+
+/* ---------- prijsregels ---------- */
+.menu-row{opacity:0;transform:translateY(18px);
+  transition:opacity .6s ease,transform .8s cubic-bezier(.16,1,.3,1),border-color .3s}
+.menu.is-in .menu-row{opacity:1;transform:none}
+.menu.is-in .menu-row:nth-child(1){transition-delay:.02s}
+.menu.is-in .menu-row:nth-child(2){transition-delay:.08s}
+.menu.is-in .menu-row:nth-child(3){transition-delay:.14s}
+.menu.is-in .menu-row:nth-child(4){transition-delay:.20s}
+.menu.is-in .menu-row:nth-child(5){transition-delay:.26s}
+.menu.is-in .menu-row:nth-child(6){transition-delay:.32s}
+.menu.is-in .menu-row:nth-child(7){transition-delay:.38s}
+.menu-row{position:relative;padding-left:0}
+.menu-row::before{content:'';position:absolute;left:-14px;top:22px;bottom:18px;width:2px;border-radius:2px;
+  background:var(--grad);transform:scaleY(0);transform-origin:top;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.menu-row:hover::before{transform:scaleY(1)}
+.menu-row .m-body,.menu-row .m-price{transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.menu-row:hover .m-body{transform:translateX(6px)}
+.menu-row:hover .m-price{transform:scale(1.07)}
+
+/* ---------- galerij ---------- */
+.gallery figure{clip-path:inset(0 0 100% 0);transition:clip-path 1.1s cubic-bezier(.16,1,.3,1)}
+.gallery.is-in figure{clip-path:inset(0 0 0 0)}
+.gallery.is-in figure:nth-child(2){transition-delay:.12s}
+.gallery.is-in figure:nth-child(3){transition-delay:.24s}
+.gallery figure>img{transform:scale(1.14);transition:transform 1.4s cubic-bezier(.16,1,.3,1)}
+.gallery.is-in figure>img{transform:scale(1)}
+.gallery figure:hover>img{transform:scale(1.07)}
+.gallery figcaption{transform:translateY(6px);opacity:.85;transition:transform .4s cubic-bezier(.16,1,.3,1),opacity .4s}
+.gallery figure:hover figcaption{transform:none;opacity:1}
+
+/* ---------- lichtvlek die de muis volgt ---------- */
+.p-card,.book,.map-card{position:relative;overflow:hidden}
+.p-card::after,.book::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  opacity:0;transition:opacity .4s;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(201,162,39,.13),transparent 62%)}
+.p-card:hover::after,.book:hover::after{opacity:1}
+
+/* ---------- glansveeg over de hoofdknoppen ---------- */
+.btn-ink,.form-submit{position:relative;overflow:hidden}
+.btn-ink::after,.form-submit::after{content:'';position:absolute;top:0;bottom:0;left:-120%;width:55%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.42),transparent);
+  transform:skewX(-18deg);pointer-events:none}
+.btn-ink:hover::after,.form-submit:hover::after{animation:veeg .85s ease-out}
+@keyframes veeg{to{left:130%}}
+
+/* ---------- header krimpt bij het scrollen ---------- */
+.header-inner{transition:height .35s cubic-bezier(.16,1,.3,1)}
+.header.scrolled .header-inner{height:64px}
+.logo-mark img,.logo-text{transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.header.scrolled .logo-mark img,.header.scrolled .logo-text{transform:scale(.9);transform-origin:left center}
+
+/* ---------- zwevende WhatsApp-knop ademt ---------- */
+.wa-float.show{animation:adem 3.4s ease-in-out infinite}
+@keyframes adem{0%,100%{box-shadow:0 10px 30px rgba(0,0,0,.45),0 0 0 0 rgba(37,211,102,.45)}
+                60%{box-shadow:0 10px 30px rgba(0,0,0,.45),0 0 0 16px rgba(37,211,102,0)}}
+
+/* ---------- alles uit voor wie beweging liever vermijdt ---------- */
+@media(prefers-reduced-motion:reduce){
+  .w-i,.hero .kicker,.hero-sub,.hero-ctas,.sec-head .kicker,.menu-row,.gallery figure,.gallery figure>img{
+    opacity:1!important;transform:none!important;clip-path:none!important}
+  .sec-head .kicker::before{transform:scaleX(1)!important}
+  .hero-photo img,.wa-float.show{animation:none!important}
+}

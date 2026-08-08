@@ -230,3 +230,138 @@ function sendForm(e){
   },{rootMargin:'-45% 0px -50% 0px'});
   doelen.forEach(function(d){spy.observe(d);});
 })();
+
+/* ============================================================
+   ANIMATIES
+   Alles hieronder is versiering: valt het uit, dan blijft de pagina
+   gewoon leesbaar. Wie beweging liever vermijdt krijgt niets van dit
+   alles — de reduced-motion-check staat meteen bovenaan.
+   ============================================================ */
+(function(){
+  var rustig=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fijnAanwijzer=window.matchMedia('(pointer: fine)').matches;
+
+  /* --- koppen opknippen in woorden, met de opmaak eromheen intact --- */
+  function splitsWoorden(el){
+    if(!el||el.querySelector('.w'))return;
+    var tekstNodes=[],loop=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false),n;
+    while((n=loop.nextNode()))tekstNodes.push(n);
+    tekstNodes.forEach(function(node){
+      if(!node.nodeValue.trim())return;
+      var frag=document.createDocumentFragment();
+      node.nodeValue.split(/(\s+)/).forEach(function(stuk){
+        if(!stuk)return;
+        if(!stuk.trim()){frag.appendChild(document.createTextNode(stuk));return;}
+        var mask=document.createElement('span');mask.className='w';
+        var kern=document.createElement('span');kern.className='w-i';
+        kern.textContent=stuk;
+        mask.appendChild(kern);frag.appendChild(mask);
+      });
+      node.parentNode.replaceChild(frag,node);
+    });
+    [].slice.call(el.querySelectorAll('.w-i')).forEach(function(w,i){
+      w.style.transitionDelay=(0.06*i)+'s';
+    });
+  }
+
+  if(!rustig){
+    splitsWoorden(document.querySelector('.hero h1'));
+    [].slice.call(document.querySelectorAll('.sec-head h2, .book-left h2')).forEach(splitsWoorden);
+  }
+
+  /* --- in beeld? dan aanzetten --- */
+  var doelen=[].slice.call(document.querySelectorAll('.hero, .sec-head, .menu, .gallery, .book-left'));
+  function aan(el){el.classList.add('is-in');}
+  if('IntersectionObserver' in window){
+    var kijker=new IntersectionObserver(function(rijen){
+      rijen.forEach(function(r){if(r.isIntersecting){aan(r.target);kijker.unobserve(r.target);}});
+    },{threshold:0.15});
+    doelen.forEach(function(el){
+      if(el.getBoundingClientRect().top<window.innerHeight*1.1){aan(el);return;}
+      kijker.observe(el);
+    });
+    /* Vangnet, net als bij de gewone onthulling. */
+    setTimeout(function(){doelen.forEach(aan);},8000);
+  }else{
+    doelen.forEach(aan);
+  }
+
+  if(rustig)return;
+
+  /* --- hero-foto schuift trager mee dan de pagina --- */
+  var foto=document.querySelector('.hero-photo');
+  var marquee=document.querySelector('.marquee-track');
+  var magneten=fijnAanwijzer?[].slice.call(document.querySelectorAll('.hero-ctas .btn')):[];
+
+  /* De marquee loopt vanuit JS, zodat scrollen hem een zetje kan geven. */
+  var mx=0,mv=0,laatsteY=window.scrollY,stap=0;
+  if(marquee){
+    marquee.style.animation='none';
+    stap=marquee.scrollWidth/3; /* drie identieke reeksen in de HTML */
+  }
+
+  /* De lus draait alleen als er ook echt iets te zien is: staat de hero
+     en de marquee allebei buiten beeld, of ligt het tabblad op de
+     achtergrond, dan slaapt hij. Scheelt accu op de telefoon. */
+  var heroZichtbaar=true,marqueeZichtbaar=true,draait=false;
+
+  function stuur(){
+    var actief=!document.hidden&&(heroZichtbaar||marqueeZichtbaar);
+    if(actief&&!draait){draait=true;requestAnimationFrame(tekenen);}
+    if(marquee)marquee.style.willChange=marqueeZichtbaar?'transform':'auto';
+  }
+
+  function tekenen(){
+    if(document.hidden||(!heroZichtbaar&&!marqueeZichtbaar)){draait=false;return;}
+    var y=window.scrollY;
+
+    if(foto&&heroZichtbaar){
+      foto.style.transform='translate3d(0,'+(y*0.18)+'px,0)';
+    }
+    if(marquee&&stap>0&&marqueeZichtbaar){
+      var dy=y-laatsteY;
+      mv+=(dy*0.6-mv)*0.12;
+      mx-=0.55+Math.min(Math.abs(mv),18)*0.35;
+      if(mx<=-stap)mx+=stap;
+      marquee.style.transform='translate3d('+mx+'px,0,0)';
+    }
+    laatsteY=y;
+    requestAnimationFrame(tekenen);
+  }
+
+  if('IntersectionObserver' in window){
+    var zicht=new IntersectionObserver(function(rijen){
+      rijen.forEach(function(r){
+        if(r.target===foto)heroZichtbaar=r.isIntersecting;
+        else marqueeZichtbaar=r.isIntersecting;
+      });
+      stuur();
+    },{rootMargin:'150px'});
+    if(foto)zicht.observe(foto);
+    if(marquee)zicht.observe(marquee.parentNode);
+  }
+  document.addEventListener('visibilitychange',stuur);
+  stuur();
+
+  /* --- lichtvlek volgt de muis over de kaarten --- */
+  if(fijnAanwijzer){
+    [].slice.call(document.querySelectorAll('.p-card,.book')).forEach(function(kaart){
+      kaart.addEventListener('mousemove',function(e){
+        var r=kaart.getBoundingClientRect();
+        kaart.style.setProperty('--mx',(e.clientX-r.left)+'px');
+        kaart.style.setProperty('--my',(e.clientY-r.top)+'px');
+      });
+    });
+
+    /* --- de hoofdknoppen trekken licht naar de cursor toe --- */
+    magneten.forEach(function(knop){
+      knop.addEventListener('mousemove',function(e){
+        var r=knop.getBoundingClientRect();
+        var dx=(e.clientX-(r.left+r.width/2))*0.22;
+        var dy=(e.clientY-(r.top+r.height/2))*0.32;
+        knop.style.transform='translate('+dx+'px,'+dy+'px)';
+      });
+      knop.addEventListener('mouseleave',function(){knop.style.transform='';});
+    });
+  }
+})();

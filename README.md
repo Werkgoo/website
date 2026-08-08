@@ -96,6 +96,35 @@ Let op: dit werkt via JavaScript. Staat dat uit, dan valt het formulier
 terug op de POST naar Formspree uit het `action`-attribuut — die moet dan
 wel ingesteld zijn.
 
+## Animaties
+
+De animatielaag zit onderaan `style.css` en onderaan `app.js`, allebei in
+een blok met het kopje ANIMATIES. Wat er gebeurt:
+
+- De koppen worden door JavaScript in losse woorden geknipt, die elk
+  achter een masker vandaan omhoog komen. De opmaak eromheen blijft heel,
+  dus het goudverloop op het accentwoord overleeft het opknippen.
+- De hero-foto zoomt heel traag in (ken burns) en schuift bij het scrollen
+  langzamer mee dan de rest.
+- Prijsregels komen na elkaar binnen, galerijfoto's worden van boven naar
+  beneden opengeveegd.
+- De kaarten hebben een lichtvlek die de muis volgt, de hoofdknoppen een
+  glansveeg, en de knoppen in de hero trekken licht naar de cursor toe.
+- De marquee loopt vanuit JavaScript, zodat scrollen hem een zetje geeft.
+
+Twee dingen om te weten bij het aanpassen:
+
+1. **Alles is versiering.** Valt JavaScript uit, dan blijft de pagina
+   gewoon leesbaar; er zit een vangnet dat na 8 seconden alles zichtbaar
+   maakt, ook als een waarnemer niet afgaat.
+2. **De animatielus slaapt** zodra de hero en de marquee allebei buiten
+   beeld zijn, en zodra het tabblad naar de achtergrond gaat. Dat scheelt
+   accu op de telefoon.
+
+Wie in zijn systeeminstellingen aangeeft beweging te willen beperken
+(`prefers-reduced-motion`), krijgt hier niets van te zien: de koppen
+worden dan niet eens opgeknipt en alles staat meteen stil en zichtbaar.
+
 ## Social media
 
 Instagram (`@achie.sbarbershop`) en TikTok (`@achietheb`) staan in de
