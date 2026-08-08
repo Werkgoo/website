@@ -143,6 +143,25 @@ desktop is het omgekeerde het geval.
 afdekt, en de balk houdt rekening met `env(safe-area-inset-bottom)` voor
 telefoons met een streep onderaan.
 
+## Afbeeldingen
+
+Elke foto staat er in drie maten (480, 900 en de volle breedte) en in twee
+formaten (WebP en JPEG), gekoppeld via `<picture>` met `srcset` en `sizes`.
+De browser kiest zelf wat bij het scherm past: een telefoon haalt de
+900-versie, een gewoon desktopscherm de 480-versie voor de galerij.
+
+De `sizes`-waarden volgen de echte kolombreekpunten van de galerij (1
+kolom t/m 720px, 2 t/m 1024px, daarna 3). **Wijzigt u die breekpunten in
+`style.css`, pas dan ook `sizes` in `index.html` aan** — anders haalt de
+browser een te kleine foto op en wordt hij wazig.
+
+Nieuwe foto's toevoegen: zet het origineel als `naam.jpg` in `img/` en
+maak de varianten `naam-480`, `naam-900` in beide formaten. Zonder
+varianten werkt het ook, dan valt de browser terug op het origineel.
+
+`og.jpg` is de deelkaart voor WhatsApp en social (1200x630). Verandert de
+hero-tekst, dan is die kaart ook gedateerd.
+
 ## Wat de concurrentie wel heeft en wij niet
 
 Uit de barbershops in Heerhugowaard (Barber Hasan, Zidan Barber, Barber

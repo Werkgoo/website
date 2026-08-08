@@ -12,15 +12,22 @@
 <meta property="og:url" content="https://barberachie.nl/">
 <meta property="og:title" content="Barber Achie — Barbershop in Heerhugowaard">
 <meta property="og:description" content="Knippen vanaf €15 aan de G. Rietveldweg in Heerhugowaard. Elke dag open, tot laat in de avond.">
-<meta property="og:image" content="https://barberachie.nl/img/interieur.jpg">
+<meta property="og:image" content="https://barberachie.nl/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <meta name="theme-color" content="#0A0806">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <link rel="stylesheet" href="/style.css">
-<link rel="preload" as="image" href="/img/interieur.jpg" fetchpriority="high">
+<link rel="preload" as="image" type="image/webp" fetchpriority="high"
+      imagesrcset="/img/interieur-480.webp 480w, /img/interieur-900.webp 900w, /img/interieur.webp 1448w"
+      imagesizes="100vw">
 <script>document.documentElement.classList.add("js")</script>
 <script type="application/ld+json">
 {
@@ -28,7 +35,7 @@
   "@type": "HairSalon",
   "name": "Barber Achie",
   "url": "https://barberachie.nl",
-  "image": "https://barberachie.nl/img/interieur.jpg",
+  "image": "https://barberachie.nl/img/og.jpg",
   "telephone": "+31685422395",
   "email": "achiesbarbershop@gmail.com",
   "priceRange": "€€",
@@ -45,11 +52,122 @@
     "addressCountry": "NL"
   },
   "openingHoursSpecification": [
-    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday"],"opens":"11:00","closes":"21:00"},
-    {"@type":"OpeningHoursSpecification","dayOfWeek":"Thursday","opens":"11:00","closes":"22:00"},
-    {"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"10:00","closes":"22:00"},
-    {"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"11:00","closes":"20:00"}
-  ]
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday"
+      ],
+      "opens": "11:00",
+      "closes": "21:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Thursday",
+      "opens": "11:00",
+      "closes": "22:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "10:00",
+      "closes": "22:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Sunday",
+      "opens": "11:00",
+      "closes": "20:00"
+    }
+  ],
+  "hasMap": "https://maps.google.com/?q=G.+Rietveldweg+4,+1703+DD+Heerhugowaard",
+  "areaServed": {
+    "@type": "City",
+    "name": "Heerhugowaard"
+  },
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Contant, Pin",
+  "publicAccess": true,
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Diensten en prijzen",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Knippen",
+          "description": "Fade, klassiek of bijpunten, geknipt naar hoofdvorm en haartype."
+        },
+        "price": "15.00",
+        "priceCurrency": "EUR"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Knippen + baard",
+          "description": "Knipbeurt en baard in één afspraak."
+        },
+        "price": "18.00",
+        "priceCurrency": "EUR"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Baard",
+          "description": "Baard in model brengen, contouren zetten en afwerken met het mes."
+        },
+        "price": "10.00",
+        "priceCurrency": "EUR"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Kinderknippen t/m 12 jaar",
+          "description": "Rustig knippen voor kinderen tot en met twaalf jaar."
+        },
+        "price": "12.50",
+        "priceCurrency": "EUR"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Wassen & stylen",
+          "description": "Wassen, föhnen en in model brengen."
+        },
+        "price": "7.50",
+        "priceCurrency": "EUR"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Wenkbrauwen",
+          "description": "Wenkbrauwen bijwerken."
+        },
+        "price": "5.00",
+        "priceCurrency": "EUR"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Harsen",
+          "description": "Ongewenste haartjes bij neus, oren of wangen verwijderen."
+        },
+        "price": "5.00",
+        "priceCurrency": "EUR"
+      }
+    ]
+  }
 }
 </script>
 </head>
@@ -87,7 +205,7 @@
 <!-- Hero -->
 <section class="hero hero--photo" id="top">
   <div class="hero-photo" aria-hidden="true">
-    <img src="/img/interieur.jpg" width="1448" height="1086" alt="" fetchpriority="high" decoding="async" onerror="this.remove()">
+    <picture><source type="image/webp" srcset="/img/interieur-480.webp 480w, /img/interieur-900.webp 900w, /img/interieur.webp 1448w" sizes="100vw"><source type="image/jpeg" srcset="/img/interieur-480.jpg 480w, /img/interieur-900.jpg 900w, /img/interieur.jpg 1448w" sizes="100vw"><img src="/img/interieur.jpg" width="1448" height="1086" alt="" fetchpriority="high" decoding="async" onerror="this.remove()"></picture>
   </div>
   <div class="container">
     <div class="kicker">
@@ -191,15 +309,15 @@
     </div>
     <div class="gallery">
       <figure>
-        <img src="/img/kapsel-1.jpg" width="933" height="1400" alt="Blonde coupe met strakke fade, zijaanzicht" loading="lazy" onerror="this.remove()">
+        <picture><source type="image/webp" srcset="/img/kapsel-1-480.webp 480w, /img/kapsel-1-900.webp 900w, /img/kapsel-1.webp 933w" sizes="(max-width:720px) calc(100vw - 44px), (max-width:1024px) calc((100vw - 88px) / 2), (max-width:1240px) calc((100vw - 104px) / 3), 376px"><source type="image/jpeg" srcset="/img/kapsel-1-480.jpg 480w, /img/kapsel-1-900.jpg 900w, /img/kapsel-1.jpg 933w" sizes="(max-width:720px) calc(100vw - 44px), (max-width:1024px) calc((100vw - 88px) / 2), (max-width:1240px) calc((100vw - 104px) / 3), 376px"><img src="/img/kapsel-1.jpg" width="933" height="1400" alt="Blonde coupe met strakke fade, zijaanzicht" loading="lazy" onerror="this.remove()"></picture>
         <figcaption>Fade met blonde coupe</figcaption>
       </figure>
       <figure>
-        <img src="/img/kapsel-2.jpg" width="933" height="1400" alt="Getextureerde taper fade, zijaanzicht" loading="lazy" onerror="this.remove()">
+        <picture><source type="image/webp" srcset="/img/kapsel-2-480.webp 480w, /img/kapsel-2-900.webp 900w, /img/kapsel-2.webp 933w" sizes="(max-width:720px) calc(100vw - 44px), (max-width:1024px) calc((100vw - 88px) / 2), (max-width:1240px) calc((100vw - 104px) / 3), 376px"><source type="image/jpeg" srcset="/img/kapsel-2-480.jpg 480w, /img/kapsel-2-900.jpg 900w, /img/kapsel-2.jpg 933w" sizes="(max-width:720px) calc(100vw - 44px), (max-width:1024px) calc((100vw - 88px) / 2), (max-width:1240px) calc((100vw - 104px) / 3), 376px"><img src="/img/kapsel-2.jpg" width="933" height="1400" alt="Getextureerde taper fade, zijaanzicht" loading="lazy" onerror="this.remove()"></picture>
         <figcaption>Getextureerde taper fade</figcaption>
       </figure>
       <figure>
-        <img src="/img/barber-aan-het-werk.jpg" width="1050" height="1400" alt="Achie knipt een klant in de zaak in Heerhugowaard" loading="lazy" onerror="this.remove()">
+        <picture><source type="image/webp" srcset="/img/barber-aan-het-werk-480.webp 480w, /img/barber-aan-het-werk-900.webp 900w, /img/barber-aan-het-werk.webp 1050w" sizes="(max-width:720px) calc(100vw - 44px), (max-width:1024px) calc((100vw - 88px) / 2), (max-width:1240px) calc((100vw - 104px) / 3), 376px"><source type="image/jpeg" srcset="/img/barber-aan-het-werk-480.jpg 480w, /img/barber-aan-het-werk-900.jpg 900w, /img/barber-aan-het-werk.jpg 1050w" sizes="(max-width:720px) calc(100vw - 44px), (max-width:1024px) calc((100vw - 88px) / 2), (max-width:1240px) calc((100vw - 104px) / 3), 376px"><img src="/img/barber-aan-het-werk.jpg" width="1050" height="1400" alt="Achie knipt een klant in de zaak in Heerhugowaard" loading="lazy" onerror="this.remove()"></picture>
         <figcaption>In de zaak</figcaption>
       </figure>
     </div>
