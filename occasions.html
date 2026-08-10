@@ -108,146 +108,19 @@
       <button class="filter-btn" onclick="filterOcc(this,'hybride')">Hybride</button>
       <button class="filter-btn" onclick="filterOcc(this,'automaat')">Automaat</button>
       <button class="filter-btn" onclick="filterOcc(this,'bedrijfswagen')">Bedrijfswagen</button>
+      <span class="filter-count"><b id="occCount">–</b> auto's op voorraad</span>
     </div>
 
-    <div class="occ-grid reveal d1" id="occGrid">
+    <div class="occ-grid reveal d1" id="occGrid" aria-busy="true"></div>
 
-      <a href="/contact" class="occ-card" data-tags="benzine handgeschakeld">
-        <div class="occ-thumb"><span class="occ-tag">Nieuw binnen</span><svg class="car" viewBox="0 0 640 250" aria-hidden="true"><use href="#car-side"/></svg><span class="occ-photo-note">Foto volgt</span></div>
-        <div class="occ-body">
-          <h3>Volkswagen Polo 1.0 TSI</h3>
-          <p class="occ-sub">Comfortline · 5-deurs · 1e eigenaar</p>
-          <div class="occ-specs">
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-cal"/></svg> 2019</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-km"/></svg> 68.400 km</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-fuel"/></svg> Benzine</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-gear"/></svg> Handgeschakeld</div>
-          </div>
-          <div class="occ-foot"><div class="occ-price">€ 14.950<small>rijklaar</small></div><span class="occ-cta">Proefrit</span></div>
-        </div>
-      </a>
+    <div class="occ-loading" id="occLoading">Voorraad laden…</div>
 
-      <a href="/contact" class="occ-card" data-tags="benzine handgeschakeld">
-        <div class="occ-thumb h2"><span class="occ-tag ghost">Ruime station</span><svg class="car" viewBox="0 0 640 250" aria-hidden="true"><use href="#car-side"/></svg><span class="occ-photo-note">Foto volgt</span></div>
-        <div class="occ-body">
-          <h3>Opel Astra Sports Tourer</h3>
-          <p class="occ-sub">1.2 Turbo · Navigatie · Trekhaak</p>
-          <div class="occ-specs">
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-cal"/></svg> 2020</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-km"/></svg> 92.100 km</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-fuel"/></svg> Benzine</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-gear"/></svg> Handgeschakeld</div>
-          </div>
-          <div class="occ-foot"><div class="occ-price">€ 16.750<small>rijklaar</small></div><span class="occ-cta">Proefrit</span></div>
-        </div>
-      </a>
-
-      <a href="/contact" class="occ-card" data-tags="hybride automaat">
-        <div class="occ-thumb h3"><span class="occ-tag ghost">Zuinig</span><svg class="car" viewBox="0 0 640 250" aria-hidden="true"><use href="#car-side"/></svg><span class="occ-photo-note">Foto volgt</span></div>
-        <div class="occ-body">
-          <h3>Toyota Yaris 1.5 Hybrid</h3>
-          <p class="occ-sub">Active · Automaat · Achteruitrijcamera</p>
-          <div class="occ-specs">
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-cal"/></svg> 2019</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-km"/></svg> 88.200 km</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-fuel"/></svg> Hybride</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-gear"/></svg> Automaat</div>
-          </div>
-          <div class="occ-foot"><div class="occ-price">€ 15.450<small>rijklaar</small></div><span class="occ-cta">Proefrit</span></div>
-        </div>
-      </a>
-
-      <a href="/contact" class="occ-card" data-tags="benzine handgeschakeld">
-        <div class="occ-thumb h2"><span class="occ-tag ghost">Lage kilometerstand</span><svg class="car" viewBox="0 0 640 250" aria-hidden="true"><use href="#car-side"/></svg><span class="occ-photo-note">Foto volgt</span></div>
-        <div class="occ-body">
-          <h3>Renault Clio TCe 90</h3>
-          <p class="occ-sub">Zen · Airco · Cruise control</p>
-          <div class="occ-specs">
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-cal"/></svg> 2021</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-km"/></svg> 41.300 km</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-fuel"/></svg> Benzine</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-gear"/></svg> Handgeschakeld</div>
-          </div>
-          <div class="occ-foot"><div class="occ-price">€ 15.900<small>rijklaar</small></div><span class="occ-cta">Proefrit</span></div>
-        </div>
-      </a>
-
-      <a href="/contact" class="occ-card" data-tags="benzine automaat">
-        <div class="occ-thumb"><span class="occ-tag ghost">Hoge instap</span><svg class="car" viewBox="0 0 640 250" aria-hidden="true"><use href="#car-side"/></svg><span class="occ-photo-note">Foto volgt</span></div>
-        <div class="occ-body">
-          <h3>Peugeot 2008 PureTech</h3>
-          <p class="occ-sub">Allure · Automaat · Parkeersensoren</p>
-          <div class="occ-specs">
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-cal"/></svg> 2020</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-km"/></svg> 74.800 km</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-fuel"/></svg> Benzine</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-gear"/></svg> Automaat</div>
-          </div>
-          <div class="occ-foot"><div class="occ-price">€ 18.900<small>rijklaar</small></div><span class="occ-cta">Proefrit</span></div>
-        </div>
-      </a>
-
-      <a href="/contact" class="occ-card" data-tags="benzine handgeschakeld">
-        <div class="occ-thumb h3"><span class="occ-tag ghost">Scherp geprijsd</span><svg class="car" viewBox="0 0 640 250" aria-hidden="true"><use href="#car-side"/></svg><span class="occ-photo-note">Foto volgt</span></div>
-        <div class="occ-body">
-          <h3>Ford Focus 1.0 EcoBoost</h3>
-          <p class="occ-sub">Titanium · Climate control · Navi</p>
-          <div class="occ-specs">
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-cal"/></svg> 2018</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-km"/></svg> 112.500 km</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-fuel"/></svg> Benzine</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-gear"/></svg> Handgeschakeld</div>
-          </div>
-          <div class="occ-foot"><div class="occ-price">€ 12.450<small>rijklaar</small></div><span class="occ-cta">Proefrit</span></div>
-        </div>
-      </a>
-
-      <a href="/contact" class="occ-card" data-tags="benzine handgeschakeld">
-        <div class="occ-thumb h2"><span class="occ-tag ghost">Veel ruimte</span><svg class="car" viewBox="0 0 640 250" aria-hidden="true"><use href="#car-side"/></svg><span class="occ-photo-note">Foto volgt</span></div>
-        <div class="occ-body">
-          <h3>Škoda Octavia Combi 1.5 TSI</h3>
-          <p class="occ-sub">Ambition · Trekhaak · Stoelverwarming</p>
-          <div class="occ-specs">
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-cal"/></svg> 2019</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-km"/></svg> 129.000 km</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-fuel"/></svg> Benzine</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-gear"/></svg> Handgeschakeld</div>
-          </div>
-          <div class="occ-foot"><div class="occ-price">€ 16.250<small>rijklaar</small></div><span class="occ-cta">Proefrit</span></div>
-        </div>
-      </a>
-
-      <a href="/contact" class="occ-card" data-tags="benzine handgeschakeld">
-        <div class="occ-thumb"><span class="occ-tag ghost">Ideaal voor de stad</span><svg class="car" viewBox="0 0 640 250" aria-hidden="true"><use href="#car-side"/></svg><span class="occ-photo-note">Foto volgt</span></div>
-        <div class="occ-body">
-          <h3>Kia Picanto 1.0</h3>
-          <p class="occ-sub">DynamicLine · Fabrieksgarantie · Camera</p>
-          <div class="occ-specs">
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-cal"/></svg> 2020</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-km"/></svg> 39.700 km</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-fuel"/></svg> Benzine</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-gear"/></svg> Handgeschakeld</div>
-          </div>
-          <div class="occ-foot"><div class="occ-price">€ 11.750<small>rijklaar</small></div><span class="occ-cta">Proefrit</span></div>
-        </div>
-      </a>
-
-      <a href="/contact" class="occ-card" data-tags="diesel handgeschakeld bedrijfswagen">
-        <div class="occ-thumb h3"><span class="occ-tag ghost">Bedrijfswagen</span><svg class="car" viewBox="0 0 640 250" aria-hidden="true"><use href="#car-side"/></svg><span class="occ-photo-note">Foto volgt</span></div>
-        <div class="occ-body">
-          <h3>Volkswagen Transporter 2.0 TDI</h3>
-          <p class="occ-sub">L1H1 · Bedrijfswageninrichting · Trekhaak</p>
-          <div class="occ-specs">
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-cal"/></svg> 2018</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-km"/></svg> 168.000 km</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-fuel"/></svg> Diesel</div>
-            <div><svg width="14" height="14" aria-hidden="true"><use href="#ic-gear"/></svg> Handgeschakeld</div>
-          </div>
-          <div class="occ-foot"><div class="occ-price">€ 13.950<small>excl. btw</small></div><span class="occ-cta">Proefrit</span></div>
-        </div>
-      </a>
-
-    </div>
+    <noscript>
+      <div class="notice" style="margin-top:24px">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <p>De voorraad wordt met JavaScript geladen. Staat dat uit? Bel ons op <a href="tel:+31367505404">036 750 5404</a> — we vertellen u graag wat er nu staat.</p>
+      </div>
+    </noscript>
 
     <div class="occ-empty" id="occEmpty">
       <p>Op dit moment staat er geen auto in deze categorie. Bel <a href="tel:+31367505404" style="color:var(--accent-deep)">036 750 5404</a> — vaak kunnen we hem voor u zoeken.</p>
@@ -355,6 +228,19 @@
   </footer>
 </div>
 
+<script src="/config.js"></script>
+<script src="/data.js"></script>
 <script src="/app.js"></script>
+<script>
+Heems.load().then(function(list){
+  var grid=document.getElementById('occGrid');
+  Heems.grid(grid,list);
+  grid.setAttribute('aria-busy','false');
+  document.getElementById('occLoading').style.display='none';
+  document.getElementById('occCount').textContent=list.filter(function(o){return o.status!=='verkocht';}).length;
+}).catch(function(){
+  document.getElementById('occLoading').textContent='De voorraad kon niet geladen worden. Bel ons op 036 750 5404.';
+});
+</script>
 </body>
 </html>

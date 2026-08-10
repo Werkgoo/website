@@ -374,6 +374,44 @@ nav a.active{color:var(--ink);background:var(--card-hi)}
 .footer-social a{width:38px;height:38px;border-radius:50%;border:1px solid var(--line-soft);background:var(--card);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:color .2s,border-color .2s,box-shadow .2s}
 .footer-social a:hover{color:var(--ink);border-color:rgba(255,138,26,.5);box-shadow:0 0 20px rgba(255,138,26,.3)}
 
+/* ---------- occasion: status, teller, laden ---------- */
+.occ-loading{color:var(--muted);font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;padding:48px 0;text-align:center}
+.filter-count{margin-left:auto;font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.filter-count b{color:var(--ink);font-weight:500}
+.occ-tag.sold{background:rgba(8,7,10,.8);border:1px solid rgba(255,64,32,.5);color:#FF9070;backdrop-filter:blur(8px);font-weight:500}
+.occ-card.is-sold .occ-thumb{filter:grayscale(.75);opacity:.65}
+.occ-card.is-sold .occ-price{color:var(--muted);text-decoration:line-through}
+
+/* ---------- occasion detail ---------- */
+.det-layout{display:grid;grid-template-columns:1.4fr .8fr;gap:36px;align-items:start}
+.gallery{display:flex;flex-direction:column;gap:12px}
+.gal-main{position:relative;border:1px solid var(--line-soft);border-radius:22px;overflow:hidden;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(ellipse 70% 80% at 50% 102%,rgba(255,138,26,.22),transparent 60%),linear-gradient(160deg,#17141b,#0b0a0d)}
+.gal-main img{width:100%;height:100%;object-fit:cover}
+.gal-main .car{width:80%;height:auto}
+.gal-main .occ-photo-note{position:absolute;right:14px;bottom:14px}
+.gal-thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.gal-thumbs button{padding:0;border:1px solid var(--line-soft);border-radius:12px;overflow:hidden;background:#0b0a0d;aspect-ratio:4/3;cursor:pointer}
+.gal-thumbs button.active{border-color:var(--accent)}
+.gal-thumbs img{width:100%;height:100%;object-fit:cover}
+.price-card{border:1px solid var(--line);border-radius:24px;padding:32px 30px;background:var(--card);backdrop-filter:blur(14px);position:sticky;top:100px}
+.p-status{font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;display:inline-flex;align-items:center;gap:9px;color:var(--ink2);border:1px solid var(--line);border-radius:100px;padding:7px 14px;margin-bottom:20px}
+.p-status i{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);display:block}
+.p-status.sold i{background:var(--red);box-shadow:0 0 10px var(--red)}
+.p-price{font-family:var(--serif);font-stretch:120%;font-weight:800;font-size:2.5rem;letter-spacing:-.03em;color:var(--ink);line-height:1}
+.p-note{font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:9px}
+.p-quick{display:flex;flex-direction:column;margin:26px 0;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);padding:4px 0}
+.p-quick div{display:flex;justify-content:space-between;gap:16px;padding:11px 0;font-size:.92rem;color:var(--ink2)}
+.p-quick span:first-child{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.price-card .btn{width:100%;justify-content:center;margin-bottom:10px}
+.spec-table{display:grid;grid-template-columns:1fr 1fr;gap:0 44px}
+.spec-table div{display:flex;justify-content:space-between;gap:20px;padding:14px 2px;border-bottom:1px solid var(--line-soft);font-size:.94rem;color:var(--ink)}
+.spec-table span:first-child{font-family:var(--mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.opt-list{display:flex;flex-wrap:wrap;gap:10px}
+.opt-list span{font-size:.86rem;color:var(--ink2);background:var(--card);border:1px solid var(--line-soft);border-radius:100px;padding:9px 16px;display:inline-flex;align-items:center;gap:9px}
+.opt-list span::before{content:'✓';color:var(--accent);font-size:.78rem}
+.det-text{color:var(--muted);font-size:1rem;max-width:70ch;line-height:1.8}
+
 /* ---------- scroll progress ---------- */
 .pbar{position:fixed;top:0;left:0;right:0;height:2px;z-index:1100;pointer-events:none;background:transparent}
 .pbar i{display:block;height:100%;width:0;background:var(--grad);box-shadow:0 0 10px rgba(255,138,26,.6);transition:width .1s linear}
@@ -399,6 +437,8 @@ html.js .reveal.on{opacity:1;transform:none}
   nav,.header .btn-ink{display:none}
   .nav-toggle{display:block;margin-left:auto}
   .svc-block{grid-template-columns:70px 1fr;gap:28px;padding:36px 30px}
+  .det-layout{grid-template-columns:1fr;gap:28px}
+  .price-card{position:static}
   .svc-block .svc-right{grid-column:2}
 }
 @media(max-width:860px){
@@ -428,6 +468,9 @@ html.js .reveal.on{opacity:1;transform:none}
   .contact-form-card{padding:34px 26px}
   .footer-grid{grid-template-columns:1fr}
   .field-row{grid-template-columns:1fr}
+  .spec-table{grid-template-columns:1fr}
+  .gal-thumbs{grid-template-columns:repeat(4,1fr)}
+  .filter-count{margin-left:0;width:100%}
   .svc-block{grid-template-columns:1fr;gap:20px;padding:30px 24px}
   .svc-block .svc-right{grid-column:1}
   .marquee{margin-top:56px}

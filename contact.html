@@ -237,6 +237,22 @@
   </footer>
 </div>
 
+<script src="/config.js"></script>
+<script src="/data.js"></script>
 <script src="/app.js"></script>
+<script>
+/* Komt de bezoeker vanaf een occasion? Dan het formulier alvast invullen. */
+(function(){
+  var id=new URLSearchParams(location.search).get('auto');
+  if(!id) return;
+  var sel=document.getElementById('f-onderwerp');
+  if(sel) sel.value='proefrit';
+  Heems.byId(id).then(function(o){
+    if(!o) return;
+    var t=document.getElementById('f-bericht');
+    if(t&&!t.value) t.value='Ik heb interesse in de '+Heems.titel(o)+' ('+o.bouwjaar+', '+Heems.km(o.km)+') en wil graag een proefrit inplannen.';
+  });
+})();
+</script>
 </body>
 </html>

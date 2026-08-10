@@ -50,10 +50,10 @@ function filterOcc(btn,tag){
 }
 
 /* contactformulier
-   LET OP: vervang YOUR_ID door het Formspree-form-ID van info@autobedrijfdeheems.nl
-   (formspree.io -> New form). Zonder geldig ID komt de aanvraag niet aan en
-   krijgt de bezoeker het telefoonnummer te zien. */
-var EP='https://formspree.io/f/YOUR_ID';
+   Het Formspree-form-ID staat in config.js. Zonder geldig ID komt de aanvraag
+   niet aan en krijgt de bezoeker het telefoonnummer te zien. */
+var CFG=window.HEEMS_CONFIG||{};
+var EP='https://formspree.io/f/'+(CFG.formspreeId||'YOUR_ID');
 function sendForm(e){
   e.preventDefault();
   var btn=document.getElementById('submitBtn');

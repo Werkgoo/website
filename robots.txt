@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /beheer
+Disallow: /beheer.html
+Disallow: /admin.html
 
 Sitemap: https://autobedrijfdeheems.nl/sitemap.xml

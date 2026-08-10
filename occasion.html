@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Occasion — Autobedrijf De Heems</title>
+<meta name="description" content="Alle gegevens van deze occasion bij Autobedrijf De Heems in Velsen-Noord: specificaties, opties, prijs en proefrit aanvragen.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#08070A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+
+<!-- Icon sprite -->
+<svg class="sprite" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <linearGradient id="cg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF8A1A"/><stop offset="1" stop-color="#FFC44A"/>
+    </linearGradient>
+    <radialGradient id="cs" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#FF8A1A" stop-opacity=".38"/><stop offset="1" stop-color="#FF8A1A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <symbol id="car-side" viewBox="0 0 640 250">
+    <ellipse cx="320" cy="216" rx="280" ry="16" fill="url(#cs)"/>
+    <g fill="none" stroke="url(#cg)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M36 186v-28c0-12 8-20 20-22l78-14 46-40c10-8 22-12 34-12h158c14 0 26 4 34 12l44 40 106 14c14 2 24 10 24 22v28h-68a34 34 0 0 0-68 0H234a34 34 0 0 0-68 0H36Z"/>
+      <path d="M196 118l36-34c6-6 14-8 22-8h42v42Z" fill="rgba(255,196,74,.10)"/>
+      <path d="M310 76h56c10 0 18 4 24 10l26 32H310Z" fill="rgba(255,196,74,.10)"/>
+      <circle cx="200" cy="186" r="30"/><circle cx="200" cy="186" r="12"/>
+      <circle cx="478" cy="186" r="30"/><circle cx="478" cy="186" r="12"/>
+      <path d="M236 168h206" opacity=".45"/>
+      <path d="M300 136h24" opacity=".7"/>
+      <path d="M40 152h24M580 152h-22" stroke-width="6"/>
+    </g>
+    <path d="M18 214h604" stroke="url(#cg)" stroke-width="2" opacity=".28" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="ic-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></symbol>
+  <symbol id="ic-km" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="ic-fuel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 21V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v15M3 12h10M16 8l3 2v8a2 2 0 0 1-4 0v-5"/></symbol>
+  <symbol id="ic-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 4v16M18 4v16M6 12h12M6 8h12"/></symbol>
+</svg>
+
+<!-- Header -->
+<header class="header" id="header">
+  <div class="container header-inner">
+    <a href="/" class="logo">de Heems<span>.</span></a>
+    <nav>
+      <a href="/occasions" class="active">Occasions</a>
+      <a href="/diensten">Diensten</a>
+      <a href="/over">Over ons</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <a href="tel:+31367505404" class="btn btn-ink">036 750 5404</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
+  </div>
+</header>
+
+<!-- Mobile nav -->
+<div class="mnav" id="mnav">
+  <div class="mnav-head">
+    <span class="logo">de Heems<span>.</span></span>
+    <button class="mnav-close" id="navClose" aria-label="Sluiten"><svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <a href="/occasions" onclick="closeMnav()">Occasions</a>
+  <a href="/diensten" onclick="closeMnav()">Diensten</a>
+  <a href="/over" onclick="closeMnav()">Over ons</a>
+  <a href="/contact" onclick="closeMnav()">Contact</a>
+  <a href="tel:+31367505404" class="btn btn-ink" onclick="closeMnav()">Bel 036 750 5404</a>
+</div>
+
+<!-- Page hero -->
+<section class="page-hero" style="padding-bottom:44px">
+  <div class="container">
+    <div class="crumb"><b><a href="/occasions">Occasions</a></b> / <span id="crumbNaam">…</span></div>
+    <h1 id="detTitel" style="font-size:clamp(2rem,4.4vw,3.4rem)">Occasion laden…</h1>
+    <p class="lead" id="detSub"></p>
+  </div>
+</section>
+
+<!-- Detail -->
+<section class="section tight" style="padding-top:0">
+  <div class="container">
+    <div id="detBody"></div>
+    <div class="occ-loading" id="detLoading">Gegevens laden…</div>
+  </div>
+</section>
+
+<!-- Meer occasions -->
+<section class="section tight alt-bg" id="meerSectie" style="display:none">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="kicker"><span class="idx">✦</span> Ook interessant</div>
+      <h2>Andere auto's uit<br>onze <em>voorraad</em></h2>
+    </div>
+    <div class="occ-grid" id="meerGrid"></div>
+  </div>
+</section>
+
+<!-- CTA + Footer -->
+<div class="foot-cta">
+  <div class="container foot-cta-inner">
+    <div class="kicker"><span class="idx">✦</span> Autobedrijf De Heems — Velsen-Noord</div>
+    <h2>Even komen<br><em>kijken</em>?</h2>
+    <a href="tel:+31367505404" class="btn btn-paper btn-lg">Bel 036 750 5404
+      <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">de Heems<span>.</span></a>
+          <p>Autobedrijf De Heems — occasions, onderhoud, APK en reparatie voor alle merken in Velsen-Noord.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Diensten</h5>
+          <ul>
+            <li><a href="/occasions">Occasions</a></li>
+            <li><a href="/diensten#apk">APK-keuring</a></li>
+            <li><a href="/diensten#onderhoud">Onderhoud</a></li>
+            <li><a href="/diensten#reparatie">Reparatie</a></li>
+            <li><a href="/diensten#schade">Schadeherstel</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Bedrijf</h5>
+          <ul>
+            <li><a href="/over">Over ons</a></li>
+            <li><a href="/#reviews">Reviews</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="tel:+31367505404">036 750 5404</a></li>
+            <li><a href="mailto:info@autobedrijfdeheems.nl">info@autobedrijfdeheems.nl</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Lijndenweg+6A+1951+NC+Velsen-Noord" target="_blank" rel="noopener">Lijndenweg 6-A, Velsen-Noord</a></li>
+            <li>Ma t/m vr 08:00 – 17:30</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Autobedrijf De Heems · Alle rechten voorbehouden</span>
+        <div class="footer-social">
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Lijndenweg+6A+1951+NC+Velsen-Noord" aria-label="Route" target="_blank" rel="noopener"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+          <a href="mailto:info@autobedrijfdeheems.nl" aria-label="E-mail"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="/config.js"></script>
+<script src="/data.js"></script>
+<script src="/app.js"></script>
+<script>
+(function () {
+  var id = new URLSearchParams(location.search).get('id');
+  var esc = Heems.esc;
+
+  function rij(label, waarde) {
+    if (!waarde && waarde !== 0) return '';
+    return '<div><span>' + esc(label) + '</span><span>' + esc(waarde) + '</span></div>';
+  }
+
+  function galerij(o) {
+    if (!o.fotos.length) {
+      return '<div class="gal-main"><svg class="car" viewBox="0 0 640 250" aria-hidden="true"><use href="#car-side"/></svg>' +
+             '<span class="occ-photo-note">Foto volgt</span></div>';
+    }
+    var thumbs = o.fotos.length > 1
+      ? '<div class="gal-thumbs">' + o.fotos.map(function (f, i) {
+          return '<button type="button" class="' + (i ? '' : 'active') + '" onclick="toonFoto(' + i + ',this)" aria-label="Foto ' + (i + 1) + '">' +
+                 '<img src="' + esc(f) + '" alt="" loading="lazy"></button>';
+        }).join('') + '</div>'
+      : '';
+    return '<div class="gal-main"><img id="galMain" src="' + esc(o.fotos[0]) + '" alt="' + esc(Heems.titel(o)) + '"></div>' + thumbs;
+  }
+
+  window.toonFoto = function (i, btn) {
+    var m = document.getElementById('galMain');
+    if (m && window._fotos) m.src = window._fotos[i];
+    [].forEach.call(btn.parentNode.children, function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+  };
+
+  function render(o) {
+    window._fotos = o.fotos;
+    var titel = Heems.titel(o);
+    document.title = titel + ' — Autobedrijf De Heems';
+    document.getElementById('crumbNaam').textContent = titel;
+    document.getElementById('detTitel').textContent = titel;
+    document.getElementById('detSub').textContent =
+      [o.uitvoering, o.bouwjaar, Heems.km(o.km), o.brandstof, o.transmissie].filter(Boolean).join(' · ');
+
+    var verkocht = o.status === 'verkocht';
+    var statusTekst = verkocht ? 'Verkocht' : (o.status === 'gereserveerd' ? 'Gereserveerd' : 'Beschikbaar');
+
+    var html =
+      '<div class="det-layout">' +
+        '<div class="gallery">' + galerij(o) + '</div>' +
+        '<aside class="price-card">' +
+          '<div class="p-status' + (verkocht ? ' sold' : '') + '"><i></i> ' + statusTekst + '</div>' +
+          '<div class="p-price">' + Heems.euro(o.prijs) + '</div>' +
+          '<div class="p-note">' + (o.prijs_type === 'excl_btw' ? 'Prijs excl. btw' : 'Rijklaarprijs') + '</div>' +
+          '<div class="p-quick">' +
+            rij('Bouwjaar', o.bouwjaar) +
+            rij('Kilometerstand', Heems.km(o.km)) +
+            rij('Brandstof', o.brandstof) +
+            rij('Transmissie', o.transmissie) +
+            rij('APK tot', Heems.apk(o.apk_tot)) +
+          '</div>' +
+          (verkocht
+            ? '<a href="/occasions" class="btn btn-ink">Bekijk de rest van de voorraad</a>' +
+              '<a href="/contact" class="btn btn-line">Zoekopdracht doorgeven</a>'
+            : '<a href="/contact?auto=' + encodeURIComponent(o.id) + '" class="btn btn-ink">Proefrit aanvragen</a>' +
+              '<a href="tel:+31367505404" class="btn btn-line">Bel 036 750 5404</a>') +
+          '<p class="form-note" style="margin-top:14px">Inruil van uw huidige auto is altijd bespreekbaar.</p>' +
+        '</aside>' +
+      '</div>' +
+
+      '<div style="margin-top:64px">' +
+        '<div class="kicker" style="margin-bottom:24px"><span class="idx">✦</span> Specificaties</div>' +
+        '<div class="spec-table">' +
+          rij('Merk', o.merk) + rij('Model', o.model) +
+          rij('Uitvoering', o.uitvoering) + rij('Carrosserie', o.carrosserie) +
+          rij('Bouwjaar', o.bouwjaar) + rij('Kilometerstand', Heems.km(o.km)) +
+          rij('Brandstof', o.brandstof) + rij('Transmissie', o.transmissie) +
+          rij('Vermogen', o.vermogen) + rij('Aantal deuren', o.deuren) +
+          rij('Kleur', o.kleur) + rij('Aantal eigenaren', o.eigenaren) +
+          rij('APK tot', Heems.apk(o.apk_tot)) + rij('Referentie', o.id) +
+        '</div>' +
+      '</div>' +
+
+      (o.opties.length ?
+      '<div style="margin-top:56px">' +
+        '<div class="kicker" style="margin-bottom:24px"><span class="idx">✦</span> Uitrusting</div>' +
+        '<div class="opt-list">' + o.opties.map(function (x) { return '<span>' + esc(x) + '</span>'; }).join('') + '</div>' +
+      '</div>' : '') +
+
+      (o.omschrijving ?
+      '<div style="margin-top:56px">' +
+        '<div class="kicker" style="margin-bottom:24px"><span class="idx">✦</span> Onze indruk</div>' +
+        '<p class="det-text">' + esc(o.omschrijving) + '</p>' +
+      '</div>' : '');
+
+    document.getElementById('detBody').innerHTML = html;
+    document.getElementById('detLoading').style.display = 'none';
+
+    var ld = document.createElement('script');
+    ld.type = 'application/ld+json';
+    ld.textContent = JSON.stringify({
+      '@context': 'https://schema.org', '@type': 'Car',
+      name: titel, brand: o.merk, model: o.model, vehicleModelDate: String(o.bouwjaar),
+      fuelType: o.brandstof, vehicleTransmission: o.transmissie,
+      mileageFromOdometer: { '@type': 'QuantitativeValue', value: o.km, unitCode: 'KMT' },
+      offers: {
+        '@type': 'Offer', price: o.prijs, priceCurrency: 'EUR',
+        availability: verkocht ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock',
+        seller: { '@type': 'AutoDealer', name: 'Autobedrijf De Heems' }
+      }
+    });
+    document.head.appendChild(ld);
+  }
+
+  function nietGevonden() {
+    document.getElementById('detTitel').textContent = 'Deze auto staat er niet meer';
+    document.getElementById('crumbNaam').textContent = 'Niet gevonden';
+    document.getElementById('detSub').textContent =
+      'Mogelijk is hij inmiddels verkocht. Bekijk gerust de rest van de voorraad of geef door waar u naar op zoek bent.';
+    document.getElementById('detLoading').style.display = 'none';
+    document.getElementById('detBody').innerHTML =
+      '<div class="hero-ctas"><a href="/occasions" class="btn btn-ink btn-lg">Naar de voorraad</a>' +
+      '<a href="/contact" class="btn btn-line btn-lg">Zoekopdracht doorgeven</a></div>';
+  }
+
+  Heems.load().then(function (list) {
+    var auto = null;
+    for (var i = 0; i < list.length; i++) if (list[i].id === id) auto = list[i];
+    if (!auto) return nietGevonden();
+    render(auto);
+
+    var meer = list.filter(function (o) { return o.id !== auto.id && o.status !== 'verkocht'; }).slice(0, 3);
+    if (meer.length) {
+      Heems.grid(document.getElementById('meerGrid'), meer);
+      document.getElementById('meerSectie').style.display = '';
+      document.querySelectorAll('#meerSectie .reveal').forEach(function (el) { el.classList.add('on'); });
+    }
+  }).catch(nietGevonden);
+})();
+</script>
+</body>
+</html>
