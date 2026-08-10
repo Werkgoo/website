@@ -17,11 +17,12 @@
 <meta name="theme-color" content="#08070A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,600..800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
+<a class="skip" href="#hoofd">Direct naar de inhoud</a>
 
 <!-- Icon sprite -->
 <svg class="sprite" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
@@ -64,7 +65,7 @@
       <a href="/contact">Contact</a>
     </nav>
     <a href="tel:+31367505404" class="btn btn-ink">036 750 5404</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu"><svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu openen" aria-expanded="false" aria-controls="mnav"><svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
   </div>
 </header>
 
@@ -80,6 +81,8 @@
   <a href="/contact" onclick="closeMnav()">Contact</a>
   <a href="tel:+31367505404" class="btn btn-ink" onclick="closeMnav()">Bel 036 750 5404</a>
 </div>
+
+<main id="hoofd">
 
 <!-- Page hero -->
 <section class="page-hero">
@@ -100,20 +103,32 @@
       <p><b>Voorbeeldvoorraad.</b> Deze pagina toont hoe de voorraad eruitziet; de auto's hieronder zijn nog voorbeelden. Bel <a href="tel:+31367505404">036 750 5404</a> voor de auto's die nu daadwerkelijk op de zaak staan.</p>
     </div>
 
-    <div class="filters reveal d1">
+    <h2 class="sr-only">Beschikbare occasions</h2>
+
+    <div class="filters reveal d1" role="group" aria-label="Filter de voorraad">
       <span class="filter-label">Filter</span>
-      <button class="filter-btn active" onclick="filterOcc(this,'alles')">Alles</button>
-      <button class="filter-btn" onclick="filterOcc(this,'benzine')">Benzine</button>
-      <button class="filter-btn" onclick="filterOcc(this,'diesel')">Diesel</button>
-      <button class="filter-btn" onclick="filterOcc(this,'hybride')">Hybride</button>
-      <button class="filter-btn" onclick="filterOcc(this,'automaat')">Automaat</button>
-      <button class="filter-btn" onclick="filterOcc(this,'bedrijfswagen')">Bedrijfswagen</button>
-      <span class="filter-count"><b id="occCount">–</b> auto's op voorraad</span>
+      <button type="button" class="filter-btn active" aria-pressed="true" onclick="filterOcc(this,'alles')">Alles</button>
+      <button type="button" class="filter-btn" aria-pressed="false" onclick="filterOcc(this,'benzine')">Benzine</button>
+      <button type="button" class="filter-btn" aria-pressed="false" onclick="filterOcc(this,'diesel')">Diesel</button>
+      <button type="button" class="filter-btn" aria-pressed="false" onclick="filterOcc(this,'hybride')">Hybride</button>
+      <button type="button" class="filter-btn" aria-pressed="false" onclick="filterOcc(this,'automaat')">Automaat</button>
+      <button type="button" class="filter-btn" aria-pressed="false" onclick="filterOcc(this,'bedrijfswagen')">Bedrijfswagen</button>
+      <span class="filter-count"><b id="occCount">–</b> <span id="occCountLabel">auto's op voorraad</span></span>
+      <div class="sort-wrap">
+        <label for="occSort">Sorteer</label>
+        <select id="occSort" onchange="sorteerOcc(this.value)">
+          <option value="aanbevolen">Aanbevolen</option>
+          <option value="prijs-op">Prijs — laag naar hoog</option>
+          <option value="prijs-af">Prijs — hoog naar laag</option>
+          <option value="km-op">Kilometerstand</option>
+          <option value="jaar-af">Bouwjaar</option>
+        </select>
+      </div>
     </div>
 
     <div class="occ-grid reveal d1" id="occGrid" aria-busy="true"></div>
 
-    <div class="occ-loading" id="occLoading">Voorraad laden…</div>
+    <p class="occ-loading" id="occLoading" role="status">Voorraad laden…</p>
 
     <noscript>
       <div class="notice" style="margin-top:24px">
@@ -172,6 +187,8 @@
   </div>
 </section>
 
+</main>
+
 <!-- CTA + Footer -->
 <div class="foot-cta">
   <div class="container foot-cta-inner">
@@ -189,7 +206,7 @@
           <p>Autobedrijf De Heems — occasions, onderhoud, APK en reparatie voor alle merken in Velsen-Noord.</p>
         </div>
         <div class="footer-col">
-          <h5>Diensten</h5>
+          <h3>Diensten</h3>
           <ul>
             <li><a href="/occasions">Occasions</a></li>
             <li><a href="/diensten#apk">APK-keuring</a></li>
@@ -199,7 +216,7 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h5>Bedrijf</h5>
+          <h3>Bedrijf</h3>
           <ul>
             <li><a href="/over">Over ons</a></li>
             <li><a href="/#reviews">Reviews</a></li>
@@ -208,7 +225,7 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h5>Contact</h5>
+          <h3>Contact</h3>
           <ul>
             <li><a href="tel:+31367505404">036 750 5404</a></li>
             <li><a href="mailto:info@autobedrijfdeheems.nl">info@autobedrijfdeheems.nl</a></li>
@@ -230,17 +247,63 @@
 
 <script src="/config.js"></script>
 <script src="/data.js"></script>
+
+<!-- Snelle acties op mobiel -->
+<nav class="callbar" aria-label="Snel contact">
+  <a href="tel:+31367505404" class="btn btn-ink">Bel ons</a>
+  <a href="/contact" class="btn btn-line">Afspraak</a>
+</nav>
+
 <script src="/app.js"></script>
 <script>
-Heems.load().then(function(list){
-  var grid=document.getElementById('occGrid');
-  Heems.grid(grid,list);
-  grid.setAttribute('aria-busy','false');
-  document.getElementById('occLoading').style.display='none';
-  document.getElementById('occCount').textContent=list.filter(function(o){return o.status!=='verkocht';}).length;
-}).catch(function(){
-  document.getElementById('occLoading').textContent='De voorraad kon niet geladen worden. Bel ons op 036 750 5404.';
-});
+(function () {
+  var alle = [], filterTag = 'alles', sortering = 'aanbevolen';
+  var RANG = { beschikbaar: 0, gereserveerd: 1, verkocht: 2 };
+
+  function pasToe() {
+    var zicht = alle.filter(function (o) {
+      return filterTag === 'alles' || Heems.tags(o).split(' ').indexOf(filterTag) > -1;
+    });
+    zicht.sort(function (a, b) {
+      var s = (RANG[a.status] || 0) - (RANG[b.status] || 0);
+      if (s) return s;
+      if (sortering === 'prijs-op') return a.prijs - b.prijs;
+      if (sortering === 'prijs-af') return b.prijs - a.prijs;
+      if (sortering === 'km-op') return a.km - b.km;
+      return (b.bouwjaar || 0) - (a.bouwjaar || 0);
+    });
+
+    Heems.grid(document.getElementById('occGrid'), zicht);
+    document.getElementById('occGrid').setAttribute('aria-busy', 'false');
+    document.getElementById('occLoading').style.display = 'none';
+    document.getElementById('occEmpty').style.display = zicht.length ? 'none' : 'block';
+
+    var teVerkopen = zicht.filter(function (o) { return o.status !== 'verkocht'; }).length;
+    document.getElementById('occCount').textContent = teVerkopen;
+    document.getElementById('occCountLabel').textContent =
+      filterTag === 'alles' ? (teVerkopen === 1 ? 'auto op voorraad' : 'auto\'s op voorraad')
+                            : (teVerkopen === 1 ? 'auto gevonden' : 'auto\'s gevonden');
+  }
+
+  window.filterOcc = function (btn, tag) {
+    document.querySelectorAll('.filter-btn').forEach(function (b) {
+      b.classList.remove('active'); b.setAttribute('aria-pressed', 'false');
+    });
+    btn.classList.add('active'); btn.setAttribute('aria-pressed', 'true');
+    filterTag = tag;
+    pasToe();
+  };
+
+  window.sorteerOcc = function (waarde) { sortering = waarde; pasToe(); };
+
+  Heems.load().then(function (lijst) {
+    alle = lijst;
+    pasToe();
+  }).catch(function () {
+    document.getElementById('occLoading').textContent =
+      'De voorraad kon niet geladen worden. Bel ons op 036 750 5404.';
+  });
+})();
 </script>
 </body>
 </html>

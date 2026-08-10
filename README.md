@@ -22,6 +22,7 @@ Lijndenweg 6-A, 1951 NC Velsen-Noord.
 | `style.css` | Stylesheet van de website (design tokens bovenaan) |
 | `supabase-schema.sql` | Databasetabel + rechten, voor als je het beheer live wilt zetten |
 | `netlify.toml` | Redirects (schone URL's), security headers, CSP |
+| `tools/sitemap.mjs` | Genereert `sitemap.xml` uit de vaste pagina's + de voorraad |
 | `admin.html` | Adminpaneel van een **ander** project (WerkGo/Supabase) — hoort niet bij deze site en kan weg |
 
 Lokaal bekijken: `python3 -m http.server 8000` in deze map. De schone URL's
@@ -71,6 +72,15 @@ per regel), gebruikt de site die overal automatisch. Twee manieren:
 
 De eerste foto is de hoofdfoto op het kaartje; op de detailpagina worden alle
 foto's als galerij getoond.
+
+## Onderhoud
+
+- **Openingstijden wijzigen?** Pas ze op twee plekken aan: de tabellen in
+  `index.html`, `over.html` en `contact.html`, én `OPENINGSTIJDEN` bovenin
+  `app.js` — dat laatste voedt de "nu geopend / gesloten"-melding.
+- **Sitemap bijwerken** na een wijziging in de voorraad: `node tools/sitemap.mjs`.
+  (Bij een gekoppelde database komen nieuwe auto's niet automatisch in de
+  sitemap; draai het script dan af en toe met een verse `occasions.json`.)
 
 ## Vóór livegang — checklist
 

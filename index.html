@@ -17,7 +17,7 @@
 <meta name="theme-color" content="#08070A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,600..800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 <script>document.documentElement.classList.add("js")</script>
 <script type="application/ld+json">
@@ -48,6 +48,7 @@
 </script>
 </head>
 <body>
+<a class="skip" href="#hoofd">Direct naar de inhoud</a>
 
 <!-- Icon sprite -->
 <svg class="sprite" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
@@ -90,7 +91,7 @@
       <a href="/contact">Contact</a>
     </nav>
     <a href="tel:+31367505404" class="btn btn-ink">036 750 5404</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu"><svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu openen" aria-expanded="false" aria-controls="mnav"><svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
   </div>
 </header>
 
@@ -106,6 +107,8 @@
   <a href="/contact" onclick="closeMnav()">Contact</a>
   <a href="tel:+31367505404" class="btn btn-ink" onclick="closeMnav()">Bel 036 750 5404</a>
 </div>
+
+<main id="hoofd">
 
 <!-- Hero -->
 <section class="hero">
@@ -269,14 +272,15 @@
         <h2 class="display reveal" style="font-size:clamp(2.1rem,4.2vw,3.2rem);margin-bottom:24px">Een garage waar u<br>gewoon <em>binnenloopt</em></h2>
         <p class="reveal d1">Geen callcenter, geen wachtrij. U spreekt de monteur die aan uw auto werkt — <strong>en u hoort vooraf wat het kost.</strong></p>
         <div class="ticks reveal d2">
-          <div class="tick"><span class="t-num">a.</span><div><h4>Alle merken welkom</h4><p>Van kleine stadsauto tot bedrijfsbus: wij onderhouden en keuren ze allemaal.</p></div></div>
-          <div class="tick"><span class="t-num">b.</span><div><h4>Eerst bellen, dan sleutelen</h4><p>Komt er onderweg iets bij, dan hoort u het eerst. U beslist.</p></div></div>
-          <div class="tick"><span class="t-num">c.</span><div><h4>Verkoop én werkplaats</h4><p>De auto die u bij ons koopt, houden wij ook zelf op de weg.</p></div></div>
-          <div class="tick"><span class="t-num">d.</span><div><h4>Vlak bij de A22</h4><p>Op het bedrijventerrein aan de Lijndenweg, met ruim parkeren voor de deur.</p></div></div>
+          <div class="tick"><span class="t-num">a.</span><div><h3>Alle merken welkom</h3><p>Van kleine stadsauto tot bedrijfsbus: wij onderhouden en keuren ze allemaal.</p></div></div>
+          <div class="tick"><span class="t-num">b.</span><div><h3>Eerst bellen, dan sleutelen</h3><p>Komt er onderweg iets bij, dan hoort u het eerst. U beslist.</p></div></div>
+          <div class="tick"><span class="t-num">c.</span><div><h3>Verkoop én werkplaats</h3><p>De auto die u bij ons koopt, houden wij ook zelf op de weg.</p></div></div>
+          <div class="tick"><span class="t-num">d.</span><div><h3>Vlak bij de A22</h3><p>Op het bedrijventerrein aan de Lijndenweg, met ruim parkeren voor de deur.</p></div></div>
         </div>
       </div>
       <div class="reveal d2">
         <div class="kicker" style="margin-bottom:20px"><span class="idx">✦</span> Openingstijden</div>
+        <p class="open-status" data-open-status style="margin-bottom:14px"><i aria-hidden="true"></i> Openingstijden</p>
         <div class="hours">
           <div><span>Maandag</span><span>08:00 – 17:30</span></div>
           <div><span>Dinsdag</span><span>08:00 – 17:30</span></div>
@@ -289,7 +293,7 @@
         <div class="map-card" style="margin-top:16px">
           <span class="map-pin" aria-hidden="true"></span>
           <div class="map-body">
-            <h4>Lijndenweg 6-A</h4>
+            <h3>Lijndenweg 6-A</h3>
             <p>1951 NC Velsen-Noord</p>
             <a href="https://www.google.com/maps/search/?api=1&amp;query=Lijndenweg+6A+1951+NC+Velsen-Noord" class="btn btn-line" target="_blank" rel="noopener">Route plannen</a>
           </div>
@@ -399,6 +403,8 @@
   </div>
 </section>
 
+</main>
+
 <!-- CTA + Footer -->
 <div class="foot-cta">
   <div class="container foot-cta-inner">
@@ -416,7 +422,7 @@
           <p>Autobedrijf De Heems — occasions, onderhoud, APK en reparatie voor alle merken in Velsen-Noord.</p>
         </div>
         <div class="footer-col">
-          <h5>Diensten</h5>
+          <h3>Diensten</h3>
           <ul>
             <li><a href="/occasions">Occasions</a></li>
             <li><a href="/diensten#apk">APK-keuring</a></li>
@@ -426,7 +432,7 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h5>Bedrijf</h5>
+          <h3>Bedrijf</h3>
           <ul>
             <li><a href="/over">Over ons</a></li>
             <li><a href="/#reviews">Reviews</a></li>
@@ -435,7 +441,7 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h5>Contact</h5>
+          <h3>Contact</h3>
           <ul>
             <li><a href="tel:+31367505404">036 750 5404</a></li>
             <li><a href="mailto:info@autobedrijfdeheems.nl">info@autobedrijfdeheems.nl</a></li>
@@ -457,6 +463,13 @@
 
 <script src="/config.js"></script>
 <script src="/data.js"></script>
+
+<!-- Snelle acties op mobiel -->
+<nav class="callbar" aria-label="Snel contact">
+  <a href="tel:+31367505404" class="btn btn-ink">Bel ons</a>
+  <a href="/contact" class="btn btn-line">Afspraak</a>
+</nav>
+
 <script src="/app.js"></script>
 <script>
 Heems.load().then(function(list){

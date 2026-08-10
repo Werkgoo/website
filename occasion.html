@@ -9,11 +9,20 @@
 <meta name="theme-color" content="#08070A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,600..800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://autobedrijfdeheems.nl/occasions">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Autobedrijf De Heems">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:url" content="https://autobedrijfdeheems.nl/occasions">
+<meta property="og:title" content="Occasion — Autobedrijf De Heems">
+<meta property="og:description" content="Specificaties, uitrusting en prijs van deze occasion in Velsen-Noord.">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/style.css">
 <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
+<a class="skip" href="#hoofd">Direct naar de inhoud</a>
 
 <!-- Icon sprite -->
 <svg class="sprite" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
@@ -56,7 +65,7 @@
       <a href="/contact">Contact</a>
     </nav>
     <a href="tel:+31367505404" class="btn btn-ink">036 750 5404</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu"><svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu openen" aria-expanded="false" aria-controls="mnav"><svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
   </div>
 </header>
 
@@ -72,6 +81,8 @@
   <a href="/contact" onclick="closeMnav()">Contact</a>
   <a href="tel:+31367505404" class="btn btn-ink" onclick="closeMnav()">Bel 036 750 5404</a>
 </div>
+
+<main id="hoofd">
 
 <!-- Page hero -->
 <section class="page-hero" style="padding-bottom:44px">
@@ -101,6 +112,8 @@
   </div>
 </section>
 
+</main>
+
 <!-- CTA + Footer -->
 <div class="foot-cta">
   <div class="container foot-cta-inner">
@@ -118,7 +131,7 @@
           <p>Autobedrijf De Heems — occasions, onderhoud, APK en reparatie voor alle merken in Velsen-Noord.</p>
         </div>
         <div class="footer-col">
-          <h5>Diensten</h5>
+          <h3>Diensten</h3>
           <ul>
             <li><a href="/occasions">Occasions</a></li>
             <li><a href="/diensten#apk">APK-keuring</a></li>
@@ -128,7 +141,7 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h5>Bedrijf</h5>
+          <h3>Bedrijf</h3>
           <ul>
             <li><a href="/over">Over ons</a></li>
             <li><a href="/#reviews">Reviews</a></li>
@@ -137,7 +150,7 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h5>Contact</h5>
+          <h3>Contact</h3>
           <ul>
             <li><a href="tel:+31367505404">036 750 5404</a></li>
             <li><a href="mailto:info@autobedrijfdeheems.nl">info@autobedrijfdeheems.nl</a></li>
@@ -159,6 +172,13 @@
 
 <script src="/config.js"></script>
 <script src="/data.js"></script>
+
+<!-- Snelle acties op mobiel -->
+<nav class="callbar" aria-label="Snel contact">
+  <a href="tel:+31367505404" class="btn btn-ink">Bel ons</a>
+  <a href="/contact" class="btn btn-line">Afspraak</a>
+</nav>
+
 <script src="/app.js"></script>
 <script>
 (function () {
@@ -197,6 +217,19 @@
     document.title = titel + ' — Autobedrijf De Heems';
     document.getElementById('crumbNaam').textContent = titel;
     document.getElementById('detTitel').textContent = titel;
+
+    var pagina = 'https://autobedrijfdeheems.nl/occasion?id=' + encodeURIComponent(o.id);
+    var samenvatting = titel + ' uit ' + o.bouwjaar + ' met ' + Heems.km(o.km) +
+      ' voor ' + Heems.euro(o.prijs) + '. Te bekijken bij Autobedrijf De Heems in Velsen-Noord.';
+    function zetMeta(kies, attr, waarde) {
+      var el = document.querySelector(kies);
+      if (el) el.setAttribute(attr, waarde);
+    }
+    zetMeta('link[rel=canonical]', 'href', pagina);
+    zetMeta('meta[property="og:url"]', 'content', pagina);
+    zetMeta('meta[property="og:title"]', 'content', titel + ' — Autobedrijf De Heems');
+    zetMeta('meta[property="og:description"]', 'content', samenvatting);
+    zetMeta('meta[name=description]', 'content', samenvatting);
     document.getElementById('detSub').textContent =
       [o.uitvoering, o.bouwjaar, Heems.km(o.km), o.brandstof, o.transmissie].filter(Boolean).join(' · ');
 
