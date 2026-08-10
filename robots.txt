@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nutel.nl/sitemap.xml
+Sitemap: https://autobedrijfdeheems.nl/sitemap.xml
