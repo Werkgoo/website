@@ -162,6 +162,27 @@ varianten werkt het ook, dan valt de browser terug op het origineel.
 `og.jpg` is de deelkaart voor WhatsApp en social (1200x630). Verandert de
 hero-tekst, dan is die kaart ook gedateerd.
 
+## Opbouw van de secties
+
+Twee patronen, bewust verschillend:
+
+- **Prijzen** gebruikt `.ss`: een meelopende zijkolom met de titel, intro
+  en belknop, met de prijslijst ernaast in één kolom. De zijkolom blijft
+  onder de header staan zolang de lijst langsscrollt en schuift daarna mee
+  weg. Dat is hoe `position:sticky` hoort te werken — hij loopt mee over
+  het verschil in hoogte tussen de kolommen, hier zo'n 525 van de 815px.
+- **Ons werk** en **Praktisch** gebruiken `.sec-head--rij`: label boven de
+  titel, over de volle breedte. Die secties hebben brede blokken (galerij,
+  twee kaarten naast elkaar) en verliezen te veel als er een zijkolom van
+  af gaat.
+
+De oude `.sec-head` met de titel rechts en een zwevend label links liet op
+brede schermen een groot gat vallen; die vorm wordt nergens meer gebruikt.
+
+Onderweg geprobeerd en teruggedraaid: Praktisch als bento met de kaart over
+twee rijen. Dat rekte het kaartpaneel naar 1300px met de pin in het niets.
+De twee tekstkaarten naast elkaar met de kaart eronder leest beter.
+
 ## Wat de concurrentie wel heeft en wij niet
 
 Uit de barbershops in Heerhugowaard (Barber Hasan, Zidan Barber, Barber
