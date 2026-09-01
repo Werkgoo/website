@@ -7,6 +7,7 @@ Twee composities in één Remotion-project:
 | `NadorVideo` | 1920×1080 | 31,5 s | `out/nador.mp4` |
 | `CaraBlancaTikTok` | 1080×1920 | 12,4 s | `out/nadorspot-carablanca.mp4` |
 | `CaraBlancaTikTokEN` | 1080×1920 | 12,0 s | `out/nadorspot-carablanca-en.mp4` |
+| `CaraBlancaTikTokPro` | 1080×1920 | 21,1 s | `out/nadorspot-carablanca-pro.mp4` |
 
 ## 1. NadorVideo — de stadsvideo
 
@@ -64,6 +65,28 @@ Teksten in beeld:
 5. "On Morocco's Mediterranean coast."
 6. `@Nadorspot` — follow for more spots around Nador
 
+## 4. CaraBlancaTikTokPro — de lange versie met extra beeld
+
+Negen shots: een foto van de paddenstoelrots als opener, twee clips van
+[@maroci108](https://www.tiktok.com/@maroci108) (met toestemming gebruikt) en de
+eigen clips uit `public/footage/`. De shots met geleend beeld tonen een
+creditpill onder de accountbadge; de eindkaart herhaalt de credit.
+
+De montage staat in `SHOTS` bovenin `src/tiktok/CaraBlancaPro.tsx`. Per shot:
+bronbestand, `kind` (`video` of `photo`), startpunt in seconden, lengte in
+frames, zoom, pan, kleurcorrectie, `focusX` (welk deel in beeld blijft bij beeld
+dat smaller is dan 9:16) en een optionele `credit`.
+
+De overlays (captions, titelkaart, badge, creditpill, eindkaart) staan in
+`src/tiktok/shared.tsx` en worden door zowel de Engelse als deze versie gebruikt.
+Geluid is opnieuw de eigen omgevingstrack (`ambience-long.mp3`), niet de audio
+van de geleende clips.
+
+### Credits
+
+Beeld dat niet van het account zelf is, hoort met naam in beeld. Pas `CREDIT`
+bovenin `src/tiktok/CaraBlancaPro.tsx` aan of zet per shot een eigen `credit`.
+
 ## Gebruik
 
 ```bash
@@ -72,6 +95,7 @@ npm start          # Remotion Studio, live preview op http://localhost:3000
 npm run build      # rendert out/nador.mp4
 npm run build:tiktok      # rendert out/nadorspot-carablanca.mp4
 npm run build:tiktok-en   # rendert out/nadorspot-carablanca-en.mp4
+npm run build:tiktok-pro  # rendert out/nadorspot-carablanca-pro.mp4
 ```
 
 Rendert de CLI in een container zonder eigen Chrome, geef dan een browser mee:

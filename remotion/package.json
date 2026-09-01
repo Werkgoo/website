@@ -8,7 +8,8 @@
     "build": "remotion render NadorVideo out/nador.mp4",
     "upgrade": "remotion upgrade",
     "build:tiktok": "remotion render CaraBlancaTikTok out/nadorspot-carablanca.mp4 --crf=21",
-    "build:tiktok-en": "remotion render CaraBlancaTikTokEN out/nadorspot-carablanca-en.mp4 --crf=21"
+    "build:tiktok-en": "remotion render CaraBlancaTikTokEN out/nadorspot-carablanca-en.mp4 --crf=21",
+    "build:tiktok-pro": "remotion render CaraBlancaTikTokPro out/nadorspot-carablanca-pro.mp4 --crf=21"
   },
   "dependencies": {
     "@remotion/cli": "4.0.520",
