@@ -158,10 +158,11 @@ const Hook: React.FC = () => {
     >
       <div
         style={{
-          fontFamily: FONTS.impact,
-          fontSize: 158,
-          letterSpacing: 2,
-          lineHeight: 0.92,
+          fontFamily: FONTS.ui,
+          fontSize: 128,
+          fontWeight: 900,
+          letterSpacing: '-0.03em',
+          lineHeight: 1,
           transform: `translateY(${(1 - title) * 60}px) scale(${0.94 + title * 0.06})`,
           opacity: title,
           textShadow: '0 10px 40px rgba(3,16,28,0.55)',
@@ -223,9 +224,10 @@ const EndCard: React.FC = () => {
       >
         <div
           style={{
-            fontFamily: FONTS.impact,
-            fontSize: 104,
-            letterSpacing: 1,
+            fontFamily: FONTS.ui,
+            fontSize: 84,
+            fontWeight: 900,
+            letterSpacing: '-0.02em',
             textShadow: '0 8px 34px rgba(3,16,28,0.75)',
           }}
         >

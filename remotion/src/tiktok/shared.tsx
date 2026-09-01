@@ -235,10 +235,11 @@ export const TitleCard: React.FC<{
     >
       <div
         style={{
-          fontFamily: FONTS.impact,
-          fontSize: 164,
-          letterSpacing: 2,
-          lineHeight: 0.9,
+          fontFamily: FONTS.ui,
+          fontSize: 132,
+          fontWeight: 900,
+          letterSpacing: '-0.03em',
+          lineHeight: 0.98,
           transform: `translateY(${(1 - title) * 46}px) scale(${0.93 + title * 0.07})`,
           opacity: title,
           textShadow: '0 12px 44px rgba(3,16,28,0.6)',
@@ -327,9 +328,10 @@ export const EndCard: React.FC<{line: string; credit?: string}> = ({line, credit
       >
         <div
           style={{
-            fontFamily: FONTS.impact,
-            fontSize: 108,
-            letterSpacing: 1,
+            fontFamily: FONTS.ui,
+            fontSize: 86,
+            fontWeight: 900,
+            letterSpacing: '-0.02em',
             textShadow: '0 8px 34px rgba(3,16,28,0.75)',
           }}
         >

@@ -19,8 +19,6 @@ export const COLORS = {
 export const FONTS = {
   display: '"Outfit", "DejaVu Sans", sans-serif',
   serif: '"Instrument Serif", "FreeSerif", Georgia, serif',
-  /** Anton: smal en zwaar, voor titels die over beeld heen moeten knallen. */
-  impact: '"Anton", "Outfit", "DejaVu Sans", sans-serif',
   /** Inter: rustig en scherp op klein formaat, voor captions en labels. */
   ui: '"Inter", "Outfit", "DejaVu Sans", sans-serif',
 } as const;

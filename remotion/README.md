@@ -67,10 +67,10 @@ Teksten in beeld:
 
 ## 4. CaraBlancaTikTokPro — de lange versie met extra beeld
 
-Negen shots: een foto van de paddenstoelrots als opener, twee clips van
-[@maroci108](https://www.tiktok.com/@maroci108) (met toestemming gebruikt) en de
-eigen clips uit `public/footage/`. De shots met geleend beeld tonen een
-creditpill onder de accountbadge; de eindkaart herhaalt de credit.
+Negen shots: een foto van de paddenstoelrots als opener, twee clips die met
+toestemming van de maker gebruikt worden, en de eigen clips uit
+`public/footage/`. De video opent met dezelfde hook als de korte versie —
+"This is not the Caribbean." gevolgd door "This is Nador, Morocco."
 
 De montage staat in `SHOTS` bovenin `src/tiktok/CaraBlancaPro.tsx`. Per shot:
 bronbestand, `kind` (`video` of `photo`), startpunt in seconden, lengte in
@@ -84,8 +84,10 @@ van de geleende clips.
 
 ### Credits
 
-Beeld dat niet van het account zelf is, hoort met naam in beeld. Pas `CREDIT`
-bovenin `src/tiktok/CaraBlancaPro.tsx` aan of zet per shot een eigen `credit`.
+Beeld dat niet van het account zelf is, hoort met naam in beeld. `shared.tsx`
+kan dat: zet `credit: '@handle'` op een shot en er verschijnt een pill onder de
+accountbadge, of geef `<EndCard>` een `credit`-regel mee. Nu staat er geen
+credit in beeld omdat de juiste naam nog niet bekend is.
 
 ## Gebruik
 
@@ -107,12 +109,11 @@ npx remotion render NadorVideo out/nador.mp4 \
 
 ## Fonts
 
-Vier families, alle als `.woff2` in `public/fonts/` (alleen de latin-subsets):
+Drie families, alle als `.woff2` in `public/fonts/` (alleen de latin-subsets):
 
 | Token | Familie | Waarvoor |
 |---|---|---|
-| `FONTS.impact` | Anton | titels en de handle in de TikTok-video's |
-| `FONTS.ui` | Inter | captions, labels, kaartteksten, bodytekst |
+| `FONTS.ui` | Inter | captions, titels en handles in de TikTok-video's, bodytekst en kaartlabels |
 | `FONTS.display` | Outfit | koppen in de landscape-video |
 | `FONTS.serif` | Instrument Serif | de cursieve regel in de outro |
 
