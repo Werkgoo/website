@@ -6,6 +6,7 @@ Twee composities in één Remotion-project:
 |---|---|---|---|
 | `NadorVideo` | 1920×1080 | 31,5 s | `out/nador.mp4` |
 | `CaraBlancaTikTok` | 1080×1920 | 12,4 s | `out/nadorspot-carablanca.mp4` |
+| `CaraBlancaTikTokEN` | 1080×1920 | 12,0 s | `out/nadorspot-carablanca-en.mp4` |
 
 ## 1. NadorVideo — de stadsvideo
 
@@ -43,13 +44,34 @@ De captions zijn de `<Caption>`-regels onderin datzelfde bestand.
 Het originele geluid van de clips blijft staan; zet er in TikTok gerust een
 trending track overheen.
 
+## 3. CaraBlancaTikTokEN — Engelse versie
+
+Dezelfde beelden, strakker gemonteerd voor TikTok: zes kortere shots met een
+punch-in op elke snede, Engelse kinetische captions (woord voor woord, met
+contour en een zachte scrim zodat ze ook op licht gesteente leesbaar zijn), een
+titelkaart en een eindkaart met de handle.
+
+Het geluid is hier één doorlopende omgevingstrack (`public/footage/ambience.mp3`,
+de audio van beide clips achter elkaar), zodat je de snedes niet hoort. De
+beeldsporen staan op `muted`.
+
+Teksten in beeld:
+
+1. "This is not the Caribbean."
+2. `CARA BLANCA` · Nador · Morocco
+3. "Water this clear."
+4. "White rock terraces to swim off."
+5. "On Morocco's Mediterranean coast."
+6. `@Nadorspot` — follow for more spots around Nador
+
 ## Gebruik
 
 ```bash
 npm install
 npm start          # Remotion Studio, live preview op http://localhost:3000
 npm run build      # rendert out/nador.mp4
-npm run build:tiktok   # rendert out/nadorspot-carablanca.mp4
+npm run build:tiktok      # rendert out/nadorspot-carablanca.mp4
+npm run build:tiktok-en   # rendert out/nadorspot-carablanca-en.mp4
 ```
 
 Rendert de CLI in een container zonder eigen Chrome, geef dan een browser mee:
