@@ -1,4 +1,4 @@
 node_modules
 out/*
-!out/nador.mp4
+!out/*.mp4
 .remotion
