@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {COLORS} from '../theme';
+import {COLORS, FONTS} from '../theme';
 
 const Flamingo: React.FC<{phase: number; frame: number}> = ({phase, frame}) => {
   const neck = Math.sin(frame * 0.045 + phase) * 6;
@@ -109,7 +109,7 @@ export const LagoonPanel: React.FC = () => {
         <path d="M -20 358 L 392 352 L 438 358 L 920 348 L 920 392 L -20 400 Z" fill={COLORS.sand} />
         <path d="M -20 358 L 392 352 L 438 358 L 920 348" stroke="#e5c48c" strokeWidth={3} fill="none" />
         <path d="M 402 350 L 428 400" stroke="#15697f" strokeWidth={20} />
-        <text x={452} y={338} fill="#0b3a4a" fontFamily="Outfit, sans-serif" fontSize={22} fontWeight={600}>
+        <text x={452} y={338} fill="#0b3a4a" fontFamily={FONTS.ui} fontSize={22} fontWeight={600}>
           Bocana
         </text>
         <path d="M 440 344 L 424 360" stroke="#0b3a4a" strokeWidth={2} fill="none" opacity={0.7} />

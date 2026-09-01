@@ -136,10 +136,11 @@ const Kinetic: React.FC<{
             <span
               key={`${word}-${i}`}
               style={{
-                fontFamily: FONTS.display,
+                fontFamily: FONTS.ui,
                 fontSize: size,
-                fontWeight: 800,
-                lineHeight: 1.16,
+                fontWeight: 900,
+                letterSpacing: '-0.02em',
+                lineHeight: 1.14,
                 color: accent ? COLORS.sun : COLORS.cream,
                 transform: `translateY(${(1 - enter) * 34}px) scale(${0.86 + Math.min(enter, 1) * 0.14})`,
                 opacity: Math.min(1, enter * 1.4),
@@ -174,17 +175,16 @@ const TitleCard: React.FC<{duration: number}> = ({duration}) => {
         justifyContent: 'center',
         alignItems: 'center',
         textAlign: 'center',
-        fontFamily: FONTS.display,
         color: COLORS.cream,
         opacity: out,
       }}
     >
       <div
         style={{
-          fontSize: 136,
-          fontWeight: 800,
-          letterSpacing: 1,
-          lineHeight: 0.98,
+          fontFamily: FONTS.impact,
+          fontSize: 164,
+          letterSpacing: 2,
+          lineHeight: 0.9,
           transform: `translateY(${(1 - title) * 46}px) scale(${0.93 + title * 0.07})`,
           opacity: title,
           textShadow: '0 12px 44px rgba(3,16,28,0.6)',
@@ -197,9 +197,10 @@ const TitleCard: React.FC<{duration: number}> = ({duration}) => {
       <div style={{width: rule * 300, height: 4, background: COLORS.sun, margin: '32px 0 26px'}} />
       <div
         style={{
-          fontSize: 42,
-          fontWeight: 300,
-          letterSpacing: 9,
+          fontFamily: FONTS.ui,
+          fontSize: 36,
+          fontWeight: 500,
+          letterSpacing: 11,
           textTransform: 'uppercase',
           opacity: sub,
           transform: `translateY(${(1 - sub) * 22}px)`,
@@ -225,10 +226,11 @@ const Badge: React.FC = () => (
       borderRadius: 999,
       background: 'rgba(6,24,38,0.42)',
       border: '1px solid rgba(253,247,236,0.25)',
-      fontFamily: FONTS.display,
+      fontFamily: FONTS.ui,
       color: COLORS.cream,
-      fontSize: 30,
-      fontWeight: 500,
+      fontSize: 29,
+      fontWeight: 600,
+      letterSpacing: '-0.01em',
     }}
   >
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
@@ -264,13 +266,19 @@ const EndCard: React.FC = () => {
         style={{
           position: 'relative',
           textAlign: 'center',
-          fontFamily: FONTS.display,
           color: COLORS.cream,
           transform: `translateY(${(1 - enter) * 46}px)`,
           opacity: enter,
         }}
       >
-        <div style={{fontSize: 92, fontWeight: 800, textShadow: '0 8px 34px rgba(3,16,28,0.75)'}}>
+        <div
+          style={{
+            fontFamily: FONTS.impact,
+            fontSize: 108,
+            letterSpacing: 1,
+            textShadow: '0 8px 34px rgba(3,16,28,0.75)',
+          }}
+        >
           {HANDLE}
         </div>
         <div
@@ -283,9 +291,10 @@ const EndCard: React.FC = () => {
         />
         <div
           style={{
-            fontSize: 38,
-            fontWeight: 300,
-            letterSpacing: 1,
+            fontFamily: FONTS.ui,
+            fontSize: 36,
+            fontWeight: 600,
+            letterSpacing: 0.2,
             color: 'rgba(253,247,236,0.92)',
             textShadow: '0 4px 20px rgba(3,16,28,0.8)',
             opacity: sub,

@@ -32,9 +32,10 @@ export const MarChica: React.FC = () => (
         <FadeUp delay={30} distance={28}>
           <p
             style={{
-              fontSize: 30,
-              lineHeight: 1.5,
-              fontWeight: 300,
+              fontFamily: FONTS.ui,
+              fontSize: 28,
+              lineHeight: 1.55,
+              fontWeight: 400,
               color: 'rgba(253,247,236,0.8)',
               margin: '30px 0 44px',
             }}
@@ -66,7 +67,14 @@ export const MarChica: React.FC = () => (
               >
                 {title}
               </span>
-              <span style={{fontSize: 24, fontWeight: 300, color: 'rgba(253,247,236,0.75)'}}>
+              <span
+                style={{
+                  fontFamily: FONTS.ui,
+                  fontSize: 23,
+                  fontWeight: 400,
+                  color: 'rgba(253,247,236,0.75)',
+                }}
+              >
                 {text}
               </span>
             </div>

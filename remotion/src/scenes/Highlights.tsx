@@ -66,9 +66,10 @@ export const Highlights: React.FC = () => (
               <div style={{fontSize: 38, fontWeight: 600, lineHeight: 1.1}}>{card.title}</div>
               <div
                 style={{
-                  fontSize: 23,
-                  fontWeight: 300,
-                  lineHeight: 1.45,
+                  fontFamily: FONTS.ui,
+                  fontSize: 22,
+                  fontWeight: 400,
+                  lineHeight: 1.5,
                   color: 'rgba(253,247,236,0.72)',
                   marginTop: 18,
                 }}

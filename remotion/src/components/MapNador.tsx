@@ -93,7 +93,7 @@ export const MapNador: React.FC = () => {
             x={132}
             y={584}
             fill="rgba(253,247,236,0.14)"
-            fontFamily={FONTS.display}
+            fontFamily={FONTS.ui}
             fontSize={46}
             fontWeight={600}
             letterSpacing={14}
@@ -114,7 +114,7 @@ export const MapNador: React.FC = () => {
               y={392}
               textAnchor="middle"
               fill="rgba(253,247,236,0.6)"
-              fontFamily={FONTS.display}
+              fontFamily={FONTS.ui}
               fontSize={18}
               fontWeight={300}
             >
@@ -143,7 +143,7 @@ export const MapNador: React.FC = () => {
             y={426}
             textAnchor="middle"
             fill="#05302e"
-            fontFamily={FONTS.display}
+            fontFamily={FONTS.ui}
             fontSize={22}
             fontWeight={600}
             letterSpacing={1.5}
@@ -167,7 +167,7 @@ export const MapNador: React.FC = () => {
             y={410}
             textAnchor="end"
             fill={COLORS.sun}
-            fontFamily={FONTS.display}
+            fontFamily={FONTS.ui}
             fontSize={19}
             fontWeight={500}
           >
@@ -206,7 +206,7 @@ export const MapNador: React.FC = () => {
                 y={m.y + m.dy}
                 textAnchor={m.anchor}
                 fill={isNador ? COLORS.sun : COLORS.cream}
-                fontFamily={FONTS.display}
+                fontFamily={FONTS.ui}
                 fontSize={isNador ? 36 : 21}
                 fontWeight={isNador ? 700 : 400}
                 letterSpacing={isNador ? 3 : 0.5}
@@ -219,7 +219,7 @@ export const MapNador: React.FC = () => {
                   y={m.y + m.dy + 24}
                   textAnchor={m.anchor}
                   fill="rgba(253,247,236,0.62)"
-                  fontFamily={FONTS.display}
+                  fontFamily={FONTS.ui}
                   fontSize={17}
                   fontWeight={300}
                 >
@@ -238,7 +238,7 @@ export const MapNador: React.FC = () => {
             y={32}
             textAnchor="middle"
             fill={COLORS.cream}
-            fontFamily={FONTS.display}
+            fontFamily={FONTS.ui}
             fontSize={17}
             letterSpacing={1}
           >
@@ -246,10 +246,10 @@ export const MapNador: React.FC = () => {
           </text>
         </g>
 
-        <text x={44} y={122} fill="rgba(253,247,236,0.55)" fontFamily={FONTS.display} fontSize={19} letterSpacing={6}>
+        <text x={44} y={122} fill="rgba(253,247,236,0.55)" fontFamily={FONTS.ui} fontSize={19} letterSpacing={6}>
           MIDDELLANDSE ZEE
         </text>
-        <text x={44} y={712} fill="rgba(253,247,236,0.35)" fontFamily={FONTS.display} fontSize={15} letterSpacing={2}>
+        <text x={44} y={712} fill="rgba(253,247,236,0.35)" fontFamily={FONTS.ui} fontSize={15} letterSpacing={2}>
           schematische kaart
         </text>
       </g>

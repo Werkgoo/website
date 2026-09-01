@@ -52,9 +52,10 @@ export const Outro: React.FC = () => {
           <div
             style={{
               marginTop: 40,
-              fontSize: 24,
-              fontWeight: 300,
-              letterSpacing: 7,
+              fontFamily: FONTS.ui,
+              fontSize: 23,
+              fontWeight: 500,
+              letterSpacing: 6,
               textTransform: 'uppercase',
               color: 'rgba(253,247,236,0.75)',
             }}

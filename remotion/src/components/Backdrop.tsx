@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
-import {COLORS} from '../theme';
+import {COLORS, FONTS} from '../theme';
 
 /** Rustige donkerblauwe achtergrond met traag drijvende lichtvlekken. */
 export const Backdrop: React.FC<{tint?: string}> = ({tint = COLORS.lagoon}) => {
@@ -34,7 +34,15 @@ export const Eyebrow: React.FC<{children: React.ReactNode; color?: string}> = ({
 }) => (
   <div style={{display: 'flex', alignItems: 'center', gap: 16, color}}>
     <div style={{width: 54, height: 2, background: color}} />
-    <span style={{fontSize: 22, letterSpacing: 8, textTransform: 'uppercase', fontWeight: 400}}>
+    <span
+      style={{
+        fontFamily: FONTS.ui,
+        fontSize: 21,
+        letterSpacing: 7,
+        textTransform: 'uppercase',
+        fontWeight: 500,
+      }}
+    >
       {children}
     </span>
   </div>

@@ -83,10 +83,20 @@ npx remotion render NadorVideo out/nador.mp4 \
 
 ## Fonts
 
-Outfit en Instrument Serif staan als `.woff2` in `public/fonts/`. De
-`@font-face`-regels zitten in `src/fontCss.ts` en worden door
+Vier families, alle als `.woff2` in `public/fonts/` (alleen de latin-subsets):
+
+| Token | Familie | Waarvoor |
+|---|---|---|
+| `FONTS.impact` | Anton | titels en de handle in de TikTok-video's |
+| `FONTS.ui` | Inter | captions, labels, kaartteksten, bodytekst |
+| `FONTS.display` | Outfit | koppen in de landscape-video |
+| `FONTS.serif` | Instrument Serif | de cursieve regel in de outro |
+
+De `@font-face`-regels zitten in `src/fontCss.ts` en worden door
 `src/components/Fonts.tsx` ingeladen — er gaat tijdens het renderen dus geen
-verkeer naar Google Fonts.
+verkeer naar Google Fonts. Wil je een familie vervangen: haal de CSS bij Google
+Fonts op, zet de `.woff2`-bestanden in `public/fonts/`, werk `src/fontCss.ts`
+bij en pas het token in `src/theme.ts` aan.
 
 ## Muziek toevoegen
 

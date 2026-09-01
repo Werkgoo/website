@@ -13,6 +13,11 @@ export const Fonts: React.FC = () => {
 
   useEffect(() => {
     Promise.all([
+      document.fonts.load('400 100px "Anton"'),
+      document.fonts.load('900 100px "Inter"'),
+      document.fonts.load('700 100px "Inter"'),
+      document.fonts.load('500 100px "Inter"'),
+      document.fonts.load('400 100px "Inter"'),
       document.fonts.load('800 100px "Outfit"'),
       document.fonts.load('600 100px "Outfit"'),
       document.fonts.load('400 100px "Outfit"'),

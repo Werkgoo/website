@@ -89,10 +89,11 @@ const Caption: React.FC<{text: string; accent?: string}> = ({text, accent = COLO
       <div
         style={{
           display: 'inline-block',
-          fontFamily: FONTS.display,
+          fontFamily: FONTS.ui,
           fontSize: 62,
-          fontWeight: 700,
-          lineHeight: 1.18,
+          fontWeight: 900,
+          letterSpacing: '-0.02em',
+          lineHeight: 1.16,
           whiteSpace: 'pre-line',
           color: accent,
           textShadow: '0 6px 30px rgba(3,16,28,0.6), 0 2px 6px rgba(3,16,28,0.5)',
@@ -117,11 +118,11 @@ const Watermark: React.FC = () => (
       borderRadius: 999,
       background: 'rgba(6,24,38,0.42)',
       border: '1px solid rgba(253,247,236,0.25)',
-      fontFamily: FONTS.display,
+      fontFamily: FONTS.ui,
       color: COLORS.cream,
-      fontSize: 30,
-      fontWeight: 500,
-      letterSpacing: 0.5,
+      fontSize: 29,
+      fontWeight: 600,
+      letterSpacing: '-0.01em',
     }}
   >
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
@@ -151,17 +152,16 @@ const Hook: React.FC = () => {
         justifyContent: 'center',
         alignItems: 'center',
         textAlign: 'center',
-        fontFamily: FONTS.display,
         color: COLORS.cream,
         opacity: out,
       }}
     >
       <div
         style={{
-          fontSize: 130,
-          fontWeight: 800,
+          fontFamily: FONTS.impact,
+          fontSize: 158,
           letterSpacing: 2,
-          lineHeight: 1,
+          lineHeight: 0.92,
           transform: `translateY(${(1 - title) * 60}px) scale(${0.94 + title * 0.06})`,
           opacity: title,
           textShadow: '0 10px 40px rgba(3,16,28,0.55)',
@@ -181,9 +181,10 @@ const Hook: React.FC = () => {
       />
       <div
         style={{
-          fontSize: 44,
-          fontWeight: 300,
-          letterSpacing: 8,
+          fontFamily: FONTS.ui,
+          fontSize: 36,
+          fontWeight: 500,
+          letterSpacing: 10,
           textTransform: 'uppercase',
           opacity: sub,
           transform: `translateY(${(1 - sub) * 26}px)`,
@@ -215,7 +216,6 @@ const EndCard: React.FC = () => {
         style={{
           position: 'relative',
           textAlign: 'center',
-          fontFamily: FONTS.display,
           color: COLORS.cream,
           transform: `translateY(${(1 - enter) * 50}px)`,
           opacity: enter,
@@ -223,8 +223,8 @@ const EndCard: React.FC = () => {
       >
         <div
           style={{
-            fontSize: 88,
-            fontWeight: 800,
+            fontFamily: FONTS.impact,
+            fontSize: 104,
             letterSpacing: 1,
             textShadow: '0 8px 34px rgba(3,16,28,0.75)',
           }}
@@ -234,8 +234,9 @@ const EndCard: React.FC = () => {
         <div
           style={{
             marginTop: 22,
-            fontSize: 38,
-            fontWeight: 300,
+            fontFamily: FONTS.ui,
+            fontSize: 34,
+            fontWeight: 500,
             letterSpacing: 1,
             color: 'rgba(253,247,236,0.9)',
             textShadow: '0 4px 20px rgba(3,16,28,0.75)',

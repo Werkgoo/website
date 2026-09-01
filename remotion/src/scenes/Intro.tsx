@@ -43,10 +43,11 @@ export const Intro: React.FC = () => {
         <FadeUp delay={6} distance={20}>
           <div
             style={{
-              fontSize: 26,
-              letterSpacing: 14,
+              fontFamily: FONTS.ui,
+              fontSize: 24,
+              letterSpacing: 12,
               textTransform: 'uppercase',
-              fontWeight: 300,
+              fontWeight: 500,
               color: COLORS.sand,
               marginBottom: 26,
             }}
@@ -98,9 +99,10 @@ export const Intro: React.FC = () => {
           <div
             style={{
               marginTop: 18,
-              fontSize: 32,
-              fontWeight: 300,
-              letterSpacing: 2,
+              fontFamily: FONTS.ui,
+              fontSize: 30,
+              fontWeight: 400,
+              letterSpacing: 1,
               color: 'rgba(253,247,236,0.86)',
             }}
           >

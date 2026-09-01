@@ -40,8 +40,10 @@ const Counter: React.FC<{stat: Stat; delay: number; index: number}> = ({stat, de
             display: 'flex',
             alignItems: 'center',
             gap: 16,
-            fontSize: 20,
-            letterSpacing: 4,
+            fontFamily: FONTS.ui,
+            fontSize: 19,
+            fontWeight: 600,
+            letterSpacing: 3,
             color: 'rgba(253,247,236,0.45)',
             marginBottom: 'auto',
           }}
@@ -63,8 +65,16 @@ const Counter: React.FC<{stat: Stat; delay: number; index: number}> = ({stat, de
           {shown}
           {stat.suffix ?? ''}
         </div>
-        <div style={{fontSize: 34, fontWeight: 500, marginTop: 18}}>{stat.label}</div>
-        <div style={{fontSize: 21, fontWeight: 300, color: 'rgba(253,247,236,0.62)', marginTop: 10}}>
+        <div style={{fontSize: 34, fontWeight: 600, marginTop: 18}}>{stat.label}</div>
+        <div
+          style={{
+            fontFamily: FONTS.ui,
+            fontSize: 20,
+            fontWeight: 400,
+            color: 'rgba(253,247,236,0.62)',
+            marginTop: 10,
+          }}
+        >
           {stat.note}
         </div>
       </div>

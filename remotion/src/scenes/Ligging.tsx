@@ -28,9 +28,10 @@ export const Ligging: React.FC = () => (
         <FadeUp delay={34} distance={30}>
           <p
             style={{
-              fontSize: 32,
-              lineHeight: 1.5,
-              fontWeight: 300,
+              fontFamily: FONTS.ui,
+              fontSize: 30,
+              lineHeight: 1.55,
+              fontWeight: 400,
               color: 'rgba(253,247,236,0.82)',
               marginTop: 34,
             }}
@@ -51,9 +52,10 @@ export const Ligging: React.FC = () => (
                   borderRadius: 999,
                   border: '1px solid rgba(253,247,236,0.28)',
                   background: 'rgba(253,247,236,0.06)',
-                  fontSize: 22,
-                  fontWeight: 300,
-                  letterSpacing: 1,
+                  fontFamily: FONTS.ui,
+                  fontSize: 21,
+                  fontWeight: 500,
+                  letterSpacing: 0.2,
                 }}
               >
                 {chip}
