@@ -14,14 +14,18 @@ naar een andere zaak.
 
 ## Eigen foto's toevoegen
 
-De galerij en de hero tonen nu een gestileerde plaatshouder. Zodra er
-foto's zijn:
+De galerij is vervangen door de stijlkaarten (`.st-card` in `index.html`):
+vier kaarten met een icoon en bewegend lijnwerk in plaats van een
+plaatshouder die om een foto vraagt. De site is daarmee af zónder foto's.
+
+Komen er toch eigen foto's, dan is dat een uitbreiding, geen reparatie:
 
 1. Zet het origineel in `img/` als `naam.jpg`.
 2. Maak de varianten `naam-480` en `naam-900`, in zowel `.webp` als `.jpg`.
-3. Vervang in `index.html` het `<div class="photo-slot">`-blok door een
-   `<picture>` met `srcset` en `sizes` — hoe dat eruitziet staat in de
-   hoofd-README onder "Afbeeldingen".
+3. Zet in de stijlkaart een `<picture>` met `srcset` en `sizes` achter de
+   tekst, op de plek van `<span class="st-art">` — hoe zo'n `<picture>`
+   eruitziet staat in de hoofd-README onder "Afbeeldingen". De donkere
+   voet onder de tekst (`.st-card::before`) houdt de regels leesbaar.
 
 Zonder varianten werkt het ook; dan haalt de browser altijd het origineel.
 

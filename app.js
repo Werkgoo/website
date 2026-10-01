@@ -275,7 +275,7 @@ function sendForm(e){
   }
 
   /* --- in beeld? dan aanzetten --- */
-  var doelen=[].slice.call(document.querySelectorAll('.hero, .sec-head, .menu, .gallery, .book-left'));
+  var doelen=[].slice.call(document.querySelectorAll('.hero, .sec-head, .menu, .styles, .book-left'));
   function aan(el){el.classList.add('is-in');}
   if('IntersectionObserver' in window){
     var kijker=new IntersectionObserver(function(rijen){
@@ -293,8 +293,8 @@ function sendForm(e){
 
   if(rustig)return;
 
-  /* --- hero-foto schuift trager mee dan de pagina --- */
-  var foto=document.querySelector('.hero-photo');
+  /* --- het sierwerk in de hero schuift trager mee dan de pagina --- */
+  var sier=document.querySelector('.hero-art');
   var marquee=document.querySelector('.marquee-track');
   var magneten=fijnAanwijzer?[].slice.call(document.querySelectorAll('.hero-ctas .btn')):[];
 
@@ -320,8 +320,8 @@ function sendForm(e){
     if(document.hidden||(!heroZichtbaar&&!marqueeZichtbaar)){draait=false;return;}
     var y=window.scrollY;
 
-    if(foto&&heroZichtbaar){
-      foto.style.transform='translate3d(0,'+(y*0.18)+'px,0)';
+    if(sier&&heroZichtbaar){
+      sier.style.transform='translate3d(0,'+(y*0.14)+'px,0)';
     }
     if(marquee&&stap>0&&marqueeZichtbaar){
       var dy=y-laatsteY;
@@ -337,12 +337,12 @@ function sendForm(e){
   if('IntersectionObserver' in window){
     var zicht=new IntersectionObserver(function(rijen){
       rijen.forEach(function(r){
-        if(r.target===foto)heroZichtbaar=r.isIntersecting;
+        if(r.target===sier)heroZichtbaar=r.isIntersecting;
         else marqueeZichtbaar=r.isIntersecting;
       });
       stuur();
     },{rootMargin:'150px'});
-    if(foto)zicht.observe(foto);
+    if(sier)zicht.observe(sier);
     if(marquee)zicht.observe(marquee.parentNode);
   }
   document.addEventListener('visibilitychange',stuur);

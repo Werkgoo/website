@@ -6,19 +6,23 @@
 > omgezet naar Ghere Hairstyling. Naam, adres en telefoonnummer zijn
 > overal aangepast en alle foto's van de oude zaak zijn verwijderd.
 >
-> **Twee blokken zijn nog niet geverifieerd en komen dus nog van de
-> vorige zaak:**
+> **Nog te controleren voordat de site live gaat:**
 >
 > 1. **De openingstijden.** Van Ghere Hairstyling zijn geen tijden
 >    openbaar vindbaar. Wat er nu staat (ma t/m wo 11:00–21:00, do tot
 >    22:00, vr en za 10:00–22:00, zo 11:00–20:00) zijn de tijden van de
 >    oude zaak. Die sturen ook de live "Nu open"-badge aan, dus zolang ze
 >    niet kloppen klopt die badge ook niet.
-> 2. **De prijzen.** Ook die zijn niet geverifieerd en komen van de oude
->    zaak (knippen € 15,00 tot harsen € 5,00).
+> 2. **De prijzen.** Knippen staat op € 25,00 — dat bedrag is doorgegeven.
+>    De rest is daar in verhouding mee opgehoogd (knippen + baard € 35,00,
+>    baard € 15,00, kinderen € 20,00, wassen & stylen € 12,50,
+>    wenkbrauwen en harsen € 7,50). Die zes bedragen zijn een schatting
+>    en nog niet bevestigd.
 >
-> Vervang beide voordat de site live gaat. Waar ze staan, staat hieronder
-> onder "Prijzen wijzigen" en "Openingstijden wijzigen".
+> Waar ze staan, staat hieronder onder "Prijzen wijzigen" en
+> "Openingstijden wijzigen". Let op: een prijs staat op twee plekken —
+> in de lijst én in de JSON-LD bovenin, en knippen ook nog in de
+> pluspunten onder de hero.
 >
 > Verder ontbreken nog: een e-mailadres, Instagram/TikTok en het echte
 > domein (`gherehairstyling.nl` is een aanname en staat in de canonical,
@@ -36,7 +40,7 @@ aangepast hoeft te worden.
 
 | Bestand | Wat |
 | --- | --- |
-| `index.html` | De hele site: hero, diensten & prijzen, ons werk, praktisch, afspraakformulier |
+| `index.html` | De hele site: hero, diensten & prijzen, stijlen, praktisch, afspraakformulier |
 | `privacy.html` | Privacyverklaring |
 | `404.html` | Foutpagina |
 | `style.css` | Ontwerpsysteem |
@@ -50,9 +54,14 @@ werken.
 
 ## Prijzen wijzigen
 
-De prijslijst staat in `index.html` in de `<ul class="menu">`, en nergens
-anders. De keuzelijst in het afspraakformulier noemt alleen de
-behandelingen, zonder bedragen, zodat de prijzen niet uiteen kunnen lopen.
+De prijslijst staat in `index.html` in de `<ul class="menu">`. Een bedrag
+dat u daar wijzigt, moet ook mee in de `hasOfferCatalog` van de JSON-LD
+bovenin diezelfde pagina — dat is wat Google uitleest. De prijs van
+knippen staat daarnaast nog in de pluspunten onder de hero
+(`<ul class="hero-usps">`).
+
+De keuzelijst in het afspraakformulier noemt alleen de behandelingen,
+zonder bedragen, zodat die niet uiteen kan lopen met de lijst.
 
 ## Openingstijden wijzigen
 
@@ -128,9 +137,11 @@ een blok met het kopje ANIMATIES. Wat er gebeurt:
 - De koppen worden door JavaScript in losse woorden geknipt, die elk
   achter een masker vandaan omhoog komen. De opmaak eromheen blijft heel,
   dus het goudverloop op het accentwoord overleeft het opknippen.
-- De hero-foto zoomt heel traag in (ken burns) en schuift bij het scrollen
-  langzamer mee dan de rest.
-- Prijsregels komen na elkaar binnen, galerijfoto's worden van boven naar
+- Het lijnwerk in de hero en achter de stijlkaarten schuift traag op. Het
+  patroon zelf staat stil; alleen de laag eronder beweegt, en precies één
+  periode, zodat het naadloos rondloopt. Het sierwerk in de hero schuift
+  bij het scrollen bovendien langzamer mee dan de rest.
+- Prijsregels komen na elkaar binnen, stijlkaarten worden van boven naar
   beneden opengeveegd.
 - De kaarten hebben een lichtvlek die de muis volgt, de hoofdknoppen een
   glansveeg, en de knoppen in de hero trekken licht naar de cursor toe.
@@ -169,15 +180,17 @@ telefoons met een streep onderaan.
 
 ## Afbeeldingen
 
-Elke foto staat er in drie maten (480, 900 en de volle breedte) en in twee
-formaten (WebP en JPEG), gekoppeld via `<picture>` met `srcset` en `sizes`.
-De browser kiest zelf wat bij het scherm past: een telefoon haalt de
-900-versie, een gewoon desktopscherm de 480-versie voor de galerij.
+Er staan op dit moment geen foto's in de site; zie `img/README.md`. Komen
+ze er wel, dan is dit de bedoelde opzet.
 
-De `sizes`-waarden volgen de echte kolombreekpunten van de galerij (1
-kolom t/m 720px, 2 t/m 1024px, daarna 3). **Wijzigt u die breekpunten in
-`style.css`, pas dan ook `sizes` in `index.html` aan** — anders haalt de
-browser een te kleine foto op en wordt hij wazig.
+Zet elke foto er in drie maten neer (480, 900 en de volle breedte) en in
+twee formaten (WebP en JPEG), gekoppeld via `<picture>` met `srcset` en
+`sizes`. De browser kiest dan zelf wat bij het scherm past.
+
+Laat de `sizes`-waarden de echte kolombreekpunten van de stijlkaarten
+volgen (1 kolom t/m 720px, 2 t/m 1024px, daarna 4). **Wijzigt u die
+breekpunten in `style.css`, pas dan ook `sizes` in `index.html` aan** —
+anders haalt de browser een te kleine foto op en wordt hij wazig.
 
 Nieuwe foto's toevoegen: zet het origineel als `naam.jpg` in `img/` en
 maak de varianten `naam-480`, `naam-900` in beide formaten. Zonder
@@ -195,10 +208,10 @@ Twee patronen, bewust verschillend:
   onder de header staan zolang de lijst langsscrollt en schuift daarna mee
   weg. Dat is hoe `position:sticky` hoort te werken — hij loopt mee over
   het verschil in hoogte tussen de kolommen, hier zo'n 525 van de 815px.
-- **Ons werk** en **Praktisch** gebruiken `.sec-head--rij`: label boven de
-  titel, over de volle breedte. Die secties hebben brede blokken (galerij,
-  twee kaarten naast elkaar) en verliezen te veel als er een zijkolom van
-  af gaat.
+- **Stijlen** en **Praktisch** gebruiken `.sec-head--rij`: label boven de
+  titel, over de volle breedte. Die secties hebben brede blokken (vier
+  stijlkaarten, twee kaarten naast elkaar) en verliezen te veel als er een
+  zijkolom van af gaat.
 
 De oude `.sec-head` met de titel rechts en een zwevend label links liet op
 brede schermen een groot gat vallen; die vorm wordt nergens meer gebruikt.
