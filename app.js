@@ -105,10 +105,10 @@ setInterval(function(){paintStatus();paintToday();},60000);
 /* ============================================================
    WhatsApp — nummer en bericht staan hier op één plek.
    Het nummer is internationaal zonder + en zonder de 0 van 06:
-   06 85422395 wordt 31685422395.
+   06 87961062 wordt 31687961062.
    ============================================================ */
-var WA_NUMBER='31685422395';
-var WA_TEXT='Hoi! Ik wil graag een afspraak maken bij Barber Achie.';
+var WA_NUMBER='31687961062';
+var WA_TEXT='Hoi! Ik wil graag een afspraak maken bij Ghere Hairstyling.';
 function waLink(){return 'https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(WA_TEXT);}
 
 /* De links in de HTML werken ook zonder JS; hier komt het bericht erbij. */
@@ -145,8 +145,8 @@ document.querySelectorAll('a[data-wa]').forEach(function(a){
 function laadKaart(btn){
   var kaart=btn.parentNode;
   var f=document.createElement('iframe');
-  f.src='https://www.google.com/maps?q=G.+Rietveldweg+4,+1703+DD+Heerhugowaard&hl=nl&z=16&output=embed';
-  f.title='Kaart met de locatie van Barber Achie, G. Rietveldweg 4 in Heerhugowaard';
+  f.src='https://www.google.com/maps?q=Laat+19,+1811+EA+Alkmaar&hl=nl&z=16&output=embed';
+  f.title='Kaart met de locatie van Ghere Hairstyling, Laat 19 in Alkmaar';
   f.loading='lazy';
   f.referrerPolicy='no-referrer-when-downgrade';
   f.setAttribute('allowfullscreen','');
@@ -178,7 +178,7 @@ if(FORMULIER_VIA_WHATSAPP){
 
 function afspraakBericht(f){
   var kies=f.behandeling;
-  var regels=['Hoi! Ik wil graag een afspraak maken bij Barber Achie.',''];
+  var regels=['Hoi! Ik wil graag een afspraak maken bij Ghere Hairstyling.',''];
   regels.push('Naam: '+f.naam.value.trim());
   regels.push('Telefoon: '+f.telefoon.value.trim());
   regels.push('Behandeling: '+kies.options[kies.selectedIndex].text);
@@ -207,7 +207,7 @@ function sendForm(e){
   var ep=form.getAttribute('action');
   if(!ep||ep.indexOf('YOUR_ID')!==-1){
     e.preventDefault();
-    alert('Het formulier is nog niet gekoppeld. Bel of app ons op 06 85422395.');
+    alert('Het formulier is nog niet gekoppeld. Bel of app ons op 06 87961062.');
     return;
   }
   e.preventDefault();
@@ -215,7 +215,7 @@ function sendForm(e){
   btn.disabled=true;btn.textContent='Versturen…';
   fetch(ep,{method:'POST',headers:{Accept:'application/json'},body:new FormData(form)})
     .then(function(r){if(!r.ok)throw 0;document.getElementById('formBody').style.display='none';document.getElementById('ok').style.display='block';})
-    .catch(function(){btn.disabled=false;btn.textContent='Verstuur aanvraag';alert('Er ging iets mis. Bel of app ons op 06 85422395.');});
+    .catch(function(){btn.disabled=false;btn.textContent='Verstuur aanvraag';alert('Er ging iets mis. Bel of app ons op 06 87961062.');});
 }
 
 /* ============================================================

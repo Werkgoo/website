@@ -1,25 +1,32 @@
 # Afbeeldingen
 
-Zet de bestanden hier neer met **exact** deze namen. De site pakt ze dan
-automatisch op — er hoeft niets in de HTML aangepast te worden.
+Hier staat nu alleen het app-icoon. **Alle foto's zijn verwijderd** — die
+waren van Barber Achie (hun interieur en hun klanten) en konden niet mee
+naar een andere zaak.
 
-| Bestandsnaam | Wat | Waar op de site |
-| --- | --- | --- |
-| `logo.png` | Het logo met transparante achtergrond | Header en mobiel menu — **ontbreekt nog** |
-| `interieur.jpg` | Het interieur van de zaak | Achtergrond van de hero |
-| `kapsel-1.jpg` | Blonde coupe met fade | Galerij "Ons werk" |
-| `kapsel-2.jpg` | Getextureerde taper fade | Galerij "Ons werk" |
-| `barber-aan-het-werk.jpg` | De kapper die een klant knipt | Galerij "Ons werk" |
+## Wat de site verwacht
 
-Ontbreekt een bestand, dan haalt een `onerror`-handler de afbeelding weg —
-de pagina raakt dus nooit stuk. Bij het logo verschijnt dan het tekstlogo.
+| Bestandsnaam | Waar het komt |
+| --- | --- |
+| `logo.png` | Header en mobiel menu. Ontbreekt nog; zolang dat zo is toont de header het tekstlogo. |
+| `og.jpg` | Deelkaart voor WhatsApp en social (1200×630). **Staat er al**, gemaakt zonder foto. |
+| `apple-touch-icon.png` | Icoon voor het iOS-beginscherm. **Staat er al.** |
+
+## Eigen foto's toevoegen
+
+De galerij en de hero tonen nu een gestileerde plaatshouder. Zodra er
+foto's zijn:
+
+1. Zet het origineel in `img/` als `naam.jpg`.
+2. Maak de varianten `naam-480` en `naam-900`, in zowel `.webp` als `.jpg`.
+3. Vervang in `index.html` het `<div class="photo-slot">`-blok door een
+   `<picture>` met `srcset` en `sizes` — hoe dat eruitziet staat in de
+   hoofd-README onder "Afbeeldingen".
+
+Zonder varianten werkt het ook; dan haalt de browser altijd het origineel.
 
 ## Aanbevelingen
 
-- **Formaat**: echte JPG voor foto's, PNG voor het logo (transparantie).
-  Let op de extensie: een PNG die `.jpg` heet, weigeren sommige browsers.
-- **Afmeting**: langste zijde 1400–1600 px is ruim voldoende.
-- **Bestandsgrootte**: houd het onder ~300 kB per foto. De huidige foto's
-  zijn daarop teruggebracht (van ~2,5 MB naar ~250 kB per stuk).
-- Het logo werkt op de donkere achtergrond van de site het best in de
-  **lichte/transparante** variant, niet de versie met donkere achtergrond.
+- Langste zijde 1400–1600 px is ruim voldoende.
+- Houd het onder ~300 kB per foto.
+- Let op de extensie: een PNG die `.jpg` heet, weigeren sommige browsers.

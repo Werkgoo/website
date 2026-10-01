@@ -1,7 +1,31 @@
-# Barber Achie — website
+# Ghere Hairstyling — website
 
-Website voor **Barber Achie**, barbershop aan de G. Rietveldweg 4 in
-Heerhugowaard. Eén pagina, geen build-stap, geen dependencies: HTML, één
+> ## ⚠ Eerst lezen — overgezet van een andere zaak
+>
+> Deze site is gemaakt voor Barber Achie in Heerhugowaard en daarna
+> omgezet naar Ghere Hairstyling. Naam, adres en telefoonnummer zijn
+> overal aangepast en alle foto's van de oude zaak zijn verwijderd.
+>
+> **Twee blokken zijn nog niet geverifieerd en komen dus nog van de
+> vorige zaak:**
+>
+> 1. **De openingstijden.** Van Ghere Hairstyling zijn geen tijden
+>    openbaar vindbaar. Wat er nu staat (ma t/m wo 11:00–21:00, do tot
+>    22:00, vr en za 10:00–22:00, zo 11:00–20:00) zijn de tijden van de
+>    oude zaak. Die sturen ook de live "Nu open"-badge aan, dus zolang ze
+>    niet kloppen klopt die badge ook niet.
+> 2. **De prijzen.** Ook die zijn niet geverifieerd en komen van de oude
+>    zaak (knippen € 15,00 tot harsen € 5,00).
+>
+> Vervang beide voordat de site live gaat. Waar ze staan, staat hieronder
+> onder "Prijzen wijzigen" en "Openingstijden wijzigen".
+>
+> Verder ontbreken nog: een e-mailadres, Instagram/TikTok en het echte
+> domein (`gherehairstyling.nl` is een aanname en staat in de canonical,
+> og-tags, sitemap en robots.txt).
+
+
+Website voor **Ghere Hairstyling**, herenkapper aan de Laat 19 in Alkmaar. Eén pagina, geen build-stap, geen dependencies: HTML, één
 stylesheet en één JavaScript-bestand.
 
 ## Opzet
@@ -46,7 +70,7 @@ zo 11:00–20:00. De zaak is dus zeven dagen per week open.
 
 Nummer en standaardbericht staan op één plek: bovenin `app.js`, in
 `WA_NUMBER` en `WA_TEXT`. Het nummer is internationaal, zonder `+` en
-zonder de 0 van 06 — `06 85422395` wordt dus `31685422395`.
+zonder de 0 van 06 — `06 87961062` wordt dus `31687961062`.
 
 Er zijn drie ingangen: de groene knop in de hero, de regel in de
 contactkaart, en een zwevende knop rechtsonder die verschijnt zodra de
@@ -127,9 +151,9 @@ worden dan niet eens opgeknipt en alles staat meteen stil en zichtbaar.
 
 ## Social media
 
-Instagram (`@achie.sbarbershop`) en TikTok (`@achietheb`) staan in de
-contactkaart en in de `sameAs` van de structured data, zodat Google ze aan
-de zaak kan koppelen.
+Nog geen accounts gekoppeld. De Instagram- en TikTok-knoppen van de vorige
+zaak zijn verwijderd, net als de `sameAs` in de structured data. Zijn er
+accounts, dan horen ze in de contactkaart en in die `sameAs`.
 
 ## Mobiele actiebalk
 
@@ -185,7 +209,7 @@ De twee tekstkaarten naast elkaar met de kaart eronder leest beter.
 
 ## Wat de concurrentie wel heeft en wij niet
 
-Uit de barbershops in Heerhugowaard (Barber Hasan, Zidan Barber, Barber
+Uit de herenkappers in Alkmaar (Barber Hasan, Zidan Barber, Barber
 Tangerino, Barber Shamo, De KapperIng):
 
 1. **Online boeken met tijdslots.** Vrijwel iedereen zit op Fresha of
@@ -203,7 +227,7 @@ Tangerino, Barber Shamo, De KapperIng):
 Deze gegevens komen uit openbare vermeldingen, niet uit de oude website.
 Even nalopen voor livegang:
 
-- **Of 06 85422395 op WhatsApp geregistreerd staat.** De knoppen gaan
+- **Of 06 87961062 op WhatsApp geregistreerd staat.** De knoppen gaan
   daarvan uit. Is het nummer niet bekend bij WhatsApp, dan opent er wel
   een venster maar meldt WhatsApp dat het nummer ongeldig is. Even zelf
   testen door op de knop te klikken.
