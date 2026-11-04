@@ -11,7 +11,7 @@ const cv=document.getElementById('cv');
 const fileError=document.getElementById('fileError');
 const uploadTitle=document.getElementById('uploadTitle');
 const removeFile=document.getElementById('removeFile');
-function validFile(){if(!cv)return true;const file=cv.files[0];const ok=!file||(['pdf','doc','docx'].includes(file.name.split('.').pop().toLowerCase())&&file.size>0&&file.size<=7*1024*1024);cv.setCustomValidity(ok?'':'Gebruik een PDF of Word-bestand van maximaal 7 MB.');if(fileError)fileError.hidden=ok;if(uploadTitle)uploadTitle.textContent=file&&ok?file.name:'Voeg je cv toe, optioneel';if(removeFile)removeFile.hidden=!file;return ok;}
+function validFile(){if(!cv)return true;const file=cv.files[0];const ok=!!file&&(['pdf','doc','docx'].includes(file.name.split('.').pop().toLowerCase())&&file.size>0&&file.size<=7*1024*1024);cv.setCustomValidity(ok?'':'Gebruik een PDF of Word-bestand van maximaal 7 MB.');if(fileError)fileError.hidden=ok||!file;if(uploadTitle)uploadTitle.textContent=file&&ok?file.name:'Kies je cv';if(removeFile)removeFile.hidden=!file;return ok;}
 if(cv){cv.addEventListener('change',validFile);if(removeFile)removeFile.addEventListener('click',()=>{cv.value='';validFile();cv.focus();});}
 // Show success only after the hosting provider accepts the submission.
 document.querySelectorAll('form[data-netlify]').forEach(form=>{
@@ -22,7 +22,7 @@ document.querySelectorAll('form[data-netlify]').forEach(form=>{
   event.preventDefault();if(form.id==='candidateForm'&&!validFile()){cv.reportValidity();return;}if(!form.reportValidity())return;
   error.hidden=true;if(button){button.disabled=true;button.textContent='Bezig met versturen…';}
   try{
-   const data=new FormData(form);if(form.id==='candidateForm'&&cv&&!cv.files.length)data.delete('cv');
+   const data=new FormData(form);
    const response=await fetch('/',{method:'POST',body:data});
    if(!response.ok)throw new Error('Submission rejected');
    window.location.assign(form.getAttribute('action')||'/bedankt');
@@ -36,3 +36,5 @@ document.querySelectorAll('form[data-netlify]').forEach(form=>{
 const mobileCta=document.getElementById('mobileCta');
 const formZone=document.getElementById('aanmelden');
 if(mobileCta&&formZone&&'IntersectionObserver'in window){new IntersectionObserver(entries=>{mobileCta.hidden=entries[0].isIntersecting;},{rootMargin:'-80px 0px -10% 0px'}).observe(formZone);}
+
+if(new URLSearchParams(window.location.search).get('type')==='cv'&&document.body.classList.contains('utility-page')){const heading=document.querySelector('.utility-main h1');const description=document.querySelector('.utility-main p');if(heading)heading.textContent='Je cv is verstuurd.';if(description)description.textContent='We bekijken je cv. Als we passend werk met je kunnen bespreken, nemen we contact met je op.';}
