@@ -13,9 +13,9 @@ The design search also returned a generic Inter/Playfair pairing that did not fi
 
 ## System
 
-Manrope only, 400/500/600 weights. Body 16/24, secondary text 14/20 and captions at least 12/16. Headings use 60/60, 48/48, 36/40 and 30/36, with smaller scale steps on mobile. Named CSS classes define these styles once. Main controls meet 44px touch targets. Inputs use 16px text on mobile.
+Manrope only, 400/500/600 weights. The refreshed lowercase wordmark uses outlined Manrope 700, with “go” inside an orange capsule. Header, footer, utility pages and favicon share this identity. Body 16/24, secondary text 14/20 and captions at least 12/16. Headings use 60/60, 48/48, 36/40 and 30/36, with smaller scale steps on mobile. Named CSS classes define these styles once. Main controls meet 44px touch targets. Inputs use 16px text on mobile.
 
-White and neutral surfaces, charcoal text, existing brand orange for the primary action and green for feedback. Images introduce the four work areas. Phosphor regular icons and its MIT license are stored locally. All font and icon requests stay on the website origin.
+White and neutral surfaces, charcoal text, dark green for primary actions and orange for the wordmark accent. Images introduce the four work areas. Phosphor regular icons and its MIT license are stored locally. All font and icon requests stay on the website origin.
 
 The page order is introduction, field-of-work photo links, two-step CV signup, next steps, one short benefit statement, FAQ and a final signup CTA. No visitor account or employer enquiry route is introduced.
 
