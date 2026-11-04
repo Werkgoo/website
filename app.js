@@ -13,7 +13,7 @@ let currentStep=1;
 const multistep=!!(form&&firstStep&&secondStep&&nextStep);
 function showStep(step,focus=false){
  if(!multistep)return;document.getElementById('progressTrack').setAttribute('aria-valuenow',String(step));currentStep=step;firstStep.hidden=step!==1;secondStep.hidden=step!==2;
- document.getElementById('stepLabel').textContent='Stap '+step+' van 2';document.getElementById('stepName').textContent=step===1?'Je cv':'Je gegevens';document.getElementById('stepProgress').style.width=step===1?'50%':'100%';
+ document.getElementById('stepLabel').textContent='Stap '+step+' van 2';document.getElementById('stepName').textContent=step===1?'Je cv':'Je gegevens';document.getElementById('stepProgress').style.transform=step===1?'scaleX(.5)':'scaleX(1)';
  const file=cv.files[0];const summary=document.getElementById('fileSummary');summary.hidden=!file;document.getElementById('fileSummaryName').textContent=file?file.name:'';
  if(focus){const target=step===1?cv:form.querySelector('input[name="naam"]');target.focus({preventScroll:true});}
 }
@@ -37,14 +37,18 @@ if(uploadArea){['dragenter','dragover'].forEach(name=>uploadArea.addEventListene
 const sectorSelect=document.getElementById('vakgebied');document.querySelectorAll('[data-sector]').forEach(link=>link.addEventListener('click',()=>{if(sectorSelect)sectorSelect.value=link.dataset.sector;document.querySelectorAll('[data-sector]').forEach(card=>card.classList.toggle('is-selected',card===link));const note=document.getElementById('sectorChoice');if(note){note.hidden=false;note.textContent='Jouw vakgebied, '+link.dataset.sector+'.';}}));
 document.querySelectorAll('form[data-netlify]').forEach(targetForm=>{
  const button=targetForm.querySelector('button[type="submit"],button:not([type])');const original=button?button.innerHTML:'';
- const error=document.createElement('p');error.className='field-error';error.setAttribute('role','alert');error.hidden=true;targetForm.append(error);
+ const error=document.createElement('p');error.className='field-error';error.setAttribute('role','alert');error.hidden=true;error.tabIndex=-1;targetForm.append(error);
  targetForm.addEventListener('submit',async e=>{
   e.preventDefault();if(targetForm===form&&!validFile(true)){showStep(1);cv.reportValidity();return;}
   if(targetForm===form&&multistep&&currentStep===1){showStep(2,true);return;}
   if(!targetForm.reportValidity())return;error.hidden=true;if(button){button.disabled=true;button.classList.add('is-loading');button.textContent='Bezig met versturen…';}
   try{const response=await fetch('/',{method:'POST',body:new FormData(targetForm)});if(!response.ok)throw Error('Submission rejected');window.location.assign(targetForm.getAttribute('action')||'/bedankt');}
-  catch{error.textContent='Versturen is niet gelukt. Je gegevens blijven staan. Probeer opnieuw of mail naar info@werkgo.nl.';error.hidden=false;if(button){button.disabled=false;button.classList.remove('is-loading');button.innerHTML=original;}}
+  catch{error.textContent='Versturen is niet gelukt. Je gegevens blijven staan. Probeer opnieuw of mail naar info@werkgo.nl.';error.hidden=false;error.focus();if(button){button.disabled=false;button.classList.remove('is-loading');button.innerHTML=original;}}
  });window.addEventListener('pageshow',()=>{if(button){button.disabled=false;button.classList.remove('is-loading');button.innerHTML=original;}});
 });
 const mobileCta=document.getElementById('mobileCta');const formZone=document.getElementById('aanmelden');if(mobileCta&&formZone&&'IntersectionObserver'in window)new IntersectionObserver(entries=>{mobileCta.hidden=entries[0].isIntersecting;},{rootMargin:'-80px 0px -10% 0px'}).observe(formZone);
 if(new URLSearchParams(window.location.search).get('type')==='cv'&&document.body.classList.contains('utility-page')){const heading=document.querySelector('.utility-main h1');const description=document.querySelector('.utility-main p');if(heading)heading.textContent='Je cv is verstuurd.';if(description)description.textContent='We bekijken je cv. Als we passend werk met je kunnen bespreken, nemen we contact met je op.';}
+
+// Reveal one short benefit statement; leave all essential content visible.
+if('IntersectionObserver'in window&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){const words=document.querySelectorAll('.reveal-word');if(words.length){document.body.classList.add('motion-ready');const reveal=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');reveal.unobserve(entry.target);}});},{rootMargin:'0px 0px -20% 0px',threshold:1});words.forEach((word,index)=>{word.style.transitionDelay=(index%5)*60+'ms';reveal.observe(word);});}}
+if(form){form.querySelectorAll('input[required]:not([type="file"]):not([type="checkbox"])').forEach((input,index)=>{const help=document.createElement('span');help.className='input-error';help.id='input-error-'+index;help.hidden=true;input.parentElement.append(help);input.setAttribute('aria-describedby',help.id);const check=()=>{const invalid=!!input.value&&!input.validity.valid;help.hidden=!invalid;help.textContent=invalid?(input.type==='email'?'Vul een geldig e-mailadres in.':'Controleer dit veld.'):'';if(invalid)input.setAttribute('aria-invalid','true');else input.removeAttribute('aria-invalid');};input.addEventListener('blur',check);input.addEventListener('input',()=>{if(!help.hidden)check();});});}

@@ -10,13 +10,13 @@ Op 4 november 2026 zijn Mainfield, Maatt en WerkTalent onderzocht via hun gepubl
 - Maatt, https://www.maatt.nl/open-sollicitatie/ — merkbanner, korte kandidaatgerichte introductie en een formulier voor open sollicitaties. De reactietermijn op die website is geen belofte van Werkgo.
 - WerkTalent, https://www.werktalent.com/vacatures/open-sollicitatie — kandidaatgerichte uitleg over een open sollicitatie en contact over werk. Hun vacatures, beoordelingen, accountfunctionaliteit en andere claims zijn niet overgenomen.
 
-Werkgo gebruikt de onderzochte kandidaatroute met eigen tekst, merk, foto's en code. De huidige interactieve versie toont direct een cv-upload in twee stappen naast een korte introductie en foto. De uitleg van opvolging en optionele vakgebiedkeuze staan eronder. Geen conversiecijfers van concurrenten beschikbaar; dit ontwerp is geen bewezen conversieverbetering.
+Werkgo gebruikt de onderzochte kandidaatroute met eigen tekst, merk, foto's en code. De actuele versie gebruikt een compacte introductie, vier vakgebiedbeelden en een cv-aanmelding in twee stappen. De ontwerpregels en bronnen staan in DESIGN.md. Geen conversiecijfers van concurrenten beschikbaar; dit ontwerp is geen bewezen conversieverbetering.
 
 ## Techniek
 
 Statische HTML/CSS/JS. Netlify publiceert de repository-root zonder buildstap. Formulier: naam, e-mailadres, telefoon, woonplaats, cv en toestemming. Geen account nodig. Het cv is verplicht, PDF/DOC/DOCX, niet leeg en maximaal 7 MB. Browsercontrole vervangt geen servercontrole of virusscan. Bij een geweigerde POST blijven de gegevens staan en wordt geen succes gemeld.
 
-Foto's zijn met AI gemaakt en tonen geen echte medewerkers. Manrope, DM Sans en SVG-iconen staan lokaal; OFL-licenties zijn inbegrepen. Geen trackers of externe lettertypeverzoeken.
+Foto's zijn met AI gemaakt en tonen geen echte medewerkers. De actuele pagina gebruikt één Manrope-lettertype en Phosphor SVG-iconen. De assets en bijbehorende licenties staan lokaal. Geen trackers of externe lettertypeverzoeken.
 
 ## Nog nodig voor productie en advertenties
 
@@ -29,3 +29,7 @@ De hoofdpagina heeft een upload in twee stappen. Alle velden blijven in hetzelfd
 Het grijze vlak in de Netlify-preview was het geïnjecteerde Netlify Drawer iframe. De CSP stond standaard alleen frames van dezelfde herkomst toe. frame-src staat nu uitsluitend de eigen herkomst en https://app.netlify.com toe, volgens https://docs.netlify.com/deploy/review-deploys/netlify-drawer-for-feedback/troubleshoot-the-netlify-drawer/ . De overige CSP-beperkingen blijven behouden.
 
 Getest in de lokale browser: verdergaan zonder bestand toont een fout; een dummy-pdf opent stap 2; teruggaan en opnieuw verdergaan bewaart bestand en ingevulde naam; een geweigerde POST toont een fout zonder gegevens te wissen. Geen horizontale overloop op gecontroleerde 320, 390 en 768 px.
+
+## Toegepaste ontwerpvaardigheden
+
+UI/UX Pro Max en Landing Page Design zijn als persoonlijke skills geïnstalleerd en toegepast. De pagina gebruikt hun typografieschaal, één primaire actie, dezelfde afstandstokens, focus- en foutstates en beweging via transform en opacity. Zie DESIGN.md voor de exacte keuzes.
