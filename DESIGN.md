@@ -19,3 +19,7 @@ Netlify Forms receipt, suitable CV storage and access controls, legal controller
 The hero heading uses two explicit lines and fluid type. At 980px and below, hero, registration and FAQ become single-column layouts; sector cards use two columns. Mobile has a shorter portrait, smaller caption, single-column contact fields and larger checkbox targets. Anchor offset matches the non-sticky header. The fixed mobile CTA is hidden while the hero CTA or signup form is visible, while form inputs are focused, and on short landscape screens.
 
 Checked 320, 360, 375, 390, 430, 600, 768, 820, 980, 1024, 1280 and 1440px iframe viewports. All had matching client and scroll widths, and all hero headings stayed on two lines. Mobile CTA navigation lands with the form title in view and no fixed button covering the form.
+
+## Readability revision
+
+Body and form explanation text use at least 16px, with 26px line height. Supporting text uses at least 14px, including upload guidance, privacy consent, step labels, photo caption and footer. Body contrast uses #424d5c; labels and actions use stronger weights and visible sizes. The mobile header and card labels retain narrow-screen fit.
