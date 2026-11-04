@@ -6,7 +6,7 @@ Het formulier staat direct in de eerste sectie. Kandidaten sturen verplicht een 
 
 Alle primaire knoppen gebruiken Upload je cv. De sectorkaarten selecteren het vakgebied in het formulier. Het formulier heeft een toestemmingsveld, bestand verwijderen, foutafhandeling en een bedankpagina. Geen verzendbevestiging bij een geweigerde POST. De pagina bevat geen advertentietags of conversieclaims. Google Ads inrichting en conversiemeting volgen als aparte taak.
 
-Statische HTML, CSS en JavaScript; Netlify publiceert de repository-root zonder buildstap. Alle foto's, logo's en stijlen staan lokaal. Foto's zijn met AI gemaakt en tonen geen echte medewerkers. Geen externe lettertypes of trackers.
+Statische HTML, CSS en JavaScript; Netlify publiceert de repository-root zonder buildstap. Alle foto's, logo's en stijlen staan lokaal. Foto's zijn met AI gemaakt en tonen geen echte medewerkers. Manrope en DM Sans staan lokaal als gecomprimeerde WOFF-bestanden. De bijbehorende OFL-licenties staan in assets/fonts. De iconen gebruiken een lokale SVG-sprite. Geen externe fontverzoeken of trackers.
 
 ## Productiepunten
 
