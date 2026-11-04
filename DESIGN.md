@@ -13,3 +13,9 @@ One primary action, upload a CV. Sector links keep selecting the matching form f
 ## Production work still required
 
 Netlify Forms receipt, suitable CV storage and access controls, legal controller details, retention policy and Google Ads conversion measurement remain production tasks. No fictional ratings, testimonials or vacancy counts are used.
+
+## Responsive revision
+
+The hero heading uses two explicit lines and fluid type. At 980px and below, hero, registration and FAQ become single-column layouts; sector cards use two columns. Mobile has a shorter portrait, smaller caption, single-column contact fields and larger checkbox targets. Anchor offset matches the non-sticky header. The fixed mobile CTA is hidden while the hero CTA or signup form is visible, while form inputs are focused, and on short landscape screens.
+
+Checked 320, 360, 375, 390, 430, 600, 768, 820, 980, 1024, 1280 and 1440px iframe viewports. All had matching client and scroll widths, and all hero headings stayed on two lines. Mobile CTA navigation lands with the form title in view and no fixed button covering the form.

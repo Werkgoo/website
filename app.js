@@ -46,7 +46,16 @@ document.querySelectorAll('form[data-netlify]').forEach(targetForm=>{
   catch{error.textContent='Versturen is niet gelukt. Je gegevens blijven staan. Probeer opnieuw of mail naar info@werkgo.nl.';error.hidden=false;error.focus();if(button){button.disabled=false;button.classList.remove('is-loading');button.innerHTML=original;}}
  });window.addEventListener('pageshow',()=>{if(button){button.disabled=false;button.classList.remove('is-loading');button.innerHTML=original;}});
 });
-const mobileCta=document.getElementById('mobileCta');const formZone=document.getElementById('aanmelden');if(mobileCta&&formZone&&'IntersectionObserver'in window)new IntersectionObserver(entries=>{mobileCta.hidden=entries[0].isIntersecting;},{rootMargin:'-80px 0px -10% 0px'}).observe(formZone);
+const mobileCta=document.getElementById('mobileCta');
+const formZone=document.getElementById('aanmelden');
+const heroAction=document.querySelector('.hero-content .button');
+if(mobileCta&&formZone&&heroAction&&'IntersectionObserver'in window){
+ let formVisible=false,heroVisible=true;
+ const updateMobileCta=()=>{mobileCta.hidden=formVisible||heroVisible;};
+ new IntersectionObserver(entries=>{formVisible=entries[0].isIntersecting;updateMobileCta();},{rootMargin:'0px 0px 0px 0px'}).observe(formZone);
+ new IntersectionObserver(entries=>{heroVisible=entries[0].isIntersecting;updateMobileCta();}).observe(heroAction);
+ updateMobileCta();
+}
 if(new URLSearchParams(window.location.search).get('type')==='cv'&&document.body.classList.contains('utility-page')){const heading=document.querySelector('.utility-main h1');const description=document.querySelector('.utility-main p');if(heading)heading.textContent='Je cv is verstuurd.';if(description)description.textContent='We bekijken je cv. Als we passend werk met je kunnen bespreken, nemen we contact met je op.';}
 
 // Reveal one short benefit statement; leave all essential content visible.
